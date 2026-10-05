@@ -70,7 +70,11 @@
       "models/qwen4_exp/qsa_kernel.py": "f53095f69702b3ad99b64edcb11f9385a7f258f868711a8a3d6640a784d2d008",
       "models/qwen3_5/gated_delta.py": "c3eca0ae56026626a3302a08b8ce8a69f7fe7fdb08b41d94f27ad012d6c3270c",
       "models/rope_utils.py": "6944f69a03c41cbb9613afbd2f1b54b71c504840aaeb0eade39c6109dbfdd25b",
-      "speculative/drafters/qwen4_exp_mtp/qwen4_exp_mtp.py": "bc7fcf3d769356866c9ec723e3b2abdc9e22686177d3b396c38eb8134f1993cd"
+      "speculative/drafters/qwen4_exp_mtp/qwen4_exp_mtp.py": "bc7fcf3d769356866c9ec723e3b2abdc9e22686177d3b396c38eb8134f1993cd",
+      "models/fast_ops.py": "4223815c63f073270692c32b31f1cbeb4aed01e005a827f1a411e6d26820c2c5",
+      "models/switch_layers.py": "ace00152d1d004e52292d8265af640d8dd69ffa67b8906886b53a99eb21951de",
+      "models/quantized_verifier.py": "f3f3c485f164fbaf237a7f294b44f7fa0ab3e2078bfcfd71c6fab6bf1a877289",
+      "models/linear.py": "148a56193feaf170097ff1c5edccca8165c1b5df878f1605778c4d3642a4d2fa"
     }
   }
 ]

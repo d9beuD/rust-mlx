@@ -81,7 +81,10 @@ impl Qsa {
         let nblocks = len / self.ratio;
         let topk = self.budget / self.ratio;
         if nblocks <= topk {
-            if t > 1 && matches!(x.dtype(), Dtype::Bfloat16 | Dtype::Float16) {
+            if t > 1
+                && !crate::verification::active()
+                && matches!(x.dtype(), Dtype::Bfloat16 | Dtype::Float16)
+            {
                 let ends = Array::from_iter(offset + 1..offset + t + 1, &[1, t]);
                 let complete = ends
                     .floor_divide(Array::from_int(self.ratio))?
@@ -153,7 +156,10 @@ impl Qsa {
         let sparse = selected_mask.logical_or(&tail)?.logical_and(&causal)?;
         let mask =
             ops::select(&complete.gt(Array::from_int(topk))?, &sparse, &causal)?.expand_dims(1)?;
-        if t > 1 && matches!(x.dtype(), Dtype::Bfloat16 | Dtype::Float16) {
+        if t > 1
+            && !crate::verification::active()
+            && matches!(x.dtype(), Dtype::Bfloat16 | Dtype::Float16)
+        {
             let selected = ops::select(
                 selected.lt(&complete)?,
                 selected.as_dtype(Dtype::Int32)?,

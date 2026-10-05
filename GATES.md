@@ -18,11 +18,11 @@ Scope: native Rust inference, verified against an independent MLX oracle, measur
   EVIDENCE: results/target-oracle-mlx32.2.json; target parity max error 0, 16/16 tokens
 - [x] G6: raw repeated baseline and candidate performance reports saved with environment metadata
   EVIDENCE: results/target-baseline-256.json, target-ab-ple-256.json, target-ab-async-256.json, microbench.json; fresh KV, warmup, alternating candidates
-- [ ] G7: optimized path improves a measured workload and preserves a reference fallback
-  EVIDENCE: pending
-- [ ] G8: MTP accept/reject and cache rollback are verified
-  EVIDENCE: pending
-- [ ] G9: usable CLI, streaming server, benchmarks and known limitations documented
-  EVIDENCE: pending
+- [x] G7: optimized path improves a measured workload and preserves a reference fallback
+  EVIDENCE: target-mtp-depth3-256.json, target-mtp-depth-sweep-256.json; exact native Metal reference with MTP improves the raw 256-token workload, plain reference remains available
+- [x] G8: MTP accept/reject and cache rollback are verified
+  EVIDENCE: verify-parity.json, rollback-parity.json, target-workloads-chat-256.json; exact logits/cache commit across accepted lengths0–4 and depth1–7 trajectories
+- [x] G9: usable CLI, streaming server, benchmarks and known limitations documented
+  EVIDENCE: README.md; server-smoke.json validates plain/MTP/SSE/validation/real cancellation; workload-bench and kernel-bench save reproducible reports
 - [ ] G10: 100 tokens per second aspiration evaluated honestly on the requested model
   EVIDENCE: pending

@@ -1,4 +1,4 @@
-use anyhow::{Result, ensure};
+use anyhow::{Context, Result, ensure};
 use clap::Parser;
 use mlx_rs::{
     Dtype,
@@ -16,6 +16,8 @@ struct Args {
     max_error: f32,
     #[arg(long)]
     dump: Option<PathBuf>,
+    #[arg(long, default_value_t = 0)]
+    prefill_chunk: usize,
 }
 fn main() -> Result<()> {
     let a = Args::parse();
@@ -26,7 +28,18 @@ fn main() -> Result<()> {
     let expected: Vec<u32> = serde_json::from_value(o["tokens"].clone())?;
     let reference: Vec<f32> = serde_json::from_value(o["prefill_logits"].clone())?;
     let mut cache = m.make_cache();
-    let (logits, _) = m.forward(&prompt, &mut cache)?;
+    let chunk = if a.prefill_chunk == 0 {
+        prompt.len()
+    } else {
+        a.prefill_chunk
+    };
+    let mut logits = None;
+    for ids in prompt.chunks(chunk) {
+        let (l, _) = m.forward(ids, &mut cache)?;
+        l.eval()?;
+        logits = Some(l);
+    }
+    let logits = logits.context("empty prompt")?;
     let mut tail = logits.index((0, -1, ..));
     let f32 = tail.as_dtype(Dtype::Float32)?;
     f32.eval()?;
@@ -48,7 +61,7 @@ fn main() -> Result<()> {
         / actual.len() as f64;
     eprintln!("prefill logits max_absolute_error={max_abs} mean_absolute_error={mean_abs}");
     ensure!(
-        max_abs < a.max_error,
+        max_abs <= a.max_error,
         "prefill error {max_abs} exceeds {}",
         a.max_error
     );

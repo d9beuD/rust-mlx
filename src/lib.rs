@@ -1,3 +1,5 @@
+pub mod batching;
+pub mod chat;
 pub mod compiled;
 pub mod dense;
 pub mod environment;
@@ -9,5 +11,10 @@ pub mod qsa;
 pub mod weights;
 
 pub mod gdn_kernel;
+pub mod hyper_compiled;
+pub mod moe_kernel;
+pub mod mtp;
 pub mod qsa_kernel;
 pub mod rope;
+pub mod speculative;
+pub mod verification;

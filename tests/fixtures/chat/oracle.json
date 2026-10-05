@@ -1,0 +1,236 @@
+[
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Bonjour, explique les emprunts Rust."
+      }
+    ],
+    "enable_thinking": false,
+    "reasoning_effort": "low",
+    "add_generation_prompt": true,
+    "tools": [],
+    "expected": "<|im_start|>user\nBonjour, explique les emprunts Rust.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Bonjour, explique les emprunts Rust."
+      }
+    ],
+    "enable_thinking": false,
+    "reasoning_effort": "medium",
+    "add_generation_prompt": true,
+    "tools": [],
+    "expected": "<|im_start|>user\nBonjour, explique les emprunts Rust.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Bonjour, explique les emprunts Rust."
+      }
+    ],
+    "enable_thinking": false,
+    "reasoning_effort": "xhigh",
+    "add_generation_prompt": true,
+    "tools": [],
+    "expected": "<|im_start|>user\nBonjour, explique les emprunts Rust.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Bonjour, explique les emprunts Rust."
+      }
+    ],
+    "enable_thinking": true,
+    "reasoning_effort": "low",
+    "add_generation_prompt": true,
+    "tools": [],
+    "expected": "<|im_start|>system\nReasoning effort is set to low. Keep your thinking brief and focused, moving directly to the conclusion without unnecessary elaboration.<|im_end|>\n<|im_start|>user\nBonjour, explique les emprunts Rust.<|im_end|>\n<|im_start|>assistant\n<think>\n"
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Bonjour, explique les emprunts Rust."
+      }
+    ],
+    "enable_thinking": true,
+    "reasoning_effort": "medium",
+    "add_generation_prompt": true,
+    "tools": [],
+    "expected": "<|im_start|>user\nBonjour, explique les emprunts Rust.<|im_end|>\n<|im_start|>assistant\n<think>\n"
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "Bonjour, explique les emprunts Rust."
+      }
+    ],
+    "enable_thinking": true,
+    "reasoning_effort": "xhigh",
+    "add_generation_prompt": true,
+    "tools": [],
+    "expected": "<|im_start|>system\nReasoning effort is set to xhigh. Please think carefully through the task, validate key assumptions, consider plausible alternatives, and prioritize correctness, consistency, and clarity in the final answer.<|im_end|>\n<|im_start|>user\nBonjour, explique les emprunts Rust.<|im_end|>\n<|im_start|>assistant\n<think>\n"
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Réponds en français."
+      },
+      {
+        "role": "user",
+        "content": "Écris une fonction."
+      },
+      {
+        "role": "assistant",
+        "content": "Voici.",
+        "reasoning_content": "Je vérifie."
+      },
+      {
+        "role": "user",
+        "content": "Plus court."
+      }
+    ],
+    "enable_thinking": false,
+    "reasoning_effort": "low",
+    "add_generation_prompt": true,
+    "tools": [],
+    "expected": "<|im_start|>system\nRéponds en français.<|im_end|>\n<|im_start|>user\nÉcris une fonction.<|im_end|>\n<|im_start|>assistant\n<think>\nJe vérifie.\n</think>\n\nVoici.<|im_end|>\n<|im_start|>user\nPlus court.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Réponds en français."
+      },
+      {
+        "role": "user",
+        "content": "Écris une fonction."
+      },
+      {
+        "role": "assistant",
+        "content": "Voici.",
+        "reasoning_content": "Je vérifie."
+      },
+      {
+        "role": "user",
+        "content": "Plus court."
+      }
+    ],
+    "enable_thinking": false,
+    "reasoning_effort": "medium",
+    "add_generation_prompt": true,
+    "tools": [],
+    "expected": "<|im_start|>system\nRéponds en français.<|im_end|>\n<|im_start|>user\nÉcris une fonction.<|im_end|>\n<|im_start|>assistant\n<think>\nJe vérifie.\n</think>\n\nVoici.<|im_end|>\n<|im_start|>user\nPlus court.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Réponds en français."
+      },
+      {
+        "role": "user",
+        "content": "Écris une fonction."
+      },
+      {
+        "role": "assistant",
+        "content": "Voici.",
+        "reasoning_content": "Je vérifie."
+      },
+      {
+        "role": "user",
+        "content": "Plus court."
+      }
+    ],
+    "enable_thinking": false,
+    "reasoning_effort": "xhigh",
+    "add_generation_prompt": true,
+    "tools": [],
+    "expected": "<|im_start|>system\nRéponds en français.<|im_end|>\n<|im_start|>user\nÉcris une fonction.<|im_end|>\n<|im_start|>assistant\n<think>\nJe vérifie.\n</think>\n\nVoici.<|im_end|>\n<|im_start|>user\nPlus court.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Réponds en français."
+      },
+      {
+        "role": "user",
+        "content": "Écris une fonction."
+      },
+      {
+        "role": "assistant",
+        "content": "Voici.",
+        "reasoning_content": "Je vérifie."
+      },
+      {
+        "role": "user",
+        "content": "Plus court."
+      }
+    ],
+    "enable_thinking": true,
+    "reasoning_effort": "low",
+    "add_generation_prompt": true,
+    "tools": [],
+    "expected": "<|im_start|>system\nReasoning effort is set to low. Keep your thinking brief and focused, moving directly to the conclusion without unnecessary elaboration.\n\nRéponds en français.<|im_end|>\n<|im_start|>user\nÉcris une fonction.<|im_end|>\n<|im_start|>assistant\n<think>\nJe vérifie.\n</think>\n\nVoici.<|im_end|>\n<|im_start|>user\nPlus court.<|im_end|>\n<|im_start|>assistant\n<think>\n"
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Réponds en français."
+      },
+      {
+        "role": "user",
+        "content": "Écris une fonction."
+      },
+      {
+        "role": "assistant",
+        "content": "Voici.",
+        "reasoning_content": "Je vérifie."
+      },
+      {
+        "role": "user",
+        "content": "Plus court."
+      }
+    ],
+    "enable_thinking": true,
+    "reasoning_effort": "medium",
+    "add_generation_prompt": true,
+    "tools": [],
+    "expected": "<|im_start|>system\nRéponds en français.<|im_end|>\n<|im_start|>user\nÉcris une fonction.<|im_end|>\n<|im_start|>assistant\n<think>\nJe vérifie.\n</think>\n\nVoici.<|im_end|>\n<|im_start|>user\nPlus court.<|im_end|>\n<|im_start|>assistant\n<think>\n"
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Réponds en français."
+      },
+      {
+        "role": "user",
+        "content": "Écris une fonction."
+      },
+      {
+        "role": "assistant",
+        "content": "Voici.",
+        "reasoning_content": "Je vérifie."
+      },
+      {
+        "role": "user",
+        "content": "Plus court."
+      }
+    ],
+    "enable_thinking": true,
+    "reasoning_effort": "xhigh",
+    "add_generation_prompt": true,
+    "tools": [],
+    "expected": "<|im_start|>system\nReasoning effort is set to xhigh. Please think carefully through the task, validate key assumptions, consider plausible alternatives, and prioritize correctness, consistency, and clarity in the final answer.\n\nRéponds en français.<|im_end|>\n<|im_start|>user\nÉcris une fonction.<|im_end|>\n<|im_start|>assistant\n<think>\nJe vérifie.\n</think>\n\nVoici.<|im_end|>\n<|im_start|>user\nPlus court.<|im_end|>\n<|im_start|>assistant\n<think>\n"
+  }
+]

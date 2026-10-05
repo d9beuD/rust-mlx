@@ -7,3 +7,6 @@
 /results/**/*.log
 /results/*logits*.json
 /results/*.safetensors
+*.trace
+
+/results/metal-*.xml

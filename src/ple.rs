@@ -31,6 +31,7 @@ pub struct Ple {
 #[derive(Clone, Default)]
 pub struct PleCache {
     pub conv: Option<Array>,
+    pub verified_conv: Option<Array>,
 }
 impl Ple {
     pub fn load(w: &Weights, path: &Path, p: &str, c: &HybridConfig) -> Result<Self> {
@@ -66,16 +67,28 @@ impl Ple {
         history: &[u32],
         cache: &mut PleCache,
     ) -> Result<Array> {
-        let (b, t, d) = (x.shape()[0], x.shape()[1], x.shape()[2]);
+        let emb = self.embedding_tokens(tokens, history, x.dtype())?;
+        self.forward_embedding(x, &emb, cache)
+    }
+    pub fn embedding_tokens(
+        &self,
+        tokens: &[u32],
+        history: &[u32],
+        dtype: mlx_rs::Dtype,
+    ) -> Result<Array> {
         let rows = self.hash.rows(tokens, history)?;
         let mut emb = self
             .table
-            .gather(&rows, &[b, t, self.embed])?
-            .as_dtype(x.dtype())?;
+            .gather(&rows, &[1, tokens.len() as i32, self.embed])?
+            .as_dtype(dtype)?;
         if let Some(scale) = &self.table_scale {
             emb = emb.multiply(scale)?;
         }
-        let key = grouped_norm(&self.key.forward(&emb)?, &self.norm_key, self.hc, self.eps)?
+        Ok(emb)
+    }
+    pub fn forward_embedding(&self, x: &Array, emb: &Array, cache: &mut PleCache) -> Result<Array> {
+        let (b, t, d) = (x.shape()[0], x.shape()[1], x.shape()[2]);
+        let key = grouped_norm(&self.key.forward(emb)?, &self.norm_key, self.hc, self.eps)?
             .reshape(&[b, t, self.hc, self.hidden])?;
         let query = grouped_norm(x, &self.norm_query, self.hc, self.eps)?.reshape(&[
             b,
@@ -90,7 +103,7 @@ impl Ple {
         let gate = ops::sign(&gate)?
             .multiply(&ops::maximum(gate.abs()?, scalar_like(&gate, 1e-6)?)?.sqrt()?)?;
         let gated = ops::sigmoid(&gate)?
-            .multiply(&self.value.forward(&emb)?.expand_dims(2)?)?
+            .multiply(&self.value.forward(emb)?.expand_dims(2)?)?
             .reshape(&[b, t, d])?;
         let normed = grouped_norm(&gated, &self.norm_conv, self.hc, self.eps)?;
         let history_len = (self.kernel - 1) * self.dilation;
@@ -99,6 +112,11 @@ impl Ple {
             .clone()
             .unwrap_or(ops::zeros_dtype(&[b, history_len, d], x.dtype())?);
         let inp = ops::concatenate(&[&old, &normed], 1)?;
+        cache.verified_conv = if crate::verification::active() {
+            Some(inp.clone())
+        } else {
+            None
+        };
         cache.conv = Some(inp.index((.., inp.shape()[1] - history_len.., ..)));
         let conv = silu(&ops::conv1d(&inp, &self.conv, 1, 0, self.dilation, d)?)?;
         Ok(x.add(gated.add(&conv)?)?)

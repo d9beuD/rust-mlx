@@ -1,7 +1,7 @@
 Rust-MLX
 
 The Qwen3 graph and GatedDeltaNet recurrence are expressed in Rust with reference to mlx-lm, Copyright Apple Inc., under the MIT license (third-party/mlx-lm-MIT).
-The native GDN, text MRoPE and indexed QSA Metal kernels adapt mlx-lm and mlx-vlm 0.7.6, Copyright Apple Inc. and mlx-vlm contributors, under MIT (third-party/mlx-lm-MIT and third-party/mlx-vlm-MIT).
+The native GDN, text MRoPE and indexed QSA and experimental fused MoE Metal kernels adapt mlx-lm and mlx-vlm 0.7.6, Copyright Apple Inc. and mlx-vlm contributors, under MIT (third-party/mlx-lm-MIT and third-party/mlx-vlm-MIT).
 The Qwen4Exp grouped norm, hyper-connection, QSA, PLE and checkpoint contracts are expressed in Rust with reference to oMLX, under Apache License 2.0 (third-party/omlx-APACHE-2.0).
 Architectural study also consulted mlx-qwen4exp, Copyright 2026 RockTalk, under MIT (third-party/mlx-qwen4exp-MIT).
 MTPLX source was studied for comparison; no MTPLX code is embedded in the product at this stage. Research comparisons credit MTPLX by Youssof Altoukhi, https://github.com/youssofal/MTPLX.

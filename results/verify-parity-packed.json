@@ -1,0 +1,134 @@
+[
+  {
+    "candidate_seconds": 0.143670917,
+    "depth": 5,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 5.536099834,
+    "state_error": 0.0,
+    "tokens": [
+      271,
+      248068,
+      198,
+      760,
+      1156
+    ]
+  },
+  {
+    "candidate_seconds": 0.062268125,
+    "depth": 6,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.174891208,
+    "state_error": 0.0,
+    "tokens": [
+      6587,
+      264,
+      2716,
+      32671,
+      709,
+      310
+    ]
+  },
+  {
+    "candidate_seconds": 0.070123791,
+    "depth": 7,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.210173875,
+    "state_error": 0.0,
+    "tokens": [
+      12204,
+      76938,
+      4947,
+      13,
+      6558,
+      728,
+      1683
+    ]
+  },
+  {
+    "candidate_seconds": 0.075808875,
+    "depth": 8,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.247941291,
+    "state_error": 0.0,
+    "tokens": [
+      883,
+      279,
+      1786,
+      5313,
+      25,
+      271,
+      3670,
+      25
+    ]
+  },
+  {
+    "candidate_seconds": 0.055624084,
+    "depth": 5,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.154887959,
+    "state_error": 0.0,
+    "tokens": [
+      198,
+      16,
+      13,
+      82930,
+      318
+    ]
+  },
+  {
+    "candidate_seconds": 0.062391834,
+    "depth": 6,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.185640084,
+    "state_error": 0.0,
+    "tokens": [
+      3267,
+      520,
+      8,
+      471,
+      4145,
+      694
+    ]
+  },
+  {
+    "candidate_seconds": 0.069582583,
+    "depth": 7,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.217786791,
+    "state_error": 0.0,
+    "tokens": [
+      496,
+      7,
+      17,
+      83193,
+      681,
+      524,
+      14542
+    ]
+  },
+  {
+    "candidate_seconds": 0.075203625,
+    "depth": 8,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.247710375,
+    "state_error": 0.0,
+    "tokens": [
+      198,
+      17,
+      13,
+      13310,
+      1340,
+      471,
+      496,
+      1393
+    ]
+  }
+]

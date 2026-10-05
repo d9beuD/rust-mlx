@@ -21,6 +21,12 @@ struct Args {
     )]
     prompt: String,
     #[arg(long)]
+    chat: bool,
+    #[arg(long)]
+    no_thinking: bool,
+    #[arg(long, default_value = "xhigh")]
+    reasoning_effort: String,
+    #[arg(long)]
     prompt_ids: Option<PathBuf>,
     #[arg(long, default_value_t = 256)]
     max_tokens: usize,
@@ -39,6 +45,10 @@ struct Args {
     ab_ple: bool,
     #[arg(long, conflicts_with = "ab_ple")]
     ab_async: bool,
+    #[arg(long,conflicts_with_all=["ab_ple","ab_async"])]
+    ab_hyper: bool,
+    #[arg(long,conflicts_with_all=["ab_ple","ab_async","ab_hyper"])]
+    ab_packed: bool,
     #[arg(long, default_value_t = 128)]
     prefill_chunk: usize,
 }
@@ -63,11 +73,14 @@ fn main() -> Result<()> {
     } else {
         let t = tokenizers::Tokenizer::from_file(a.model.join("tokenizer.json"))
             .map_err(|e| anyhow::anyhow!("{e}"))?;
-        let ids = t
-            .encode(a.prompt.as_str(), true)
-            .map_err(|e| anyhow::anyhow!("{e}"))?
-            .get_ids()
-            .to_vec();
+        let ids = rust_mlx::chat::encode_prompt(
+            &t,
+            &a.model,
+            &a.prompt,
+            a.chat,
+            !a.no_thinking,
+            &a.reasoning_effort,
+        )?;
         tokenizer = Some(t);
         ids
     };
@@ -85,7 +98,11 @@ fn main() -> Result<()> {
         None => vec![248044, 248046],
     };
     let mut records = Vec::new();
-    let warmups = if a.ab_ple || a.ab_async { 2 } else { 1 };
+    let warmups = if a.ab_ple || a.ab_async || a.ab_hyper || a.ab_packed {
+        2
+    } else {
+        1
+    };
     for run in 0..a.runs + warmups {
         let warmup = run < warmups;
         let batch = if a.ab_ple {
@@ -102,6 +119,26 @@ fn main() -> Result<()> {
             std::env::var_os("RUST_MLX_ASYNC_LAYERS").is_some()
         };
         m.async_layers.set(async_layers);
+        let compiled_hyper = if a.ab_hyper {
+            run % 2 == 1
+        } else {
+            std::env::var_os("RUST_MLX_COMPILE_HYPER").is_some()
+        };
+        let packed_gdn = if a.ab_packed {
+            run % 2 == 1
+        } else {
+            std::env::var_os("RUST_MLX_PACKED_GDN").is_some()
+        };
+        for l in &m.layers {
+            if let rust_mlx::hybrid::HybridAttention::Linear(g) = &l.attention {
+                g.packed_mode.set(packed_gdn);
+            }
+        }
+        m.mixer.compiled_mode.set(compiled_hyper);
+        for l in &m.layers {
+            l.attn_hc.compiled_mode.set(compiled_hyper);
+            l.mlp_hc.compiled_mode.set(compiled_hyper);
+        }
 
         let limit = if warmup {
             a.warmup_tokens
@@ -121,7 +158,7 @@ fn main() -> Result<()> {
         let prefill_seconds = prefill.elapsed().as_secs_f64();
         let mut tokens = Vec::new();
         let mut latencies = Vec::new();
-        let mut rendered = String::new();
+        let mut decoder = tokenizer.as_ref().map(|t| t.decode_stream(true));
         let decode = Instant::now();
         for _ in 0..limit {
             let token = greedy(&tail)?;
@@ -131,16 +168,11 @@ fn main() -> Result<()> {
             tokens.push(token);
             if a.stream
                 && !warmup
-                && let Some(t) = &tokenizer
+                && let Some(d) = &mut decoder
+                && let Some(s) = d.step(token).map_err(|e| anyhow::anyhow!("{e}"))?
             {
-                let text = t
-                    .decode(&tokens, true)
-                    .map_err(|e| anyhow::anyhow!("{e}"))?;
-                if let Some(s) = text.strip_prefix(&rendered) {
-                    print!("{s}");
-                    io::stdout().flush()?;
-                }
-                rendered = text;
+                print!("{s}");
+                io::stdout().flush()?;
             }
             let started = Instant::now();
             let (logits, _) = m.forward(&[token], &mut cache)?;
@@ -157,7 +189,7 @@ fn main() -> Result<()> {
             tokens.len()
         );
         if !warmup {
-            records.push(json!({"run":run,"async_layers":async_layers,"ple_lookup":if batch{"batched candidate"}else{"per-row reference"},"prompt_tokens":prompt.len(),"generated_tokens":tokens.len(),"tokens":tokens,"text":tokenizer.as_ref().and_then(|t|t.decode(&tokens,true).ok()),"prefill_seconds":prefill_seconds,"decode_seconds":seconds,"decode_tokens_per_second":tps,"inter_token_seconds":latencies,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
+            records.push(json!({"run":run,"packed_gdn":packed_gdn,"compiled_hyper":compiled_hyper,"async_layers":async_layers,"ple_lookup":if batch{"batched candidate"}else{"per-row reference"},"prompt_tokens":prompt.len(),"generated_tokens":tokens.len(),"tokens":tokens,"text":tokenizer.as_ref().and_then(|t|t.decode(&tokens,true).ok()),"prefill_seconds":prefill_seconds,"decode_seconds":seconds,"decode_tokens_per_second":tps,"inter_token_seconds":latencies,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
         }
     }
     let report = json!({"environment":environment,"model":a.model,"quantization":w.config["quantization"],"runtime":{"backend":"mlx","mtp":false,"temperature":0,"batch_size":1,"prefix_cache":false,"ab_ple":a.ab_ple,"weights_warm":true,"kv_cache":"fresh per run","ignore_eos":a.ignore_eos,"prefill_chunk":a.prefill_chunk,"warmup_tokens":a.warmup_tokens,"ple_lookup":if std::env::var_os("RUST_MLX_BATCH_PLE").is_some(){"batched candidate"}else{"per-row reference"},"gdn":if std::env::var_os("RUST_MLX_GDN_OPS").is_some(){"ops fallback"}else{"native reduction Metal"}},"prompt_ids":prompt,"load_seconds":load_seconds,"runs":records});

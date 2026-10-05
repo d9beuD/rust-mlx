@@ -26,6 +26,7 @@ pub struct KvCache {
     pub keys: Option<Array>,
     pub values: Option<Array>,
     pub offset: i32,
+    pub rope_offset: Option<i32>,
 }
 impl KvCache {
     pub fn update(&mut self, k: Array, v: Array) -> Result<(Array, Array)> {
@@ -113,7 +114,13 @@ impl Attention {
         }
         .transpose_axes(&[0, 2, 1, 3])?;
         let q = if self.gated {
-            crate::rope::text(&q, self.rotary_dim, self.theta, cache.offset, 1)?
+            crate::rope::text(
+                &q,
+                self.rotary_dim,
+                self.theta,
+                cache.rope_offset.unwrap_or(cache.offset),
+                1,
+            )?
         } else {
             fast::rope(
                 &q,
@@ -126,7 +133,13 @@ impl Attention {
             )?
         };
         let k = if self.gated {
-            crate::rope::text(&k, self.rotary_dim, self.theta, cache.offset, 1)?
+            crate::rope::text(
+                &k,
+                self.rotary_dim,
+                self.theta,
+                cache.rope_offset.unwrap_or(cache.offset),
+                1,
+            )?
         } else {
             fast::rope(
                 &k,
@@ -142,7 +155,25 @@ impl Attention {
         let mask = explicit_mask
             .map(fast::ScaledDotProductAttentionMask::Array)
             .or_else(|| (t > 1).then_some(fast::ScaledDotProductAttentionMask::Causal));
-        let output = if let Some((blocks, ends, ratio)) = selection {
+        let output = if crate::verification::active() && t > 1 {
+            let old = k.shape()[2] - t;
+            let mut ys = Vec::new();
+            for i in 0..t {
+                let qq = q.index((.., .., i..i + 1, ..));
+                let kk = k.index((.., .., ..old + i + 1, ..));
+                let vv = v.index((.., .., ..old + i + 1, ..));
+                let mm = explicit_mask.map(|m| m.index((.., .., i..i + 1, ..old + i + 1)));
+                ys.push(fast::scaled_dot_product_attention(
+                    &qq,
+                    &kk,
+                    &vv,
+                    (self.head_dim as f32).powf(-0.5),
+                    mm.as_ref().map(fast::ScaledDotProductAttentionMask::Array),
+                    None,
+                )?);
+            }
+            ops::concatenate(&ys, 2)?
+        } else if let Some((blocks, ends, ratio)) = selection {
             crate::qsa_kernel::attention(
                 &q,
                 &k,

@@ -1,0 +1,10 @@
+{
+  "prompt_tokens": 2096,
+  "prefill_chunk": 128,
+  "prefill_max_absolute_error": 0,
+  "prefill_mean_absolute_error": 0,
+  "greedy_tokens_matched": 8,
+  "oracle": "mlx-vlm 0.7.6 / MLX 0.32.2",
+  "runtime": "Rust mlx-rs 0.32.0 / MLX 0.32.2",
+  "sparse_attention_threshold_crossed": true
+}

@@ -43,6 +43,7 @@ pub fn grouped_norm(x: &Array, scale: &Array, hc: i32, eps: f32) -> Result<Array
     Ok(crate::compiled::norm(&y, &scale.reshape(&[hc, d])?, eps)?.reshape(shape)?)
 }
 pub struct HyperConnection {
+    pub compiled_mode: std::cell::Cell<bool>,
     pub scale: Array,
     pub down: Linear,
     pub up: Linear,
@@ -53,6 +54,9 @@ pub struct HyperConnection {
 impl HyperConnection {
     pub fn load(w: &Weights, p: &str, c: &HybridConfig, inject: bool) -> Result<Self> {
         Ok(Self {
+            compiled_mode: std::cell::Cell::new(
+                std::env::var_os("RUST_MLX_COMPILE_HYPER").is_some(),
+            ),
             scale: w.tensor(&format!("{p}.hc_norm.weight"))?,
             down: w.linear(&format!("{p}.input_mix_weight_down"))?,
             up: w.linear(&format!("{p}.input_mix_weight_up"))?,
@@ -66,6 +70,12 @@ impl HyperConnection {
         })
     }
     pub fn forward(&self, x: &Array) -> Result<(Array, Option<Array>)> {
+        if self.compiled_mode.get() {
+            return crate::hyper_compiled::forward(self, x);
+        }
+        self.forward_reference(x)
+    }
+    pub fn forward_reference(&self, x: &Array) -> Result<(Array, Option<Array>)> {
         let xn = grouped_norm(x, &self.scale, self.hc, self.eps)?;
         let lo = crate::compiled::activate(&self.down.forward(&xn)?, self.hc)?;
         let mixed = crate::compiled::mix(&self.up.forward(&lo)?, &xn, self.hc)?;
@@ -86,6 +96,7 @@ impl HyperConnection {
     }
 }
 pub struct MoE {
+    pub fused_mode: std::cell::Cell<bool>,
     pub router: Linear,
     pub gate: Linear,
     pub up: Linear,
@@ -97,6 +108,7 @@ pub struct MoE {
 impl MoE {
     pub fn load(w: &Weights, p: &str, c: &HybridConfig) -> Result<Self> {
         Ok(Self {
+            fused_mode: std::cell::Cell::new(std::env::var_os("RUST_MLX_FUSED_MOE").is_some()),
             router: w.linear(&format!("{p}.gate"))?,
             gate: w.linear(&format!("{p}.switch_mlp.gate_proj"))?,
             up: w.linear(&format!("{p}.switch_mlp.up_proj"))?,
@@ -130,8 +142,19 @@ impl MoE {
         let scores = gates.take_along_axis(&ids, -1)?;
         let scores = scores.divide(&scores.sum_axis(-1, true)?)?;
         let xe = x.expand_dims(-2)?.expand_dims(-2)?;
-        let gate = Self::gather(&self.gate, &xe, &ids)?;
-        let up = Self::gather(&self.up, &xe, &ids)?;
+        let fused = if self.fused_mode.get() {
+            crate::moe_kernel::gate_up(&self.up, &self.gate, x, &ids)?
+        } else {
+            None
+        };
+        let (gate, up) = if let Some(pair) = fused {
+            pair
+        } else {
+            (
+                Self::gather(&self.gate, &xe, &ids)?,
+                Self::gather(&self.up, &xe, &ids)?,
+            )
+        };
         let y = Self::gather(&self.down, &crate::compiled::swiglu(&gate, &up)?, &ids)?
             .squeeze_axes(&[-2])?;
         let y = y.multiply(&scores.expand_dims(-1)?)?.sum_axis(-2, false)?;
@@ -147,8 +170,11 @@ impl MoE {
 pub struct GdnCache {
     pub conv: Option<Array>,
     pub state: Option<Array>,
+    pub verified_states: Option<Array>,
+    pub verified_conv: Option<Array>,
 }
 pub struct Gdn {
+    pub packed_mode: std::cell::Cell<bool>,
     pub qkv: Linear,
     pub z: Linear,
     pub a: Linear,
@@ -169,6 +195,7 @@ pub struct Gdn {
 impl Gdn {
     pub fn load(w: &Weights, p: &str, c: &HybridConfig) -> Result<Self> {
         Ok(Self {
+            packed_mode: std::cell::Cell::new(std::env::var_os("RUST_MLX_PACKED_GDN").is_some()),
             qkv: w.linear(&format!("{p}.in_proj_qkv"))?,
             z: w.linear(&format!("{p}.in_proj_z"))?,
             a: w.linear(&format!("{p}.in_proj_a"))?,
@@ -202,10 +229,24 @@ impl Gdn {
             .clone()
             .unwrap_or(ops::zeros_dtype(&[batch, self.kernel - 1, cd], x.dtype())?);
         let inp = ops::concatenate(&[&old, &qkv], 1)?;
+        cache.verified_conv = if crate::verification::active() {
+            Some(inp.clone())
+        } else {
+            None
+        };
         cache.conv = Some(inp.index((.., inp.shape()[1] - self.kernel + 1.., ..)));
-        let convolved = silu(&if t == 1
+        let convolved = silu(&if crate::verification::active()
             && matches!(self.conv.dtype(), Dtype::Bfloat16 | Dtype::Float16)
         {
+            let mut ys = Vec::new();
+            for i in 0..t {
+                ys.push(crate::compiled::decode_conv(
+                    &inp.index((.., i..i + self.kernel, ..)),
+                    &self.decode_conv,
+                )?);
+            }
+            ops::concatenate(&ys, 1)?
+        } else if t == 1 && matches!(self.conv.dtype(), Dtype::Bfloat16 | Dtype::Float16) {
             crate::compiled::decode_conv(&inp, &self.decode_conv)?
         } else {
             ops::conv1d(&inp, &self.conv, 1, 0, 1, cd)?
@@ -230,11 +271,28 @@ impl Gdn {
             &[batch, self.hv, self.dv, self.dk],
             Dtype::Float32,
         )?);
-        let (y, state) = if std::env::var_os("RUST_MLX_GDN_OPS").is_some() {
+        let (y, state) = if self.packed_mode.get() && self.dk == 128 && self.dv % 8 == 0 {
+            let history = crate::verification::active();
+            let mut out = crate::gdn_kernel::packed(&q, &k, &v, &g, &beta, &state, history)?;
+            if history {
+                cache.verified_states = out.pop();
+            }
+            let s = out.pop().context("packed state")?;
+            let y = out.pop().context("packed output")?;
+            (y, s)
+        } else if crate::verification::active() {
+            let (y, s, states) =
+                crate::gdn_kernel::recurrent_with_history(&q, &k, &v, &g, &beta, &state)?;
+            cache.verified_states = Some(states);
+            (y, s)
+        } else if std::env::var_os("RUST_MLX_GDN_OPS").is_some() {
             gdn_reference(&q, &k, &v, &g, &beta, &state)?
         } else {
             crate::gdn_kernel::recurrent(&q, &k, &v, &g, &beta, &state)?
         };
+        if !crate::verification::active() {
+            cache.verified_states = None;
+        }
         cache.state = Some(state);
         let z = self
             .z
@@ -446,4 +504,72 @@ pub struct HybridCache {
     pub ple: Vec<crate::ple::PleCache>,
     pub history: Vec<u32>,
     pub offset: i32,
+}
+impl HybridCache {
+    /// Commit an accepted prefix of a completed verification graph. The original
+    /// snapshot supplies CPU token history; recurrent states come from the exact
+    /// history kernel rather than an inverse update or a lossy reconstruction.
+    pub fn commit_verified(
+        &mut self,
+        original: &Self,
+        tokens: &[u32],
+        keep: usize,
+        c: &HybridConfig,
+    ) -> Result<()> {
+        ensure!(
+            keep <= tokens.len() && self.offset == original.offset + tokens.len() as i32,
+            "invalid verification transaction"
+        );
+        if keep == 0 {
+            *self = original.clone();
+            return Ok(());
+        }
+        let keep = keep as i32;
+        let end = original.offset + keep;
+        for layer in &mut self.layers {
+            match layer {
+                LayerCache::Linear(l) => {
+                    l.state = Some(
+                        l.verified_states
+                            .as_ref()
+                            .context("missing verified recurrent states")?
+                            .index((.., keep - 1, .., .., ..)),
+                    );
+                    l.conv = Some(
+                        l.verified_conv
+                            .as_ref()
+                            .context("missing verified convolution")?
+                            .index((.., keep..keep + c.linear_conv_kernel_dim - 1, ..)),
+                    );
+                    l.verified_states = None;
+                    l.verified_conv = None;
+                }
+                LayerCache::Full(l) => {
+                    l.kv.keys = l.kv.keys.as_ref().map(|v| v.index((.., .., ..end, ..)));
+                    l.kv.values = l.kv.values.as_ref().map(|v| v.index((.., .., ..end, ..)));
+                    l.kv.offset = end;
+                    l.raw_keys = l.raw_keys.as_ref().map(|v| v.index((.., ..end, ..)));
+                    l.blocks = l
+                        .blocks
+                        .as_ref()
+                        .map(|v| v.index((.., .., ..end / c.indexer_compress_ratio, ..)));
+                }
+            }
+        }
+        let history_len = (c.ple_conv_kernel_size - 1) * c.ngram_size as i32;
+        for p in &mut self.ple {
+            if let Some(v) = &p.verified_conv {
+                p.conv = Some(v.index((.., keep..keep + history_len, ..)));
+            }
+            p.verified_conv = None;
+        }
+        self.history = original.history.clone();
+        self.history.extend_from_slice(&tokens[..keep as usize]);
+        let retained = c.ngram_size - 1;
+        if self.history.len() > retained {
+            self.history = self.history[self.history.len() - retained..].to_vec();
+        }
+        self.offset = end;
+        Ok(())
+    }
 }

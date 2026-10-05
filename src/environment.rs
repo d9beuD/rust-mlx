@@ -17,6 +17,7 @@ pub struct BenchmarkEnvironment {
     pub hardware: Value,
     pub software: Value,
     pub revision: Value,
+    pub workload: Value,
     pub captured_unix_seconds: u64,
 }
 impl BenchmarkEnvironment {
@@ -32,6 +33,7 @@ impl BenchmarkEnvironment {
             hardware: json!({"model":h["machine_model"],"chip":h["chip_type"],"memory":h["physical_memory"],"gpu":g["sppci_model"],"gpu_cores":g["sppci_cores"]}),
             software: json!({"macos":command("sw_vers", &["-productVersion"]),"macos_build":command("sw_vers", &["-buildVersion"]),"xcode":command("xcodebuild", &["-version"]),"rust":command("rustc", &["--version"]),"mlx_rs":"0.32.0","mlx_sys":"0.6.0","mlx":"0.32.2","package_version":env!("CARGO_PKG_VERSION")}),
             revision: json!({"commit":command("git", &["rev-parse","HEAD"]),"dirty":!command("git", &["status","--porcelain"]).is_empty()}),
+            workload: json!({"thermal":command("pmset", &["-g","therm"]),"swap":command("sysctl", &["vm.swapusage"]),"process_cpu_names":command("ps", &["-axo","pcpu,comm"]).lines().filter(|line|line.split_whitespace().next().and_then(|v|v.parse::<f64>().ok()).is_some_and(|cpu|cpu>=5.)).collect::<Vec<_>>(),"binary_sha256":std::env::current_exe().ok().map(|p|command("shasum", &["-a","256",&p.to_string_lossy()]))}),
             captured_unix_seconds: std::time::SystemTime::now()
                 .duration_since(std::time::UNIX_EPOCH)?
                 .as_secs(),

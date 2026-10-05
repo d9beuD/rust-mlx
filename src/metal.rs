@@ -96,10 +96,20 @@ pub struct Launch<'a> {
 }
 impl Kernel {
     pub fn new(name: &str, inputs: &[&str], outputs: &[&str], source: &str) -> Result<Self> {
+        Self::with_header(name, inputs, outputs, source, "")
+    }
+    pub fn with_header(
+        name: &str,
+        inputs: &[&str],
+        outputs: &[&str],
+        source: &str,
+        header: &str,
+    ) -> Result<Self> {
         // Install mlx-rs's non-aborting error handler through a safe operation first.
         let _ = ops::zeros_dtype(&[1], Dtype::Float32)?;
         let name = CString::new(name)?;
         let source = CString::new(source)?;
+        let header = CString::new(header)?;
         let inputs_h = Strings::new(inputs)?;
         let outputs_h = Strings::new(outputs)?;
         // SAFETY: all C strings/vectors live through construction and MLX copies them.
@@ -110,7 +120,7 @@ impl Kernel {
                 inputs_h.0,
                 outputs_h.0,
                 source.as_ptr(),
-                c"".as_ptr(),
+                header.as_ptr(),
                 true,
                 false,
             )

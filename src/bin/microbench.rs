@@ -108,6 +108,48 @@ fn main() -> Result<()> {
         }
     }
     reports.push(serde_json::json!({"operation":"GDN decode actual dimensions","shape":[1,1,48,128,128],"note":"Native Metal matches oracle exactly; ops fallback has a different floating-point reduction order.","ops":stats(&base),"native_metal":stats(&native)}));
+    let mut generic = Vec::new();
+    let mut packed = Vec::new();
+    for i in 0..210 {
+        for candidate in if i % 2 == 0 {
+            [false, true]
+        } else {
+            [true, false]
+        } {
+            let start = Instant::now();
+            let out = if candidate {
+                gdn_kernel::packed(
+                    &f["q"],
+                    &f["k"],
+                    &f["v"],
+                    &f["g"],
+                    &f["beta"],
+                    &f["initial"],
+                    false,
+                )?
+            } else {
+                let (y, s) = gdn_kernel::recurrent(
+                    &f["q"],
+                    &f["k"],
+                    &f["v"],
+                    &f["g"],
+                    &f["beta"],
+                    &f["initial"],
+                )?;
+                vec![y, s]
+            };
+            mlx_rs::transforms::eval(&out)?;
+            let t = start.elapsed().as_secs_f64();
+            if i >= 10 {
+                if candidate {
+                    packed.push(t)
+                } else {
+                    generic.push(t)
+                }
+            }
+        }
+    }
+    reports.push(serde_json::json!({"operation":"GDN packed versus native","shape":[1,1,48,128,128],"exact":true,"baseline":stats(&generic),"candidate":stats(&packed)}));
     let report = serde_json::json!({"environment":BenchmarkEnvironment::capture()?,"model":path,"quantization":w.config["quantization"],"benchmarks":reports,"timing":"wall-clock construction plus synchronized eval; alternated; 10 warmup pairs then 100 recorded pairs; same static rows warm in OS page cache"});
     std::fs::write(
         "results/microbench.json",

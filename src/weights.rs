@@ -109,7 +109,11 @@ pub struct Linear {
 impl Linear {
     /// Match the oracle's decode-equivalent reductions for narrow gate projections.
     pub fn forward_rows(&self, x: &Array) -> Result<Array> {
-        if x.ndim() == 3 && x.shape()[1] > 1 && self.quant.is_some() {
+        if x.ndim() == 3
+            && x.shape()[0] * x.shape()[1] > 1
+            && self.quant.is_some()
+            && x.dtype() != mlx_rs::Dtype::Float32
+        {
             let q = self.quant.as_ref().context("missing quantization")?;
             let ids = ops::zeros_dtype(&[x.shape()[0], x.shape()[1], 1], mlx_rs::Dtype::Int32)?;
             let xe = x.contiguous()?.expand_dims_axes(&[-2, -3])?;
@@ -138,11 +142,23 @@ impl Linear {
                 y = y.add(b)?;
             }
             Ok(y)
+        } else if x.ndim() == 3 && x.shape()[0] * x.shape()[1] > 1 {
+            use mlx_rs::ops::indexing::IndexOp;
+            let flat = x.reshape(&[1, x.shape()[0] * x.shape()[1], x.shape()[2]])?;
+            let rows = (0..flat.shape()[1])
+                .map(|i| self.forward(&flat.index((.., i..i + 1, ..))))
+                .collect::<Result<Vec<_>>>()?;
+            let y = ops::concatenate(&rows.iter().collect::<Vec<_>>(), 1)?;
+            Ok(y.reshape(&[x.shape()[0], x.shape()[1], y.shape()[2]])?)
         } else {
             self.forward(x)
         }
     }
     pub fn forward(&self, x: &Array) -> Result<Array> {
+        if crate::verification::rows() && x.ndim() == 3 && x.shape()[0] * x.shape()[1] > 1 {
+            return self.forward_rows(x);
+        }
+
         let mut y = if let Some(q) = &self.quant {
             ops::quantized_matmul(
                 x,
