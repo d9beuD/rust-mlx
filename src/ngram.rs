@@ -70,6 +70,7 @@ pub struct NGramTable {
     shards: Vec<EmbeddingShard>,
     offsets: Vec<usize>,
     pub dim: i32,
+    batch_mode: std::cell::Cell<bool>,
 }
 impl NGramTable {
     pub fn load(path: &Path, prefix: &str, config: &serde_json::Value) -> Result<Self> {
@@ -137,9 +138,85 @@ impl NGramTable {
             shards,
             offsets,
             dim,
+            batch_mode: std::cell::Cell::new(std::env::var_os("RUST_MLX_BATCH_PLE").is_some()),
         })
     }
+    pub fn set_batch(&self, enabled: bool) {
+        self.batch_mode.set(enabled);
+    }
     pub fn gather(&self, rows: &[u32], shape: &[i32]) -> Result<Array> {
+        if self.batch_mode.get()
+            && let Some(y) = self.gather_batch(rows, shape)?
+        {
+            return Ok(y);
+        }
+        self.gather_reference(rows, shape)
+    }
+    /// Combine identically quantized lookup rows into one native dequantization.
+    /// Mixed formats fall back to the per-row reference.
+    pub fn gather_batch(&self, rows: &[u32], shape: &[i32]) -> Result<Option<Array>> {
+        ensure!(!rows.is_empty(), "empty ngram lookup");
+        let Some(q) = self.shards[0].quant.as_ref() else {
+            return Ok(None);
+        };
+        if self.shards.iter().any(|s| {
+            s.quant
+                .as_ref()
+                .is_none_or(|v| v.bits != q.bits || v.group_size != q.group_size)
+        }) {
+            return Ok(None);
+        }
+        let width = self.dim as usize * q.bits as usize / 32;
+        let groups = self.dim as usize / q.group_size as usize;
+        let mut packed = Vec::with_capacity(rows.len() * width);
+        let mut scales = Vec::with_capacity(rows.len() * groups);
+        let mut biases = Vec::with_capacity(rows.len() * groups);
+        for &row in rows {
+            let row = row as usize;
+            ensure!(
+                row < *self.offsets.last().context("no table offsets")?,
+                "ngram row out of bounds"
+            );
+            let i = self.offsets.partition_point(|&o| o <= row) - 1;
+            let s = &self.shards[i];
+            let local = row - self.offsets[i];
+            let file = &self.files[s.file];
+            let (w, m) = file.row(&format!("{}.weight", s.prefix), local)?;
+            let (sc, sm) = file.row(&format!("{}.scales", s.prefix), local)?;
+            let (bi, bm) = file.row(&format!("{}.biases", s.prefix), local)?;
+            if m.dtype != "U32" || sm.dtype != "BF16" || bm.dtype != "BF16" {
+                return Ok(None);
+            }
+            ensure!(
+                w.len() == width * 4 && sc.len() == groups * 2 && bi.len() == groups * 2,
+                "invalid packed table width"
+            );
+            packed.extend(w.as_chunks::<4>().0.iter().map(|c| u32::from_le_bytes(*c)));
+            scales.extend(
+                sc.as_chunks::<2>()
+                    .0
+                    .iter()
+                    .map(|c| bf16::from_bits(u16::from_le_bytes(*c))),
+            );
+            biases.extend(
+                bi.as_chunks::<2>()
+                    .0
+                    .iter()
+                    .map(|c| bf16::from_bits(u16::from_le_bytes(*c))),
+            );
+        }
+        let n = rows.len() as i32;
+        let y = ops::dequantize(
+            Array::from_slice(&packed, &[n, width as i32]),
+            Array::from_slice(&scales, &[n, groups as i32]),
+            Some(&Array::from_slice(&biases, &[n, groups as i32])),
+            q.group_size,
+            q.bits,
+        )?
+        .reshape(shape)?;
+        Ok(Some(y))
+    }
+    pub fn gather_reference(&self, rows: &[u32], shape: &[i32]) -> Result<Array> {
         ensure!(!rows.is_empty(), "empty ngram lookup");
         let mut result = Vec::with_capacity(rows.len());
         for &row in rows {
@@ -173,28 +250,36 @@ fn read_row(file: &MappedShard, name: &str, row: usize) -> Result<Array> {
     Ok(match m.dtype.as_str() {
         "U32" => Array::from_slice(
             &bytes
-                .chunks_exact(4)
+                .as_chunks::<4>()
+                .0
+                .iter()
                 .map(|c| u32::from_le_bytes([c[0], c[1], c[2], c[3]]))
                 .collect::<Vec<_>>(),
             &shape,
         ),
         "BF16" => Array::from_slice(
             &bytes
-                .chunks_exact(2)
+                .as_chunks::<2>()
+                .0
+                .iter()
                 .map(|c| bf16::from_bits(u16::from_le_bytes([c[0], c[1]])))
                 .collect::<Vec<_>>(),
             &shape,
         ),
         "F16" => Array::from_slice(
             &bytes
-                .chunks_exact(2)
+                .as_chunks::<2>()
+                .0
+                .iter()
                 .map(|c| f16::from_bits(u16::from_le_bytes([c[0], c[1]])))
                 .collect::<Vec<_>>(),
             &shape,
         ),
         "F32" => Array::from_slice(
             &bytes
-                .chunks_exact(4)
+                .as_chunks::<4>()
+                .0
+                .iter()
                 .map(|c| f32::from_le_bytes([c[0], c[1], c[2], c[3]]))
                 .collect::<Vec<_>>(),
             &shape,

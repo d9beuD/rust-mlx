@@ -5,3 +5,5 @@
 .DS_Store
 *.gputrace
 /results/**/*.log
+/results/*logits*.json
+/results/*.safetensors

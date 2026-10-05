@@ -1,6 +1,6 @@
 use crate::{
-    dense::silu,
-    hybrid::{HybridConfig, grouped_norm, plus_one},
+    dense::{scalar_like, silu},
+    hybrid::{HybridConfig, grouped_norm},
     ngram::{NGramHasher, NGramTable},
     weights::{Linear, Weights},
 };
@@ -41,9 +41,9 @@ impl Ple {
         Ok(Self {
             key: w.linear(&format!("{p}.key_proj"))?,
             value: w.linear(&format!("{p}.value_proj"))?,
-            norm_key: plus_one(&w.tensor(&format!("{p}.norm_key.weight"))?)?,
-            norm_query: plus_one(&w.tensor(&format!("{p}.norm_query.weight"))?)?,
-            norm_conv: plus_one(&w.tensor(&format!("{p}.norm_conv.weight"))?)?,
+            norm_key: w.tensor(&format!("{p}.norm_key.weight"))?,
+            norm_query: w.tensor(&format!("{p}.norm_query.weight"))?,
+            norm_conv: w.tensor(&format!("{p}.norm_conv.weight"))?,
             conv: w.tensor(&format!("{p}.conv1d.weight"))?,
             table_scale: w
                 .tensors
@@ -86,9 +86,9 @@ impl Ple {
         let gate = key
             .multiply(&query)?
             .sum_axis(-1, true)?
-            .divide(&Array::from_f32((self.hidden as f32).sqrt()))?;
+            .divide(scalar_like(&key, (self.hidden as f32).sqrt())?)?;
         let gate = ops::sign(&gate)?
-            .multiply(&ops::maximum(gate.abs()?, &Array::from_f32(1e-6))?.sqrt()?)?;
+            .multiply(&ops::maximum(gate.abs()?, scalar_like(&gate, 1e-6)?)?.sqrt()?)?;
         let gated = ops::sigmoid(&gate)?
             .multiply(&self.value.forward(&emb)?.expand_dims(2)?)?
             .reshape(&[b, t, d])?;
@@ -101,6 +101,6 @@ impl Ple {
         let inp = ops::concatenate(&[&old, &normed], 1)?;
         cache.conv = Some(inp.index((.., inp.shape()[1] - history_len.., ..)));
         let conv = silu(&ops::conv1d(&inp, &self.conv, 1, 0, self.dilation, d)?)?;
-        Ok(x.add(&gated)?.add(&conv)?)
+        Ok(x.add(gated.add(&conv)?)?)
     }
 }

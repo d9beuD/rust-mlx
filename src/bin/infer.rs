@@ -34,6 +34,11 @@ struct Args {
     ignore_eos: bool,
     #[arg(long)]
     stream: bool,
+    /// Alternate baseline and batched PLE in one process, with independent warmups.
+    #[arg(long)]
+    ab_ple: bool,
+    #[arg(long, conflicts_with = "ab_ple")]
+    ab_async: bool,
     #[arg(long, default_value_t = 128)]
     prefill_chunk: usize,
 }
@@ -80,8 +85,24 @@ fn main() -> Result<()> {
         None => vec![248044, 248046],
     };
     let mut records = Vec::new();
-    for run in 0..=a.runs {
-        let warmup = run == 0;
+    let warmups = if a.ab_ple || a.ab_async { 2 } else { 1 };
+    for run in 0..a.runs + warmups {
+        let warmup = run < warmups;
+        let batch = if a.ab_ple {
+            run % 2 == 1
+        } else {
+            std::env::var_os("RUST_MLX_BATCH_PLE").is_some()
+        };
+        for p in m.ple.iter().flatten() {
+            p.table.set_batch(batch);
+        }
+        let async_layers = if a.ab_async {
+            run % 2 == 1
+        } else {
+            std::env::var_os("RUST_MLX_ASYNC_LAYERS").is_some()
+        };
+        m.async_layers.set(async_layers);
+
         let limit = if warmup {
             a.warmup_tokens
         } else {
@@ -136,10 +157,10 @@ fn main() -> Result<()> {
             tokens.len()
         );
         if !warmup {
-            records.push(json!({"run":run,"prompt_tokens":prompt.len(),"generated_tokens":tokens.len(),"tokens":tokens,"text":tokenizer.as_ref().and_then(|t|t.decode(&tokens,true).ok()),"prefill_seconds":prefill_seconds,"decode_seconds":seconds,"decode_tokens_per_second":tps,"inter_token_seconds":latencies,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
+            records.push(json!({"run":run,"async_layers":async_layers,"ple_lookup":if batch{"batched candidate"}else{"per-row reference"},"prompt_tokens":prompt.len(),"generated_tokens":tokens.len(),"tokens":tokens,"text":tokenizer.as_ref().and_then(|t|t.decode(&tokens,true).ok()),"prefill_seconds":prefill_seconds,"decode_seconds":seconds,"decode_tokens_per_second":tps,"inter_token_seconds":latencies,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
         }
     }
-    let report = json!({"environment":environment,"model":a.model,"quantization":w.config["quantization"],"runtime":{"backend":"mlx","mtp":false,"temperature":0,"batch_size":1,"prefix_cache":false,"weights_warm":true,"kv_cache":"fresh per run","ignore_eos":a.ignore_eos,"prefill_chunk":a.prefill_chunk,"warmup_tokens":a.warmup_tokens},"prompt_ids":prompt,"load_seconds":load_seconds,"runs":records});
+    let report = json!({"environment":environment,"model":a.model,"quantization":w.config["quantization"],"runtime":{"backend":"mlx","mtp":false,"temperature":0,"batch_size":1,"prefix_cache":false,"ab_ple":a.ab_ple,"weights_warm":true,"kv_cache":"fresh per run","ignore_eos":a.ignore_eos,"prefill_chunk":a.prefill_chunk,"warmup_tokens":a.warmup_tokens,"ple_lookup":if std::env::var_os("RUST_MLX_BATCH_PLE").is_some(){"batched candidate"}else{"per-row reference"},"gdn":if std::env::var_os("RUST_MLX_GDN_OPS").is_some(){"ops fallback"}else{"native reduction Metal"}},"prompt_ids":prompt,"load_seconds":load_seconds,"runs":records});
     if let Some(output) = a.output {
         std::fs::write(output, serde_json::to_vec_pretty(&report)?)?;
     } else if !a.stream {

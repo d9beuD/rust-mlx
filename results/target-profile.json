@@ -1,0 +1,85 @@
+{
+  "environment": {
+    "captured_unix_seconds": 1791240333,
+    "hardware": {
+      "chip": "Apple M5 Max",
+      "gpu": "Apple M5 Max",
+      "gpu_cores": "40",
+      "memory": "128 GB",
+      "model": "Mac17,6"
+    },
+    "revision": {
+      "commit": "3cb3b94a39ce11378b0df894d5f0b211fe6589d5",
+      "dirty": true
+    },
+    "software": {
+      "macos": "27.0.1",
+      "macos_build": "26A434",
+      "mlx": "0.32.2",
+      "mlx_rs": "0.32.0",
+      "mlx_sys": "0.6.0",
+      "package_version": "0.1.0",
+      "rust": "rustc 1.98.1 (48a229cea 2026-09-01)",
+      "xcode": "Xcode 27.0\nBuild version 27A266a"
+    }
+  },
+  "phases": {
+    "attention_hyper": {
+      "calls": 768,
+      "graph_seconds": 0.0054625799999999955,
+      "synchronized_seconds": 0.20787902500000002
+    },
+    "attention_write": {
+      "calls": 768,
+      "graph_seconds": 0.0010493319999999972,
+      "synchronized_seconds": 0.11353908700000002
+    },
+    "embedding": {
+      "calls": 16,
+      "graph_seconds": 0.00007100099999999998,
+      "synchronized_seconds": 0.002293336
+    },
+    "full_attention": {
+      "calls": 192,
+      "graph_seconds": 0.0031111770000000027,
+      "synchronized_seconds": 0.05419891499999998
+    },
+    "gdn": {
+      "calls": 576,
+      "graph_seconds": 0.012998263999999982,
+      "synchronized_seconds": 0.1976789180000001
+    },
+    "head": {
+      "calls": 16,
+      "graph_seconds": 5.249e-6,
+      "synchronized_seconds": 0.020817123
+    },
+    "mixer": {
+      "calls": 16,
+      "graph_seconds": 0.00009296000000000002,
+      "synchronized_seconds": 0.003258169
+    },
+    "mlp_hyper": {
+      "calls": 768,
+      "graph_seconds": 0.005354635000000004,
+      "synchronized_seconds": 0.2080604690000002
+    },
+    "mlp_write": {
+      "calls": 768,
+      "graph_seconds": 0.0010721799999999964,
+      "synchronized_seconds": 0.11248179199999979
+    },
+    "moe": {
+      "calls": 768,
+      "graph_seconds": 0.007078495,
+      "synchronized_seconds": 0.22341910599999995
+    },
+    "ple": {
+      "calls": 16,
+      "graph_seconds": 0.069178664,
+      "synchronized_seconds": 0.08326016400000001
+    }
+  },
+  "tokens": 16,
+  "warning": "Synchronized per-phase diagnostic changes GPU scheduling. Timings are not natural-runtime percentages."
+}

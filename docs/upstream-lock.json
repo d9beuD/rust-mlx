@@ -56,5 +56,21 @@
       "LICENSE-APACHE",
       "LICENSE-MIT"
     ]
+  },
+  {
+    "project": "mlx-vlm",
+    "package_version": "0.7.6",
+    "oracle_mlx": "0.32.2",
+    "date": "2026-10-06",
+    "license_files": [
+      "third-party/mlx-vlm-MIT"
+    ],
+    "source_sha256": {
+      "models/qwen4_exp/language.py": "6765120afdd5872074707efafad1fe5d7386da54c56c7856fc80352d23bac5a7",
+      "models/qwen4_exp/qsa_kernel.py": "f53095f69702b3ad99b64edcb11f9385a7f258f868711a8a3d6640a784d2d008",
+      "models/qwen3_5/gated_delta.py": "c3eca0ae56026626a3302a08b8ce8a69f7fe7fdb08b41d94f27ad012d6c3270c",
+      "models/rope_utils.py": "6944f69a03c41cbb9613afbd2f1b54b71c504840aaeb0eade39c6109dbfdd25b",
+      "speculative/drafters/qwen4_exp_mtp/qwen4_exp_mtp.py": "bc7fcf3d769356866c9ec723e3b2abdc9e22686177d3b396c38eb8134f1993cd"
+    }
   }
 ]

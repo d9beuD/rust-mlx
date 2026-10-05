@@ -63,13 +63,22 @@ pub struct Attention {
 }
 impl Attention {
     pub fn forward(&self, x: &Array, cache: &mut KvCache) -> Result<Array> {
-        return self.forward_mask(x, cache, None);
+        self.forward_mask(x, cache, None)
     }
     pub fn forward_mask(
         &self,
         x: &Array,
         cache: &mut KvCache,
         explicit_mask: Option<&Array>,
+    ) -> Result<Array> {
+        self.forward_selection(x, cache, explicit_mask, None)
+    }
+    pub fn forward_selection(
+        &self,
+        x: &Array,
+        cache: &mut KvCache,
+        explicit_mask: Option<&Array>,
+        selection: Option<(&Array, &Array, i32)>,
     ) -> Result<Array> {
         let (b, t) = (x.shape()[0], x.shape()[1]);
         let q = self.q.forward(x)?;
@@ -91,44 +100,80 @@ impl Attention {
             .forward(x)?
             .reshape(&[b, t, self.kv_heads, self.head_dim])?
             .transpose_axes(&[0, 2, 1, 3])?;
-        let q = fast::rms_norm(&q, Some(&self.qnorm), self.eps)?.transpose_axes(&[0, 2, 1, 3])?;
-        let k = fast::rms_norm(&k, Some(&self.knorm), self.eps)?.transpose_axes(&[0, 2, 1, 3])?;
-        let q = fast::rope(
-            &q,
-            self.rotary_dim,
-            false,
-            self.theta,
-            1.,
-            cache.offset,
-            None,
-        )?;
-        let k = fast::rope(
-            &k,
-            self.rotary_dim,
-            false,
-            self.theta,
-            1.,
-            cache.offset,
-            None,
-        )?;
+        let q = if self.gated {
+            crate::compiled::norm(&q, &self.qnorm, self.eps)?
+        } else {
+            fast::rms_norm(&q, Some(&self.qnorm), self.eps)?
+        }
+        .transpose_axes(&[0, 2, 1, 3])?;
+        let k = if self.gated {
+            crate::compiled::norm(&k, &self.knorm, self.eps)?
+        } else {
+            fast::rms_norm(&k, Some(&self.knorm), self.eps)?
+        }
+        .transpose_axes(&[0, 2, 1, 3])?;
+        let q = if self.gated {
+            crate::rope::text(&q, self.rotary_dim, self.theta, cache.offset, 1)?
+        } else {
+            fast::rope(
+                &q,
+                self.rotary_dim,
+                false,
+                self.theta,
+                1.,
+                cache.offset,
+                None,
+            )?
+        };
+        let k = if self.gated {
+            crate::rope::text(&k, self.rotary_dim, self.theta, cache.offset, 1)?
+        } else {
+            fast::rope(
+                &k,
+                self.rotary_dim,
+                false,
+                self.theta,
+                1.,
+                cache.offset,
+                None,
+            )?
+        };
         let (k, v) = cache.update(k, v)?;
         let mask = explicit_mask
             .map(fast::ScaledDotProductAttentionMask::Array)
             .or_else(|| (t > 1).then_some(fast::ScaledDotProductAttentionMask::Causal));
-        let mut out = fast::scaled_dot_product_attention(
-            &q,
-            &k,
-            &v,
-            (self.head_dim as f32).powf(-0.5),
-            mask,
-            None,
-        )?
-        .transpose_axes(&[0, 2, 1, 3])?;
+        let output = if let Some((blocks, ends, ratio)) = selection {
+            crate::qsa_kernel::attention(
+                &q,
+                &k,
+                &v,
+                blocks,
+                ends,
+                ratio,
+                (self.head_dim as f32).powf(-0.5),
+            )?
+        } else {
+            fast::scaled_dot_product_attention(
+                &q,
+                &k,
+                &v,
+                (self.head_dim as f32).powf(-0.5),
+                mask,
+                None,
+            )?
+        };
+        let mut out =
+            output
+                .transpose_axes(&[0, 2, 1, 3])?
+                .reshape(&[b, t, self.heads * self.head_dim])?;
         if let Some(gate) = gate {
-            out = out.multiply(&ops::sigmoid(&gate)?)?;
+            out = out.multiply(ops::sigmoid(gate.reshape(&[
+                b,
+                t,
+                self.heads * self.head_dim,
+            ])?)?)?;
         }
-        self.o
-            .forward(&out.reshape(&[b, t, self.heads * self.head_dim])?)
+        self.o.forward(&out)
     }
 }
 pub struct Mlp {
@@ -136,8 +181,13 @@ pub struct Mlp {
     pub up: Linear,
     pub down: Linear,
 }
+/// Rust scalar arrays are strongly typed; Python scalar literals are weakly typed.
+/// Preserve the activation dtype instead of silently promoting bf16 graphs to fp32.
+pub fn scalar_like(x: &Array, value: f32) -> Result<Array> {
+    Ok(Array::from_f32(value).as_dtype(x.dtype())?)
+}
 pub fn silu(x: &Array) -> Result<Array> {
-    Ok(x.multiply(&ops::sigmoid(x)?)?)
+    Ok(crate::compiled::silu(x)?)
 }
 impl Mlp {
     pub fn load(w: &Weights, p: &str) -> Result<Self> {
@@ -148,8 +198,10 @@ impl Mlp {
         })
     }
     pub fn forward(&self, x: &Array) -> Result<Array> {
-        self.down
-            .forward(&silu(&self.gate.forward(x)?)?.multiply(&self.up.forward(x)?)?)
+        self.down.forward(&crate::compiled::swiglu(
+            &self.gate.forward(x)?,
+            &self.up.forward(x)?,
+        )?)
     }
 }
 pub struct DenseLayer {

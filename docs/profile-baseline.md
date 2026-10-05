@@ -1,0 +1,5 @@
+# Profile baseline
+
+Initial real-checkpoint timing is an oracle observation, not yet a production speed claim. mlx-vlm 0.7.6 / MLX 0.32.3, M5 Max 40 cores, 128 GB, macOS 27, target mixed affine checkpoint, batch1, prompt10, greedy, MTP off, fresh KV. First decode step compiles its shape (1.323 s). Subsequent 15 steps average 28.62 ms; ~34.94 tok/s. The 16-step aggregate is 9.13 tok/s and must not be misreported as warm throughput.
+
+Current priority: eliminate unintended FP32 promotion and reproduce BF16 rounding before collecting Rust performance. Profiling a numerically incorrect graph cannot support a retained optimization. Known differences: scalar literals, compiled SiLU/SwiGLU/decay boundaries, zero-centered norms, full-attention RMS output dtype, and PLE residual addition order. Once parity passes, synchronize coarse categories for a diagnostic attribution, then compare unsynchronized end-to-end execution; category timers necessarily alter scheduling and cannot be treated as exact additive natural-runtime timings.

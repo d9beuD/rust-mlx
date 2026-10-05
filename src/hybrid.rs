@@ -1,5 +1,5 @@
 use crate::{
-    dense::{Mlp, silu},
+    dense::{Mlp, scalar_like, silu},
     weights::{Linear, Weights},
 };
 use anyhow::{Context, Result, ensure};
@@ -36,19 +36,11 @@ pub struct HybridConfig {
     pub ple_conv_kernel_size: i32,
     pub ple_embed_dim: i32,
 }
-pub fn plus_one(w: &Array) -> Result<Array> {
-    Ok(w.as_dtype(Dtype::Float32)?.add(&Array::from_f32(1.))?)
-}
 pub fn grouped_norm(x: &Array, scale: &Array, hc: i32, eps: f32) -> Result<Array> {
     let shape = x.shape();
     let d = shape[2] / hc;
-    let y = x
-        .as_dtype(Dtype::Float32)?
-        .reshape(&[shape[0], shape[1], hc, d])?;
-    Ok(fast::rms_norm(&y, None, eps)?
-        .multiply(&scale.reshape(&[hc, d])?)?
-        .reshape(shape)?
-        .as_dtype(x.dtype())?)
+    let y = x.reshape(&[shape[0], shape[1], hc, d])?;
+    Ok(crate::compiled::norm(&y, &scale.reshape(&[hc, d])?, eps)?.reshape(shape)?)
 }
 pub struct HyperConnection {
     pub scale: Array,
@@ -61,7 +53,7 @@ pub struct HyperConnection {
 impl HyperConnection {
     pub fn load(w: &Weights, p: &str, c: &HybridConfig, inject: bool) -> Result<Self> {
         Ok(Self {
-            scale: plus_one(&w.tensor(&format!("{p}.hc_norm.weight"))?)?,
+            scale: w.tensor(&format!("{p}.hc_norm.weight"))?,
             down: w.linear(&format!("{p}.input_mix_weight_down"))?,
             up: w.linear(&format!("{p}.input_mix_weight_up"))?,
             inject: if inject {
@@ -75,26 +67,13 @@ impl HyperConnection {
     }
     pub fn forward(&self, x: &Array) -> Result<(Array, Option<Array>)> {
         let xn = grouped_norm(x, &self.scale, self.hc, self.eps)?;
-        let lo = silu(
-            &self
-                .down
-                .forward(&xn)?
-                .divide(&Array::from_f32(self.hc as f32))?,
-        )?;
-        let gate = ops::sigmoid(&self.up.forward(&lo)?)?;
-        let s = x.shape();
-        let mixed = xn
-            .multiply(&gate)?
-            .reshape(&[s[0], s[1], self.hc, s[2] / self.hc])?
-            .mean_axis(2, false)?;
+        let lo = crate::compiled::activate(&self.down.forward(&xn)?, self.hc)?;
+        let mixed = crate::compiled::mix(&self.up.forward(&lo)?, &xn, self.hc)?;
         let inject = self
             .inject
             .as_ref()
             .map(|i| -> Result<Array> {
-                Ok(
-                    ops::sigmoid(&i.forward(&xn)?.divide(&Array::from_f32(self.hc as f32))?)?
-                        .multiply(&Array::from_f32(2.))?,
-                )
+                Ok(crate::compiled::injection(&i.forward_rows(&xn)?, self.hc)?)
             })
             .transpose()?;
         Ok((mixed, inject))
@@ -153,14 +132,14 @@ impl MoE {
         let xe = x.expand_dims(-2)?.expand_dims(-2)?;
         let gate = Self::gather(&self.gate, &xe, &ids)?;
         let up = Self::gather(&self.up, &xe, &ids)?;
-        let y =
-            Self::gather(&self.down, &silu(&gate)?.multiply(&up)?, &ids)?.squeeze_axes(&[-2])?;
+        let y = Self::gather(&self.down, &crate::compiled::swiglu(&gate, &up)?, &ids)?
+            .squeeze_axes(&[-2])?;
         let y = y.multiply(&scores.expand_dims(-1)?)?.sum_axis(-2, false)?;
         Ok(y.add(
             &self
                 .shared
                 .forward(x)?
-                .multiply(&ops::sigmoid(&self.shared_gate.forward(x)?)?)?,
+                .multiply(&ops::sigmoid(&self.shared_gate.forward_rows(x)?)?)?,
         )?)
     }
 }
@@ -176,6 +155,7 @@ pub struct Gdn {
     pub b: Linear,
     pub out: Linear,
     pub conv: Array,
+    pub decode_conv: Array,
     pub alog: Array,
     pub dt: Array,
     pub norm: Array,
@@ -195,6 +175,11 @@ impl Gdn {
             b: w.linear(&format!("{p}.in_proj_b"))?,
             out: w.linear(&format!("{p}.out_proj"))?,
             conv: w.tensor(&format!("{p}.conv1d.weight"))?,
+            decode_conv: w
+                .tensor(&format!("{p}.conv1d.weight"))?
+                .index((.., .., 0))
+                .t()
+                .as_dtype(Dtype::Float32)?,
             alog: w.tensor(&format!("{p}.A_log"))?.as_dtype(Dtype::Float32)?,
             dt: w.tensor(&format!("{p}.dt_bias"))?,
             norm: w.tensor(&format!("{p}.norm.weight"))?,
@@ -218,7 +203,13 @@ impl Gdn {
             .unwrap_or(ops::zeros_dtype(&[batch, self.kernel - 1, cd], x.dtype())?);
         let inp = ops::concatenate(&[&old, &qkv], 1)?;
         cache.conv = Some(inp.index((.., inp.shape()[1] - self.kernel + 1.., ..)));
-        let convolved = silu(&ops::conv1d(&inp, &self.conv, 1, 0, 1, cd)?)?;
+        let convolved = silu(&if t == 1
+            && matches!(self.conv.dtype(), Dtype::Bfloat16 | Dtype::Float16)
+        {
+            crate::compiled::decode_conv(&inp, &self.decode_conv)?
+        } else {
+            ops::conv1d(&inp, &self.conv, 1, 0, 1, cd)?
+        })?;
         let q = convolved
             .index((.., .., ..kd))
             .reshape(&[batch, t, self.hk, self.dk])?;
@@ -228,20 +219,22 @@ impl Gdn {
         let v = convolved
             .index((.., .., kd * 2..))
             .reshape(&[batch, t, self.hv, self.dv])?;
-        let eps = Array::from_f32(1e-6);
+        let eps = scalar_like(&q, 1e-6)?;
         let q = q
             .multiply(&q.square()?.sum_axis(-1, true)?.add(&eps)?.rsqrt()?)?
-            .multiply(&Array::from_f32((self.dk as f32).powf(-0.5)))?;
+            .multiply(scalar_like(&q, (self.dk as f32).powf(-0.5))?)?;
         let k = k.multiply(&k.square()?.sum_axis(-1, true)?.add(&eps)?.rsqrt()?)?;
-        let beta = ops::sigmoid(&self.b.forward(x)?)?;
-        let a = self.a.forward(x)?.add(&self.dt)?;
-        let softplus = ops::logaddexp(&a, &Array::from_f32(0.))?;
-        let g = self.alog.exp()?.negative()?.multiply(&softplus)?.exp()?;
+        let beta = ops::sigmoid(&self.b.forward_rows(x)?)?;
+        let g = crate::compiled::decay(&self.alog, &self.a.forward_rows(x)?, &self.dt)?;
         let state = cache.state.clone().unwrap_or(ops::zeros_dtype(
             &[batch, self.hv, self.dv, self.dk],
             Dtype::Float32,
         )?);
-        let (y, state) = gdn_reference(&q, &k, &v, &g, &beta, &state)?;
+        let (y, state) = if std::env::var_os("RUST_MLX_GDN_OPS").is_some() {
+            gdn_reference(&q, &k, &v, &g, &beta, &state)?
+        } else {
+            crate::gdn_kernel::recurrent(&q, &k, &v, &g, &beta, &state)?
+        };
         cache.state = Some(state);
         let z = self
             .z
@@ -315,6 +308,7 @@ pub enum LayerCache {
 }
 pub struct HybridModel {
     pub config: HybridConfig,
+    pub async_layers: std::cell::Cell<bool>,
     pub embedding: Linear,
     pub head: Linear,
     pub mixer: HyperConnection,
@@ -372,6 +366,7 @@ impl HybridModel {
                 false,
             )?,
             config: c,
+            async_layers: std::cell::Cell::new(std::env::var_os("RUST_MLX_ASYNC_LAYERS").is_some()),
             layers,
         })
     }
@@ -430,6 +425,9 @@ impl HybridModel {
                 &l.moe.forward(&mixed)?,
                 inject.as_ref().context("missing MLP inject")?,
             )?;
+            if self.async_layers.get() {
+                mlx_rs::transforms::async_eval([&h])?;
+            }
         }
         cache.history.extend_from_slice(tokens);
         if cache.history.len() > self.config.ngram_size - 1 {

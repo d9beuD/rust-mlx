@@ -107,6 +107,41 @@ pub struct Linear {
     pub quant: Option<Quantization>,
 }
 impl Linear {
+    /// Match the oracle's decode-equivalent reductions for narrow gate projections.
+    pub fn forward_rows(&self, x: &Array) -> Result<Array> {
+        if x.ndim() == 3 && x.shape()[1] > 1 && self.quant.is_some() {
+            let q = self.quant.as_ref().context("missing quantization")?;
+            let ids = ops::zeros_dtype(&[x.shape()[0], x.shape()[1], 1], mlx_rs::Dtype::Int32)?;
+            let xe = x.contiguous()?.expand_dims_axes(&[-2, -3])?;
+            let mut y = ops::gather_qmm(
+                &xe,
+                &self.weight.expand_dims(0)?,
+                &self
+                    .scales
+                    .as_ref()
+                    .context("missing scales")?
+                    .expand_dims(0)?,
+                self.biases
+                    .as_ref()
+                    .map(|v| v.expand_dims(0))
+                    .transpose()?
+                    .as_ref(),
+                None,
+                &ids,
+                true,
+                q.group_size,
+                q.bits,
+                false,
+            )?
+            .squeeze_axes(&[-2, -3])?;
+            if let Some(b) = &self.bias {
+                y = y.add(b)?;
+            }
+            Ok(y)
+        } else {
+            self.forward(x)
+        }
+    }
     pub fn forward(&self, x: &Array) -> Result<Array> {
         let mut y = if let Some(q) = &self.quant {
             ops::quantized_matmul(
@@ -119,7 +154,7 @@ impl Linear {
                 q.bits,
             )?
         } else {
-            x.matmul(&self.weight.t())?
+            x.matmul(self.weight.t())?
         };
         if let Some(b) = &self.bias {
             y = y.add(b)?;
