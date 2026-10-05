@@ -1,0 +1,60 @@
+[
+  {
+    "project": "MTPLX",
+    "commit": "9882703f3105363ddc37eca9f97aa09a1d387112",
+    "date": "2026-10-06",
+    "license_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "project": "mlx-lm",
+    "commit": "5cfec4cb39deba54210b3ff4d86f2337c7bc10b5",
+    "date": "2026-10-06",
+    "license_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "project": "mlx-lm-rs",
+    "commit": "15e5a9ded0d4f418d63fdc3bdbdc34f3dfab822f",
+    "date": "2026-10-06",
+    "license_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "project": "mlx-qwen4exp",
+    "commit": "2a4346cb1a306188fbe0152bf0e65c4196ca371c",
+    "date": "2026-10-06",
+    "license_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "project": "mlx-rs",
+    "commit": "9051034eca1aee8e3c8bbfc734daae48b35a87f6",
+    "date": "2026-10-06",
+    "license_files": [
+      "LICENSE-APACHE",
+      "LICENSE-MIT"
+    ]
+  },
+  {
+    "project": "omlx",
+    "commit": "a435a3736071286fdb2b74f486b3505f23f3c194",
+    "date": "2026-10-06",
+    "license_files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "project": "rMLX",
+    "commit": "e5d967a5c065c7a602d9e171c7d41ac006b1adcc",
+    "date": "2026-10-06",
+    "license_files": [
+      "LICENSE-APACHE",
+      "LICENSE-MIT"
+    ]
+  }
+]

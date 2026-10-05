@@ -1,0 +1,17 @@
+# Prior art — 2026-10-06
+
+Exact checked-out commits and license files: `upstream-lock.json`. Sources live in ignored `research/upstream` checkouts; dependency sources are pinned by Cargo.lock.
+
+| Project | License | Backend / findings | Files studied / reason |
+|---|---|---|---|
+| [MLX](https://github.com/ml-explore/mlx) | MIT | Lazy tensors, native affine quantized matmul/gather QMM, SDPA, compiled graphs, custom Metal API. Uses command buffers; do not replace the allocator. | MLX 0.32.2 bundled by mlx-sys, CMakeLists and Metal kernels; current API and toolchain |
+| [MLX-C](https://github.com/ml-explore/mlx-c) | MIT | C ownership handles and metal_kernel are available; no custom C++ bridge needed. | mlx/c/fast.h, fast.cpp; JIT kernel path |
+| [mlx-rs](https://github.com/oxiglade/mlx-rs) | MIT / Apache-2.0 | 0.32.0 wraps MLX 0.32.2, safetensors, quantized_matmul, gather_qmm, streams, eval/async_eval, compile. Custom Metal needs mlx-sys. | src/fast.rs, ops/quantization.rs, array/mod.rs, mlx-sys/build.rs |
+| [mlx-lm](https://github.com/ml-explore/mlx-lm) | MIT | Reference loader, growing KV cache, quantized SwitchGLU, greedy and speculative generation, server batching/prefix cache; Qwen4Exp absent from current model registry. | models/qwen3.py, qwen3_5.py, switch_layers.py, gated_delta.py, generate.py; dense oracle and shared operations |
+| [mlx-lm-rs](https://github.com/odysa/mlx-lm-rs) | MIT | Rust Qwen3 port, useful model layout and generation comparison; not a target Qwen4Exp implementation. | Cargo.toml, src and README |
+| [rMLX](https://github.com/Pushkinist/rMLX) | MIT / Apache-2.0 | Rust server, custom MLX C interface, quantized/paged cache and prefix/SSD storage. Qwen4Exp not found in source inspection. | Cargo.toml, crates/rmlx-models and rmlx-mlx; evaluate reuse instead of premature bindings fork |
+| [oMLX](https://github.com/jundot/omlx) | Apache-2.0 | Server/batching/prefix cache, native MTP, Qwen4Exp implementation, mixed precision, grouped norm precision, mmap n-gram tables, fused hyper-connections and sparse QSA. | patches/mlx_vlm_qwen4_exp_compat/vendor/mlx_vlm/models/qwen4_exp/language.py, cache.py, hc_fused.py; checkpoint's actual transformed contract |
+| [MTPLX](https://github.com/youssofal/MTPLX) | Apache-2.0 plus NOTICE attribution | Native MTP runtime, SSD n-gram sidecar, depth-sensitive verify kernels and batch invariant paths. Published speeds depend on model conversion and workload; not evidence about ours. | mtplx/models/qwen4_exp.py, qwen4_block_verify.py, NOTICE; algorithm and comparison protocol |
+| [mlx-qwen4exp](https://github.com/Rocktalk-Holdings/mlx-qwen4exp) | MIT | Small transparent implementation useful for architectural study. Its raw-HF names and several numeric conventions differ from this sanitized checkpoint; do not use it blindly as the final oracle. | hyper.py, ple.py, attention.py, deltanet.py, model.py; understand architecture |
+
+No competitive performance conclusion until locally measured under comparable conditions. Differences in conversion, kernel precision or context are explicitly reported. Preserve licenses/notices when adapting source; shipping code is independently expressed in Rust unless marked otherwise.
