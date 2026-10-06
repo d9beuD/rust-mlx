@@ -273,5 +273,9 @@
     "mtp-infer": "f86c129ca4d8863b4427207bd109cfedcfb2de74bd2d68078a369e2b63088e92",
     "workload-bench": "3781b8bc5b8b9f57ef5c0a91aa10546a5193f26e4d6186f0c3a640e921e0c22e",
     "server": "f35f2969f6a0bece64e2c75e91e2b56acde94d5106db849c29e3494ec085fa3a"
-  }
+  },
+  "implementation_commit": "2b67a7ac37a44aa863f5c16e5fe550cf084f0087",
+  "public_repository": "https://github.com/d9beuD/rust-mlx",
+  "publication_verified": true,
+  "publication_note": "Public implementation commit2b67a7a confirmed by remote main API; follow-up documentation changes leave the qualified source/binaries unchanged."
 }

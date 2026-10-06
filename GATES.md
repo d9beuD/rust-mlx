@@ -70,7 +70,7 @@ Scope: native Rust inference, verified against an independent MLX oracle, measur
   CHECK: .venv/bin/python scripts/verify_round2.py kv
   EXPECT: ROUND2_KV_EXPLORATION_VERIFIED
   EVIDENCE: actual context2096 native/block prefill/logits/hidden/all caches,16 transitions,T2–8/every rollback prefix, private/prefix/batch instrumentation exact; boundary components100 pairs; complete four-pair raw contexts10/2107/4117 gains0.197794/-0.792734/0.216423%, native concatenation remains default; pair oracle negative control passes
-- [ ] G24: final research outcomes, production defaults and public code pass refreshed quality gates
+- [x] G24: final research outcomes, production defaults and public code pass refreshed quality gates
   CHECK: .venv/bin/python scripts/verify_round2.py final
   EXPECT: ROUND2_FINAL_INTEGRATION_PUBLICATION_VERIFIED
-  EVIDENCE: round2-final-validation.json source483b3cd,25 release/24 portable instrumented tests, expanded actual head/private/sparse/rollback/batch checks, HTTP/SSE/prefix/cancellation/Unicode; latest raw45.28/68.43; final public current HEAD verification pending
+  EVIDENCE: round2-final-validation.json source483b3cd,25 release/24 portable instrumented tests, expanded actual head/private/sparse/rollback/batch checks, HTTP/SSE/prefix/cancellation/Unicode; latest raw45.28/68.43; implementation2b67a7a public main verified; publication oracle rejects local unpublished changes and validates qualified source, report hashes, defaults and remote HEAD
