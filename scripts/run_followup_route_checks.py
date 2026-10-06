@@ -20,6 +20,7 @@ def sha(path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", required=True)
+    parser.add_argument("--prefix",default="followup-route")
     args = parser.parse_args()
     snapshot = core_digest()
     cases = [
@@ -30,7 +31,7 @@ def main():
     ]
     receipts = []
     for binary, name, extra, marker, validation in cases:
-        stem = f"followup-route-{name}"
+        stem = f"{args.prefix}-{name}"
         output = ROOT / f"results/{stem}.json"
         log = ROOT / f"results/{stem}.log"
         assert not output.exists(), f"preserve prior check{output}"
@@ -49,7 +50,7 @@ def main():
         (ROOT / f"results/{stem}-command.json").write_text(json.dumps(receipt, indent=2) + "\n")
         receipts.append(receipt)
         assert snapshot == core_digest(), "source changed during actual qualification"
-        (ROOT / "results/followup-route-checks.json").write_text(json.dumps({
+        (ROOT / f"results/{args.prefix}-checks.json").write_text(json.dumps({
             "model": args.model, "source_sha256": snapshot, "checks": receipts,
             "complete": len(receipts) == len(cases), "passed": all(r["passed"] for r in receipts)}, indent=2) + "\n")
         print(name, receipt["passed"], flush=True)

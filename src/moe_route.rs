@@ -6,7 +6,7 @@ use std::cell::{Cell, RefCell};
 
 thread_local! {
     static KERNEL: RefCell<Option<Kernel>> = const { RefCell::new(None) };
-    static ENABLED: Cell<bool> = Cell::new(std::env::var_os("RUST_MLX_ROUTE_TAIL").is_some());
+    static ENABLED: Cell<bool> = Cell::new(std::env::var("RUST_MLX_ROUTE_TAIL").is_ok_and(|v|v=="1"));
     static CALLS: Cell<usize> = const { Cell::new(0) };
 }
 

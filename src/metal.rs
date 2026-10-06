@@ -451,6 +451,28 @@ mod tests {
         }
         assert!(crate::runtime_prepare::config_hits() > 0);
         assert!(k.configs.borrow().len() <= 8);
+        let x1 = Array::from_slice(&[2f32], &[1]);
+        let x2 = Array::from_slice(&[7f32], &[1]);
+        let outputs = [(&[1][..], Dtype::Float32)];
+        let templates = [
+            Template::Int("N", 1),
+            Template::Int("ADD", 0),
+            Template::Dtype("T", Dtype::Float32),
+            Template::Bool("NEG", false),
+        ];
+        for (x, v) in [(&x1, 2.), (&x2, 7.)] {
+            let y = k
+                .launch(Launch {
+                    inputs: &[x],
+                    templates: &templates,
+                    outputs: &outputs,
+                    grid: [32, 1, 1],
+                    group: [32, 1, 1],
+                })
+                .unwrap()
+                .remove(0);
+            pending.push((y.clone(), y, vec![v]));
+        }
         drop(k);
         for (a, b, expected) in pending {
             let a = a.as_dtype(Dtype::Float32).unwrap();

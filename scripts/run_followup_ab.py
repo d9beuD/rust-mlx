@@ -22,6 +22,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", required=True)
     parser.add_argument("--kernel", required=True)
+    parser.add_argument("--bias-artifact")
     parser.add_argument("--suite", choices=["raw", "chat"], default="raw")
     args = parser.parse_args()
     assert not any(os.environ.get(k) for k in ["MTL_SHADER_VALIDATION", "MTL_DEBUG_LAYER"])
@@ -37,6 +38,8 @@ def main():
                    "--max-tokens", "256", "--warmup-tokens", "256", "--runs", "4",
                    "--draft-depth", "3", "--ignore-eos", "--ab-kernel", args.kernel,
                    "--output", str(output)]
+        if args.bias_artifact:
+            command += ["--draft-logit-bias",args.bias_artifact]
         if args.suite == "chat":
             command += ["--chat", "--no-thinking"]
             oracle = ROOT / f"results/decode3-config-combo-full-chat-p{i}-c1-native.json"

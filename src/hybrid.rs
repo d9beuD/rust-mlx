@@ -105,6 +105,7 @@ impl HyperConnection {
     }
 }
 pub struct MoE {
+    pub down_packed: Option<Array>,
     /// Lossless native gather of concatenated gate/up expert rows, experimental.
     pub gate_up: Option<Linear>,
     pub fused_mode: std::cell::Cell<bool>,
@@ -128,6 +129,7 @@ impl MoE {
     pub fn load(w: &Weights, p: &str, c: &HybridConfig) -> Result<Self> {
         Ok(Self {
             gate_up: None,
+            down_packed: None,
             fused_mode: std::cell::Cell::new(std::env::var_os("RUST_MLX_FUSED_MOE").is_some()),
             sorted_mode: std::cell::Cell::new(false),
             router: w.linear(&format!("{p}.gate"))?,
@@ -221,7 +223,7 @@ impl MoE {
         };
         let y = if self.sorted_mode.get() && crate::verification::rows() && x.shape()[1] > 1 {
             SORTED_MOE_CALLS.with(|calls| calls.set(calls.get().wrapping_add(1)));
-            self.sorted_experts(x, &ids)?
+            (self.sorted_experts(x, &ids)?, false)
         } else {
             let xe = x.expand_dims(-2)?.expand_dims(-2)?;
             let packed = if crate::moe_layout::enabled() {
@@ -255,10 +257,27 @@ impl MoE {
                     Self::gather(&self.up, &xe, &ids)?,
                 )
             };
-            Self::gather(&self.down, &crate::compiled::swiglu(&gate, &up)?, &ids)?
+            let routed = crate::compiled::swiglu(&gate, &up)?;
+            if let Some(y) = crate::moe_down::reduce(
+                &self.down,
+                &routed,
+                &ids,
+                &scores,
+                self.down_packed.as_ref(),
+            )? {
+                (y, true)
+            } else {
+                (Self::gather(&self.down, &routed, &ids)?, false)
+            }
         };
-        let y = y.squeeze_axes(&[-2])?;
-        let y = y.multiply(&scores.expand_dims(-1)?)?.sum_axis(-2, false)?;
+        let (y, reduced) = y;
+        let y = if reduced {
+            y
+        } else {
+            y.squeeze_axes(&[-2])?
+                .multiply(&scores.expand_dims(-1)?)?
+                .sum_axis(-2, false)?
+        };
         let shared_factor = match shared_factor {
             Some(factor) => factor,
             None => ops::sigmoid(&self.shared_gate.forward_rows(x)?)?,

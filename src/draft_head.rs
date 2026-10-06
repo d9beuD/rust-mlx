@@ -12,6 +12,59 @@ pub struct DraftHead {
     pub bits: Option<i32>,
 }
 impl DraftHead {
+    /// Draft-only small distillation artifact, full vocabulary and source codes.
+    pub fn with_bias(
+        source: &Linear,
+        model: &std::path::Path,
+        artifact: &std::path::Path,
+    ) -> Result<(Self, serde_json::Value)> {
+        ensure!(source.weight.ndim() == 2, "draft source must be a matrix");
+        let metadata: serde_json::Value =
+            serde_json::from_slice(&std::fs::read(artifact.join("metadata.json"))?)?;
+        let path = artifact.join("bias.safetensors");
+        ensure!(
+            metadata["complete"] == true && metadata["bias_dtype"] == "BF16",
+            "incomplete bias artifact"
+        );
+        ensure!(
+            metadata["config_sha256"].as_str()
+                == Some(crate::resident_quant::sha256_file(&model.join("config.json"))?.as_str())
+                && metadata["tokenizer_sha256"].as_str()
+                    == Some(
+                        crate::resident_quant::sha256_file(&model.join("tokenizer.json"))?.as_str()
+                    )
+                && metadata["bias_sha256"].as_str()
+                    == Some(crate::resident_quant::sha256_file(&path)?.as_str()),
+            "bias model/artifact identity mismatch"
+        );
+        let mut tensors = Array::load_safetensors(path)?;
+        let bias = tensors.remove("bias").context("missing draft bias")?;
+        ensure!(
+            tensors.is_empty()
+                && bias.shape() == [source.weight.shape()[0]]
+                && bias.dtype() == mlx_rs::Dtype::Bfloat16,
+            "bad bias shape/dtype"
+        );
+        bias.eval()?;
+        let f = bias.as_dtype(mlx_rs::Dtype::Float32)?.contiguous()?;
+        f.eval()?;
+        ensure!(
+            f.as_slice::<f32>()
+                .iter()
+                .all(|v| v.is_finite() && v.abs() <= 0.5),
+            "bias outside declared finite bound"
+        );
+        let mut head = Self::prepare(source, None, &[])?;
+        head.linear.bias = Some(if let Some(original) = &head.linear.bias {
+            original.add(&bias)?
+        } else {
+            bias.clone()
+        });
+        head.linear.bias.as_ref().unwrap().eval()?;
+        head.bytes += bias.nbytes();
+        Ok((head, metadata))
+    }
+
     /// Gather a fixed vocabulary and optionally requantize a BF16-dequantized
     /// copy in bounded chunks. These are independent model-init costs, not a
     /// prompt-specific shortlist or a change to the canonical target tensors.
@@ -107,5 +160,79 @@ impl DraftHead {
             bytes,
             bits,
         })
+    }
+}
+
+#[cfg(test)]
+mod bias_tests {
+    use super::*;
+    #[test]
+    fn bias_artifact_is_bounded_bound_to_model_and_keeps_target_unchanged() {
+        let temp = std::env::temp_dir().join(format!(
+            "rust-mlx-draft-bias-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        std::fs::create_dir_all(&temp).unwrap();
+        std::fs::write(temp.join("config.json"), b"{}").unwrap();
+        std::fs::write(temp.join("tokenizer.json"), b"{\"tokenizer\":1}").unwrap();
+        let source = Linear {
+            weight: Array::from_slice(
+                &[
+                    1f32, 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1.,
+                ],
+                &[4, 4],
+            ),
+            scales: None,
+            biases: None,
+            bias: None,
+            quant: None,
+        };
+        let x = Array::from_slice(&[1f32, 2., 3., 4.], &[1, 1, 4]);
+        let good = Array::from_slice(&[0.25f32, -0.5, 0.5, 0.125], &[4])
+            .as_dtype(mlx_rs::Dtype::Bfloat16)
+            .unwrap();
+        let write = |bias: &Array, corrupt: bool| {
+            let weights = temp.join("bias.safetensors");
+            Array::save_safetensors([("bias", bias)], None, &weights).unwrap();
+            let metadata = serde_json::json!({"complete":true,"bias_dtype":"BF16","config_sha256":crate::resident_quant::sha256_file(&temp.join("config.json")).unwrap(),"tokenizer_sha256":crate::resident_quant::sha256_file(&temp.join("tokenizer.json")).unwrap(),"bias_sha256":if corrupt {"wrong".into()} else {crate::resident_quant::sha256_file(&weights).unwrap()}});
+            std::fs::write(
+                temp.join("metadata.json"),
+                serde_json::to_vec(&metadata).unwrap(),
+            )
+            .unwrap();
+        };
+        write(&good, false);
+        let (head, _) = DraftHead::with_bias(&source, &temp, &temp).unwrap();
+        let candidate = head.linear.forward(&x).unwrap();
+        candidate.eval().unwrap();
+        assert_eq!(candidate.as_slice::<f32>(), &[1.25, 1.5, 3.5, 4.125]);
+        let original = source.forward(&x).unwrap();
+        original.eval().unwrap();
+        assert_eq!(original.as_slice::<f32>(), &[1., 2., 3., 4.]);
+        for bias in [
+            Array::from_slice(&[1f32, 0., 0., 0.], &[4])
+                .as_dtype(mlx_rs::Dtype::Bfloat16)
+                .unwrap(),
+            Array::from_slice(&[f32::NAN, 0., 0., 0.], &[4])
+                .as_dtype(mlx_rs::Dtype::Bfloat16)
+                .unwrap(),
+            Array::from_slice(&[0f32; 3], &[3])
+                .as_dtype(mlx_rs::Dtype::Bfloat16)
+                .unwrap(),
+            Array::from_slice(&[0f32; 4], &[4]),
+        ] {
+            write(&bias, false);
+            assert!(DraftHead::with_bias(&source, &temp, &temp).is_err());
+        }
+        write(&good, true);
+        assert!(DraftHead::with_bias(&source, &temp, &temp).is_err());
+        write(&good, false);
+        std::fs::write(temp.join("config.json"), b"{\"changed\":true}").unwrap();
+        assert!(DraftHead::with_bias(&source, &temp, &temp).is_err());
+        std::fs::remove_dir_all(temp).unwrap();
     }
 }

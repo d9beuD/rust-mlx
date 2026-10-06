@@ -20,11 +20,11 @@ def sha(path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", required=True)
-    parser.add_argument("--prefix",default="followup-runtime")
+    parser.add_argument("--prefix",default="followup-down")
     args = parser.parse_args()
     snapshot = core_digest()
-    cases = [(binary, f"{mode}-{label}", ["--runtime-prepare",mode],marker,True)
-        for mode in ["ple-prepare","rope-ids","config-reuse","runtime-prepare"]
+    cases = [(binary, f"{mode}-{label}", ["--down-kernel",mode],marker,True)
+        for mode in ["down-tail","down-packed","down-packed-vector"]
         for binary,label,marker in [("verify-parity","verify-metal","VERIFY_PARITY_PASSED"),
                                     ("rollback-parity","rollback-metal","ROLLBACK_PARITY_PASSED")]]
     receipts = []
@@ -49,10 +49,8 @@ def main():
         if receipt["passed"]:
             rows=json.loads(output.read_text())
             mode=extra[1]
-            axes={"ple-prepare":[0],"rope-ids":[1],"config-reuse":[2],"runtime-prepare":[0,1,2]}[mode]
-            assert all(row["runtime_prepare"]==mode for row in rows)
-            assert all(rows[-1]["runtime_prepare_calls"][i]>0 for i in axes), "unengaged candidate"
-            receipt["engagement_axes"]=axes
+            assert all(row["down_kernel"]==mode for row in rows)
+            assert rows[-1]["down_calls"]>0,"unengaged candidate"
         receipts.append(receipt)
         assert snapshot == core_digest(), "source changed during actual qualification"
         (ROOT / f"results/{args.prefix}-checks.json").write_text(json.dumps({
@@ -61,7 +59,7 @@ def main():
         print(name, receipt["passed"], flush=True)
         if not receipt["passed"]:
             raise SystemExit(process.returncode or 1)
-    print("FOLLOWUP_ACTUAL_RUNTIME_CHECKS_PASSED", flush=True)
+    print("FOLLOWUP_ACTUAL_DOWN_CHECKS_PASSED", flush=True)
 
 
 if __name__ == "__main__":
