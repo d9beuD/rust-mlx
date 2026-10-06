@@ -14,6 +14,8 @@ use std::{
 #[derive(Parser)]
 struct Args {
     #[arg(long)]
+    resident_overlay: Option<PathBuf>,
+    #[arg(long)]
     model: PathBuf,
     #[arg(
         long,
@@ -65,7 +67,12 @@ fn main() -> Result<()> {
     mlx_rs::memory::set_memory_limit(100 * 1024usize.pow(3))?;
     mlx_rs::memory::set_cache_limit(512 * 1024usize.pow(2))?;
     let load = Instant::now();
-    let w = Weights::load(&a.model)?;
+    let mut w = Weights::load(&a.model)?;
+    let resident_variant = a
+        .resident_overlay
+        .as_ref()
+        .map(|p| rust_mlx::resident_quant::apply_overlay(&mut w, &a.model, p))
+        .transpose()?;
     let m = HybridModel::load(&w, &a.model)?;
     let mut tokenizer = None;
     let prompt: Vec<u32> = if let Some(p) = &a.prompt_ids {
@@ -209,7 +216,7 @@ fn main() -> Result<()> {
             records.push(json!({"run":run,"packed_gdn":packed_gdn,"compiled_hyper":compiled_hyper,"async_layers":async_layers,"ple_lookup":if batch{"batched candidate"}else{"per-row reference"},"prompt_tokens":prompt.len(),"generated_tokens":tokens.len(),"tokens":tokens,"text":tokenizer.as_ref().and_then(|t|t.decode(&tokens,true).ok()),"prefill_seconds":prefill_seconds,"decode_seconds":seconds,"decode_tokens_per_second":tps,"inter_token_seconds":latencies,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
         }
     }
-    let report = json!({"environment":environment,"model":a.model,"quantization":w.config["quantization"],"runtime":{"backend":"mlx","mtp":false,"temperature":0,"batch_size":1,"prefix_cache":false,"ab_ple":a.ab_ple,"weights_warm":true,"kv_cache":"fresh per run","ignore_eos":a.ignore_eos,"prefill_chunk":a.prefill_chunk,"warmup_tokens":a.warmup_tokens,"ple_lookup":if std::env::var_os("RUST_MLX_BATCH_PLE").is_some(){"batched candidate"}else{"per-row reference"},"gdn":if std::env::var_os("RUST_MLX_GDN_OPS").is_some(){"ops fallback"}else{"native reduction Metal"}},"prompt_ids":prompt,"load_seconds":load_seconds,"runs":records});
+    let report = json!({"environment":environment,"model":a.model,"quantization":w.config["quantization"],"resident_variant":resident_variant,"runtime":{"backend":"mlx","mtp":false,"temperature":0,"batch_size":1,"prefix_cache":false,"ab_ple":a.ab_ple,"weights_warm":true,"kv_cache":"fresh per run","ignore_eos":a.ignore_eos,"prefill_chunk":a.prefill_chunk,"warmup_tokens":a.warmup_tokens,"ple_lookup":if std::env::var_os("RUST_MLX_BATCH_PLE").is_some(){"batched candidate"}else{"per-row reference"},"gdn":if std::env::var_os("RUST_MLX_GDN_OPS").is_some(){"ops fallback"}else{"native reduction Metal"}},"prompt_ids":prompt,"load_seconds":load_seconds,"runs":records});
     if let Some(output) = a.output {
         std::fs::write(output, serde_json::to_vec_pretty(&report)?)?;
     } else if !a.stream {

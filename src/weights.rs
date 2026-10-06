@@ -109,6 +109,9 @@ pub struct Linear {
 impl Linear {
     /// Match the oracle's decode-equivalent reductions for narrow gate projections.
     pub fn forward_rows(&self, x: &Array) -> Result<Array> {
+        if crate::calibration::active() {
+            crate::calibration::record(self, x)?;
+        }
         if crate::matrix_kernel::enabled()
             && let Some(y) = crate::matrix_kernel::selected(self, x)?
         {
@@ -161,19 +164,24 @@ impl Linear {
             use mlx_rs::ops::indexing::IndexOp;
             let flat = x.reshape(&[1, x.shape()[0] * x.shape()[1], x.shape()[2]])?;
             let rows = (0..flat.shape()[1])
-                .map(|i| self.forward(&flat.index((.., i..i + 1, ..))))
+                .map(|i| self.forward_unrecorded(&flat.index((.., i..i + 1, ..))))
                 .collect::<Result<Vec<_>>>()?;
             let y = ops::concatenate(&rows.iter().collect::<Vec<_>>(), 1)?;
             Ok(y.reshape(&[x.shape()[0], x.shape()[1], y.shape()[2]])?)
         } else {
-            self.forward(x)
+            self.forward_unrecorded(x)
         }
     }
     pub fn forward(&self, x: &Array) -> Result<Array> {
         if crate::verification::rows() && x.ndim() == 3 && x.shape()[0] * x.shape()[1] > 1 {
             return self.forward_rows(x);
         }
-
+        if crate::calibration::active() {
+            crate::calibration::record(self, x)?;
+        }
+        self.forward_unrecorded(x)
+    }
+    fn forward_unrecorded(&self, x: &Array) -> Result<Array> {
         let mut y = if let Some(q) = &self.quant {
             ops::quantized_matmul(
                 x,

@@ -3,6 +3,10 @@ use clap::Parser;
 #[derive(Parser)]
 struct Args {
     #[arg(long)]
+    resident_overlay: Option<std::path::PathBuf>,
+    #[arg(long)]
+    native_gate_up: bool,
+    #[arg(long)]
     matrix_packed: bool,
     #[arg(long)]
     kv_blocks: bool,
@@ -46,8 +50,14 @@ fn main() -> Result<()> {
     rust_mlx::matrix_kernel::set_packed(args.matrix_packed);
     rust_mlx::kv_blocks::set_enabled(args.kv_blocks);
     let path = args.model.as_path();
-    let w = Weights::load(path)?;
-    let m = HybridModel::load(&w, path)?;
+    let mut w = Weights::load(path)?;
+    if let Some(overlay) = &args.resident_overlay {
+        rust_mlx::resident_quant::apply_overlay(&mut w, path, overlay)?;
+    }
+    let mut m = HybridModel::load(&w, path)?;
+    if args.native_gate_up {
+        rust_mlx::moe_layout::prepare_model(&mut m, &mut w)?;
+    }
     for layer in &m.layers {
         layer.moe.sorted_mode.set(args.sorted_moe);
     }
@@ -62,11 +72,14 @@ fn main() -> Result<()> {
     let tokens = [271, 248068, 198, 760];
     let mut reports = Vec::new();
     for keep in 0..=4 {
+        rust_mlx::moe_layout::set_enabled(false);
         let mut expected = base.clone();
         let mut candidate = base.clone();
         for &t in &tokens[..keep] {
             m.forward(&[t], &mut expected)?.0.eval()?;
         }
+        let layout_before = rust_mlx::moe_layout::calls();
+        rust_mlx::moe_layout::set_enabled(args.native_gate_up);
         verification::with_mode(|| m.forward(&tokens, &mut candidate))?
             .0
             .eval()?;
@@ -75,7 +88,9 @@ fn main() -> Result<()> {
             candidate.offset == expected.offset && candidate.history == expected.history,
             "CPU rollback mismatch"
         );
+        rust_mlx::moe_layout::set_enabled(false);
         let (e, _) = m.forward(&[1156], &mut expected)?;
+        rust_mlx::moe_layout::set_enabled(args.native_gate_up);
         let (a, _) = m.forward(&[1156], &mut candidate)?;
         let le = error(&e, &a)?;
         let mut state = 0f32;
@@ -112,8 +127,14 @@ fn main() -> Result<()> {
             }
         }
         println!("keep={keep} logits={le} state={state}");
+        if args.native_gate_up {
+            ensure!(
+                rust_mlx::moe_layout::calls() > layout_before,
+                "native gate/up rollback did not engage"
+            );
+        }
         ensure!(le == 0. && state == 0., "rollback is not exact");
-        reports.push(serde_json::json!({"matrix_packed":args.matrix_packed,"matrix_calls":rust_mlx::matrix_kernel::calls(),"sorted_moe":args.sorted_moe,"keep":keep,"logit_error":le,"state_error":state}));
+        reports.push(serde_json::json!({"resident_overlay":args.resident_overlay,"native_gate_up":args.native_gate_up,"layout_calls":rust_mlx::moe_layout::calls(),"matrix_packed":args.matrix_packed,"matrix_calls":rust_mlx::matrix_kernel::calls(),"sorted_moe":args.sorted_moe,"keep":keep,"logit_error":le,"state_error":state}));
     }
     std::fs::write(&args.output, serde_json::to_vec_pretty(&reports)?)?;
     println!("ROLLBACK_PARITY_PASSED");

@@ -105,6 +105,8 @@ impl HyperConnection {
     }
 }
 pub struct MoE {
+    /// Lossless native gather of concatenated gate/up expert rows, experimental.
+    pub gate_up: Option<Linear>,
     pub fused_mode: std::cell::Cell<bool>,
     /// Experimental expert-major ordering for decode-equivalent verifier rows.
     pub sorted_mode: std::cell::Cell<bool>,
@@ -125,6 +127,7 @@ pub fn sorted_moe_calls() -> u64 {
 impl MoE {
     pub fn load(w: &Weights, p: &str, c: &HybridConfig) -> Result<Self> {
         Ok(Self {
+            gate_up: None,
             fused_mode: std::cell::Cell::new(std::env::var_os("RUST_MLX_FUSED_MOE").is_some()),
             sorted_mode: std::cell::Cell::new(false),
             router: w.linear(&format!("{p}.gate"))?,
@@ -203,7 +206,25 @@ impl MoE {
             self.sorted_experts(x, &ids)?
         } else {
             let xe = x.expand_dims(-2)?.expand_dims(-2)?;
-            let fused = if self.fused_mode.get() {
+            let packed = if crate::moe_layout::enabled() {
+                self.gate_up
+                    .as_ref()
+                    .map(|l| -> Result<_> {
+                        let y = Self::gather(l, &xe, &ids)?;
+                        let n = y.shape()[y.ndim() - 1] / 2;
+                        crate::moe_layout::record_call();
+                        Ok((
+                            y.index((.., .., .., .., ..n)),
+                            y.index((.., .., .., .., n..)),
+                        ))
+                    })
+                    .transpose()?
+            } else {
+                None
+            };
+            let fused = if packed.is_some() {
+                packed
+            } else if self.fused_mode.get() {
                 crate::moe_kernel::gate_up(&self.up, &self.gate, x, &ids)?
             } else {
                 None

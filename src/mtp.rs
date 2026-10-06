@@ -8,6 +8,8 @@ use crate::{
 use anyhow::{Context, Result, ensure};
 use mlx_rs::Array;
 pub struct Mtp {
+    pub draft_head: Option<crate::draft_head::DraftHead>,
+    pub draft_head_enabled: std::cell::Cell<bool>,
     /// Experimental lazy draft chain; target verification still consumes CPU IDs.
     pub gpu_draft: std::cell::Cell<bool>,
     /// CLI diagnostics only; serving does not retain private proposal IDs.
@@ -35,6 +37,8 @@ impl Mtp {
     pub fn load(w: &Weights, c: &HybridConfig) -> Result<Self> {
         let p = "mtp.layers.0";
         Ok(Self {
+            draft_head: None,
+            draft_head_enabled: std::cell::Cell::new(false),
             gpu_draft: std::cell::Cell::new(false),
             record_drafts: std::cell::Cell::new(false),
             adaptive_depth: std::cell::Cell::new(false),

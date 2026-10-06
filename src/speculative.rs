@@ -276,13 +276,26 @@ pub fn generate_prepared(
         ids.eval()?;
         ranked = ids.as_slice::<u32>().to_vec();
     }
-    let mut draft_head = crate::draft_vocab::DraftVocabulary::new(
-        &m.head,
-        draft.draft_vocab_limit.get(),
-        prompt,
-        eos,
-        &ranked,
-    )?;
+    ensure!(
+        !draft.draft_head_enabled.get() || (limit == 0 && !draft.adaptive_vocab.get()),
+        "fixed draft head cannot be combined with prompt-adaptive shortlists"
+    );
+    let mut draft_head = if draft.draft_head_enabled.get() {
+        crate::draft_vocab::DraftVocabulary::prepared(
+            draft
+                .draft_head
+                .as_ref()
+                .ok_or_else(|| anyhow::anyhow!("enabled draft head has not been prepared"))?,
+        )
+    } else {
+        crate::draft_vocab::DraftVocabulary::new(
+            &m.head,
+            draft.draft_vocab_limit.get(),
+            prompt,
+            eos,
+            &ranked,
+        )?
+    };
     let full_head = crate::draft_vocab::DraftVocabulary::new(&m.head, 0, prompt, eos, &[])?;
     let costs = draft.adaptive_depth_costs.get();
     ensure!(

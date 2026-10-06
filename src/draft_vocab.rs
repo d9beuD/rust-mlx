@@ -5,6 +5,7 @@ use mlx_rs::{Array, ops::indexing};
 pub(crate) struct DraftVocabulary<'a> {
     full: &'a Linear,
     selected: Option<(Linear, Vec<u32>)>,
+    fixed: Option<&'a crate::draft_head::DraftHead>,
 }
 
 pub(crate) enum DraftToken {
@@ -13,6 +14,13 @@ pub(crate) enum DraftToken {
 }
 
 impl<'a> DraftVocabulary<'a> {
+    pub(crate) fn prepared(head: &'a crate::draft_head::DraftHead) -> Self {
+        Self {
+            full: &head.linear,
+            selected: None,
+            fixed: Some(head),
+        }
+    }
     pub(crate) fn size(&self) -> usize {
         self.selected
             .as_ref()
@@ -35,6 +43,7 @@ impl<'a> DraftVocabulary<'a> {
             return Ok(Self {
                 full,
                 selected: None,
+                fixed: None,
             });
         }
         let mut rows = (0..limit as u32)
@@ -54,6 +63,7 @@ impl<'a> DraftVocabulary<'a> {
             return Ok(Self {
                 full,
                 selected: None,
+                fixed: None,
             });
         }
         let ids = Array::from_slice(&rows, &[rows.len() as i32]);
@@ -72,6 +82,7 @@ impl<'a> DraftVocabulary<'a> {
         Ok(Self {
             full,
             selected: Some((selected, rows)),
+            fixed: None,
         })
     }
     pub(crate) fn greedy(&self, x: &Array) -> Result<u32> {
@@ -85,6 +96,10 @@ impl<'a> DraftVocabulary<'a> {
             rows.get(local as usize)
                 .copied()
                 .context("draft local ID outside shortlist")
+        } else if let Some(rows) = self.fixed.and_then(|h| h.rows.as_ref()) {
+            rows.get(local as usize)
+                .copied()
+                .context("draft ID outside fixed vocabulary")
         } else {
             Ok(local)
         }
@@ -102,6 +117,8 @@ impl<'a> DraftVocabulary<'a> {
         };
         let token = if let Some((_, rows)) = &self.selected {
             Array::from_slice(rows, &[rows.len() as i32]).take(&local)?
+        } else if let Some(ids) = self.fixed.and_then(|h| h.ids.as_ref()) {
+            ids.take(&local)?
         } else {
             local
         };
@@ -114,6 +131,92 @@ mod tests {
     use super::*;
     use crate::weights::Quantization;
     use mlx_rs::{Dtype, ops};
+    #[test]
+    fn fixed_head_matches_native_requantization_and_global_mapping() {
+        use crate::draft_head::DraftHead;
+        let (n, k) = (8224, 64);
+        let source = Array::from_iter((0..n * k).map(|i| (i as f32 * 0.19).sin() * 0.15), &[n, k])
+            .as_dtype(Dtype::Bfloat16)
+            .unwrap();
+        let (w, s, b) = ops::quantize(&source, 64, 8).unwrap();
+        let full = Linear {
+            weight: w,
+            scales: Some(s),
+            biases: Some(b),
+            bias: None,
+            quant: Some(Quantization {
+                bits: 8,
+                group_size: 64,
+                mode: "affine".into(),
+            }),
+        };
+        let x = Array::from_iter((0..k).map(|i| (i as f32 * 0.11).cos()), &[1, 1, k])
+            .as_dtype(Dtype::Bfloat16)
+            .unwrap();
+        for bits in [4, 6] {
+            let copy = DraftHead::prepare(&full, Some(bits), &[]).unwrap();
+            assert!(copy.rows.is_none());
+            let native = ops::dequantize(
+                &full.weight,
+                full.scales.as_ref().unwrap(),
+                full.biases.as_ref(),
+                64,
+                8,
+            )
+            .unwrap();
+            let (w, s, b) = ops::quantize(native, 64, bits).unwrap();
+            let expected = ops::quantized_matmul(&x, &w, &s, Some(&b), true, 64, bits)
+                .unwrap()
+                .as_dtype(Dtype::Float32)
+                .unwrap()
+                .contiguous()
+                .unwrap();
+            let actual = copy
+                .linear
+                .forward(&x)
+                .unwrap()
+                .as_dtype(Dtype::Float32)
+                .unwrap()
+                .contiguous()
+                .unwrap();
+            mlx_rs::transforms::eval([&actual, &expected]).unwrap();
+            assert_eq!(actual.as_slice::<f32>(), expected.as_slice::<f32>());
+        }
+        let copy = DraftHead::prepare(&full, None, &[8223, 12, 97, 12]).unwrap();
+        assert_eq!(copy.rows.as_ref().unwrap(), &[12, 97, 8223]);
+        let vocab = DraftVocabulary::prepared(&copy);
+        let native = full
+            .forward(&x)
+            .unwrap()
+            .take_axis(copy.ids.as_ref().unwrap(), -1)
+            .unwrap()
+            .as_dtype(Dtype::Float32)
+            .unwrap()
+            .contiguous()
+            .unwrap();
+        let actual = copy
+            .linear
+            .forward(&x)
+            .unwrap()
+            .as_dtype(Dtype::Float32)
+            .unwrap()
+            .contiguous()
+            .unwrap();
+        mlx_rs::transforms::eval([&native, &actual]).unwrap();
+        assert_eq!(native.as_slice::<f32>(), actual.as_slice::<f32>());
+        let local = indexing::argmax(&native, false)
+            .unwrap()
+            .item_exact::<u32>();
+        let expected = copy.rows.as_ref().unwrap()[local as usize];
+        assert_eq!(vocab.greedy(&x).unwrap(), expected);
+        let DraftToken::Gpu(id) = vocab.greedy_token(&x, true).unwrap() else {
+            panic!("expected GPU token")
+        };
+        assert_eq!(id.item_exact::<u32>(), expected);
+        assert!(DraftHead::prepare(&full, Some(5), &[]).is_err());
+        assert!(DraftHead::prepare(&full, None, &[n as u32]).is_err());
+        assert_eq!(full.quant.as_ref().unwrap().bits, 8);
+    }
     #[test]
     fn mixed_quantized_shortlist_matches_selected_full_logits_and_global_ids() {
         for bits in [4, 5, 6, 8] {
