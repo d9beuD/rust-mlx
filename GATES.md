@@ -106,3 +106,21 @@ G18–G24 describe the completed historical round-two scope (source483b3cd). Its
   CHECK: PATH="$PWD/.venv/bin:$PATH" scripts/check.sh
   EXPECT: QUALITY_CHECKS_PASSED
   EVIDENCE: source86cf8780 passes34 release/33 portable instrumented tests, strict format/all-target/all-feature Clippy,14 actual model verifier/rollback checks and two actual private draft-head shader checks. Default FIFO/plain batch8 HTTP/cancellation/Unicode tests pass; only task-owned servers stop. scripts/analyze_decode3.py --final recomputes all required scopes and rejects corrupt identity/mislabel controls. Implementation e76a705b964a24918579c6a29f8fdcc498d580b2 and evidence26c8201b1e550b8414ab7dbf5764afe26c4cdd9f are published by git push origin main (exit0); gh api independently returns26c8201 as public main. Prior source quality reports remain archived, raw reports include all samples/commands/binary/source identities. User .agents remains untracked/unpublished; checkpoints/private corpus/logits/captures are unchanged/unpublished. Documentation-only closure does not change the qualified core.
+# Solo decode follow-up: MTPLX kernels and remaining directions (base676498c)
+
+- [x] G34: attribute actual greedy MTP cycle costs and CPU/GPU scheduling on fresh-cache solo requests
+  EVIDENCE: followup-attribution-summary.json binds fresh-cache four-run256-token baseline (median70.283tok/s), natural own-process CPU sampling and successful4s Metal trace (24,033 active compute intervals), plus native-exact synchronized short12-round/long2107-token4-round diagnostics. First trace/save timeout and export failure retained. Shader labels/DRAM counters unavailable; inclusive CPU samples and GPU gaps never treated as removable wall time. Instrumented rates excluded; subsequent core changes require separate current qualification.
+- [ ] G35: evaluate targeted MTPLX-style MoE/routing fusions with native mixed-BF16 reference
+  EVIDENCE: pending; pinned upstream contract/licence, actual shapes, router IDs/reduction casts, instrumented verifier/rollback and full trajectory qualification before repeated throughput.
+- [x] G36: evaluate PLE preparation overlap and QSA setup reuse without changing model/cache semantics
+  EVIDENCE: followup-runtime-summary.json; early immutable PLE preparation, bounded RoPE position sharing and per-Kernel complete-key MLX-C config reuse pass8 actual verifier/rollback shader checks,37 release and36 portable instrumented tests. Four alternating warmed256-token raw pairs per policy and representative combined chats preserve canonical IDs; raw gains−0.113/+0.078/−0.133/+0.029%, below promotion. Default policies remain off; per-request history/rollback preserved.
+- [ ] G37: evaluate a distinct improved draft predictor and the feasibility of training/distillation
+  EVIDENCE: pending; independent preparation/training and evaluation inputs, draft cost/acceptance per depth, exact target verification, repeated full-generation comparison; existing rejected depth policies are controls, not new outcomes.
+- [ ] G38: evaluate a weight-format/kernel pair beyond previously tested resident requantization
+  EVIDENCE: pending; actual selected expert shapes, packing/preparation memory costs, native numerical reference, separate quality accounting for any changed target, component and eligible full-generation evidence.
+- [ ] G39: integrate all qualified results, preserve native/default fallbacks, and refresh current-source quality
+  CHECK: PATH="$PWD/.venv/bin:$PATH" scripts/check.sh
+  EXPECT: QUALITY_CHECKS_PASSED
+  EVIDENCE: pending; numerical/actual Metal/rollback checks, HTTP default and batch cancellation/UTF-8 regression, complete source-bound reports and successes/failures with commands/commit in docs/research-log.md.
+- [ ] G40: audit and report every follow-up direction against current authoritative evidence
+  EVIDENCE: pending; new study document, raw reports with model/hardware/mixed quantization/prompt-output IDs/cache/MTP/sampler/repetition/variance; qualified gains distinguished from rejected/approximate/instrumented results, no aggregate-as-solo or guaranteed100 claim.

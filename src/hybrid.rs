@@ -197,10 +197,28 @@ impl MoE {
                 && self.down.weight.shape()[0] == self.router.weight.shape()[0],
             "expert/router count mismatch"
         );
-        let gates = ops::softmax_axis(&self.router.forward(x)?, -1, true)?;
-        let ids = ops::argpartition_axis(&gates, -self.top_k, -1)?.index((.., .., -self.top_k..));
-        let scores = gates.take_along_axis(&ids, -1)?;
-        let scores = scores.divide(&scores.sum_axis(-1, true)?)?;
+        let logits = self.router.forward(x)?;
+        let route = if crate::moe_route::enabled()
+            && x.dtype() == mlx_rs::Dtype::Bfloat16
+            && x.shape()[0] == 1
+            && (1..=8).contains(&x.shape()[1])
+            && self.top_k == 10
+            && self.router.weight.shape()[0] == 512
+        {
+            crate::moe_route::tail(&logits, &self.shared_gate.forward_rows(x)?, self.top_k)?
+        } else {
+            None
+        };
+        let (ids, scores, shared_factor) = if let Some((ids, scores, factor)) = route {
+            (ids, scores, Some(factor))
+        } else {
+            let gates = ops::softmax_axis(&logits, -1, true)?;
+            let ids =
+                ops::argpartition_axis(&gates, -self.top_k, -1)?.index((.., .., -self.top_k..));
+            let scores = gates.take_along_axis(&ids, -1)?;
+            let scores = scores.divide(&scores.sum_axis(-1, true)?)?;
+            (ids, scores, None)
+        };
         let y = if self.sorted_mode.get() && crate::verification::rows() && x.shape()[1] > 1 {
             SORTED_MOE_CALLS.with(|calls| calls.set(calls.get().wrapping_add(1)));
             self.sorted_experts(x, &ids)?
@@ -241,12 +259,11 @@ impl MoE {
         };
         let y = y.squeeze_axes(&[-2])?;
         let y = y.multiply(&scores.expand_dims(-1)?)?.sum_axis(-2, false)?;
-        Ok(y.add(
-            &self
-                .shared
-                .forward(x)?
-                .multiply(&ops::sigmoid(&self.shared_gate.forward_rows(x)?)?)?,
-        )?)
+        let shared_factor = match shared_factor {
+            Some(factor) => factor,
+            None => ops::sigmoid(&self.shared_gate.forward_rows(x)?)?,
+        };
+        Ok(y.add(&self.shared.forward(x)?.multiply(&shared_factor)?)?)
     }
 }
 #[derive(Default, Clone)]
@@ -562,9 +579,38 @@ impl HybridModel {
         )?
         .reshape(&[1, t, self.config.hc_count * self.config.hidden_size])?
         .contiguous()?;
+        // Preparation reads the same immutable CPU history and table rows as the
+        // native path. MLX owns asynchronous evaluation; arrays stay on this
+        // owning thread and no cache state is changed before the PLE layer.
+        let prepared = if crate::runtime_prepare::ple_enabled() && t <= 8 {
+            let embeddings = self
+                .ple
+                .iter()
+                .map(|p| {
+                    p.as_ref()
+                        .map(|p| p.embedding_tokens(tokens, &cache.history, h.dtype()))
+                        .transpose()
+                })
+                .collect::<Result<Vec<_>>>()?;
+            let work = embeddings
+                .iter()
+                .filter_map(Option::as_ref)
+                .collect::<Vec<_>>();
+            if !work.is_empty() {
+                mlx_rs::transforms::async_eval(work)?;
+                crate::runtime_prepare::record_ple();
+            }
+            Some(embeddings)
+        } else {
+            None
+        };
         for (i, l) in self.layers.iter().enumerate() {
             if let Some(ple) = &self.ple[i] {
-                h = ple.forward(&h, tokens, &cache.history, &mut cache.ple[i])?;
+                h = if let Some(emb) = prepared.as_ref().and_then(|p| p[i].as_ref()) {
+                    ple.forward_embedding(&h, emb, &mut cache.ple[i])?
+                } else {
+                    ple.forward(&h, tokens, &cache.history, &mut cache.ple[i])?
+                };
             }
             let (mixed, inject) = l.attn_hc.forward(&h)?;
             let branch = match (&l.attention, &mut cache.layers[i]) {

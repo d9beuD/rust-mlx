@@ -28,10 +28,7 @@ pub fn text(x: &Array, dim: i32, theta: f32, offset: i32, stride: i32) -> Result
     })?;
     let b = x.shape()[0];
     let t = x.shape()[2];
-    let ids = Array::from_iter(
-        (0..b).flat_map(|_| (offset..offset + t).map(|p| p * stride)),
-        &[b, t],
-    );
+    let ids = crate::runtime_prepare::positions(b, t, offset, stride)?;
     KERNEL.with(|k| {
         let mut k = k.borrow_mut();
         if k.is_none() {

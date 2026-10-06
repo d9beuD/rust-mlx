@@ -3,6 +3,10 @@ use clap::Parser;
 #[derive(Parser)]
 struct Args {
     #[arg(long)]
+    route_tail: bool,
+    #[arg(long,value_parser=["ple-prepare","rope-ids","config-reuse","runtime-prepare"])]
+    runtime_prepare: Option<String>,
+    #[arg(long)]
     resident_overlay: Option<std::path::PathBuf>,
     #[arg(long)]
     native_gate_up: bool,
@@ -72,6 +76,8 @@ fn main() -> Result<()> {
     let tokens = [271, 248068, 198, 760];
     let mut reports = Vec::new();
     for keep in 0..=4 {
+        rust_mlx::moe_route::set_enabled(false);
+        rust_mlx::runtime_prepare::configure(None, false);
         rust_mlx::moe_layout::set_enabled(false);
         let mut expected = base.clone();
         let mut candidate = base.clone();
@@ -79,17 +85,30 @@ fn main() -> Result<()> {
             m.forward(&[t], &mut expected)?.0.eval()?;
         }
         let layout_before = rust_mlx::moe_layout::calls();
+        let route_before = rust_mlx::moe_route::calls();
+        rust_mlx::moe_route::set_enabled(args.route_tail);
+        rust_mlx::runtime_prepare::configure(args.runtime_prepare.as_deref(), true);
         rust_mlx::moe_layout::set_enabled(args.native_gate_up);
         verification::with_mode(|| m.forward(&tokens, &mut candidate))?
             .0
             .eval()?;
         candidate.commit_verified(&base, &tokens, keep, &m.config)?;
+        if args.route_tail {
+            ensure!(
+                rust_mlx::moe_route::calls() > route_before,
+                "route tail did not engage"
+            );
+        }
         ensure!(
             candidate.offset == expected.offset && candidate.history == expected.history,
             "CPU rollback mismatch"
         );
         rust_mlx::moe_layout::set_enabled(false);
+        rust_mlx::moe_route::set_enabled(false);
+        rust_mlx::runtime_prepare::configure(None, false);
         let (e, _) = m.forward(&[1156], &mut expected)?;
+        rust_mlx::moe_route::set_enabled(args.route_tail);
+        rust_mlx::runtime_prepare::configure(args.runtime_prepare.as_deref(), true);
         rust_mlx::moe_layout::set_enabled(args.native_gate_up);
         let (a, _) = m.forward(&[1156], &mut candidate)?;
         let le = error(&e, &a)?;
@@ -134,7 +153,7 @@ fn main() -> Result<()> {
             );
         }
         ensure!(le == 0. && state == 0., "rollback is not exact");
-        reports.push(serde_json::json!({"resident_overlay":args.resident_overlay,"native_gate_up":args.native_gate_up,"layout_calls":rust_mlx::moe_layout::calls(),"matrix_packed":args.matrix_packed,"matrix_calls":rust_mlx::matrix_kernel::calls(),"sorted_moe":args.sorted_moe,"keep":keep,"logit_error":le,"state_error":state}));
+        reports.push(serde_json::json!({"runtime_prepare":args.runtime_prepare,"runtime_prepare_calls":rust_mlx::runtime_prepare::stats(),"route_tail":args.route_tail,"route_tail_calls":rust_mlx::moe_route::calls(),"resident_overlay":args.resident_overlay,"native_gate_up":args.native_gate_up,"layout_calls":rust_mlx::moe_layout::calls(),"matrix_packed":args.matrix_packed,"matrix_calls":rust_mlx::matrix_kernel::calls(),"sorted_moe":args.sorted_moe,"keep":keep,"logit_error":le,"state_error":state}));
     }
     std::fs::write(&args.output, serde_json::to_vec_pretty(&reports)?)?;
     println!("ROLLBACK_PARITY_PASSED");

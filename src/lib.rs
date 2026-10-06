@@ -24,6 +24,7 @@ pub mod greedy_head;
 pub mod hyper_compiled;
 pub mod moe_kernel;
 pub mod moe_layout;
+pub mod moe_route;
 pub mod mtp;
 pub mod qmv_kernel;
 pub mod qsa_kernel;
@@ -33,3 +34,5 @@ pub mod speculative;
 pub mod verification;
 
 pub mod kv_blocks;
+
+pub mod runtime_prepare;

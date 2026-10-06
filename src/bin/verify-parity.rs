@@ -3,6 +3,10 @@ use clap::Parser;
 #[derive(Parser)]
 struct Args {
     #[arg(long)]
+    route_tail: bool,
+    #[arg(long,value_parser=["ple-prepare","rope-ids","config-reuse","runtime-prepare"])]
+    runtime_prepare: Option<String>,
+    #[arg(long)]
     resident_overlay: Option<std::path::PathBuf>,
     #[arg(long)]
     native_gate_up: bool,
@@ -74,6 +78,8 @@ fn main() -> Result<()> {
     let mut tail = prompt.index((0, -1, ..));
     let mut records = Vec::new();
     for depth in [2, 3, 4, 5, 6, 7, 8, 2, 3, 4, 5, 6, 7, 8] {
+        rust_mlx::moe_route::set_enabled(false);
+        rust_mlx::runtime_prepare::configure(None, false);
         rust_mlx::moe_layout::set_enabled(false);
         let mut batched = cache.clone();
         let mut tokens = Vec::new();
@@ -92,11 +98,20 @@ fn main() -> Result<()> {
         let reference = started.elapsed().as_secs_f64();
         let matrix_before = rust_mlx::matrix_kernel::calls();
         let layout_before = rust_mlx::moe_layout::calls();
+        let route_before = rust_mlx::moe_route::calls();
+        rust_mlx::moe_route::set_enabled(args.route_tail);
+        rust_mlx::runtime_prepare::configure(args.runtime_prepare.as_deref(), true);
         rust_mlx::moe_layout::set_enabled(args.native_gate_up);
         let started = std::time::Instant::now();
         let (l, h) = verification::with_mode(|| m.forward(&tokens, &mut batched))?;
         l.eval()?;
         let candidate = started.elapsed().as_secs_f64();
+        if args.route_tail {
+            ensure!(
+                rust_mlx::moe_route::calls() > route_before,
+                "route tail did not engage"
+            );
+        }
         let rl = mlx_rs::ops::concatenate(&logits, 1)?;
         let rh = mlx_rs::ops::concatenate(&hidden, 1)?;
         let le = error(&l, &rl)?;
@@ -145,7 +160,7 @@ fn main() -> Result<()> {
             reference * 1e3,
             candidate * 1e3
         );
-        records.push(serde_json::json!({"resident_overlay":args.resident_overlay,"native_gate_up":args.native_gate_up,"layout_calls":rust_mlx::moe_layout::calls(),"matrix_affine":args.matrix_affine,"matrix_packed":args.matrix_packed,"matrix_calls":rust_mlx::matrix_kernel::calls(),"sorted_moe":args.sorted_moe,"depth":depth,"logit_error":le,"hidden_error":he,"state_error":state,"reference_seconds":reference,"candidate_seconds":candidate,"tokens":tokens}));
+        records.push(serde_json::json!({"runtime_prepare":args.runtime_prepare,"runtime_prepare_calls":rust_mlx::runtime_prepare::stats(),"route_tail":args.route_tail,"route_tail_calls":rust_mlx::moe_route::calls(),"resident_overlay":args.resident_overlay,"native_gate_up":args.native_gate_up,"layout_calls":rust_mlx::moe_layout::calls(),"matrix_affine":args.matrix_affine,"matrix_packed":args.matrix_packed,"matrix_calls":rust_mlx::matrix_kernel::calls(),"sorted_moe":args.sorted_moe,"depth":depth,"logit_error":le,"hidden_error":he,"state_error":state,"reference_seconds":reference,"candidate_seconds":candidate,"tokens":tokens}));
         std::fs::write(&args.output, serde_json::to_vec_pretty(&records)?)?;
         if args.native_gate_up {
             ensure!(

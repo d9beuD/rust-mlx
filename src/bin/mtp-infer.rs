@@ -20,7 +20,7 @@ struct Args {
     #[arg(long)]
     native_gate_up: bool,
     /// Alternate a kernel candidate in the same process.
-    #[arg(long,value_parser=["packed","moe","qmv","shortlist","hc","stream-x","gemv","gdn","gpu-draft","sorted-moe","adaptive-depth","adaptive-vocab","adaptive","greedy-head","kv-blocks","qmv-address","matrix-affine","matrix-packed"])]
+    #[arg(long,value_parser=["packed","moe","qmv","shortlist","hc","stream-x","gemv","gdn","gpu-draft","sorted-moe","adaptive-depth","adaptive-vocab","adaptive","greedy-head","kv-blocks","qmv-address","matrix-affine","matrix-packed","route-tail","ple-prepare","rope-ids","config-reuse","runtime-prepare"])]
     ab_kernel: Option<String>,
     #[arg(long)]
     gpu_draft: bool,
@@ -200,7 +200,11 @@ fn main() -> Result<()> {
             vec![false]
         };
         for candidate in modes {
+            rust_mlx::runtime_prepare::configure(a.ab_kernel.as_deref(), candidate);
             if let Some(kernel) = &a.ab_kernel {
+                if kernel == "route-tail" {
+                    rust_mlx::moe_route::set_enabled(candidate);
+                }
                 if kernel == "matrix-affine" || kernel == "matrix-packed" {
                     rust_mlx::matrix_kernel::set_packed(kernel == "matrix-packed");
                     rust_mlx::matrix_kernel::set_enabled(candidate);
@@ -273,6 +277,8 @@ fn main() -> Result<()> {
                 let mut decoder = t.decode_stream(true);
                 let mut emitted = String::new();
                 let matrix_start = rust_mlx::matrix_kernel::calls();
+                let runtime_start = rust_mlx::runtime_prepare::stats();
+                let route_start = rust_mlx::moe_route::calls();
                 let layout_start = rust_mlx::moe_layout::calls();
                 let gemv_start = rust_mlx::gemv_kernel::launches();
                 let gdn_start = rust_mlx::gdn_compiled::calls();
@@ -305,6 +311,31 @@ fn main() -> Result<()> {
                 )?;
                 let gemv_launches = rust_mlx::gemv_kernel::launches().wrapping_sub(gemv_start);
                 let matrix_calls = rust_mlx::matrix_kernel::calls().wrapping_sub(matrix_start);
+                let runtime_calls = std::array::from_fn::<_, 3, _>(|i| {
+                    rust_mlx::runtime_prepare::stats()[i].wrapping_sub(runtime_start[i])
+                });
+                if candidate && g.tokens.len() > 1 {
+                    match a.ab_kernel.as_deref() {
+                        Some("ple-prepare") => {
+                            ensure!(runtime_calls[0] > 0, "PLE preparation did not engage")
+                        }
+                        Some("rope-ids") => {
+                            ensure!(runtime_calls[1] > 0, "position reuse did not engage")
+                        }
+                        Some("config-reuse") => {
+                            ensure!(runtime_calls[2] > 0, "config reuse did not engage")
+                        }
+                        Some("runtime-prepare") => ensure!(
+                            runtime_calls.iter().all(|&c| c > 0),
+                            "runtime preparation did not engage"
+                        ),
+                        _ => {}
+                    }
+                }
+                let route_calls = rust_mlx::moe_route::calls().wrapping_sub(route_start);
+                if a.ab_kernel.as_deref() == Some("route-tail") && candidate && g.tokens.len() > 1 {
+                    ensure!(route_calls > 0, "routing candidate was not engaged");
+                }
                 let layout_calls = rust_mlx::moe_layout::calls().wrapping_sub(layout_start);
                 if a.native_gate_up && g.tokens.len() > 1 {
                     ensure!(layout_calls > 0, "native gate/up candidate did not engage");
@@ -379,7 +410,7 @@ fn main() -> Result<()> {
                                 serde_json::to_vec_pretty(&json!({
                                     "environment":environment,"model":a.model,"quantization":w.config["quantization"],
                                     "prompt_ids":ids,"runtime":{"mtp":true,"draft_depth":depth,"sampler":"greedy","batch_size":1,"prefix_cache":false,"warmup_tokens":a.warmup_tokens,"ignore_eos":a.ignore_eos},
-                                    "kernel_candidate":a.ab_kernel,"candidate_enabled":candidate,"matrix_calls":matrix_calls,
+                                    "kernel_candidate":a.ab_kernel,"candidate_enabled":candidate,"matrix_calls":matrix_calls,"route_tail_calls":route_calls,"runtime_prepare_calls":runtime_calls,
                                     "generation":g,"expected_tokens":e,"run":run,
                                     "first_mismatch":g.tokens.iter().zip(e).position(|(a,b)|a!=b),
                                     "complete":false,"qualified":false,"failure":"MTP trajectory differs from baseline"
@@ -391,7 +422,7 @@ fn main() -> Result<()> {
                             "MTP trajectory differs from baseline"
                         );
                     }
-                    records.push(json!({"native_gate_up":a.native_gate_up,"layout_calls":layout_calls,"run":run,"kernel_candidate":a.ab_kernel,"candidate_enabled":candidate,"adaptive_depth":draft.adaptive_depth.get(),"adaptive_depth_costs":draft.adaptive_depth_costs.get(),"adaptive_vocab":draft.adaptive_vocab.get(),"kv_blocks":rust_mlx::kv_blocks::enabled(),"kv_block_calls":kv_calls,"greedy_head":rust_mlx::greedy_head::enabled(),"greedy_head_calls":head_calls,"sorted_moe_calls":sorted_calls,"gpu_draft":draft.gpu_draft.get(),"draft_vocab_limit":draft.draft_vocab_limit.get(),"draft_vocab_refresh_rounds":draft.draft_vocab_refresh_rounds.get(),"qmv_address32_calls":address_calls,"qmv_address32":rust_mlx::qmv_kernel::address32(),"qmv":rust_mlx::qmv_kernel::enabled(),"hc_projection":rust_mlx::hc_kernel::enabled(),"shared_gemv":rust_mlx::gemv_kernel::enabled(),"gemv_narrow":rust_mlx::gemv_kernel::narrow(),"gemv_launches":gemv_launches,"matrix_enabled":rust_mlx::matrix_kernel::enabled(),"matrix_packed":rust_mlx::matrix_kernel::packed(),"matrix_calls":matrix_calls,"compiled_gdn":rust_mlx::gdn_compiled::enabled(),"compiled_gdn_calls":gdn_calls,"draft_depth":depth,"decode_tokens_per_second":tps,"text":t.decode(&g.tokens,true).ok(),"generation":g,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
+                    records.push(json!({"route_tail_calls":route_calls,"runtime_prepare_calls":runtime_calls,"native_gate_up":a.native_gate_up,"layout_calls":layout_calls,"run":run,"kernel_candidate":a.ab_kernel,"candidate_enabled":candidate,"adaptive_depth":draft.adaptive_depth.get(),"adaptive_depth_costs":draft.adaptive_depth_costs.get(),"adaptive_vocab":draft.adaptive_vocab.get(),"kv_blocks":rust_mlx::kv_blocks::enabled(),"kv_block_calls":kv_calls,"greedy_head":rust_mlx::greedy_head::enabled(),"greedy_head_calls":head_calls,"sorted_moe_calls":sorted_calls,"gpu_draft":draft.gpu_draft.get(),"draft_vocab_limit":draft.draft_vocab_limit.get(),"draft_vocab_refresh_rounds":draft.draft_vocab_refresh_rounds.get(),"qmv_address32_calls":address_calls,"qmv_address32":rust_mlx::qmv_kernel::address32(),"qmv":rust_mlx::qmv_kernel::enabled(),"hc_projection":rust_mlx::hc_kernel::enabled(),"shared_gemv":rust_mlx::gemv_kernel::enabled(),"gemv_narrow":rust_mlx::gemv_kernel::narrow(),"gemv_launches":gemv_launches,"matrix_enabled":rust_mlx::matrix_kernel::enabled(),"matrix_packed":rust_mlx::matrix_kernel::packed(),"matrix_calls":matrix_calls,"compiled_gdn":rust_mlx::gdn_compiled::enabled(),"compiled_gdn_calls":gdn_calls,"draft_depth":depth,"decode_tokens_per_second":tps,"text":t.decode(&g.tokens,true).ok(),"generation":g,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
                 }
             }
         }
