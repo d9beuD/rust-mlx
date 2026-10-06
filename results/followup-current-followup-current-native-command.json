@@ -1,0 +1,24 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "scripts/run_decode3_checks.py",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--prefix",
+    "followup-current-native",
+    "--only",
+    "original"
+  ],
+  "log": "results/followup-current-followup-current-native.log",
+  "sha256": "d89ccac85e99a75fda2d64011836f63132f2dae4809eb24e33cf64b0d01de367",
+  "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+  "started_unix": 1791301859.776285,
+  "ended_unix": 1791301890.38127,
+  "exit_code": 0,
+  "passed": true,
+  "success_marker": "DECODE3_ACTUAL_CHECKS_PASSED",
+  "contains_metal_validation_enabled": false,
+  "validation_environment": {}
+}

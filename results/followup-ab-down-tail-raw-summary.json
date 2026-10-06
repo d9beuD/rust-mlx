@@ -1,0 +1,72 @@
+{
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "kernel": "down-tail",
+  "suite": "raw",
+  "source_sha256": "9442fc948c978975efeb1c4ec77eec808a00dc667046af966baf08bb2b4f57e0",
+  "protocol": "four alternating baseline/candidate pairs in one model process; both warmed256; fresh caches; greedy depth3; complete priming/draft/verify/rollback/sync cost",
+  "records": [
+    {
+      "prompt": 0,
+      "report": "results/followup-ab-down-tail-raw-p0.json",
+      "receipt": {
+        "command": [
+          "target/release/mtp-infer",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--prompt",
+          "Write a short Rust function that computes Fibonacci numbers.",
+          "--max-tokens",
+          "256",
+          "--warmup-tokens",
+          "256",
+          "--runs",
+          "4",
+          "--draft-depth",
+          "3",
+          "--ignore-eos",
+          "--ab-kernel",
+          "down-tail",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-down-tail-raw-p0.json",
+          "--expected",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-down-tail-raw-p0-oracle.json"
+        ],
+        "exit_code": 0,
+        "source_sha256": "9442fc948c978975efeb1c4ec77eec808a00dc667046af966baf08bb2b4f57e0",
+        "binary_sha256": "e7bf549267eb86d0cc58d2953a5697bd6f9afdfea3c0cda545df84b2b2b370ae",
+        "started_unix": 1791300587.1518028,
+        "ended_unix": 1791300633.339194,
+        "log_sha256": "baa6960fedac2fc9275a291080ca338684fa96ad37b18bcdbe765a98a9264c10",
+        "report_sha256": "324a9a4f3f255a823ac3a4ef65f9e3dcf9236cac8a638244f065d443d69e1c76",
+        "oracle_report": "results/target-baseline-256.json",
+        "oracle_sha256": "6c6eeb4533507faa5c8725b68a1a63c4d12837de0986ee9ec826ce9a9afa2106"
+      },
+      "native_samples": [
+        70.0843747161411,
+        69.72270311960472,
+        69.71699083101657,
+        69.85762126444075
+      ],
+      "candidate_samples": [
+        70.24926115022775,
+        70.16252035144383,
+        70.17657482452101,
+        69.78774728814106
+      ],
+      "native_median": 69.79016219202273,
+      "candidate_median": 70.16954758798242,
+      "paired_gain_samples_percent": [
+        0.2352684671219185,
+        0.6308092087087269,
+        0.6592137555368582,
+        -0.10002341195556319
+      ],
+      "paired_gain_median_percent": 0.4330388379153227,
+      "native_cv": 0.0024632704202795465,
+      "candidate_cv": 0.0029630769759574284,
+      "exact_original_256_ids": true
+    }
+  ],
+  "complete": true,
+  "promoted": false
+}

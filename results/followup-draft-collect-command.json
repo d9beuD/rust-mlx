@@ -1,0 +1,27 @@
+{
+  "command": [
+    "target/release/draft-collect",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--corpus",
+    ".unlazy/decode3-corpus/model-corpus.json",
+    "--destination",
+    ".unlazy/followup-draft-logits",
+    "--output",
+    "results/followup-draft-collection.json"
+  ],
+  "name": "draft-collect",
+  "started_unix": 1791300084.837203,
+  "ended_unix": 1791300108.782836,
+  "source_sha256": "051d098534c0a22de003b16dc8b2c7bac424616a1e74df07a60de903d30535d1",
+  "executable_sha256": "7b048ff30029a6720c4d0926e89867d6701727ed3b8684c2bfa7308811d9f52e",
+  "script_sha256": null,
+  "exit_code": 0,
+  "validation_environment": {},
+  "marker": "DRAFT_PILOT_COLLECTION_PASSED",
+  "completed": true,
+  "report_sha256": "b62ee5d9a3b1fee9430264217e7d3af8bcaf39513f5ad4ca60eb973f5a7d8df5",
+  "log_sha256": "73610c423e8eb814ee9fdaa54da8d3f502e165def28fd2a71abb5a321e53bc03",
+  "timing_qualified": false,
+  "warning": "teacher-forced distillation data/training; not natural MTP throughput"
+}

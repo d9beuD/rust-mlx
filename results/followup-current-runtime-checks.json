@@ -1,0 +1,260 @@
+{
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "source_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+  "checks": [
+    {
+      "name": "ple-prepare-verify-metal",
+      "command": [
+        "target/release/verify-parity",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-current-runtime-ple-prepare-verify-metal.json",
+        "--runtime-prepare",
+        "ple-prepare"
+      ],
+      "started_unix": 1791301929.626847,
+      "ended_unix": 1791301947.2432818,
+      "source_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+      "binary_sha256": "d22ac03e9e2ea80531a5bf0e6d6ca725fca48e7f359ce1b2d267efb7350c803c",
+      "exit_code": 0,
+      "success_marker": "VERIFY_PARITY_PASSED",
+      "passed": true,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "log_sha256": "8359e79dfabd5de7ce0d3b4f8bf5668beeb375c52b4521512d77473dc971bef3",
+      "report_sha256": "709ceb2e2c00e7bab6d3d353d5871c286a1131c2776985fdac5d923fa3e69155",
+      "timing_qualified": false,
+      "engagement_axes": [
+        0
+      ]
+    },
+    {
+      "name": "ple-prepare-rollback-metal",
+      "command": [
+        "target/release/rollback-parity",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-current-runtime-ple-prepare-rollback-metal.json",
+        "--runtime-prepare",
+        "ple-prepare"
+      ],
+      "started_unix": 1791301947.275815,
+      "ended_unix": 1791301957.602257,
+      "source_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+      "binary_sha256": "609abbf7bcd051e3d7a8bdd0a8dc962b8390b0618f175cf629b2391b1cdd162f",
+      "exit_code": 0,
+      "success_marker": "ROLLBACK_PARITY_PASSED",
+      "passed": true,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "log_sha256": "c24632a9cd86f5f8d201a5998306e1f394fcc5114712924a42789d0306b9ec61",
+      "report_sha256": "c5714678da7bd47d0e1eb037829ea531a9728baed872f799b21c6ccf11560b92",
+      "timing_qualified": false,
+      "engagement_axes": [
+        0
+      ]
+    },
+    {
+      "name": "rope-ids-verify-metal",
+      "command": [
+        "target/release/verify-parity",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-current-runtime-rope-ids-verify-metal.json",
+        "--runtime-prepare",
+        "rope-ids"
+      ],
+      "started_unix": 1791301957.632363,
+      "ended_unix": 1791301976.216585,
+      "source_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+      "binary_sha256": "d22ac03e9e2ea80531a5bf0e6d6ca725fca48e7f359ce1b2d267efb7350c803c",
+      "exit_code": 0,
+      "success_marker": "VERIFY_PARITY_PASSED",
+      "passed": true,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "log_sha256": "712e869d50f356822e940b11108f9da177f356de54cbb67169c255b15accad7c",
+      "report_sha256": "ba68c6727c98a94c73c32dccc4afe0ac701ff357267abe2e32df702c07730d95",
+      "timing_qualified": false,
+      "engagement_axes": [
+        1
+      ]
+    },
+    {
+      "name": "rope-ids-rollback-metal",
+      "command": [
+        "target/release/rollback-parity",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-current-runtime-rope-ids-rollback-metal.json",
+        "--runtime-prepare",
+        "rope-ids"
+      ],
+      "started_unix": 1791301976.2468219,
+      "ended_unix": 1791301986.7374232,
+      "source_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+      "binary_sha256": "609abbf7bcd051e3d7a8bdd0a8dc962b8390b0618f175cf629b2391b1cdd162f",
+      "exit_code": 0,
+      "success_marker": "ROLLBACK_PARITY_PASSED",
+      "passed": true,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "log_sha256": "3136c300814a88195cab5f1facb12cfff08231bd80a557465a7fd6d8a8a64753",
+      "report_sha256": "b58e567921984a3bfe5b97a4ea2f4d2e21e4824abe6f52f38e66227b530bbaf4",
+      "timing_qualified": false,
+      "engagement_axes": [
+        1
+      ]
+    },
+    {
+      "name": "config-reuse-verify-metal",
+      "command": [
+        "target/release/verify-parity",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-current-runtime-config-reuse-verify-metal.json",
+        "--runtime-prepare",
+        "config-reuse"
+      ],
+      "started_unix": 1791301986.7721689,
+      "ended_unix": 1791302005.498755,
+      "source_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+      "binary_sha256": "d22ac03e9e2ea80531a5bf0e6d6ca725fca48e7f359ce1b2d267efb7350c803c",
+      "exit_code": 0,
+      "success_marker": "VERIFY_PARITY_PASSED",
+      "passed": true,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "log_sha256": "9ad398c54627c108bbe373c4ae7f8cc4bf46c07ff1278c7c42c1a5190f2d0cf4",
+      "report_sha256": "81f21d79fb8dafe9e5bbe822274e4650f28528612aebb84699b9ffa38831895f",
+      "timing_qualified": false,
+      "engagement_axes": [
+        2
+      ]
+    },
+    {
+      "name": "config-reuse-rollback-metal",
+      "command": [
+        "target/release/rollback-parity",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-current-runtime-config-reuse-rollback-metal.json",
+        "--runtime-prepare",
+        "config-reuse"
+      ],
+      "started_unix": 1791302005.5300338,
+      "ended_unix": 1791302015.703101,
+      "source_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+      "binary_sha256": "609abbf7bcd051e3d7a8bdd0a8dc962b8390b0618f175cf629b2391b1cdd162f",
+      "exit_code": 0,
+      "success_marker": "ROLLBACK_PARITY_PASSED",
+      "passed": true,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "log_sha256": "30f4cb626fe9dbaa1eaa81a7e444898e3c130e9c85ea3fb6722d8513a6b52653",
+      "report_sha256": "23f836b40b832fa057b2eaf8ed8a6f672832c41aaf386cc152e75f7eaa678ac5",
+      "timing_qualified": false,
+      "engagement_axes": [
+        2
+      ]
+    },
+    {
+      "name": "runtime-prepare-verify-metal",
+      "command": [
+        "target/release/verify-parity",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-current-runtime-runtime-prepare-verify-metal.json",
+        "--runtime-prepare",
+        "runtime-prepare"
+      ],
+      "started_unix": 1791302015.733531,
+      "ended_unix": 1791302034.540986,
+      "source_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+      "binary_sha256": "d22ac03e9e2ea80531a5bf0e6d6ca725fca48e7f359ce1b2d267efb7350c803c",
+      "exit_code": 0,
+      "success_marker": "VERIFY_PARITY_PASSED",
+      "passed": true,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "log_sha256": "7ced56c73e2c802fca4efaf0502577d3554622a2d1bd4d326d410f668d012f3d",
+      "report_sha256": "4067cd06af0cb54727c54700c4d91f182e47f71151d32ef3060305a33c4b8c21",
+      "timing_qualified": false,
+      "engagement_axes": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "runtime-prepare-rollback-metal",
+      "command": [
+        "target/release/rollback-parity",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-current-runtime-runtime-prepare-rollback-metal.json",
+        "--runtime-prepare",
+        "runtime-prepare"
+      ],
+      "started_unix": 1791302034.5725691,
+      "ended_unix": 1791302045.501921,
+      "source_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+      "binary_sha256": "609abbf7bcd051e3d7a8bdd0a8dc962b8390b0618f175cf629b2391b1cdd162f",
+      "exit_code": 0,
+      "success_marker": "ROLLBACK_PARITY_PASSED",
+      "passed": true,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "log_sha256": "4af20b328eb1d7f6460b615a9ac415acc48233c5ba7b57d4aaea8406174b8e50",
+      "report_sha256": "5c02473e7aee6b2dc1bd3c124cd71f7f50c5ec65b8175ac4a3a38e94f3628580",
+      "timing_qualified": false,
+      "engagement_axes": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

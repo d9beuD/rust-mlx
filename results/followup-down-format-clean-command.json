@@ -1,0 +1,19 @@
+{
+  "command": [
+    "target/release/down-bench",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--allow-inexact",
+    "--output",
+    "results/followup-down-format-clean-components.json"
+  ],
+  "source_sha256": "9442fc948c978975efeb1c4ec77eec808a00dc667046af966baf08bb2b4f57e0",
+  "binary_sha256": "c4fad4cfc180527a55936556a5d027aba4dce814cfdffbf98d2ec8d4c33b1fe4",
+  "report_sha256": "8daec7943304770323f0a2c90b1a5bc32a1a88e6227832c86b712edaf2aa5d31",
+  "log_sha256": "9156349ee7cc391f200c54dc13bd5f68a6777e6c59d07785108ab06059320273",
+  "started_unix": 1791300583.8540711,
+  "ended_unix": 1791300587.070049,
+  "exit_code": 0,
+  "validation": false,
+  "warning": "component experiment only; no promotion from these numbers"
+}

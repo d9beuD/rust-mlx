@@ -1,0 +1,19 @@
+{
+  "command": [
+    "cargo",
+    "build",
+    "--release"
+  ],
+  "log": "results/followup-current-build.log",
+  "sha256": "dd4a390ee5464c5dd848aa4447465ca4f0047a70f697d3b9cc49d489dfe17727",
+  "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+  "started_unix": 1791301775.719703,
+  "ended_unix": 1791301815.0877,
+  "exit_code": 0,
+  "passed": true,
+  "success_marker": null,
+  "contains_metal_validation_enabled": false,
+  "validation_environment": {}
+}

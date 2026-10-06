@@ -1,0 +1,28 @@
+{
+  "name": "down-tail-verify-metal",
+  "command": [
+    "target/release/verify-parity",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--output",
+    "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-vector-integrated-down-tail-verify-metal.json",
+    "--down-kernel",
+    "down-tail"
+  ],
+  "started_unix": 1791300939.767641,
+  "ended_unix": 1791300959.3587148,
+  "source_sha256": "f3ed56b7608c8a460849a869e6035b6dfe25027cb2dd92852d19570300a8f123",
+  "binary_sha256": "0ffaa0236f5036846c4e5e90e5c966791ae92666aa795a0af7d56d94d542575d",
+  "exit_code": 0,
+  "success_marker": "VERIFY_PARITY_PASSED",
+  "passed": true,
+  "validation_environment": {
+    "MTL_SHADER_VALIDATION": "1",
+    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+  },
+  "log_sha256": "c688386c24f33fdd387120fe80ac320162d2b0f996a709ecc7b411faf92976ff",
+  "report_sha256": "a885f505eebd4da2ce85661028ef846e01cf8560609f14fb27aeec5f37c8eec0",
+  "timing_qualified": false
+}

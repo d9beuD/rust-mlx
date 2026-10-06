@@ -13,11 +13,5 @@
   "passed": true,
   "success_marker": "QUALITY_CHECKS_PASSED",
   "contains_metal_validation_enabled": false,
-  "validation_environment": {},
-  "release_tests_passed": 38,
-  "checks": [
-    "cargo fmt --check",
-    "cargo clippy --workspace --all-targets --all-features -- -D warnings",
-    "cargo test --workspace --release"
-  ]
+  "validation_environment": {}
 }

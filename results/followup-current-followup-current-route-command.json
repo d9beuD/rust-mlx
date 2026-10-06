@@ -1,0 +1,22 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "scripts/run_followup_route_checks.py",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--prefix",
+    "followup-current-route"
+  ],
+  "log": "results/followup-current-followup-current-route.log",
+  "sha256": "0082e2733c9181240d4cb38ba467379d9ee7568169b197678bc58d457cdb47c7",
+  "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+  "started_unix": 1791301890.3904572,
+  "ended_unix": 1791301929.565069,
+  "exit_code": 0,
+  "passed": true,
+  "success_marker": "FOLLOWUP_ACTUAL_ROUTE_CHECKS_PASSED",
+  "contains_metal_validation_enabled": false,
+  "validation_environment": {}
+}

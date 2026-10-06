@@ -1,0 +1,90 @@
+{
+  "source_sha256": "051d098534c0a22de003b16dc8b2c7bac424616a1e74df07a60de903d30535d1",
+  "receipts": [
+    {
+      "command": [
+        "target/release/down-bench",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "results/followup-down-format-metal.json",
+        "--allow-inexact"
+      ],
+      "name": "down-format-metal",
+      "started_unix": 1791300080.6802719,
+      "ended_unix": 1791300084.81936,
+      "source_sha256": "051d098534c0a22de003b16dc8b2c7bac424616a1e74df07a60de903d30535d1",
+      "executable_sha256": "36f649c0be4f4309b054d3238540b3d3ef8c225438be2fd7a4c061d21c6518ce",
+      "script_sha256": null,
+      "exit_code": 0,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "marker": "DOWN_FORMAT_COMPONENT_STUDY_COMPLETED",
+      "completed": true,
+      "report_sha256": "fb0bb6a3ed73f60114b64f197f2cd10bb212b085c206d9018f92a3aa3501abc0",
+      "log_sha256": "02cc8b9cc69d6675f38eb432f593459b47177829fa3ab8e30c4c75ba202cffa2",
+      "timing_qualified": false,
+      "warning": "allow-inexact gathers numerical failures; study completion does not certify the down kernel. Instrumented component rates are diagnostic only."
+    },
+    {
+      "command": [
+        "target/release/draft-collect",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--corpus",
+        ".unlazy/decode3-corpus/model-corpus.json",
+        "--destination",
+        ".unlazy/followup-draft-logits",
+        "--output",
+        "results/followup-draft-collection.json"
+      ],
+      "name": "draft-collect",
+      "started_unix": 1791300084.837203,
+      "ended_unix": 1791300108.782836,
+      "source_sha256": "051d098534c0a22de003b16dc8b2c7bac424616a1e74df07a60de903d30535d1",
+      "executable_sha256": "7b048ff30029a6720c4d0926e89867d6701727ed3b8684c2bfa7308811d9f52e",
+      "script_sha256": null,
+      "exit_code": 0,
+      "validation_environment": {},
+      "marker": "DRAFT_PILOT_COLLECTION_PASSED",
+      "completed": true,
+      "report_sha256": "b62ee5d9a3b1fee9430264217e7d3af8bcaf39513f5ad4ca60eb973f5a7d8df5",
+      "log_sha256": "73610c423e8eb814ee9fdaa54da8d3f502e165def28fd2a71abb5a321e53bc03",
+      "timing_qualified": false,
+      "warning": "teacher-forced distillation data/training; not natural MTP throughput"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/train_draft_bias.py",
+        "--collection",
+        "results/followup-draft-collection.json",
+        "--spec",
+        ".unlazy/followup-draft-spec.json",
+        "--destination",
+        ".unlazy/followup-draft-bias",
+        "--output",
+        "results/followup-draft-training.json"
+      ],
+      "name": "draft-train",
+      "started_unix": 1791300108.81189,
+      "ended_unix": 1791300110.370375,
+      "source_sha256": "051d098534c0a22de003b16dc8b2c7bac424616a1e74df07a60de903d30535d1",
+      "executable_sha256": "1988a0dd685f91bbaf20b5267046e13cb78859dbb3b5f030e89b448c1fbfe8d4",
+      "script_sha256": "f07b1a6b50e53ca841d6d81bac7ff8561c5a7599d661073f9703a92a18faacea",
+      "exit_code": 0,
+      "validation_environment": {},
+      "marker": "DRAFT_BIAS_TRAINING_PILOT_COMPLETED",
+      "completed": true,
+      "report_sha256": "adeafb0918039271663fc157f380dfd807f1fea160c731c2a5aa1941eb57646d",
+      "log_sha256": "28de2e4e7fa35b9a1828ef9ee19cefc5c6b514540f749554001544a149b87eee",
+      "timing_qualified": false,
+      "warning": "teacher-forced distillation data/training; not natural MTP throughput"
+    }
+  ],
+  "complete": true
+}

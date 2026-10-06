@@ -18,14 +18,5 @@
     "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
     "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
     "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
-  },
-  "instrumentation": {
-    "MTL_SHADER_VALIDATION": "1",
-    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
-    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
-    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
-  },
-  "validation_tests_passed": 37,
-  "timing": "diagnostic only; excluded from throughput",
-  "negative_control": "existing cooperative matrix discrepancy remains rejected; native fallback retained"
+  }
 }

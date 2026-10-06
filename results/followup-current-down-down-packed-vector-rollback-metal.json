@@ -1,0 +1,107 @@
+[
+  {
+    "down_calls": 6,
+    "down_kernel": "down-packed-vector",
+    "keep": 0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": null,
+    "runtime_prepare_calls": [
+      0,
+      0,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "down_calls": 12,
+    "down_kernel": "down-packed-vector",
+    "keep": 1,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": null,
+    "runtime_prepare_calls": [
+      0,
+      0,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "down_calls": 18,
+    "down_kernel": "down-packed-vector",
+    "keep": 2,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": null,
+    "runtime_prepare_calls": [
+      0,
+      0,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "down_calls": 24,
+    "down_kernel": "down-packed-vector",
+    "keep": 3,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": null,
+    "runtime_prepare_calls": [
+      0,
+      0,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "down_calls": 30,
+    "down_kernel": "down-packed-vector",
+    "keep": 4,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": null,
+    "runtime_prepare_calls": [
+      0,
+      0,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0
+  }
+]

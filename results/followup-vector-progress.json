@@ -1,0 +1,35 @@
+{
+  "source_sha256": "f3ed56b7608c8a460849a869e6035b6dfe25027cb2dd92852d19570300a8f123",
+  "receipts": [
+    {
+      "command": [
+        "target/release/down-bench",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "results/followup-vector-format-metal.json",
+        "--allow-inexact"
+      ],
+      "name": "vector-format-metal",
+      "started_unix": 1791300883.887586,
+      "ended_unix": 1791300888.168155,
+      "source_sha256": "f3ed56b7608c8a460849a869e6035b6dfe25027cb2dd92852d19570300a8f123",
+      "executable_sha256": "72e951819aec85fb5600ed30d29d78c9479dd090f89844a0a83d4ecdc9fc0fc4",
+      "script_sha256": null,
+      "exit_code": 0,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "marker": "DOWN_FORMAT_COMPONENT_STUDY_COMPLETED",
+      "completed": true,
+      "report_sha256": "5a2e52b232edc918b812bfb0d24e0f646058038fc9e5133f2e280bbb101b3f38",
+      "log_sha256": "e64cfbb352fdc7bd252381df3b33bd08c790fae609844994c9ef2b1036be2137",
+      "timing_qualified": false,
+      "warning": "allow-inexact gathers numerical failures; study completion does not certify the down kernel. Instrumented component rates are diagnostic only."
+    }
+  ],
+  "complete": true
+}

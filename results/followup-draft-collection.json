@@ -1,0 +1,6075 @@
+{
+  "complete": true,
+  "config_sha256": "fe162c81dce6c9f9e1003b7948fc3bd52f8dc53b0ec51a25490f6fec72c1c00f",
+  "corpus_sha256": "b6089cc0686e64d41e384c73c3fed2bbafb2de08830c769151f976c412bb3b90",
+  "environment": {
+    "captured_unix_seconds": 1791300108,
+    "hardware": {
+      "chip": "Apple M5 Max",
+      "gpu": "Apple M5 Max",
+      "gpu_cores": "40",
+      "memory": "128 GB",
+      "model": "Mac17,6"
+    },
+    "revision": {
+      "commit": "9b048ee5b1ddc046169e5fb3650e7a6ad441de1a",
+      "dirty": true
+    },
+    "software": {
+      "macos": "27.0.1",
+      "macos_build": "26A434",
+      "mlx": "0.32.2",
+      "mlx_rs": "0.32.0",
+      "mlx_sys": "0.6.0",
+      "package_version": "0.1.0",
+      "rust": "rustc 1.98.1 (48a229cea 2026-09-01)",
+      "xcode": "Xcode 27.0\nBuild version 27A266a"
+    },
+    "workload": {
+      "binary_sha256": "7b048ff30029a6720c4d0926e89867d6701727ed3b8684c2bfa7308811d9f52e  /Users/d9beud/Documents/Repositories/d9beud/rust-mlx/target/release/draft-collect",
+      "process_cpu_names": [
+        "  8.2 /usr/libexec/syspolicyd",
+        " 77.1 /System/Library/ExtensionKit/Extensions/Storage.appex/Contents/MacOS/Storage",
+        " 76.7 /System/Library/PrivateFrameworks/StorageManagement.framework/PlugIns/StorageManagementService",
+        " 99.0 /System/Library/PrivateFrameworks/StorageManagement.framework/PlugIns/ApplicationsStorageExtension.appex/Contents/MacOS/ApplicationsStorageExtension"
+      ],
+      "swap": "vm.swapusage: total = 2048.00M  used = 1055.00M  free = 993.00M  (encrypted)",
+      "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    }
+  },
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "quantization": {
+    "bits": 4,
+    "group_size": 64,
+    "language_model.lm_head": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.embed_tokens": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.key_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.0": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.1": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.10": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.100": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.101": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.102": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.103": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.104": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.105": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.106": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.107": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.108": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.109": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.11": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.110": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.111": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.112": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.113": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.114": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.115": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.116": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.117": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.118": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.119": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.12": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.120": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.121": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.122": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.123": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.124": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.125": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.126": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.127": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.13": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.14": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.15": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.16": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.17": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.18": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.19": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.2": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.20": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.21": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.22": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.23": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.24": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.25": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.26": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.27": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.28": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.29": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.3": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.30": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.31": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.32": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.33": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.34": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.35": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.36": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.37": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.38": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.39": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.4": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.40": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.41": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.42": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.43": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.44": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.45": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.46": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.47": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.48": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.49": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.5": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.50": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.51": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.52": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.53": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.54": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.55": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.56": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.57": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.58": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.59": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.6": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.60": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.61": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.62": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.63": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.64": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.65": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.66": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.67": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.68": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.69": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.7": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.70": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.71": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.72": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.73": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.74": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.75": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.76": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.77": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.78": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.79": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.8": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.80": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.81": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.82": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.83": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.84": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.85": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.86": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.87": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.88": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.89": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.9": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.90": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.91": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.92": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.93": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.94": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.95": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.96": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.97": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.98": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.99": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.value_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.indexer.index_qk_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.k_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.q_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.v_proj": {
+      "bits": 6,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.indexer.index_qk_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.k_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.v_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.self_attn.indexer.index_qk_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.attn_hyper_connection.block_inject_weight": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_a": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_b": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_qkv": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_z": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp_hyper_connection.block_inject_weight": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.indexer.index_qk_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.k_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.q_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.v_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mode": "affine",
+    "mtp.layers.0.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.indexer.index_qk_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.k_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.q_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.v_proj": {
+      "bits": 6,
+      "group_size": 128,
+      "mode": "affine"
+    }
+  },
+  "records": [
+    {
+      "document_sha256": "f0e0dcc2aa1919b4b26c62f7f9349c770deac4c6c95c3cc44a2bf2b4704626d9",
+      "dtype": "BF16",
+      "language": "sample-10BT",
+      "path": ".unlazy/followup-draft-logits/fit-0.safetensors",
+      "prompt_ids": [
+        91,
+        825,
+        286,
+        11000,
+        3746,
+        5369,
+        25,
+        54074,
+        26284,
+        364,
+        279,
+        10040,
+        314,
+        7165,
+        220,
+        16,
+        16,
+        337,
+        91,
+        198,
+        91,
+        43,
+        319,
+        8224,
+        39252,
+        220,
+        16,
+        220,
+        17,
+        15,
+        16,
+        18,
+        11,
+        220,
+        15,
+        24,
+        25,
+        20,
+        23,
+        6556,
+        91,
+        198,
+        7751,
+        914,
+        2373,
+        883,
+        57365,
+        16240,
+        11703,
+        30662,
+        268,
+        11667,
+        268,
+        13,
+        4179,
+        914,
+        2373,
+        883,
+        7967,
+        72,
+        11,
+        2098,
+        11,
+        694
+      ],
+      "sha256": "f701663d2df3a0b7ae0673d8a83d3c4191599d630fa00b0a4afa1a93609bdb88",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "fit"
+    },
+    {
+      "document_sha256": "488e2f4fa38f6698056c56a5d367552d4946b4111505a68b2cb18e78b115aeaf",
+      "dtype": "BF16",
+      "language": "fra_Latn",
+      "path": ".unlazy/followup-draft-logits/fit-1.safetensors",
+      "prompt_ids": [
+        271,
+        43,
+        6,
+        52638,
+        1358,
+        43,
+        6,
+        7972,
+        4369,
+        209867,
+        1358,
+        44,
+        14643,
+        3362,
+        1358,
+        63611,
+        178833,
+        198,
+        43,
+        6,
+        228786,
+        401,
+        27426,
+        74676,
+        94705,
+        1725,
+        2876,
+        171349,
+        1298,
+        324,
+        6,
+        49848,
+        5229,
+        289,
+        7657,
+        19438,
+        64410,
+        4755,
+        324,
+        6,
+        81327,
+        644,
+        195054,
+        318,
+        16,
+        17,
+        14618,
+        4755,
+        324,
+        6,
+        81327,
+        220,
+        17,
+        15,
+        16,
+        18,
+        553,
+        198,
+        53975,
+        193321,
+        307,
+        16811,
+        7139,
+        893
+      ],
+      "sha256": "3b5cf31a778ec4adfe7142720f8ff6953864bcd784d807906cc13d95ac1af2ec",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "fit"
+    },
+    {
+      "document_sha256": "2995a6288a9f4f4942f8a2f65d62d3bd50ea1c14f547235be8abd12341bbf076",
+      "dtype": "BF16",
+      "language": "deu_Latn",
+      "path": ".unlazy/followup-draft-logits/fit-2.safetensors",
+      "prompt_ids": [
+        271,
+        17,
+        18,
+        13,
+        15,
+        21,
+        13,
+        15,
+        17,
+        198,
+        91,
+        4230,
+        314,
+        279,
+        8432,
+        471,
+        17467,
+        342,
+        163680,
+        1124,
+        163160,
+        1358,
+        21871,
+        220,
+        16,
+        24,
+        23,
+        15,
+        318,
+        16,
+        21,
+        3693,
+        11,
+        220,
+        24,
+        18,
+        1030,
+        8,
+        198,
+        91,
+        198665,
+        1358,
+        12792,
+        322,
+        18771,
+        16802,
+        198665,
+        8,
+        198,
+        1728,
+        7743,
+        535,
+        198,
+        1212,
+        53139,
+        190224,
+        15921,
+        1030,
+        48982,
+        8,
+        198,
+        83706,
+        25,
+        33481
+      ],
+      "sha256": "2a4938ce1b3a49f73e7d2875ca4b88ec354c768236e5197734fb7ae7fadce479",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "fit"
+    },
+    {
+      "document_sha256": "e41257254db1864dc44b56366de3f72b23c58fdf35c716ca35b6b19f4084f9a2",
+      "dtype": "BF16",
+      "language": "spa_Latn",
+      "path": ".unlazy/followup-draft-logits/fit-3.safetensors",
+      "prompt_ids": [
+        1642,
+        281,
+        23456,
+        11,
+        20207,
+        4444,
+        486,
+        179034,
+        47884,
+        401,
+        61314,
+        78362,
+        12074,
+        3474,
+        275,
+        3703,
+        11,
+        9217,
+        6989,
+        70740,
+        11,
+        7702,
+        28534,
+        501,
+        9046,
+        20453,
+        11,
+        6185,
+        221340,
+        5508,
+        43748,
+        160678,
+        617,
+        401,
+        1649,
+        874,
+        1477,
+        51912,
+        29137,
+        3239,
+        51617,
+        1147,
+        28868,
+        315,
+        911,
+        11,
+        374,
+        11057,
+        27022,
+        401,
+        750,
+        1649,
+        28534,
+        88411,
+        61314,
+        193309,
+        26,
+        35256,
+        1477,
+        1147,
+        24159,
+        11,
+        205609,
+        179208
+      ],
+      "sha256": "3279b10b1aeab83369bcc15c8b3e58097479ab495ebbab63ceb6b940446669fe",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "fit"
+    },
+    {
+      "document_sha256": "64da00363772c59c7282517fca0566497c2793400d0da90d8ef7268ef9d20abc",
+      "dtype": "BF16",
+      "language": "cmn_Hani",
+      "path": ".unlazy/followup-draft-logits/fit-4.safetensors",
+      "prompt_ids": [
+        108668,
+        109286,
+        108227,
+        100469,
+        99381,
+        103133,
+        95726,
+        103946,
+        108047,
+        95953,
+        3709,
+        108924,
+        96823,
+        108047,
+        3709,
+        97317,
+        40131,
+        98068,
+        9616,
+        44,
+        7313,
+        828,
+        88786,
+        97459,
+        828,
+        9616,
+        38,
+        7313,
+        104709,
+        101665,
+        102996,
+        96964,
+        101205,
+        108617,
+        97647,
+        96276,
+        40131,
+        108871,
+        828,
+        106236,
+        99386,
+        98593,
+        3709,
+        97762,
+        97464,
+        97843,
+        96617,
+        111072,
+        3709,
+        102745,
+        96753,
+        108945,
+        102204,
+        109997,
+        95828,
+        110229,
+        110529,
+        96391,
+        97504,
+        98132,
+        3709,
+        120233,
+        99699,
+        98899
+      ],
+      "sha256": "d98f9ad0ae456ae6675c24d23037cf20c9a182fb5af1944786604257538423ab",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "fit"
+    },
+    {
+      "document_sha256": "e23bec4f601a5f8f17f556d116a5b88d0e001270417fb4bd1bdb2722edbec545",
+      "dtype": "BF16",
+      "language": "jpn_Jpan",
+      "path": ".unlazy/followup-draft-logits/fit-5.safetensors",
+      "prompt_ids": [
+        98165,
+        153059,
+        162748,
+        54337,
+        198,
+        95879,
+        150668,
+        205773,
+        180889,
+        193102,
+        5205,
+        198,
+        115673,
+        15303,
+        78791,
+        16753,
+        7085,
+        15303,
+        247821,
+        72514,
+        190876,
+        1710,
+        198,
+        9616,
+        78791,
+        16753,
+        7085,
+        7313,
+        198,
+        174456,
+        5205,
+        97050,
+        15303,
+        109905,
+        52122,
+        247224,
+        155177,
+        199649,
+        68798,
+        1710,
+        198,
+        51025,
+        5205,
+        95879,
+        150668,
+        73478,
+        28514,
+        175948,
+        174730,
+        189281,
+        156148,
+        155085,
+        1710,
+        198,
+        194947,
+        217727,
+        15685,
+        28514,
+        5205,
+        174730,
+        189281,
+        28452,
+        247309,
+        173639
+      ],
+      "sha256": "efd1807cc76e10855e7d39d90d49839ffcbfc4ba3b06bcf6695a22de5c769c0e",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "fit"
+    },
+    {
+      "document_sha256": "8bca4d59772c7c98f0931258bf93709d9a62af72e10d4ced3b2e26e49aaf4e3d",
+      "dtype": "BF16",
+      "language": "arb_Arab",
+      "path": ".unlazy/followup-draft-logits/fit-6.safetensors",
+      "prompt_ids": [
+        193474,
+        20704,
+        91913,
+        235775,
+        201702,
+        193674,
+        179847,
+        162540,
+        150099,
+        15682,
+        150154,
+        161568,
+        236109,
+        150025,
+        203922,
+        193674,
+        179847,
+        150744,
+        148342,
+        70943,
+        74631,
+        198036,
+        177115,
+        153397,
+        198107,
+        74631,
+        71787,
+        153723,
+        71263,
+        149071,
+        151529,
+        13883,
+        171405,
+        148424,
+        153307,
+        66459,
+        150276,
+        152906,
+        46044,
+        74631,
+        177092,
+        155920,
+        177432,
+        66459,
+        36281,
+        151749,
+        68216,
+        151401,
+        172869,
+        162431,
+        159623,
+        150299,
+        148698,
+        180372,
+        13,
+        176698,
+        57823,
+        149013,
+        184495,
+        179847,
+        74631,
+        214051,
+        170162,
+        169931
+      ],
+      "sha256": "03ecd3be51ad0525ba04c561e38a060770431d2723b07194299b5eeb51dc439c",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "fit"
+    },
+    {
+      "document_sha256": "76db65e11464a7e0ae495ced5538c16149c5e6d7fda59b41d8fbded3d74d40d7",
+      "dtype": "BF16",
+      "language": "sample-10BT",
+      "path": ".unlazy/followup-draft-logits/heldout-0.safetensors",
+      "prompt_ids": [
+        10621,
+        279,
+        351,
+        581,
+        0,
+        21463,
+        30135,
+        310,
+        50402,
+        46809,
+        198,
+        623,
+        264,
+        4849,
+        883,
+        1204,
+        1208,
+        4191,
+        11,
+        424,
+        725,
+        5621,
+        279,
+        26957,
+        5604,
+        310,
+        279,
+        31127,
+        5337,
+        421,
+        1208,
+        42803,
+        82548,
+        51869,
+        13,
+        2091,
+        424,
+        5902,
+        310,
+        1910,
+        567,
+        3756,
+        303,
+        264,
+        7975,
+        421,
+        7247,
+        2172,
+        869,
+        383,
+        22924,
+        11,
+        843,
+        3234,
+        11,
+        4204,
+        3433,
+        11,
+        321,
+        11992,
+        30,
+        7183,
+        6807,
+        13818
+      ],
+      "sha256": "87ccf08331126d389e4f931a074eaea3b5af756e46853e18fa3115998ef6d36e",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "7aedd3e49ef54087bdf645b6a4cbb8a3e9c953bb97d71f8c392c828f37bbd424",
+      "dtype": "BF16",
+      "language": "sample-10BT",
+      "path": ".unlazy/followup-draft-logits/heldout-1.safetensors",
+      "prompt_ids": [
+        2523,
+        1902,
+        381,
+        264,
+        9393,
+        4314,
+        310,
+        1593,
+        411,
+        2081,
+        54379,
+        198,
+        2592,
+        488,
+        513,
+        2582,
+        264,
+        4314,
+        11,
+        1777,
+        303,
+        1381,
+        13,
+        198,
+        1206,
+        4025,
+        364,
+        678,
+        1765,
+        2605,
+        11,
+        1777,
+        685,
+        1381,
+        13,
+        198,
+        90143,
+        685,
+        668,
+        47151,
+        76389,
+        2913,
+        3067,
+        2032,
+        8725,
+        56,
+        1658,
+        62067,
+        494,
+        678,
+        4034,
+        13,
+        198,
+        61864,
+        18667,
+        4981,
+        29770,
+        20283,
+        60256,
+        198,
+        12,
+        2058,
+        9183,
+        198
+      ],
+      "sha256": "a5540d061aa3cfd0b591758aa86293dbaed5e398fb944cb174f3ae5f1ed379b1",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "b0444e4a06ce63dd081716e941e0dbff0b431299cbc67f2fa415d2ef6c458ada",
+      "dtype": "BF16",
+      "language": "sample-10BT",
+      "path": ".unlazy/followup-draft-logits/heldout-2.safetensors",
+      "prompt_ids": [
+        760,
+        9095,
+        4044,
+        76560,
+        2632,
+        38267,
+        6695,
+        369,
+        4840,
+        13,
+        23870,
+        1439,
+        67233,
+        310,
+        6695,
+        7179,
+        13,
+        198,
+        760,
+        4526,
+        314,
+        38428,
+        369,
+        4222,
+        310,
+        6695,
+        16089,
+        11,
+        7548,
+        11,
+        383,
+        279,
+        38267,
+        314,
+        279,
+        36332,
+        725,
+        9095,
+        4044,
+        76560,
+        2632,
+        2279,
+        11298,
+        13,
+        11747,
+        279,
+        37101,
+        9988,
+        3115,
+        11,
+        279,
+        38267,
+        314,
+        279,
+        9095,
+        4044,
+        76560,
+        2632,
+        1906,
+        628,
+        381,
+        25400,
+        303,
+        449
+      ],
+      "sha256": "c5d9fe340f51f13a0a35d2837495187f55c0fb4455abf42dc66ab9fd46b94a4c",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "59762f9d69bb7dc1e08b5627741e73ef3ede2b375e885fe4a0ac58173f5ac5c3",
+      "dtype": "BF16",
+      "language": "sample-10BT",
+      "path": ".unlazy/followup-draft-logits/heldout-3.safetensors",
+      "prompt_ids": [
+        2665,
+        4766,
+        1092,
+        488,
+        635,
+        11,
+        424,
+        1066,
+        2677,
+        1357,
+        2842,
+        1892,
+        321,
+        488,
+        1040,
+        424,
+        13,
+        198,
+        2064,
+        725,
+        524,
+        678,
+        3259,
+        725,
+        57040,
+        1414,
+        6397,
+        318,
+        354,
+        17854,
+        10980,
+        8239,
+        1001,
+        27334,
+        11,
+        21492,
+        53982,
+        279,
+        95528,
+        678,
+        25014,
+        20653,
+        310,
+        678,
+        18165,
+        1935,
+        7071,
+        318,
+        9053,
+        6224,
+        681,
+        466,
+        1442,
+        421,
+        17711,
+        888,
+        49098,
+        8094,
+        318,
+        7949,
+        8311,
+        310,
+        381,
+        38934
+      ],
+      "sha256": "db66204f0b0f98a6c80e577f601513dce49d833a80c71e06eafcab361c4c0ba8",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "9a84457f1e6f18ef6d10abd5d242ceccc613afffd9a43b3c8fdd67962d1154f5",
+      "dtype": "BF16",
+      "language": "fra_Latn",
+      "path": ".unlazy/followup-draft-logits/heldout-4.safetensors",
+      "prompt_ids": [
+        18,
+        16,
+        14,
+        15,
+        23,
+        14,
+        17,
+        15,
+        16,
+        15,
+        8482,
+        34677,
+        47955,
+        188109,
+        796,
+        52219,
+        32185,
+        662,
+        178109,
+        35632,
+        3717,
+        242164,
+        401,
+        324,
+        6,
+        39716,
+        3263,
+        401,
+        11751,
+        644,
+        91374,
+        13,
+        59129,
+        19450,
+        41390,
+        45974,
+        2243,
+        401,
+        1147,
+        178555,
+        34677,
+        11,
+        1147,
+        177950,
+        214264,
+        562,
+        1725,
+        52911,
+        4755,
+        1147,
+        52219,
+        34994,
+        7657,
+        36550,
+        1668,
+        632,
+        185073,
+        3717,
+        9933,
+        417,
+        13,
+        198,
+        2229,
+        180697
+      ],
+      "sha256": "90830ed247dccb99546bac9288b0f667e5c3593a4e26d2b4209cf618a388dfed",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "e8996177d9213c145cd593e35f406134bbb4c80a939ac8cae76279852425ffd8",
+      "dtype": "BF16",
+      "language": "fra_Latn",
+      "path": ".unlazy/followup-draft-logits/heldout-5.safetensors",
+      "prompt_ids": [
+        36759,
+        355,
+        6161,
+        11,
+        5992,
+        10500,
+        614,
+        25452,
+        78585,
+        84,
+        293,
+        21372,
+        10500,
+        275,
+        3019,
+        218522,
+        293,
+        6,
+        243226,
+        11,
+        83718,
+        401,
+        43526,
+        401,
+        71628,
+        4606,
+        34454,
+        12506,
+        13,
+        4770,
+        15705,
+        188711,
+        13,
+        11282,
+        44467,
+        401,
+        324,
+        6,
+        2712,
+        43,
+        14091,
+        44311,
+        31441,
+        16071,
+        36691,
+        11,
+        44215,
+        335,
+        7639,
+        4755,
+        80465,
+        11,
+        188711,
+        3717,
+        183044,
+        729,
+        198,
+        8482,
+        187623,
+        1725,
+        56926,
+        3656,
+        60934,
+        4301
+      ],
+      "sha256": "59ba82c3d6ca374281eda476f786f7283fa117f94a2db6fa3dd4ad3dc2f0b4c2",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "aab50831d5a433a32cea3663bcfa90ad1d4f0e67b4fd991e18653aeaee2f5123",
+      "dtype": "BF16",
+      "language": "fra_Latn",
+      "path": ".unlazy/followup-draft-logits/heldout-6.safetensors",
+      "prompt_ids": [
+        45039,
+        11,
+        4606,
+        728,
+        34454,
+        19092,
+        37544,
+        13,
+        380,
+        1641,
+        95439,
+        535,
+        4606,
+        808,
+        34454,
+        6167,
+        501,
+        70622,
+        729,
+        198,
+        83204,
+        83718,
+        293,
+        38341,
+        339,
+        273,
+        82810,
+        211695,
+        293,
+        515,
+        346,
+        90052,
+        632,
+        73392,
+        258,
+        1668,
+        501,
+        19397,
+        15717,
+        11,
+        178370,
+        6225,
+        7639,
+        12129,
+        1298,
+        224848,
+        7925,
+        1873,
+        198,
+        1873,
+        1725,
+        644,
+        19092,
+        324,
+        515,
+        242144,
+        293,
+        63948,
+        19911,
+        1720,
+        644,
+        10047,
+        220,
+        18
+      ],
+      "sha256": "dff312f24e6913eedc09beb2c6e43ff6c62cd1ad379efe471891bd76bdcfeb77",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "3567433a7b120d79dbe0e596a682ef8926b9e0e04ee5e81926987cb8e3d1a57c",
+      "dtype": "BF16",
+      "language": "fra_Latn",
+      "path": ".unlazy/followup-draft-logits/heldout-7.safetensors",
+      "prompt_ids": [
+        63126,
+        9091,
+        2295,
+        11,
+        3687,
+        10081,
+        222251,
+        44970,
+        1778,
+        205126,
+        401,
+        18872,
+        46207,
+        401,
+        4292,
+        6560,
+        7639,
+        401,
+        34146,
+        624,
+        13,
+        1900,
+        8176,
+        500,
+        227229,
+        95668,
+        632,
+        909,
+        5847,
+        401,
+        1147,
+        1616,
+        13368,
+        6045,
+        13,
+        5472,
+        172834,
+        220,
+        16,
+        24,
+        20,
+        23,
+        11,
+        796,
+        223551,
+        57075,
+        632,
+        15245,
+        174095,
+        331,
+        3656,
+        324,
+        515,
+        211227,
+        3717,
+        6249,
+        10514,
+        13,
+        198,
+        22961,
+        4770,
+        197257,
+        307,
+        16811
+      ],
+      "sha256": "a07588b81565ea70542b36e8d91409013954ef3015f0a1af71fea274313d884f",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "0aee8c7af37434d3e71206b817d9b4eb90aca319bd0f97934e66ba42b7e43eb5",
+      "dtype": "BF16",
+      "language": "deu_Latn",
+      "path": ".unlazy/followup-draft-logits/heldout-8.safetensors",
+      "prompt_ids": [
+        9651,
+        41374,
+        6993,
+        417,
+        38308,
+        24901,
+        877,
+        593,
+        561,
+        5472,
+        467,
+        303,
+        5753,
+        21608,
+        198,
+        308,
+        185690,
+        11,
+        220,
+        16,
+        22,
+        173530,
+        220,
+        17,
+        15,
+        16,
+        18,
+        13,
+        198,
+        689,
+        2134,
+        294,
+        303,
+        21608,
+        198,
+        73322,
+        26542,
+        1477,
+        2659,
+        186420,
+        27889,
+        38452,
+        161574,
+        7045,
+        4297,
+        71154,
+        177735,
+        5810,
+        11,
+        8628,
+        2627,
+        46994,
+        15008,
+        46081,
+        426,
+        3617,
+        69250,
+        5280,
+        2350,
+        179914,
+        328,
+        40,
+        13,
+        357
+      ],
+      "sha256": "88fed56f1c4d2c9c849763c956ab224b4284e19c955d22d0eeb4b048393b3b6e",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "4d402aece2d7fc60c979a2eb87faa02ea9db3d7b4023d14402e5d2289da40538",
+      "dtype": "BF16",
+      "language": "deu_Latn",
+      "path": ".unlazy/followup-draft-logits/heldout-9.safetensors",
+      "prompt_ids": [
+        73322,
+        26542,
+        10323,
+        4227,
+        17151,
+        1196,
+        6954,
+        9170,
+        77276,
+        26828,
+        11,
+        2350,
+        1188,
+        57532,
+        186025,
+        84516,
+        176073,
+        5174,
+        377,
+        11,
+        4227,
+        55386,
+        6335,
+        7905,
+        177353,
+        84834,
+        66996,
+        316,
+        64959,
+        3445,
+        350,
+        8528,
+        303,
+        64964,
+        32547,
+        11,
+        10323,
+        65658,
+        18529,
+        4227,
+        5280,
+        13928,
+        449,
+        447,
+        43420,
+        20986,
+        184592,
+        93101,
+        11,
+        26828,
+        10323,
+        8388,
+        49567,
+        64705,
+        94375,
+        4227,
+        1165,
+        8320,
+        213213,
+        13,
+        49844,
+        11,
+        4227,
+        8253
+      ],
+      "sha256": "1c69647f5dcf51b085566253e1db6e6601bcddbcbe543c6c34803366b6b6914a",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "f723d153fd2c5f19d26a4bce8446bcce874cba239478d12bf3609e1301de86d2",
+      "dtype": "BF16",
+      "language": "deu_Latn",
+      "path": ".unlazy/followup-draft-logits/heldout-10.safetensors",
+      "prompt_ids": [
+        49,
+        27055,
+        415,
+        310,
+        19684,
+        1386,
+        1358,
+        3997,
+        5591,
+        268,
+        236460,
+        195380,
+        198,
+        16,
+        17,
+        11,
+        15,
+        15,
+        12612,
+        198,
+        20,
+        11,
+        24,
+        15,
+        12612,
+        198,
+        217661,
+        13,
+        176561,
+        179533,
+        13,
+        177506,
+        198,
+        17634,
+        9940,
+        54000,
+        52762,
+        17221,
+        2734,
+        1790,
+        185872,
+        40114,
+        21764,
+        334,
+        1076,
+        198,
+        29140,
+        2770,
+        29110,
+        8460,
+        8377,
+        449,
+        25,
+        3746,
+        5591,
+        268,
+        5810,
+        6407,
+        10600,
+        598,
+        5174,
+        200261,
+        471,
+        9528
+      ],
+      "sha256": "c719cc1ef83f1b768d88bfb441cf514e84b6ea89496eb2292f90e98557b7fbf0",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "b697a269b36427966a0ecfbf52772612dd8b85edcb9f7ab121dc6525fd6548db",
+      "dtype": "BF16",
+      "language": "deu_Latn",
+      "path": ".unlazy/followup-draft-logits/heldout-11.safetensors",
+      "prompt_ids": [
+        73322,
+        176915,
+        303,
+        46214,
+        190670,
+        2891,
+        198,
+        2033,
+        624,
+        16802,
+        11719,
+        198,
+        73322,
+        176915,
+        11,
+        2659,
+        6194,
+        42409,
+        56116,
+        25,
+        37313,
+        11,
+        3713,
+        6554,
+        1962,
+        28932,
+        198,
+        2033,
+        624,
+        6194,
+        64238,
+        217169,
+        78227,
+        268,
+        25,
+        31926,
+        11,
+        67465,
+        4225,
+        1962,
+        28932,
+        198,
+        242332,
+        475,
+        13096,
+        12,
+        1962,
+        5701,
+        55972,
+        40756,
+        1227,
+        198,
+        17634,
+        198120,
+        712,
+        7779,
+        25,
+        357,
+        726,
+        11,
+        458,
+        9023,
+        3089,
+        11
+      ],
+      "sha256": "49c060c42aaf078c8247a183da3c9ea20e1be59ba71557daf4ac9986d0702ebe",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "a1911f4ea0cb4d7f3a575cdf36f2f9868d028d960c31a797ce5545f1e3aad155",
+      "dtype": "BF16",
+      "language": "spa_Latn",
+      "path": ".unlazy/followup-draft-logits/heldout-12.safetensors",
+      "prompt_ids": [
+        7575,
+        61858,
+        4931,
+        62603,
+        4374,
+        26892,
+        264,
+        54436,
+        500,
+        11552,
+        8069,
+        72923,
+        4292,
+        265,
+        152183,
+        374,
+        444,
+        29137,
+        401,
+        157640,
+        89,
+        2498,
+        4018,
+        4931,
+        224694,
+        11,
+        500,
+        979,
+        8069,
+        72923,
+        632,
+        37511,
+        637,
+        644,
+        78,
+        7078,
+        296,
+        637,
+        213379,
+        198,
+        2573,
+        218562,
+        68178,
+        9248,
+        17702,
+        26892,
+        200051,
+        235624,
+        637,
+        175312,
+        444,
+        47054,
+        64172,
+        13135,
+        1649,
+        18292,
+        19938,
+        500,
+        4510,
+        268,
+        10599,
+        10605,
+        71960,
+        401
+      ],
+      "sha256": "832bd38b8bd442e3d2b238ccbba5df4e77896a5d39c72801d97c28e780cc4bdb",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "1b38e214b543f985f106a4ff5f7c22d166c064cc60a2ccc922349d8bd5a46475",
+      "dtype": "BF16",
+      "language": "spa_Latn",
+      "path": ".unlazy/followup-draft-logits/heldout-13.safetensors",
+      "prompt_ids": [
+        8482,
+        87701,
+        895,
+        203372,
+        211204,
+        176565,
+        11,
+        82575,
+        220,
+        17,
+        24,
+        337,
+        11,
+        220,
+        17,
+        15,
+        16,
+        15,
+        198,
+        60551,
+        41897,
+        4799,
+        88553,
+        1538,
+        45387,
+        71907,
+        198,
+        47901,
+        161379,
+        213069,
+        2906,
+        25,
+        384,
+        50435,
+        215619,
+        632,
+        65811,
+        2652,
+        6841,
+        1649,
+        750,
+        39319,
+        276,
+        220,
+        19,
+        187407,
+        401,
+        1146,
+        455,
+        36132,
+        193183,
+        318,
+        33,
+        11,
+        357,
+        11,
+        414,
+        11,
+        351,
+        681,
+        8970,
+        220,
+        19,
+        20
+      ],
+      "sha256": "e34d0aab028f08f0ad16d3bc7c8400951eba10187f4b7b16a2088a6d4b9f95d8",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "d1b2cb2b25f10b762d72f4957ab2994228746fddbac6862d17aabead3c50445a",
+      "dtype": "BF16",
+      "language": "spa_Latn",
+      "path": ".unlazy/followup-draft-logits/heldout-14.safetensors",
+      "prompt_ids": [
+        73335,
+        1477,
+        637,
+        12371,
+        1649,
+        198461,
+        10043,
+        190559,
+        87762,
+        264,
+        4333,
+        8107,
+        14078,
+        644,
+        181615,
+        15120,
+        3038,
+        387,
+        19524,
+        13,
+        1297,
+        61132,
+        401,
+        632,
+        190559,
+        6042,
+        3183,
+        401,
+        20780,
+        1649,
+        35302,
+        64,
+        444,
+        19653,
+        374,
+        444,
+        178069,
+        11,
+        13135,
+        1649,
+        174625,
+        221929,
+        63362,
+        637,
+        178069,
+        56615,
+        64795,
+        401,
+        4208,
+        14690,
+        4931,
+        39207,
+        401,
+        19653,
+        13,
+        198,
+        16849,
+        10194,
+        3239,
+        195368,
+        1564,
+        6684,
+        296,
+        3239
+      ],
+      "sha256": "a6c3cb91e92e2ebf34f00d8b7e5eb561c7ae67d3322f26168ece33470f23d7b3",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "a47ef724038a02ed6561a0f8f25b76cdd23f043c9685f9b2337b564a0cdacc91",
+      "dtype": "BF16",
+      "language": "spa_Latn",
+      "path": ".unlazy/followup-draft-logits/heldout-15.safetensors",
+      "prompt_ids": [
+        6374,
+        73964,
+        201189,
+        1477,
+        379,
+        219814,
+        417,
+        522,
+        22127,
+        45969,
+        334,
+        54377,
+        6185,
+        12013,
+        2630,
+        25022,
+        7702,
+        1001,
+        34,
+        450,
+        92624,
+        11165,
+        828,
+        1147,
+        215372,
+        11,
+        18292,
+        19938,
+        10599,
+        53183,
+        11,
+        401,
+        4931,
+        193484,
+        1538,
+        74064,
+        10368,
+        204786,
+        11,
+        637,
+        189572,
+        226663,
+        3183,
+        91784,
+        374,
+        1147,
+        180669,
+        179628,
+        644,
+        637,
+        32816,
+        951,
+        40288,
+        9354,
+        66,
+        184590,
+        11,
+        185523,
+        27886,
+        218901,
+        90721,
+        220,
+        24,
+        15
+      ],
+      "sha256": "f5737957f645d66c77add23aa2d55e3598cb62d11eca3a15366e658bbdf7d69f",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "a8e64fa6b3bfa1fe2e89afcda288b7a1a8c6b82e41fe31d13a56b059e08601f3",
+      "dtype": "BF16",
+      "language": "cmn_Hani",
+      "path": ".unlazy/followup-draft-logits/heldout-16.safetensors",
+      "prompt_ids": [
+        12,
+        220,
+        96581,
+        99061,
+        97121,
+        98722,
+        99203,
+        109354,
+        126509,
+        198,
+        12,
+        220,
+        103801,
+        96700,
+        102349,
+        98107,
+        112118,
+        20,
+        15,
+        96321,
+        198,
+        12,
+        220,
+        101628,
+        25,
+        96364,
+        135326,
+        107859,
+        19,
+        38,
+        100849,
+        105244,
+        198,
+        12,
+        220,
+        97472,
+        95869,
+        96381,
+        95833,
+        99974,
+        98054,
+        98394,
+        19864,
+        198,
+        12,
+        220,
+        122294,
+        97325,
+        96612,
+        112037,
+        3860,
+        121762,
+        198,
+        12,
+        220,
+        97430,
+        97190,
+        97189,
+        97717,
+        129501,
+        97344,
+        95934,
+        198,
+        12
+      ],
+      "sha256": "bbf457eec10d42b7941ad3999b6204476218fdcc45306ee9f9b840ccd592673c",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "e4498ae25f5482249be6152a1cc7a82aacc632f5b8e9ee50c1895b7c6eba70fe",
+      "dtype": "BF16",
+      "language": "cmn_Hani",
+      "path": ".unlazy/followup-draft-logits/heldout-17.safetensors",
+      "prompt_ids": [
+        97033,
+        97379,
+        104511,
+        10992,
+        198,
+        96220,
+        124085,
+        148031,
+        3709,
+        96931,
+        110552,
+        109007,
+        98655,
+        97277,
+        97379,
+        109755,
+        3709,
+        101679,
+        97379,
+        109755,
+        3709,
+        104207,
+        100899,
+        103891,
+        3709,
+        122402,
+        116447,
+        110275,
+        97380,
+        97560,
+        96044,
+        96120,
+        318,
+        109391,
+        96348,
+        116865,
+        8,
+        220,
+        143353,
+        1710,
+        100746,
+        97019,
+        100162,
+        96348,
+        96442,
+        96750,
+        97495,
+        98856,
+        3709,
+        96220,
+        104997,
+        97281,
+        96489,
+        100765,
+        117365,
+        3709,
+        102247,
+        96065,
+        120441,
+        110511,
+        96791,
+        1710,
+        198,
+        99342
+      ],
+      "sha256": "e7ed3ca2ea61d69fe1c18d69d2073b0266784cffdf283c4320fd12d8b31df905",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "716ef16e6eb4f9faba3babb658a81e96ce2457e99c90960c5a09e6c14f9b04ff",
+      "dtype": "BF16",
+      "language": "cmn_Hani",
+      "path": ".unlazy/followup-draft-logits/heldout-18.safetensors",
+      "prompt_ids": [
+        69462,
+        306,
+        51633,
+        7738,
+        198,
+        69462,
+        306,
+        51633,
+        7738,
+        220,
+        97282,
+        109594,
+        108667,
+        99285,
+        100240,
+        98519,
+        103758,
+        96043,
+        3709,
+        98605,
+        122553,
+        96221,
+        99316,
+        95858,
+        97293,
+        138039,
+        112185,
+        1710,
+        95948,
+        114202,
+        97293,
+        99751,
+        220,
+        96278,
+        100246,
+        98694,
+        119069,
+        97136,
+        98204,
+        95906,
+        110,
+        138039,
+        109649,
+        9616,
+        43,
+        7332,
+        19363,
+        71748,
+        99706,
+        96209,
+        109738,
+        98249,
+        96147,
+        103429,
+        96792,
+        98122,
+        96019,
+        107798,
+        100554,
+        101228,
+        95726,
+        6638,
+        2813,
+        3526
+      ],
+      "sha256": "5dadd052e6e1e429a688d05031a3ccf7113861cdd677fe4bdb9ada24abd8b13a",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "220189556e886763be5e824954fbb6773c769eefb1c4584e2b0fdefb5ec62e8d",
+      "dtype": "BF16",
+      "language": "cmn_Hani",
+      "path": ".unlazy/followup-draft-logits/heldout-19.safetensors",
+      "prompt_ids": [
+        54458,
+        58937,
+        220,
+        117702,
+        99960,
+        109400,
+        104219,
+        3709,
+        95762,
+        220,
+        17,
+        17,
+        19,
+        220,
+        99279,
+        109080,
+        112103,
+        5205,
+        16,
+        17,
+        18,
+        220,
+        98738,
+        114029,
+        100574,
+        3709,
+        98404,
+        220,
+        24,
+        220,
+        95855,
+        98072,
+        97971,
+        98531,
+        73764,
+        95726,
+        109221,
+        104339,
+        1710,
+        81070,
+        220,
+        96336,
+        114029,
+        109080,
+        95726,
+        109119,
+        96275,
+        97953,
+        109739,
+        3709,
+        125674,
+        96553,
+        112960,
+        73764,
+        111972,
+        109221,
+        112103,
+        1710,
+        198,
+        98264,
+        95917,
+        99699,
+        110510,
+        97594
+      ],
+      "sha256": "d6f1e54db4a78be9f7562ea72120081415af52b2841cb61e888c45a65e11b525",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "e9da70ce7fce77f0289775c1bbcf32cda6bdc4086be2e35e44e7e0f4ba886b0e",
+      "dtype": "BF16",
+      "language": "jpn_Jpan",
+      "path": ".unlazy/followup-draft-logits/heldout-20.safetensors",
+      "prompt_ids": [
+        271,
+        151342,
+        45220,
+        149475,
+        16711,
+        58852,
+        150606,
+        74447,
+        14259,
+        199941,
+        10578,
+        155322,
+        350,
+        3754,
+        43008,
+        22557,
+        4281,
+        8,
+        835,
+        220,
+        178698,
+        21480,
+        45220,
+        45484,
+        7584,
+        220021,
+        3992,
+        8,
+        198,
+        29,
+        23457,
+        149261,
+        149010,
+        150606,
+        74447,
+        4205,
+        287,
+        445,
+        725,
+        426,
+        4635,
+        8,
+        198,
+        202064,
+        821,
+        72,
+        186107,
+        23759,
+        24736,
+        8433,
+        198,
+        16098,
+        40412,
+        164172,
+        162329,
+        220,
+        149858,
+        162329,
+        220,
+        156854,
+        181149,
+        23457,
+        159584,
+        152665
+      ],
+      "sha256": "0ef136ceb56e7ceb9ba4e1d3266f09c604247a3b81185b7f094a13778cff5d27",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "f4010fc370075a30096d5c815e7d035884c4ba4a0224be1063b6f497f672356b",
+      "dtype": "BF16",
+      "language": "jpn_Jpan",
+      "path": ".unlazy/followup-draft-logits/heldout-21.safetensors",
+      "prompt_ids": [
+        160017,
+        149612,
+        8998,
+        86011,
+        198,
+        75,
+        1692,
+        789,
+        25,
+        21286,
+        961,
+        17762,
+        10043,
+        28312,
+        2933,
+        13,
+        43563,
+        4783,
+        181575,
+        378,
+        401,
+        65995,
+        855,
+        784,
+        789,
+        13,
+        3761,
+        2251,
+        54271,
+        359,
+        760,
+        6886,
+        30351,
+        198,
+        429,
+        269,
+        25,
+        378,
+        161221,
+        43330,
+        16562,
+        2693,
+        735,
+        296,
+        521,
+        25,
+        191935,
+        159124,
+        181002,
+        190109,
+        197235,
+        148789,
+        735,
+        29213,
+        9230,
+        25,
+        208588,
+        390,
+        334,
+        264,
+        183593,
+        1957,
+        735,
+        3687
+      ],
+      "sha256": "5fdb0e135d53a757ed31fad786b40c8422d1b963c935f16833f1a75541dc418a",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "f91139a9b3ea0661a893e94cecf0f8c5d1a312ddc468994d2beee61a576c150f",
+      "dtype": "BF16",
+      "language": "jpn_Jpan",
+      "path": ".unlazy/followup-draft-logits/heldout-22.safetensors",
+      "prompt_ids": [
+        271,
+        184198,
+        178004,
+        241528,
+        150039,
+        153025,
+        149793,
+        1358,
+        241528,
+        150039,
+        220146,
+        247287,
+        209760,
+        5205,
+        108738,
+        9616,
+        182497,
+        7313,
+        28452,
+        99035,
+        95930,
+        52020,
+        198,
+        91,
+        96477,
+        95765,
+        5205,
+        96552,
+        5205,
+        247890,
+        5205,
+        172325,
+        190169,
+        96477,
+        153059,
+        179183,
+        192810,
+        95765,
+        149179,
+        162506,
+        155296,
+        1873,
+        153025,
+        98994,
+        5205,
+        160092,
+        148771,
+        151787,
+        151064,
+        5205,
+        182497,
+        155314,
+        5205,
+        173377,
+        152349,
+        247230,
+        148353,
+        240999,
+        155710,
+        174907,
+        8998,
+        107702,
+        97389,
+        97681
+      ],
+      "sha256": "342889114d1723deadbc08395c0b9f8241ec3ef6a0d945975f7e6d4e195ab7ba",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "e0acb983316828fd99ee0062aae1fc55a9f3e20fa23fb215fb92172ad91280b9",
+      "dtype": "BF16",
+      "language": "jpn_Jpan",
+      "path": ".unlazy/followup-draft-logits/heldout-23.safetensors",
+      "prompt_ids": [
+        247806,
+        5205,
+        162880,
+        24950,
+        152255,
+        96823,
+        97181,
+        161439,
+        97399,
+        210838,
+        1710,
+        198,
+        12512,
+        50040,
+        158936,
+        15237,
+        236923,
+        18602,
+        98774,
+        24950,
+        215742,
+        170920,
+        163972,
+        4716,
+        15303,
+        131250,
+        27279,
+        156137,
+        5205,
+        115515,
+        173877,
+        161243,
+        27279,
+        156137,
+        26718,
+        152164,
+        151553,
+        162702,
+        151393,
+        5205,
+        198,
+        98715,
+        95960,
+        96457,
+        124932,
+        15303,
+        247373,
+        57486,
+        96688,
+        5205,
+        24128,
+        213419,
+        235238,
+        96823,
+        97181,
+        152180,
+        15303,
+        69131,
+        28242,
+        150606,
+        148353,
+        149675,
+        15303,
+        182839
+      ],
+      "sha256": "b59cb8e6e608e52bb15761af31dedfbc34b8d3bd1a71fcf1ae2e8df8ce9114e1",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "7dc5ed5127170679701526331670e00196297f821ffd246679434143494fb03c",
+      "dtype": "BF16",
+      "language": "arb_Arab",
+      "path": ".unlazy/followup-draft-logits/heldout-24.safetensors",
+      "prompt_ids": [
+        271,
+        30350,
+        171519,
+        148358,
+        154313,
+        198,
+        150796,
+        148401,
+        25,
+        152873,
+        47727,
+        194291,
+        33879,
+        198,
+        13883,
+        31993,
+        156058,
+        156015,
+        206155,
+        237767,
+        170105,
+        193595,
+        1317,
+        61272,
+        219513,
+        220,
+        17,
+        15,
+        15,
+        23,
+        9873,
+        471,
+        74631,
+        174042,
+        152154,
+        191450,
+        150974,
+        167047,
+        148310,
+        152767,
+        167502,
+        148375,
+        155025,
+        152295,
+        175353,
+        200861,
+        155375,
+        153176,
+        173408,
+        66459,
+        36281,
+        62422,
+        148833,
+        151454,
+        149189,
+        171048,
+        171550,
+        223205,
+        30055,
+        88199,
+        46044,
+        54017,
+        151432,
+        74631
+      ],
+      "sha256": "f2f58cbccff34cdd828ec1a9f3628400c091b36a4cb7d1620e0dcc1ee1e39dea",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "6dcd85640753a26ce8f6eeb39ba784969972ab6bd736d39777d664770dcfaf9e",
+      "dtype": "BF16",
+      "language": "arb_Arab",
+      "path": ".unlazy/followup-draft-logits/heldout-25.safetensors",
+      "prompt_ids": [
+        13883,
+        158469,
+        194514,
+        220,
+        16,
+        17,
+        13,
+        181884,
+        176451,
+        159597,
+        641,
+        172611,
+        171048,
+        171384,
+        149399,
+        148834,
+        148333,
+        41422,
+        473,
+        347,
+        171428,
+        65931,
+        175288,
+        180888,
+        148798,
+        13,
+        194514,
+        149438,
+        173974,
+        155810,
+        159044,
+        149894,
+        231940,
+        13,
+        171050,
+        16660,
+        148290,
+        167208,
+        153502,
+        213366,
+        155325,
+        31993,
+        70330,
+        171439,
+        13,
+        159058,
+        220,
+        16,
+        214226,
+        229003,
+        169838,
+        182466,
+        194514,
+        169936,
+        177457,
+        189421,
+        13,
+        169936,
+        50406,
+        155299,
+        150296,
+        220904,
+        194514,
+        176393
+      ],
+      "sha256": "d3688d0acd932f060c29166a64d756362ec1de6a5ba12395eae2a93652859b98",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "04870dc26909f09f7f41601f0da224baaadc1dfc2a5c1381ff692b2de7531496",
+      "dtype": "BF16",
+      "language": "arb_Arab",
+      "path": ".unlazy/followup-draft-logits/heldout-26.safetensors",
+      "prompt_ids": [
+        9873,
+        195174,
+        178801,
+        154266,
+        91913,
+        187432,
+        215780,
+        198,
+        9873,
+        195174,
+        178801,
+        154266,
+        91913,
+        187432,
+        215780,
+        318,
+        155800,
+        150289,
+        164794,
+        25,
+        3379,
+        322,
+        3920,
+        8545,
+        2919,
+        36383,
+        8,
+        170186,
+        159585,
+        61102,
+        22639,
+        195174,
+        162937,
+        149001,
+        159473,
+        156079,
+        178318,
+        204358,
+        66459,
+        155338,
+        151703,
+        193944,
+        150035,
+        56674,
+        149209,
+        148391,
+        197054,
+        318,
+        151084,
+        22639,
+        148830,
+        20704,
+        8,
+        83941,
+        148690,
+        67073,
+        162937,
+        149001,
+        152171,
+        163916,
+        178801,
+        154266,
+        91913,
+        414
+      ],
+      "sha256": "04513dabedeca78a2be96f74350fe5c6a701d7c91563c7297bbe5b3660ffcd89",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    },
+    {
+      "document_sha256": "14b5dd9602b7744b5409b54ddb892288864d27be33fd692f94a5b40ee48d445f",
+      "dtype": "BF16",
+      "language": "arb_Arab",
+      "path": ".unlazy/followup-draft-logits/heldout-27.safetensors",
+      "prompt_ids": [
+        30350,
+        151513,
+        217576,
+        36281,
+        156084,
+        148430,
+        170162,
+        198,
+        154725,
+        159907,
+        160590,
+        180270,
+        155643,
+        182194,
+        66459,
+        178301,
+        217196,
+        170937,
+        221275,
+        46044,
+        170937,
+        155025,
+        207920,
+        486,
+        12290,
+        170040,
+        176209,
+        5525,
+        169838,
+        155025,
+        209341,
+        78948,
+        185402,
+        179114,
+        61102,
+        155740,
+        175288,
+        172266,
+        155093,
+        14139,
+        149689,
+        214830,
+        201207,
+        148900,
+        153268,
+        318,
+        24,
+        17,
+        19,
+        8,
+        183588,
+        235835,
+        160921,
+        148339,
+        160752,
+        25046,
+        209145,
+        239434,
+        161915,
+        25046,
+        318,
+        148424,
+        149812,
+        68216
+      ],
+      "sha256": "df04bb40110792249e38a10039d520ecf5f098424322b8f308c99da7fb654958",
+      "shape": [
+        1,
+        16,
+        248320
+      ],
+      "split": "heldout"
+    }
+  ],
+  "tokenizer_sha256": "0997f410c57a1f4e53b09e4be8f4a172d90edd9564368fb0847030937229b9f3",
+  "warning": "teacher-forced private MTP contexts; not natural generation acceptance or a broad quality certificate"
+}

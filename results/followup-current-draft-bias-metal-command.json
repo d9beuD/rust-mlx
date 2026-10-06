@@ -1,0 +1,39 @@
+{
+  "command": [
+    "target/release/mtp-infer",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--draft-logit-bias",
+    ".unlazy/followup-draft-bias",
+    "--ab-kernel",
+    "draft-bias",
+    "--max-tokens",
+    "64",
+    "--warmup-tokens",
+    "64",
+    "--runs",
+    "1",
+    "--draft-depth",
+    "3",
+    "--ignore-eos",
+    "--output",
+    "results/followup-current-draft-bias-metal.json"
+  ],
+  "log": "results/followup-current-draft-bias-metal.log",
+  "sha256": "08563d0a3e0c2d9cdfc03fc144304a146099f68d5881c6d62cf5c3eb4a3bce6f",
+  "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+  "started_unix": 1791302143.105161,
+  "ended_unix": 1791302180.172787,
+  "exit_code": 0,
+  "passed": true,
+  "success_marker": null,
+  "contains_metal_validation_enabled": true,
+  "validation_environment": {
+    "MTL_SHADER_VALIDATION": "1",
+    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+  }
+}

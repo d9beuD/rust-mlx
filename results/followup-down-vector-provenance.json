@@ -1,0 +1,11 @@
+{
+  "base": "results/followup-down-provenance.json",
+  "changes": [
+    "hoist packed index arithmetic out of qdot",
+    "uint4 joint read for four output rows; original g64 F32/BF16 arithmetic unchanged"
+  ],
+  "outputs": {
+    "moe_down_vector.h": "c5cf18598d0ff09de254d80de55bae045fae4cdee541a916ef59343189331ff1",
+    "moe_down_vector.metal": "c1c44f0e604dc7ff979478d8153630198d3e14d8981b9f9dbb936ae188b4f24a"
+  }
+}

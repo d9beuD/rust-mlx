@@ -1,0 +1,23 @@
+{
+  "mlx": "0.32.2",
+  "script_sha256": "854378b866a1451e906ecd01e19d2796c84fe8676fef02667cf9d8db43816193",
+  "records": [
+    {
+      "case": "custom_metal_vjp",
+      "success": false,
+      "exception": "ValueError",
+      "message": "[Primitive::vjp] Not implemented for CustomKernel."
+    },
+    {
+      "case": "affine_quant_input_vjp",
+      "success": true,
+      "shape": [
+        1,
+        64
+      ],
+      "finite": true
+    }
+  ],
+  "complete": true,
+  "limits": "Toy boundary probes; no full MTP transformer trained. Missing custom-kernel VJP requires derivatives or a native differentiable training graph; it does not prove training impossible."
+}

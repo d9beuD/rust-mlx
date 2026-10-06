@@ -1,0 +1,29 @@
+{
+  "command": [
+    "target/release/down-bench",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--output",
+    "results/followup-down-format-metal.json",
+    "--allow-inexact"
+  ],
+  "name": "down-format-metal",
+  "started_unix": 1791300080.6802719,
+  "ended_unix": 1791300084.81936,
+  "source_sha256": "051d098534c0a22de003b16dc8b2c7bac424616a1e74df07a60de903d30535d1",
+  "executable_sha256": "36f649c0be4f4309b054d3238540b3d3ef8c225438be2fd7a4c061d21c6518ce",
+  "script_sha256": null,
+  "exit_code": 0,
+  "validation_environment": {
+    "MTL_SHADER_VALIDATION": "1",
+    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+  },
+  "marker": "DOWN_FORMAT_COMPONENT_STUDY_COMPLETED",
+  "completed": true,
+  "report_sha256": "fb0bb6a3ed73f60114b64f197f2cd10bb212b085c206d9018f92a3aa3501abc0",
+  "log_sha256": "02cc8b9cc69d6675f38eb432f593459b47177829fa3ab8e30c4c75ba202cffa2",
+  "timing_qualified": false,
+  "warning": "allow-inexact gathers numerical failures; study completion does not certify the down kernel. Instrumented component rates are diagnostic only."
+}

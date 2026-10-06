@@ -1,0 +1,9 @@
+{
+  "base_commit": "a1656454c85dc29448cd9844bcd13bb458d1d034",
+  "patch": "results/followup-vector-failure.patch",
+  "patch_sha256": "612e0503d07dd189cd45a25cc439fe973c517a39e642d969b2f37dfc3e0c378e",
+  "reconstructed_source_sha256": "f3ed56b7608c8a460849a869e6035b6dfe25027cb2dd92852d19570300a8f123",
+  "receipt": "results/followup-vector-integrated-down-packed-vector-verify-metal-command.json",
+  "warning": "Intentionally recreates the rejected third-mode dispatch panic. Apply only in an isolated research checkout; main retains the corrected table.",
+  "validation": "reconstructed sorted src/tests/kernels/Cargo source SHA256 equals the original failure receipt; no failed kernel is dispatched on main"
+}

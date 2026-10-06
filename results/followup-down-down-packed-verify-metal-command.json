@@ -1,0 +1,28 @@
+{
+  "name": "down-packed-verify-metal",
+  "command": [
+    "target/release/verify-parity",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--output",
+    "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-down-down-packed-verify-metal.json",
+    "--down-kernel",
+    "down-packed"
+  ],
+  "started_unix": 1791300512.667586,
+  "ended_unix": 1791300530.933614,
+  "source_sha256": "9442fc948c978975efeb1c4ec77eec808a00dc667046af966baf08bb2b4f57e0",
+  "binary_sha256": "4697dd24b3dad7f9248a1944516f3d6e2f83508a3e335bbd37b73fcde507b71b",
+  "exit_code": 0,
+  "success_marker": "VERIFY_PARITY_PASSED",
+  "passed": true,
+  "validation_environment": {
+    "MTL_SHADER_VALIDATION": "1",
+    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+  },
+  "log_sha256": "0616ce790855fafc743b05a7a01f948e90f7df4349ee9df3fe299e865a4770eb",
+  "report_sha256": "ef1b03b09c569aef95422998b27f6b19da91a32b5fbad9715189cc4db124cbe2",
+  "timing_qualified": false
+}

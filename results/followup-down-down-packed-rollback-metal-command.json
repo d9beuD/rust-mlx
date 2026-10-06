@@ -1,0 +1,28 @@
+{
+  "name": "down-packed-rollback-metal",
+  "command": [
+    "target/release/rollback-parity",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--output",
+    "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-down-down-packed-rollback-metal.json",
+    "--down-kernel",
+    "down-packed"
+  ],
+  "started_unix": 1791300530.9642031,
+  "ended_unix": 1791300540.747607,
+  "source_sha256": "9442fc948c978975efeb1c4ec77eec808a00dc667046af966baf08bb2b4f57e0",
+  "binary_sha256": "c3351b9e1a8123a351a0064397bd22461760778becbeb2110d667bda675f841a",
+  "exit_code": 0,
+  "success_marker": "ROLLBACK_PARITY_PASSED",
+  "passed": true,
+  "validation_environment": {
+    "MTL_SHADER_VALIDATION": "1",
+    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+  },
+  "log_sha256": "2a2e990664080c7973ace0b90e9621cfdfa76a87f26a22266d7fe385e4ea8d40",
+  "report_sha256": "0faf6205314f100938df02fb8adf39eb7af3b93ff5e0f1d40f8abe17c3d2bbf0",
+  "timing_qualified": false
+}

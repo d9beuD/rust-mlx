@@ -1,0 +1,107 @@
+[
+  {
+    "down_calls": 0,
+    "down_kernel": null,
+    "keep": 0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      46,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "down_calls": 0,
+    "down_kernel": null,
+    "keep": 1,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      93,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "down_calls": 0,
+    "down_kernel": null,
+    "keep": 2,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      140,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "down_calls": 0,
+    "down_kernel": null,
+    "keep": 3,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      187,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "down_calls": 0,
+    "down_kernel": null,
+    "keep": 4,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      234,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0
+  }
+]

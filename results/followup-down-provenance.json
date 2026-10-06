@@ -1,0 +1,18 @@
+{
+  "repository": "https://github.com/youssofal/MTPLX",
+  "commit": "9882703f3105363ddc37eca9f97aa09a1d387112",
+  "source": "mtplx/kernels/qwen4_m4_routed_down.py",
+  "source_sha256": "2ffd482484b30d956095de40779d4e7f7b0a5eff72b523b80a0bcc723c147f00",
+  "license": "Apache-2.0",
+  "outputs": {
+    "moe_down_packed.h": "b2430bf303ad2c9f190b9125bad45d9b2a414f662f5f70819b71f49d0052e1cd",
+    "moe_down_packed.metal": "6cba6d4bbc21ca4eb2e2bd0d4ec84f2d434c34ad7d1495b6785fe25a4e54f13c",
+    "moe_down_tail.metal": "852e530f7113482306f86c420fb95d7e2fdd5bd25571427347379e604b9980a1",
+    "moe_down_tail.h": "5a7813763adad144713d592de2f9bf592cee070d5a3a5b5d2b43e8dc4117bb33"
+  },
+  "changes": [
+    "g32->g64",
+    "lossless optional four-output code interleaving; scales/biases stay native",
+    "short-row geometry validation in Rust"
+  ]
+}

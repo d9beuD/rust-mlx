@@ -1,0 +1,1225 @@
+{
+  "scope": "all five follow-up directions; exact solo greedy depth3; rejected candidates stay off",
+  "scope_complete": true,
+  "source_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+  "cohorts": [
+    {
+      "kernel": "route-tail",
+      "suite": "raw",
+      "prompt": 0,
+      "report": "results/followup-ab-route-tail-raw-p0.json",
+      "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+      "control_rates": [
+        70.27257768357885,
+        70.13240620125862,
+        69.90292938209359,
+        69.96558355081407
+      ],
+      "candidate_rates": [
+        70.65495166006407,
+        70.45252763638538,
+        70.51247546078405,
+        70.28624683999959
+      ],
+      "control_median": 70.04899487603635,
+      "candidate_median": 70.48250154858471,
+      "paired_gains_percent": [
+        0.5441297147330548,
+        0.4564529473124246,
+        0.8719893201594386,
+        0.458315750275462
+      ],
+      "paired_median_gain_percent": 0.5012227325042584,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "route-tail",
+      "suite": "chat",
+      "prompt": 0,
+      "report": "results/followup-ab-route-tail-chat-p0.json",
+      "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+      "control_rates": [
+        68.36685350955958,
+        68.22912705447433,
+        67.97236847092604,
+        68.08473372060642
+      ],
+      "candidate_rates": [
+        68.72108345660178,
+        68.69316209070871,
+        68.63487949885233,
+        68.16931212051372
+      ],
+      "control_median": 68.15693038754037,
+      "candidate_median": 68.66402079478053,
+      "paired_gains_percent": [
+        0.5181311247455245,
+        0.6801128143760327,
+        0.9746769795283328,
+        0.12422520480783739
+      ],
+      "paired_median_gain_percent": 0.5991219695607786,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "route-tail",
+      "suite": "chat",
+      "prompt": 1,
+      "report": "results/followup-ab-route-tail-chat-p1.json",
+      "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+      "control_rates": [
+        56.43461536642097,
+        56.097284934043124,
+        55.46453952707206,
+        55.82676385960303
+      ],
+      "candidate_rates": [
+        58.37220075315823,
+        56.26929808537178,
+        56.49927553482676,
+        55.52536388693113
+      ],
+      "control_median": 55.962024396823075,
+      "candidate_median": 56.38428681009927,
+      "paired_gains_percent": [
+        3.4333278860090077,
+        0.3066336481897469,
+        1.865581174165598,
+        -0.539884370567989
+      ],
+      "paired_median_gain_percent": 1.0861074111776725,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "route-tail",
+      "suite": "chat",
+      "prompt": 2,
+      "report": "results/followup-ab-route-tail-chat-p2.json",
+      "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+      "control_rates": [
+        65.54075152045709,
+        64.21995763623461,
+        63.1792961424738,
+        63.423152083740355
+      ],
+      "candidate_rates": [
+        70.106445538738,
+        64.00671962321935,
+        64.18811262493968,
+        65.38469012434578
+      ],
+      "control_median": 63.82155485998749,
+      "candidate_median": 64.78640137464274,
+      "paired_gains_percent": [
+        6.966191128973898,
+        -0.33204321657002156,
+        1.5967516956677086,
+        3.092779176310123
+      ],
+      "paired_median_gain_percent": 2.344765435988916,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "route-tail",
+      "suite": "chat",
+      "prompt": 3,
+      "report": "results/followup-ab-route-tail-chat-p3.json",
+      "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+      "control_rates": [
+        70.92116803762879,
+        68.80752667433863,
+        69.32294599470463,
+        69.93157217875866
+      ],
+      "candidate_rates": [
+        74.71600593379048,
+        70.08967539410689,
+        70.23533312377496,
+        70.41361115625766
+      ],
+      "control_median": 69.62725908673164,
+      "candidate_median": 70.32447214001631,
+      "paired_gains_percent": [
+        5.350783131699499,
+        1.8633844024601887,
+        1.3161401552958196,
+        0.6893009301532915
+      ],
+      "paired_median_gain_percent": 1.5897622788780041,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "ple-prepare",
+      "suite": "raw",
+      "prompt": 0,
+      "report": "results/followup-ab-ple-prepare-raw-p0.json",
+      "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+      "control_rates": [
+        69.66450722375617,
+        69.78041949114886,
+        69.90593243627323,
+        69.91262931255481
+      ],
+      "candidate_rates": [
+        69.90401845741975,
+        69.77365721385408,
+        69.75520368690445,
+        69.62047058985685
+      ],
+      "control_median": 69.84317596371105,
+      "candidate_median": 69.76443045037927,
+      "paired_gains_percent": [
+        0.3438066860852018,
+        -0.00969079484487434,
+        -0.21561653512910395,
+        -0.41789119586937984
+      ],
+      "paired_median_gain_percent": -0.11265366498698914,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "rope-ids",
+      "suite": "raw",
+      "prompt": 0,
+      "report": "results/followup-ab-rope-ids-raw-p0.json",
+      "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+      "control_rates": [
+        69.7891988675686,
+        69.98236238637385,
+        70.0183953756157,
+        69.98473281406962
+      ],
+      "candidate_rates": [
+        70.03146413991958,
+        70.04286314211666,
+        69.92630898194184,
+        70.03341395522273
+      ],
+      "control_median": 69.98354760022173,
+      "candidate_median": 70.03243904757116,
+      "paired_gains_percent": [
+        0.3471386350353489,
+        0.08645143387526755,
+        -0.13151742935532118,
+        0.06955965850787837
+      ],
+      "paired_median_gain_percent": 0.07800554619157296,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "config-reuse",
+      "suite": "raw",
+      "prompt": 0,
+      "report": "results/followup-ab-config-reuse-raw-p0.json",
+      "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+      "control_rates": [
+        67.37616261905113,
+        67.32988881402503,
+        67.22890831921455,
+        67.0948664022452
+      ],
+      "candidate_rates": [
+        66.8874367393214,
+        66.98218339590476,
+        67.39769451802441,
+        67.4402363092551
+      ],
+      "control_median": 67.27939856661979,
+      "candidate_median": 67.18993895696458,
+      "paired_gains_percent": [
+        -0.7253691227460002,
+        -0.5164206034569352,
+        0.25106193604755855,
+        0.5147486320925765
+      ],
+      "paired_median_gain_percent": -0.13267933370468832,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "runtime-prepare",
+      "suite": "raw",
+      "prompt": 0,
+      "report": "results/followup-ab-runtime-prepare-raw-p0.json",
+      "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+      "control_rates": [
+        69.97452961423282,
+        69.48373009508269,
+        67.54334096668353,
+        67.2726747496764
+      ],
+      "candidate_rates": [
+        69.99201874971669,
+        67.81825535850878,
+        67.56548188165362,
+        67.7265435511921
+      ],
+      "control_median": 68.5135355308831,
+      "candidate_median": 67.77239945485044,
+      "paired_gains_percent": [
+        0.024993573490661447,
+        -2.3969276466517364,
+        0.03278030765609952,
+        0.6746703668384813
+      ],
+      "paired_median_gain_percent": 0.028886940573380482,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "runtime-prepare",
+      "suite": "chat",
+      "prompt": 0,
+      "report": "results/followup-ab-runtime-prepare-chat-p0.json",
+      "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+      "control_rates": [
+        68.2884900252987,
+        68.21499319404968,
+        67.96811314939981,
+        68.26079568515577
+      ],
+      "candidate_rates": [
+        68.16649818055784,
+        68.02040612183656,
+        68.15131940949031,
+        68.37119327967733
+      ],
+      "control_median": 68.23789443960273,
+      "candidate_median": 68.15890879502408,
+      "paired_gains_percent": [
+        -0.1786418834208603,
+        -0.2852555766729825,
+        0.2695473680250471,
+        0.161729135169697
+      ],
+      "paired_median_gain_percent": -0.008456374125581645,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "runtime-prepare",
+      "suite": "chat",
+      "prompt": 1,
+      "report": "results/followup-ab-runtime-prepare-chat-p1.json",
+      "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+      "control_rates": [
+        59.87319853966348,
+        59.664772897883665,
+        58.62512641821678,
+        58.31708610547814
+      ],
+      "candidate_rates": [
+        60.26205426467915,
+        58.90418522087575,
+        58.71040578206009,
+        59.071943285374736
+      ],
+      "control_median": 59.14494965805022,
+      "candidate_median": 58.988064253125245,
+      "paired_gains_percent": [
+        0.649465427770779,
+        -1.274768410347693,
+        0.14546555215071422,
+        1.2944014015571437
+      ],
+      "paired_median_gain_percent": 0.3974654899607466,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "runtime-prepare",
+      "suite": "chat",
+      "prompt": 2,
+      "report": "results/followup-ab-runtime-prepare-chat-p2.json",
+      "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+      "control_rates": [
+        66.89898689213153,
+        66.96594315655003,
+        67.03917516277619,
+        67.11804870460685
+      ],
+      "candidate_rates": [
+        67.23973893758426,
+        67.12291530113596,
+        66.51129830828177,
+        66.6824946851051
+      ],
+      "control_median": 67.00255915966311,
+      "candidate_median": 66.90270499312052,
+      "paired_gains_percent": [
+        0.5093530728681461,
+        0.23440593410142263,
+        -0.7874154973009362,
+        -0.6489372499767776
+      ],
+      "paired_median_gain_percent": -0.20726565793767748,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "runtime-prepare",
+      "suite": "chat",
+      "prompt": 3,
+      "report": "results/followup-ab-runtime-prepare-chat-p3.json",
+      "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+      "control_rates": [
+        74.37243968847865,
+        74.29428892881438,
+        71.53722818226643,
+        70.56369996845744
+      ],
+      "candidate_rates": [
+        74.20339922861929,
+        71.97857748172785,
+        70.82770975089966,
+        71.13610886670101
+      ],
+      "control_median": 72.9157585555404,
+      "candidate_median": 71.55734317421442,
+      "paired_gains_percent": [
+        -0.22728911484874992,
+        -3.1169440888051847,
+        -0.9918170572097429,
+        0.8111945639180496
+      ],
+      "paired_median_gain_percent": -0.6095530860292464,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "down-tail",
+      "suite": "raw",
+      "prompt": 0,
+      "report": "results/followup-ab-down-tail-raw-p0.json",
+      "source_sha256": "9442fc948c978975efeb1c4ec77eec808a00dc667046af966baf08bb2b4f57e0",
+      "control_rates": [
+        70.0843747161411,
+        69.72270311960472,
+        69.71699083101657,
+        69.85762126444075
+      ],
+      "candidate_rates": [
+        70.24926115022775,
+        70.16252035144383,
+        70.17657482452101,
+        69.78774728814106
+      ],
+      "control_median": 69.79016219202273,
+      "candidate_median": 70.16954758798242,
+      "paired_gains_percent": [
+        0.2352684671219185,
+        0.6308092087087269,
+        0.6592137555368582,
+        -0.10002341195556319
+      ],
+      "paired_median_gain_percent": 0.4330388379153227,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "down-packed",
+      "suite": "raw",
+      "prompt": 0,
+      "report": "results/followup-ab-down-packed-raw-p0.json",
+      "source_sha256": "9442fc948c978975efeb1c4ec77eec808a00dc667046af966baf08bb2b4f57e0",
+      "control_rates": [
+        69.02695154562021,
+        69.22765241390918,
+        66.94549758696556,
+        66.55403953622674
+      ],
+      "candidate_rates": [
+        62.886180365262554,
+        62.49902473948307,
+        61.79324419201154,
+        60.083271880516286
+      ],
+      "control_median": 67.98622456629289,
+      "candidate_median": 62.14613446574731,
+      "paired_gains_percent": [
+        -8.896193505371874,
+        -9.719566444628136,
+        -7.696191051923962,
+        -9.722576872570265
+      ],
+      "paired_median_gain_percent": -9.307879975000006,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "draft-bias",
+      "suite": "raw",
+      "prompt": 0,
+      "report": "results/followup-ab-draft-bias-raw-p0.json",
+      "source_sha256": "9442fc948c978975efeb1c4ec77eec808a00dc667046af966baf08bb2b4f57e0",
+      "control_rates": [
+        69.93336539967369,
+        68.78824835333572,
+        66.70617154381428,
+        66.0694649286343
+      ],
+      "candidate_rates": [
+        69.68896470737305,
+        66.43305390342094,
+        66.13874547119804,
+        66.15550298499143
+      ],
+      "control_median": 67.747209948575,
+      "candidate_median": 66.29427844420618,
+      "paired_gains_percent": [
+        -0.3494765208336248,
+        -3.423832567762375,
+        -0.8506350454298595,
+        0.1302236312191507
+      ],
+      "paired_median_gain_percent": -0.6000557831317421,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "down-packed-vector",
+      "suite": "raw",
+      "prompt": 0,
+      "report": "results/followup-ab-down-packed-vector-raw-p0.json",
+      "source_sha256": "9ecd7a2fea7fe7b7e45aa6d63065a0d8734b5b87320913caa21dbe493faad349",
+      "control_rates": [
+        55.85790827965595,
+        55.09694600635932,
+        55.48541557137232,
+        54.03912098588337
+      ],
+      "candidate_rates": [
+        56.07062502008167,
+        55.363351344458664,
+        55.325866832349085,
+        55.116760398931866
+      ],
+      "control_median": 55.291180788865816,
+      "candidate_median": 55.34460908840387,
+      "paired_gains_percent": [
+        0.3808175905204658,
+        0.4835210613463037,
+        -0.2875507687565282,
+        1.9941838308769055
+      ],
+      "paired_median_gain_percent": 0.43216932593338475,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "down-packed-vector",
+      "suite": "chat",
+      "prompt": 0,
+      "report": "results/followup-ab-down-packed-vector-chat-p0.json",
+      "source_sha256": "9ecd7a2fea7fe7b7e45aa6d63065a0d8734b5b87320913caa21dbe493faad349",
+      "control_rates": [
+        54.41695196887734,
+        54.343974984722415,
+        55.48660528868946,
+        55.890526831450586
+      ],
+      "candidate_rates": [
+        54.81113662277672,
+        54.95844422415366,
+        55.23476471360379,
+        55.63259882667577
+      ],
+      "control_median": 54.9517786287834,
+      "candidate_median": 55.09660446887872,
+      "paired_gains_percent": [
+        0.7243784145146925,
+        1.1307035225229356,
+        -0.4538763432640702,
+        -0.4614878753114171
+      ],
+      "paired_median_gain_percent": 0.13525103562531116,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "down-packed-vector",
+      "suite": "chat",
+      "prompt": 1,
+      "report": "results/followup-ab-down-packed-vector-chat-p1.json",
+      "source_sha256": "9ecd7a2fea7fe7b7e45aa6d63065a0d8734b5b87320913caa21dbe493faad349",
+      "control_rates": [
+        49.41355596472615,
+        49.76207225267659,
+        49.73840524628996,
+        49.388064928649015
+      ],
+      "candidate_rates": [
+        47.57464461740471,
+        49.373983067063556,
+        49.563845853463235,
+        49.58289764014795
+      ],
+      "control_median": 49.57598060550805,
+      "candidate_median": 49.46891446026339,
+      "paired_gains_percent": [
+        -3.7214713886087214,
+        -0.7798895183513177,
+        -0.3509549451019889,
+        0.3944935112975223
+      ],
+      "paired_median_gain_percent": -0.5654222317266533,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "down-packed-vector",
+      "suite": "chat",
+      "prompt": 2,
+      "report": "results/followup-ab-down-packed-vector-chat-p2.json",
+      "source_sha256": "9ecd7a2fea7fe7b7e45aa6d63065a0d8734b5b87320913caa21dbe493faad349",
+      "control_rates": [
+        57.11358629229779,
+        57.15210233588206,
+        57.638778832255575,
+        56.50244701296075
+      ],
+      "candidate_rates": [
+        55.45200989666503,
+        57.17939643650374,
+        56.43543761083596,
+        57.219879062190856
+      ],
+      "control_median": 57.13284431408992,
+      "candidate_median": 56.80741702366985,
+      "paired_gains_percent": [
+        -2.909248925691843,
+        0.04775694944914033,
+        -2.0877285150708413,
+        1.269736245344455
+      ],
+      "paired_median_gain_percent": -1.0199857828108505,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "down-packed-vector",
+      "suite": "chat",
+      "prompt": 3,
+      "report": "results/followup-ab-down-packed-vector-chat-p3.json",
+      "source_sha256": "9ecd7a2fea7fe7b7e45aa6d63065a0d8734b5b87320913caa21dbe493faad349",
+      "control_rates": [
+        60.396187750849215,
+        60.41994288475788,
+        61.32713422050198,
+        60.20065113576698
+      ],
+      "candidate_rates": [
+        59.43736243091353,
+        60.953896205912784,
+        60.49725780841149,
+        60.79724681455955
+      ],
+      "control_median": 60.40806531780355,
+      "candidate_median": 60.647252311485516,
+      "paired_gains_percent": [
+        -1.5875593404853672,
+        0.8837368849774263,
+        -1.353196138444468,
+        0.9910120032540881
+      ],
+      "paired_median_gain_percent": -0.23472962673352082,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "draft-bias",
+      "suite": "chat",
+      "prompt": 0,
+      "report": "results/followup-ab-draft-bias-chat-p0.json",
+      "source_sha256": "9ecd7a2fea7fe7b7e45aa6d63065a0d8734b5b87320913caa21dbe493faad349",
+      "control_rates": [
+        55.34827686163115,
+        55.91712759257273,
+        56.12724486624864,
+        55.774508474157365
+      ],
+      "candidate_rates": [
+        56.142373315904244,
+        56.91300141476883,
+        55.88276241228861,
+        56.03224366716402
+      ],
+      "control_median": 55.84581803336505,
+      "candidate_median": 56.08730849153413,
+      "paired_gains_percent": [
+        1.4347266063193143,
+        1.7809817225453717,
+        -0.4355860590389393,
+        0.46210213242143805
+      ],
+      "paired_median_gain_percent": 0.9484143693703762,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "draft-bias",
+      "suite": "chat",
+      "prompt": 1,
+      "report": "results/followup-ab-draft-bias-chat-p1.json",
+      "source_sha256": "9ecd7a2fea7fe7b7e45aa6d63065a0d8734b5b87320913caa21dbe493faad349",
+      "control_rates": [
+        49.87277552752684,
+        49.92668201156646,
+        49.76359649316349,
+        49.85906463336562
+      ],
+      "candidate_rates": [
+        49.66532912793503,
+        49.52190325291217,
+        50.459023760362776,
+        50.29151121448792
+      ],
+      "control_median": 49.86592008044623,
+      "candidate_median": 49.978420171211475,
+      "paired_gains_percent": [
+        -0.4159511825791884,
+        -0.8107463631581213,
+        1.3974618319534393,
+        0.8673379340391918
+      ],
+      "paired_median_gain_percent": 0.2256933757300017,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "draft-bias",
+      "suite": "chat",
+      "prompt": 2,
+      "report": "results/followup-ab-draft-bias-chat-p2.json",
+      "source_sha256": "9ecd7a2fea7fe7b7e45aa6d63065a0d8734b5b87320913caa21dbe493faad349",
+      "control_rates": [
+        58.1335996897236,
+        58.61091049886142,
+        57.9596784031828,
+        58.177159575558505
+      ],
+      "candidate_rates": [
+        55.40547593038095,
+        57.759283528007195,
+        58.32026210256516,
+        58.04183796483175
+      ],
+      "control_median": 58.15537963264106,
+      "candidate_median": 57.90056074641947,
+      "paired_gains_percent": [
+        -4.692851937439735,
+        -1.4530178146111017,
+        0.622128537142741,
+        -0.23260264288256227
+      ],
+      "paired_median_gain_percent": -0.842810228746832,
+      "exact_original_ids": true
+    },
+    {
+      "kernel": "draft-bias",
+      "suite": "chat",
+      "prompt": 3,
+      "report": "results/followup-ab-draft-bias-chat-p3.json",
+      "source_sha256": "9ecd7a2fea7fe7b7e45aa6d63065a0d8734b5b87320913caa21dbe493faad349",
+      "control_rates": [
+        61.169827982347705,
+        61.89957725627882,
+        62.02044929741623,
+        62.37068146982171
+      ],
+      "candidate_rates": [
+        61.04585493818757,
+        61.08089286971299,
+        61.56991017817878,
+        62.09268291197335
+      ],
+      "control_median": 61.96001327684752,
+      "candidate_median": 61.325401523945885,
+      "paired_gains_percent": [
+        -0.20267025141204043,
+        -1.3226009334058597,
+        -0.7264364001571599,
+        -0.4457199300970771
+      ],
+      "paired_median_gain_percent": -0.5860781651271185,
+      "exact_original_ids": true
+    }
+  ],
+  "negative_token_control": true,
+  "training_fit_documents": 7,
+  "training_heldout_documents": 28,
+  "training_heldout_predictions": 448,
+  "training_limits": "Fixed tiny additive head-bias pilot. Teacher-forced KL/agreement are not natural draft acceptance or global quality evidence; full greedy MTP remains required.",
+  "quality": {
+    "passed": true,
+    "source_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+    "receipts": [
+      {
+        "command": [
+          "cargo",
+          "build",
+          "--release"
+        ],
+        "log": "results/followup-current-build.log",
+        "sha256": "dd4a390ee5464c5dd848aa4447465ca4f0047a70f697d3b9cc49d489dfe17727",
+        "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+        "started_unix": 1791301775.719703,
+        "ended_unix": 1791301815.0877,
+        "exit_code": 0,
+        "passed": true,
+        "success_marker": null,
+        "contains_metal_validation_enabled": false,
+        "validation_environment": {}
+      },
+      {
+        "command": [
+          "scripts/check.sh"
+        ],
+        "log": "results/followup-current-quality.log",
+        "sha256": "adb2b41312a1b29f3162473bddc25a8a5fdaad49171a297847fdef3b3181a80d",
+        "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+        "started_unix": 1791301815.112712,
+        "ended_unix": 1791301855.590846,
+        "exit_code": 0,
+        "passed": true,
+        "success_marker": "QUALITY_CHECKS_PASSED",
+        "contains_metal_validation_enabled": false,
+        "validation_environment": {},
+        "release_tests_passed": 38,
+        "checks": [
+          "cargo fmt --check",
+          "cargo clippy --workspace --all-targets --all-features -- -D warnings",
+          "cargo test --workspace --release"
+        ]
+      },
+      {
+        "command": [
+          "scripts/validate-metal.sh"
+        ],
+        "log": "results/followup-current-portable-metal.log",
+        "sha256": "7c4036d07656262e5bf1385a428c87101d24d7128a9668808f2131dbb8d1a253",
+        "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+        "started_unix": 1791301855.6076438,
+        "ended_unix": 1791301859.765408,
+        "exit_code": 0,
+        "passed": true,
+        "success_marker": "METAL_VALIDATION_PASSED",
+        "contains_metal_validation_enabled": true,
+        "validation_environment": {
+          "MTL_SHADER_VALIDATION": "1",
+          "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+          "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+          "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+        },
+        "instrumentation": {
+          "MTL_SHADER_VALIDATION": "1",
+          "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+          "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+          "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+        },
+        "validation_tests_passed": 37,
+        "timing": "diagnostic only; excluded from throughput",
+        "negative_control": "existing cooperative matrix discrepancy remains rejected; native fallback retained"
+      },
+      {
+        "command": [
+          ".venv/bin/python",
+          "scripts/run_decode3_checks.py",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--prefix",
+          "followup-current-native",
+          "--only",
+          "original"
+        ],
+        "log": "results/followup-current-followup-current-native.log",
+        "sha256": "d89ccac85e99a75fda2d64011836f63132f2dae4809eb24e33cf64b0d01de367",
+        "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+        "started_unix": 1791301859.776285,
+        "ended_unix": 1791301890.38127,
+        "exit_code": 0,
+        "passed": true,
+        "success_marker": "DECODE3_ACTUAL_CHECKS_PASSED",
+        "contains_metal_validation_enabled": false,
+        "validation_environment": {}
+      },
+      {
+        "command": [
+          ".venv/bin/python",
+          "scripts/run_followup_route_checks.py",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--prefix",
+          "followup-current-route"
+        ],
+        "log": "results/followup-current-followup-current-route.log",
+        "sha256": "0082e2733c9181240d4cb38ba467379d9ee7568169b197678bc58d457cdb47c7",
+        "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+        "started_unix": 1791301890.3904572,
+        "ended_unix": 1791301929.565069,
+        "exit_code": 0,
+        "passed": true,
+        "success_marker": "FOLLOWUP_ACTUAL_ROUTE_CHECKS_PASSED",
+        "contains_metal_validation_enabled": false,
+        "validation_environment": {}
+      },
+      {
+        "command": [
+          ".venv/bin/python",
+          "scripts/run_followup_runtime_checks.py",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--prefix",
+          "followup-current-runtime"
+        ],
+        "log": "results/followup-current-followup-current-runtime.log",
+        "sha256": "7def45a1037b6060e4d3a8dcc66b4b6af7cbfa38036d8217b44fe46be2b999e0",
+        "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+        "started_unix": 1791301929.574788,
+        "ended_unix": 1791302045.5380852,
+        "exit_code": 0,
+        "passed": true,
+        "success_marker": "FOLLOWUP_ACTUAL_RUNTIME_CHECKS_PASSED",
+        "contains_metal_validation_enabled": false,
+        "validation_environment": {}
+      },
+      {
+        "command": [
+          ".venv/bin/python",
+          "scripts/run_followup_down_checks.py",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--prefix",
+          "followup-current-down"
+        ],
+        "log": "results/followup-current-followup-current-down.log",
+        "sha256": "19c48a4caa8a1e6e89faa1d525eb8627bdb6a829dbac721063efa267692e7151",
+        "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+        "started_unix": 1791302045.548925,
+        "ended_unix": 1791302143.09466,
+        "exit_code": 0,
+        "passed": true,
+        "success_marker": "FOLLOWUP_ACTUAL_DOWN_CHECKS_PASSED",
+        "contains_metal_validation_enabled": false,
+        "validation_environment": {}
+      },
+      {
+        "command": [
+          "target/release/mtp-infer",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--draft-logit-bias",
+          ".unlazy/followup-draft-bias",
+          "--ab-kernel",
+          "draft-bias",
+          "--max-tokens",
+          "64",
+          "--warmup-tokens",
+          "64",
+          "--runs",
+          "1",
+          "--draft-depth",
+          "3",
+          "--ignore-eos",
+          "--output",
+          "results/followup-current-draft-bias-metal.json"
+        ],
+        "log": "results/followup-current-draft-bias-metal.log",
+        "sha256": "08563d0a3e0c2d9cdfc03fc144304a146099f68d5881c6d62cf5c3eb4a3bce6f",
+        "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+        "started_unix": 1791302143.105161,
+        "ended_unix": 1791302180.172787,
+        "exit_code": 0,
+        "passed": true,
+        "success_marker": null,
+        "contains_metal_validation_enabled": true,
+        "validation_environment": {
+          "MTL_SHADER_VALIDATION": "1",
+          "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+          "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+          "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+        }
+      },
+      {
+        "command": [
+          ".venv/bin/python",
+          "scripts/server_smoke.py"
+        ],
+        "log": "results/followup-current-fifo-server_smoke.log",
+        "sha256": "a581bf9bb96555a02a967f9ad607a1b0f16ce29aa50b6aafbe404098f1fa637d",
+        "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+        "started_unix": 1791302186.0594099,
+        "ended_unix": 1791302194.896516,
+        "exit_code": 0,
+        "passed": true,
+        "success_marker": "SERVER_SMOKE_PASSED",
+        "contains_metal_validation_enabled": false,
+        "validation_environment": {}
+      },
+      {
+        "command": [
+          ".venv/bin/python",
+          "scripts/server_utf8_smoke.py"
+        ],
+        "log": "results/followup-current-fifo-server_utf8_smoke.log",
+        "sha256": "3d35b0336814d0c418020a657cace03b279a9a3f2b2105f7d0acea98dbb848d6",
+        "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+        "started_unix": 1791302194.922695,
+        "ended_unix": 1791302204.863044,
+        "exit_code": 0,
+        "passed": true,
+        "success_marker": "SERVER_UTF8_SMOKE_PASSED",
+        "contains_metal_validation_enabled": false,
+        "validation_environment": {}
+      },
+      {
+        "command": [
+          ".venv/bin/python",
+          "scripts/server_batch_smoke.py"
+        ],
+        "log": "results/followup-current-batch8-server_batch_smoke.log",
+        "sha256": "944f61d45ae75e36191ed4996bd01611bb855ae8d87624502bb7a2e696931cf6",
+        "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+        "started_unix": 1791302210.780811,
+        "ended_unix": 1791302266.5396,
+        "exit_code": 0,
+        "passed": true,
+        "success_marker": "SERVER_BATCH_SMOKE_PASSED",
+        "contains_metal_validation_enabled": false,
+        "validation_environment": {}
+      },
+      {
+        "command": [
+          ".venv/bin/python",
+          "scripts/server_utf8_smoke.py"
+        ],
+        "log": "results/followup-current-batch8-server_utf8_smoke.log",
+        "sha256": "3d35b0336814d0c418020a657cace03b279a9a3f2b2105f7d0acea98dbb848d6",
+        "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+        "started_unix": 1791302266.566379,
+        "ended_unix": 1791302276.529886,
+        "exit_code": 0,
+        "passed": true,
+        "success_marker": "SERVER_UTF8_SMOKE_PASSED",
+        "contains_metal_validation_enabled": false,
+        "validation_environment": {}
+      }
+    ],
+    "quality": {
+      "command": [
+        "scripts/check.sh"
+      ],
+      "log": "results/followup-current-quality.log",
+      "sha256": "adb2b41312a1b29f3162473bddc25a8a5fdaad49171a297847fdef3b3181a80d",
+      "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+      "started_unix": 1791301815.112712,
+      "ended_unix": 1791301855.590846,
+      "exit_code": 0,
+      "passed": true,
+      "success_marker": "QUALITY_CHECKS_PASSED",
+      "contains_metal_validation_enabled": false,
+      "validation_environment": {},
+      "release_tests_passed": 38,
+      "checks": [
+        "cargo fmt --check",
+        "cargo clippy --workspace --all-targets --all-features -- -D warnings",
+        "cargo test --workspace --release"
+      ]
+    },
+    "metal": {
+      "command": [
+        "scripts/validate-metal.sh"
+      ],
+      "log": "results/followup-current-portable-metal.log",
+      "sha256": "7c4036d07656262e5bf1385a428c87101d24d7128a9668808f2131dbb8d1a253",
+      "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+      "started_unix": 1791301855.6076438,
+      "ended_unix": 1791301859.765408,
+      "exit_code": 0,
+      "passed": true,
+      "success_marker": "METAL_VALIDATION_PASSED",
+      "contains_metal_validation_enabled": true,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "instrumentation": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "validation_tests_passed": 37,
+      "timing": "diagnostic only; excluded from throughput",
+      "negative_control": "existing cooperative matrix discrepancy remains rejected; native fallback retained"
+    },
+    "server": {
+      "passed": true,
+      "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "binary_sha256": "db79dcd18679e8e51d312570deb4cc9eb2545c1fb7332132da3447372b5b787b",
+      "runtime": "actual defaults; greedy; no kernel overrides",
+      "server_modes": [
+        "default FIFO",
+        "--no-mtp --batch-size8"
+      ],
+      "reports": {
+        "server-smoke": {
+          "sha256": "399eb9f5460a0e91e3d2b2e8d5169b79ce33173988ea539770c3341ef55acf8e",
+          "mtime": 1791302194.8851757
+        },
+        "server-batch-smoke": {
+          "sha256": "05d97ceeb17bad10155f2abe7b82f4543e7bd73fe554eb48957d1efb3acdfe50",
+          "mtime": 1791302266.5292912
+        },
+        "server-utf8-batch1": {
+          "sha256": "458697670a799505557567daa9aebaad3f49cdbe6903e5391bae087344ac30fc",
+          "mtime": 1791302204.85416
+        },
+        "server-utf8-batch8": {
+          "sha256": "3a7f1375cb234477c8334017a6996e4de8e442dc1cc586d9a02596250bbe59ca",
+          "mtime": 1791302276.521254
+        }
+      },
+      "scripts": {
+        "server_smoke": "7aa9db0595b05cf945914552a7b951f5144bb570b9d646696b57f54fbbb43f82",
+        "server_batch_smoke": "2cb6df6c97e1405a8fde45a8961098a6fef9e941d4796d0f45721591bf52535a",
+        "server_utf8_smoke": "f29c5e38abfc5217ff284278feee14c23035967a7b5c16a161345d029391cb54"
+      },
+      "owned_servers": [
+        {
+          "pid": 74037,
+          "command": [
+            "target/release/server",
+            "--model",
+            "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp"
+          ],
+          "stopped": true,
+          "exit_code": -15,
+          "log": "results/followup-current-server-fifo.log",
+          "log_sha256": "438b39775250cf0ce3aa8fb22511dc2cf5b958405fe370c074c976e26310ef82"
+        },
+        {
+          "pid": 74115,
+          "command": [
+            "target/release/server",
+            "--model",
+            "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+            "--no-mtp",
+            "--batch-size",
+            "8"
+          ],
+          "stopped": true,
+          "exit_code": -15,
+          "log": "results/followup-current-server-batch8.log",
+          "log_sha256": "2cad2f27c1e00c9e94da371227da1d6c7d58c7ebb25263ed8f63ff5075a7b831"
+        }
+      ],
+      "owned_servers_stopped": true,
+      "timing": "HTTP/prefix/diagnostic timings excluded from raw inference speed",
+      "partial_codepoint_cases": [
+        2,
+        2
+      ],
+      "concurrent_cancellation_survivors": 3,
+      "success_logs": [
+        {
+          "command": [
+            ".venv/bin/python",
+            "scripts/server_smoke.py"
+          ],
+          "log": "results/followup-current-fifo-server_smoke.log",
+          "sha256": "a581bf9bb96555a02a967f9ad607a1b0f16ce29aa50b6aafbe404098f1fa637d",
+          "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+          "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+          "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+          "started_unix": 1791302186.0594099,
+          "ended_unix": 1791302194.896516,
+          "exit_code": 0,
+          "passed": true,
+          "success_marker": "SERVER_SMOKE_PASSED",
+          "contains_metal_validation_enabled": false,
+          "validation_environment": {}
+        },
+        {
+          "command": [
+            ".venv/bin/python",
+            "scripts/server_utf8_smoke.py"
+          ],
+          "log": "results/followup-current-fifo-server_utf8_smoke.log",
+          "sha256": "3d35b0336814d0c418020a657cace03b279a9a3f2b2105f7d0acea98dbb848d6",
+          "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+          "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+          "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+          "started_unix": 1791302194.922695,
+          "ended_unix": 1791302204.863044,
+          "exit_code": 0,
+          "passed": true,
+          "success_marker": "SERVER_UTF8_SMOKE_PASSED",
+          "contains_metal_validation_enabled": false,
+          "validation_environment": {}
+        },
+        {
+          "command": [
+            ".venv/bin/python",
+            "scripts/server_batch_smoke.py"
+          ],
+          "log": "results/followup-current-batch8-server_batch_smoke.log",
+          "sha256": "944f61d45ae75e36191ed4996bd01611bb855ae8d87624502bb7a2e696931cf6",
+          "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+          "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+          "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+          "started_unix": 1791302210.780811,
+          "ended_unix": 1791302266.5396,
+          "exit_code": 0,
+          "passed": true,
+          "success_marker": "SERVER_BATCH_SMOKE_PASSED",
+          "contains_metal_validation_enabled": false,
+          "validation_environment": {}
+        },
+        {
+          "command": [
+            ".venv/bin/python",
+            "scripts/server_utf8_smoke.py"
+          ],
+          "log": "results/followup-current-batch8-server_utf8_smoke.log",
+          "sha256": "3d35b0336814d0c418020a657cace03b279a9a3f2b2105f7d0acea98dbb848d6",
+          "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+          "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+          "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+          "started_unix": 1791302266.566379,
+          "ended_unix": 1791302276.529886,
+          "exit_code": 0,
+          "passed": true,
+          "success_marker": "SERVER_UTF8_SMOKE_PASSED",
+          "contains_metal_validation_enabled": false,
+          "validation_environment": {}
+        }
+      ],
+      "captured_unix_seconds": 1791302277.1730208
+    },
+    "bias_shader_tokens_exact": true
+  },
+  "promote_default": false,
+  "solo100_demonstrated": false,
+  "warnings": [
+    "Historical experiments bind their own immutable source/binary snapshots; final quality is independently bound to current source.",
+    "Component/instrumented rates are excluded from all full-generation gains.",
+    "Selected packing allocates1.258GB for3 banks; no all48-bank performance claim.",
+    "Tiny teacher-forced bias improvements do not prove full MTP distillation or broad model quality."
+  ]
+}

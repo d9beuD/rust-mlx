@@ -1,0 +1,6400 @@
+{
+  "cache": "evaluated components; no prefix caching",
+  "comparison": "Native gather_qmm plus BF16 weighted reduction vs MTPLX g64 fused down; packed and unpacked custom versions use identical scalar/reduction arithmetic",
+  "complete": true,
+  "environment": {
+    "captured_unix_seconds": 1791300885,
+    "hardware": {
+      "chip": "Apple M5 Max",
+      "gpu": "Apple M5 Max",
+      "gpu_cores": "40",
+      "memory": "128 GB",
+      "model": "Mac17,6"
+    },
+    "revision": {
+      "commit": "9b048ee5b1ddc046169e5fb3650e7a6ad441de1a",
+      "dirty": true
+    },
+    "software": {
+      "macos": "27.0.1",
+      "macos_build": "26A434",
+      "mlx": "0.32.2",
+      "mlx_rs": "0.32.0",
+      "mlx_sys": "0.6.0",
+      "package_version": "0.1.0",
+      "rust": "rustc 1.98.1 (48a229cea 2026-09-01)",
+      "xcode": "Xcode 27.0\nBuild version 27A266a"
+    },
+    "workload": {
+      "binary_sha256": "72e951819aec85fb5600ed30d29d78c9479dd090f89844a0a83d4ecdc9fc0fc4  /Users/d9beud/Documents/Repositories/d9beud/rust-mlx/target/release/down-bench",
+      "process_cpu_names": [
+        "  7.1 /usr/libexec/syspolicyd",
+        " 61.3 /System/Library/ExtensionKit/Extensions/Storage.appex/Contents/MacOS/Storage",
+        " 82.4 /System/Library/PrivateFrameworks/StorageManagement.framework/PlugIns/StorageManagementService",
+        " 99.9 /System/Library/PrivateFrameworks/StorageManagement.framework/PlugIns/ApplicationsStorageExtension.appex/Contents/MacOS/ApplicationsStorageExtension"
+      ],
+      "swap": "vm.swapusage: total = 2048.00M  used = 1055.00M  free = 993.00M  (encrypted)",
+      "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    }
+  },
+  "format": "lossless [512,2560,80] uint32 -> [512,640,80,4] interleaving; scale/bias untouched; no double quantization",
+  "input": "synthetic sin(j*.013) BF16 layer0 component fixture reused on3 real expert banks; full-model qualification remains required",
+  "measurement_pairs": 100,
+  "memory": "benchmark retains original plus one packed bank for reference; production ownership/conversion cost not qualified",
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "native_exact": true,
+  "quantization": {
+    "bits": 4,
+    "group_size": 64,
+    "language_model.lm_head": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.embed_tokens": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.key_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.0": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.1": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.10": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.100": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.101": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.102": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.103": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.104": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.105": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.106": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.107": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.108": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.109": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.11": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.110": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.111": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.112": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.113": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.114": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.115": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.116": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.117": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.118": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.119": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.12": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.120": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.121": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.122": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.123": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.124": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.125": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.126": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.127": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.13": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.14": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.15": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.16": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.17": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.18": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.19": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.2": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.20": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.21": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.22": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.23": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.24": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.25": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.26": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.27": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.28": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.29": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.3": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.30": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.31": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.32": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.33": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.34": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.35": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.36": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.37": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.38": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.39": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.4": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.40": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.41": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.42": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.43": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.44": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.45": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.46": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.47": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.48": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.49": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.5": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.50": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.51": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.52": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.53": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.54": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.55": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.56": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.57": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.58": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.59": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.6": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.60": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.61": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.62": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.63": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.64": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.65": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.66": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.67": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.68": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.69": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.7": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.70": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.71": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.72": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.73": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.74": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.75": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.76": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.77": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.78": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.79": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.8": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.80": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.81": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.82": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.83": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.84": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.85": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.86": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.87": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.88": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.89": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.9": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.90": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.91": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.92": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.93": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.94": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.95": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.96": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.97": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.98": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.99": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.value_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.indexer.index_qk_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.k_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.q_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.v_proj": {
+      "bits": 6,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.indexer.index_qk_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.k_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.v_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.self_attn.indexer.index_qk_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.attn_hyper_connection.block_inject_weight": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_a": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_b": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_qkv": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_z": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp_hyper_connection.block_inject_weight": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.indexer.index_qk_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.k_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.q_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.v_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mode": "affine",
+    "mtp.layers.0.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.indexer.index_qk_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.k_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.q_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.v_proj": {
+      "bits": 6,
+      "group_size": 128,
+      "mode": "affine"
+    }
+  },
+  "records": [
+    {
+      "code_bytes": 419430400,
+      "down_seconds": [
+        0.000367792,
+        0.000376834,
+        0.00037275,
+        0.000352625,
+        0.000349083,
+        0.000354459,
+        0.000335167,
+        0.000337583,
+        0.000345209,
+        0.000348583,
+        0.000340708,
+        0.000347666,
+        0.000334041,
+        0.0003495,
+        0.000330958,
+        0.000371875,
+        0.000344625,
+        0.000356042,
+        0.000352833,
+        0.000359333,
+        0.000304542,
+        0.000380583,
+        0.000349833,
+        0.000351209,
+        0.0003455,
+        0.000355291,
+        0.000349292,
+        0.00036775,
+        0.0003905,
+        0.000351416,
+        0.000354917,
+        0.000354875,
+        0.00034225,
+        0.000347958,
+        0.000335583,
+        0.000368833,
+        0.000339083,
+        0.000354167,
+        0.000339209,
+        0.000354625,
+        0.000347709,
+        0.000341708,
+        0.000342792,
+        0.000352875,
+        0.000319375,
+        0.000351125,
+        0.000328209,
+        0.000340792,
+        0.000358208,
+        0.000356084,
+        0.000331292,
+        0.000370167,
+        0.000318167,
+        0.000356625,
+        0.000355041,
+        0.000361917,
+        0.000351083,
+        0.000349458,
+        0.000352666,
+        0.000351334,
+        0.000320959,
+        0.00036025,
+        0.000354458,
+        0.0003395,
+        0.000324208,
+        0.000353167,
+        0.000338333,
+        0.000315041,
+        0.000338917,
+        0.000348125,
+        0.00034725,
+        0.000342875,
+        0.00034275,
+        0.000325375,
+        0.000340291,
+        0.000361,
+        0.000359125,
+        0.000358291,
+        0.000339375,
+        0.000346083,
+        0.0003365,
+        0.000345042,
+        0.00031575,
+        0.000350375,
+        0.000337333,
+        0.000349625,
+        0.000343667,
+        0.000347459,
+        0.00035425,
+        0.000317875,
+        0.000323084,
+        0.000354292,
+        0.000348916,
+        0.0003545,
+        0.000350708,
+        0.000316792,
+        0.000342,
+        0.000351542,
+        0.000345,
+        0.000337
+      ],
+      "ids": [
+        500,
+        343,
+        442,
+        388,
+        6,
+        56,
+        135,
+        400,
+        313,
+        355
+      ],
+      "layer": 0,
+      "native_down_max_error": 0.0,
+      "native_packed_max_error": 0.0,
+      "native_seconds": [
+        0.000481166,
+        0.000524083,
+        0.000465542,
+        0.000533417,
+        0.000369,
+        0.000522083,
+        0.000504792,
+        0.000500917,
+        0.00034075,
+        0.000522375,
+        0.000332084,
+        0.000527083,
+        0.0003445,
+        0.000487542,
+        0.0003665,
+        0.000549041,
+        0.000376375,
+        0.000479667,
+        0.000367584,
+        0.000530458,
+        0.000361,
+        0.000505333,
+        0.000509958,
+        0.000502834,
+        0.000511209,
+        0.000524417,
+        0.000344083,
+        0.000509542,
+        0.000378,
+        0.000520833,
+        0.000344916,
+        0.00058525,
+        0.000516166,
+        0.000457333,
+        0.000506708,
+        0.0004985,
+        0.000333208,
+        0.000503958,
+        0.000338709,
+        0.00052325,
+        0.000432,
+        0.000494042,
+        0.000493542,
+        0.000504,
+        0.000348542,
+        0.000522833,
+        0.000374334,
+        0.000513292,
+        0.0004445,
+        0.000508667,
+        0.000352875,
+        0.000533209,
+        0.000371875,
+        0.000519917,
+        0.000440709,
+        0.000526625,
+        0.000352167,
+        0.000547875,
+        0.000364083,
+        0.000501417,
+        0.000364334,
+        0.000527042,
+        0.000483584,
+        0.000464083,
+        0.000371542,
+        0.000485417,
+        0.000431041,
+        0.000524708,
+        0.000343084,
+        0.000494959,
+        0.000441459,
+        0.000519167,
+        0.000337333,
+        0.000501792,
+        0.000431583,
+        0.000497833,
+        0.000536792,
+        0.000484125,
+        0.0004225,
+        0.000485208,
+        0.000536833,
+        0.000505709,
+        0.000362584,
+        0.000508833,
+        0.000347458,
+        0.00050025,
+        0.00051175,
+        0.000516792,
+        0.000439625,
+        0.000526667,
+        0.0003415,
+        0.000543166,
+        0.000370125,
+        0.00052775,
+        0.000382167,
+        0.000541959,
+        0.000384292,
+        0.000460375,
+        0.000437875,
+        0.00052775
+      ],
+      "native_vector_max_error": 0.0,
+      "packed_seconds": [
+        0.000806708,
+        0.000795834,
+        0.000795541,
+        0.000767291,
+        0.000810917,
+        0.000774667,
+        0.000744625,
+        0.000742458,
+        0.000763334,
+        0.000726375,
+        0.000761875,
+        0.000750333,
+        0.000740167,
+        0.000746625,
+        0.000757458,
+        0.000722916,
+        0.000754166,
+        0.000717667,
+        0.000756625,
+        0.000744542,
+        0.000736458,
+        0.000739209,
+        0.000769042,
+        0.0007495,
+        0.000729375,
+        0.000741333,
+        0.000739209,
+        0.000756875,
+        0.000746,
+        0.000750125,
+        0.000752959,
+        0.000750417,
+        0.000757,
+        0.000754666,
+        0.00075475,
+        0.000728291,
+        0.000740833,
+        0.000737042,
+        0.000757083,
+        0.000751,
+        0.00075325,
+        0.000736584,
+        0.000747792,
+        0.000758,
+        0.000755542,
+        0.000748416,
+        0.000755459,
+        0.000746834,
+        0.000746959,
+        0.0007265,
+        0.000752125,
+        0.000709041,
+        0.000727959,
+        0.000751583,
+        0.000799917,
+        0.000734792,
+        0.000752417,
+        0.000747541,
+        0.000747541,
+        0.000728125,
+        0.000754084,
+        0.000738792,
+        0.000741792,
+        0.000745,
+        0.000726875,
+        0.000735834,
+        0.000755292,
+        0.000726375,
+        0.00075625,
+        0.000750042,
+        0.000748167,
+        0.000733375,
+        0.000753708,
+        0.000745625,
+        0.000748083,
+        0.000744458,
+        0.000747041,
+        0.000740625,
+        0.000741209,
+        0.00073625,
+        0.0007315,
+        0.00073725,
+        0.000735292,
+        0.000735917,
+        0.0007505,
+        0.000755416,
+        0.000746,
+        0.000728209,
+        0.000739583,
+        0.000753708,
+        0.000752834,
+        0.000728625,
+        0.000752666,
+        0.000742709,
+        0.000730292,
+        0.000748041,
+        0.000770375,
+        0.000755166,
+        0.000734833,
+        0.000741
+      ],
+      "packed_shape": [
+        512,
+        640,
+        80,
+        4
+      ],
+      "packing_arithmetic_max_error": 0.0,
+      "packing_seconds": 0.05195675,
+      "retained_original_bytes": 419430400,
+      "routed_shape": [
+        1,
+        1,
+        10,
+        1,
+        640
+      ],
+      "rows": 1,
+      "vector_seconds": [
+        0.000370958,
+        0.000306459,
+        0.00041175,
+        0.000290916,
+        0.000321,
+        0.000298584,
+        0.0003105,
+        0.000308875,
+        0.000315083,
+        0.000300584,
+        0.000316209,
+        0.0004385,
+        0.0003705,
+        0.000295583,
+        0.000345125,
+        0.000293208,
+        0.00030975,
+        0.00030575,
+        0.000475542,
+        0.000303041,
+        0.000432625,
+        0.000296083,
+        0.000316,
+        0.000373459,
+        0.000405708,
+        0.000300792,
+        0.000310041,
+        0.000399959,
+        0.000283042,
+        0.000318625,
+        0.000293875,
+        0.000412625,
+        0.0003035,
+        0.00035125,
+        0.000291458,
+        0.000297666,
+        0.000311083,
+        0.00030575,
+        0.000291708,
+        0.0004395,
+        0.000374625,
+        0.000299958,
+        0.000376333,
+        0.000309583,
+        0.000314167,
+        0.000305333,
+        0.000350959,
+        0.000302334,
+        0.00030625,
+        0.000282583,
+        0.000316125,
+        0.000283292,
+        0.00032825,
+        0.000309958,
+        0.000503208,
+        0.000304958,
+        0.0003115,
+        0.0003515,
+        0.000312542,
+        0.000298334,
+        0.000305792,
+        0.000303541,
+        0.000306625,
+        0.000301333,
+        0.000438416,
+        0.000290375,
+        0.000370292,
+        0.000299916,
+        0.000306375,
+        0.000303042,
+        0.000295833,
+        0.000415041,
+        0.000285791,
+        0.000455166,
+        0.000348416,
+        0.000301208,
+        0.000340708,
+        0.000317375,
+        0.00029375,
+        0.000287334,
+        0.000304833,
+        0.000297416,
+        0.000481542,
+        0.000298333,
+        0.000288625,
+        0.000326166,
+        0.0004365,
+        0.000300791,
+        0.000294875,
+        0.000313333,
+        0.00030575,
+        0.000405125,
+        0.00037725,
+        0.000303292,
+        0.000391584,
+        0.000304375,
+        0.000329084,
+        0.000293875,
+        0.000352083,
+        0.000297333
+      ],
+      "weight_shape": [
+        512,
+        2560,
+        80
+      ]
+    },
+    {
+      "code_bytes": 419430400,
+      "down_seconds": [
+        0.000423541,
+        0.000439042,
+        0.000438333,
+        0.000438084,
+        0.000416917,
+        0.000453417,
+        0.000434292,
+        0.00040975,
+        0.000430208,
+        0.000429125,
+        0.000435125,
+        0.000447542,
+        0.000440916,
+        0.000435292,
+        0.000427125,
+        0.00044475,
+        0.00043825,
+        0.000447042,
+        0.000443958,
+        0.000442084,
+        0.000417292,
+        0.000420333,
+        0.000409292,
+        0.000439125,
+        0.000415375,
+        0.000443833,
+        0.000434625,
+        0.000440708,
+        0.000445208,
+        0.000421791,
+        0.000442334,
+        0.00042625,
+        0.000433166,
+        0.000420959,
+        0.000429584,
+        0.000443791,
+        0.00041375,
+        0.000443666,
+        0.000429833,
+        0.000437667,
+        0.000437792,
+        0.000406916,
+        0.000431208,
+        0.000437292,
+        0.000432208,
+        0.00044125,
+        0.000430291,
+        0.000439791,
+        0.000440708,
+        0.000459875,
+        0.000442959,
+        0.000450583,
+        0.000435083,
+        0.000439167,
+        0.00043475,
+        0.00044225,
+        0.000442917,
+        0.000443959,
+        0.000415291,
+        0.00044875,
+        0.000434208,
+        0.000472334,
+        0.000441084,
+        0.000481292,
+        0.000421292,
+        0.000474458,
+        0.000432583,
+        0.0004385,
+        0.000411916,
+        0.000489458,
+        0.00043825,
+        0.00047175,
+        0.000456,
+        0.00043825,
+        0.000441333,
+        0.000471334,
+        0.000439959,
+        0.000448209,
+        0.000432084,
+        0.000451959,
+        0.000435167,
+        0.000436875,
+        0.000491375,
+        0.000471166,
+        0.000445875,
+        0.000468708,
+        0.000436292,
+        0.000482375,
+        0.00041875,
+        0.0004745,
+        0.000413,
+        0.000472917,
+        0.000438041,
+        0.000478209,
+        0.000426166,
+        0.000410375,
+        0.000437709,
+        0.00046275,
+        0.000441666,
+        0.000474667
+      ],
+      "ids": [
+        500,
+        343,
+        442,
+        388,
+        6,
+        56,
+        135,
+        400,
+        313,
+        355,
+        142,
+        7,
+        93,
+        417,
+        140,
+        302,
+        343,
+        394,
+        134,
+        460
+      ],
+      "layer": 0,
+      "native_down_max_error": 0.0,
+      "native_packed_max_error": 0.0,
+      "native_seconds": [
+        0.0004905,
+        0.000490625,
+        0.000510125,
+        0.000491917,
+        0.000489083,
+        0.000499625,
+        0.000516041,
+        0.00049325,
+        0.000496375,
+        0.000512375,
+        0.000504209,
+        0.000503166,
+        0.000481958,
+        0.000495334,
+        0.000499834,
+        0.000491292,
+        0.000504167,
+        0.00049475,
+        0.000507833,
+        0.000478459,
+        0.000498167,
+        0.00047775,
+        0.000478875,
+        0.00050525,
+        0.0004815,
+        0.000491416,
+        0.000504958,
+        0.000476125,
+        0.00050075,
+        0.000488083,
+        0.000516458,
+        0.000474667,
+        0.00049875,
+        0.000493542,
+        0.000493791,
+        0.000485375,
+        0.000502959,
+        0.000490666,
+        0.00049525,
+        0.000492291,
+        0.00049225,
+        0.000482375,
+        0.000509833,
+        0.000502792,
+        0.000491917,
+        0.000504833,
+        0.000494875,
+        0.000491375,
+        0.000510791,
+        0.000516708,
+        0.000506917,
+        0.000510042,
+        0.000487,
+        0.000493375,
+        0.000481917,
+        0.000497209,
+        0.000509417,
+        0.000504,
+        0.000495208,
+        0.000511083,
+        0.000487417,
+        0.00048225,
+        0.000487333,
+        0.000482584,
+        0.000486083,
+        0.000498917,
+        0.000496042,
+        0.000478375,
+        0.000500917,
+        0.000477375,
+        0.000491709,
+        0.000480791,
+        0.000490042,
+        0.000486917,
+        0.00049275,
+        0.000484834,
+        0.000496708,
+        0.000491459,
+        0.000483792,
+        0.000500209,
+        0.000504833,
+        0.000478625,
+        0.00049225,
+        0.000488291,
+        0.000500625,
+        0.000505834,
+        0.000491917,
+        0.000492625,
+        0.000487167,
+        0.000470583,
+        0.000521708,
+        0.00047775,
+        0.00050125,
+        0.000491834,
+        0.000483792,
+        0.000479083,
+        0.000504667,
+        0.000475084,
+        0.000479583,
+        0.000490292
+      ],
+      "native_vector_max_error": 0.0,
+      "packed_seconds": [
+        0.001278083,
+        0.001270875,
+        0.001274334,
+        0.001288625,
+        0.001285916,
+        0.001248625,
+        0.001264542,
+        0.001297833,
+        0.001251542,
+        0.001253375,
+        0.00128325,
+        0.001267,
+        0.001281041,
+        0.001276333,
+        0.001280208,
+        0.001271292,
+        0.001287125,
+        0.001295667,
+        0.001283291,
+        0.001273917,
+        0.001275375,
+        0.001266208,
+        0.001266208,
+        0.001273792,
+        0.00127625,
+        0.001278667,
+        0.00126525,
+        0.001270791,
+        0.001285041,
+        0.001256208,
+        0.001287792,
+        0.00125975,
+        0.001254459,
+        0.001277083,
+        0.00128275,
+        0.00127975,
+        0.001291541,
+        0.001283416,
+        0.001270708,
+        0.001274417,
+        0.001278459,
+        0.001275417,
+        0.0012785,
+        0.001281041,
+        0.001282,
+        0.001276375,
+        0.001283125,
+        0.001278625,
+        0.001290541,
+        0.00128825,
+        0.001283792,
+        0.001274625,
+        0.001262333,
+        0.001272542,
+        0.00127275,
+        0.00127475,
+        0.001279875,
+        0.001276917,
+        0.001275458,
+        0.001274375,
+        0.00132075,
+        0.001278125,
+        0.001273417,
+        0.001285125,
+        0.001353542,
+        0.001347333,
+        0.001298416,
+        0.001275833,
+        0.001291,
+        0.001292083,
+        0.0013015,
+        0.001288208,
+        0.001296917,
+        0.001269542,
+        0.00128125,
+        0.001328042,
+        0.00128175,
+        0.001249583,
+        0.001286,
+        0.001279625,
+        0.001275458,
+        0.001266916,
+        0.00129475,
+        0.001266375,
+        0.001241542,
+        0.001286208,
+        0.001309083,
+        0.001335042,
+        0.001346834,
+        0.001275708,
+        0.001300375,
+        0.001289708,
+        0.001296167,
+        0.00131375,
+        0.001289458,
+        0.001268083,
+        0.001273875,
+        0.001293792,
+        0.001279292,
+        0.001281958
+      ],
+      "packed_shape": [
+        512,
+        640,
+        80,
+        4
+      ],
+      "packing_arithmetic_max_error": 0.0,
+      "packing_seconds": 0.05195675,
+      "retained_original_bytes": 419430400,
+      "routed_shape": [
+        1,
+        2,
+        10,
+        1,
+        640
+      ],
+      "rows": 2,
+      "vector_seconds": [
+        0.000374042,
+        0.000361875,
+        0.000376333,
+        0.000375792,
+        0.0003805,
+        0.000374459,
+        0.000369166,
+        0.000381166,
+        0.000398208,
+        0.000387375,
+        0.000377291,
+        0.00036975,
+        0.000378417,
+        0.000364125,
+        0.000379,
+        0.000379125,
+        0.000379041,
+        0.000384875,
+        0.000397666,
+        0.000372666,
+        0.000379166,
+        0.000376,
+        0.000366292,
+        0.000381791,
+        0.000382667,
+        0.000373625,
+        0.000378917,
+        0.000363,
+        0.000381291,
+        0.000383166,
+        0.000399875,
+        0.00037675,
+        0.000381041,
+        0.000384333,
+        0.00037375,
+        0.000371,
+        0.000372292,
+        0.000369417,
+        0.000371917,
+        0.00037875,
+        0.000349292,
+        0.000387792,
+        0.000372334,
+        0.000379875,
+        0.000395916,
+        0.000380958,
+        0.000377583,
+        0.000355833,
+        0.000456792,
+        0.000384,
+        0.000366167,
+        0.000372209,
+        0.000417584,
+        0.000373375,
+        0.000378,
+        0.000379,
+        0.000374458,
+        0.00036625,
+        0.0003815,
+        0.000363667,
+        0.000383375,
+        0.000359584,
+        0.000380125,
+        0.000382875,
+        0.000417333,
+        0.000378291,
+        0.000413083,
+        0.000379292,
+        0.000421459,
+        0.000373125,
+        0.000413541,
+        0.000366708,
+        0.000404917,
+        0.000373625,
+        0.000381916,
+        0.000354084,
+        0.000413,
+        0.000374583,
+        0.000419459,
+        0.000374417,
+        0.000412875,
+        0.000371333,
+        0.000414041,
+        0.000379292,
+        0.000408209,
+        0.00037175,
+        0.000419542,
+        0.000367959,
+        0.000414,
+        0.00037725,
+        0.000418125,
+        0.000375,
+        0.000393208,
+        0.000371917,
+        0.000412791,
+        0.000380375,
+        0.000352709,
+        0.000376458,
+        0.000418375,
+        0.000379125
+      ],
+      "weight_shape": [
+        512,
+        2560,
+        80
+      ]
+    },
+    {
+      "code_bytes": 419430400,
+      "down_seconds": [
+        0.000532833,
+        0.000523958,
+        0.000539708,
+        0.000586459,
+        0.000539167,
+        0.00057525,
+        0.000540583,
+        0.000543417,
+        0.000536125,
+        0.000573417,
+        0.00053025,
+        0.000572958,
+        0.000529167,
+        0.0005795,
+        0.000507417,
+        0.00057825,
+        0.000508,
+        0.000567166,
+        0.000526708,
+        0.000571625,
+        0.000531417,
+        0.000543,
+        0.000547,
+        0.000570666,
+        0.000525541,
+        0.000566917,
+        0.000512917,
+        0.00057275,
+        0.000523667,
+        0.000570666,
+        0.00052875,
+        0.000558041,
+        0.000529166,
+        0.000567625,
+        0.000526625,
+        0.000555833,
+        0.000525041,
+        0.000574917,
+        0.000534667,
+        0.000565083,
+        0.000521458,
+        0.000567166,
+        0.000531834,
+        0.0005905,
+        0.000523667,
+        0.000584166,
+        0.000537834,
+        0.000571833,
+        0.000500042,
+        0.000556209,
+        0.00052175,
+        0.000573958,
+        0.000512583,
+        0.000580959,
+        0.000536083,
+        0.000576,
+        0.000537,
+        0.000577625,
+        0.000535125,
+        0.000564541,
+        0.000498667,
+        0.000568375,
+        0.000525042,
+        0.000541916,
+        0.000530041,
+        0.000569834,
+        0.000512709,
+        0.000592042,
+        0.0005285,
+        0.000530875,
+        0.00053725,
+        0.000574958,
+        0.000537834,
+        0.000578917,
+        0.000529625,
+        0.000576792,
+        0.000517167,
+        0.00057575,
+        0.000506041,
+        0.00056025,
+        0.000535958,
+        0.0005725,
+        0.000525583,
+        0.000558166,
+        0.000502333,
+        0.000569416,
+        0.000534291,
+        0.000582125,
+        0.000523791,
+        0.000581708,
+        0.000506542,
+        0.000570167,
+        0.000530292,
+        0.000570292,
+        0.000517417,
+        0.0005845,
+        0.000540041,
+        0.000574458,
+        0.000508,
+        0.000585625
+      ],
+      "ids": [
+        500,
+        343,
+        442,
+        388,
+        6,
+        56,
+        135,
+        400,
+        313,
+        355,
+        142,
+        7,
+        93,
+        417,
+        140,
+        302,
+        343,
+        394,
+        134,
+        460,
+        62,
+        480,
+        42,
+        425,
+        492,
+        370,
+        415,
+        9,
+        95,
+        417
+      ],
+      "layer": 0,
+      "native_down_max_error": 0.0,
+      "native_packed_max_error": 0.0,
+      "native_seconds": [
+        0.000620667,
+        0.000610666,
+        0.000600792,
+        0.00061175,
+        0.000598375,
+        0.000607541,
+        0.000601375,
+        0.000604458,
+        0.000586917,
+        0.000585583,
+        0.000612375,
+        0.000611917,
+        0.000612,
+        0.0005795,
+        0.000623666,
+        0.000607334,
+        0.000632166,
+        0.000607208,
+        0.000625541,
+        0.000609084,
+        0.00062775,
+        0.000602542,
+        0.000641875,
+        0.000607792,
+        0.000609666,
+        0.000604708,
+        0.000608,
+        0.000617,
+        0.000610625,
+        0.000611125,
+        0.00060275,
+        0.000600292,
+        0.000628,
+        0.000602667,
+        0.000619417,
+        0.000595541,
+        0.000602916,
+        0.000606291,
+        0.000613208,
+        0.000594833,
+        0.000596375,
+        0.000602791,
+        0.000597667,
+        0.000600167,
+        0.000597125,
+        0.000606167,
+        0.000591334,
+        0.000607375,
+        0.000620083,
+        0.000614584,
+        0.000598792,
+        0.000608167,
+        0.000605875,
+        0.000611375,
+        0.000597375,
+        0.000606333,
+        0.000617625,
+        0.000612375,
+        0.000622375,
+        0.000585542,
+        0.000613084,
+        0.00060025,
+        0.000603084,
+        0.0006065,
+        0.000605542,
+        0.000597084,
+        0.000614459,
+        0.000597041,
+        0.000605458,
+        0.000604417,
+        0.0006015,
+        0.000585875,
+        0.000622708,
+        0.000591625,
+        0.000620167,
+        0.000596458,
+        0.000622208,
+        0.000592125,
+        0.000612,
+        0.00060925,
+        0.00060675,
+        0.000595333,
+        0.000633917,
+        0.000613542,
+        0.000620166,
+        0.000608708,
+        0.000591042,
+        0.000595625,
+        0.000603042,
+        0.000601375,
+        0.000602916,
+        0.000596917,
+        0.000622958,
+        0.000597334,
+        0.000618334,
+        0.000591166,
+        0.000606375,
+        0.000597541,
+        0.000602708,
+        0.000592459
+      ],
+      "native_vector_max_error": 0.0,
+      "packed_seconds": [
+        0.001778625,
+        0.001787708,
+        0.001827875,
+        0.001795833,
+        0.00177425,
+        0.001846542,
+        0.001791958,
+        0.001795459,
+        0.001797,
+        0.001772542,
+        0.001805959,
+        0.001784042,
+        0.001812375,
+        0.0017925,
+        0.001780875,
+        0.001794458,
+        0.001771083,
+        0.001788667,
+        0.001789625,
+        0.001792291,
+        0.001796834,
+        0.001777917,
+        0.001802166,
+        0.001774333,
+        0.001792833,
+        0.001799708,
+        0.001798291,
+        0.001792417,
+        0.0017595,
+        0.001794417,
+        0.001798084,
+        0.001793667,
+        0.001801875,
+        0.001807209,
+        0.001796375,
+        0.001795084,
+        0.001806083,
+        0.001791875,
+        0.001794417,
+        0.001789125,
+        0.001785083,
+        0.001802,
+        0.001793125,
+        0.001781333,
+        0.001805291,
+        0.001773375,
+        0.001799167,
+        0.001808417,
+        0.001802375,
+        0.001795334,
+        0.001769042,
+        0.00179075,
+        0.001777917,
+        0.001799166,
+        0.001795833,
+        0.00179825,
+        0.001801875,
+        0.001793875,
+        0.001795959,
+        0.001783833,
+        0.001804958,
+        0.00177975,
+        0.00180025,
+        0.001797292,
+        0.001802292,
+        0.001798542,
+        0.001859834,
+        0.001791417,
+        0.001811041,
+        0.001778125,
+        0.001795083,
+        0.001798458,
+        0.001797458,
+        0.001783959,
+        0.001803333,
+        0.001798417,
+        0.001781875,
+        0.001782208,
+        0.001772458,
+        0.001787625,
+        0.001794458,
+        0.001792917,
+        0.001796583,
+        0.001791125,
+        0.001771583,
+        0.001794333,
+        0.001800833,
+        0.00179975,
+        0.001861167,
+        0.001784375,
+        0.001797459,
+        0.001790959,
+        0.001780125,
+        0.001809208,
+        0.001773541,
+        0.001803041,
+        0.001774333,
+        0.001805625,
+        0.001862959,
+        0.001791208
+      ],
+      "packed_shape": [
+        512,
+        640,
+        80,
+        4
+      ],
+      "packing_arithmetic_max_error": 0.0,
+      "packing_seconds": 0.05195675,
+      "retained_original_bytes": 419430400,
+      "routed_shape": [
+        1,
+        3,
+        10,
+        1,
+        640
+      ],
+      "rows": 3,
+      "vector_seconds": [
+        0.000435667,
+        0.000433875,
+        0.00047425,
+        0.000442666,
+        0.000437833,
+        0.000440583,
+        0.000436625,
+        0.000445584,
+        0.000468375,
+        0.000441375,
+        0.000458583,
+        0.000437166,
+        0.000476625,
+        0.0004415,
+        0.000480291,
+        0.000439875,
+        0.000485833,
+        0.000442042,
+        0.00047325,
+        0.000428667,
+        0.000486166,
+        0.000432792,
+        0.000470458,
+        0.000447083,
+        0.000444625,
+        0.000441875,
+        0.000471583,
+        0.000432167,
+        0.000434041,
+        0.000446083,
+        0.000485541,
+        0.00044575,
+        0.000462334,
+        0.000427959,
+        0.000469041,
+        0.000408292,
+        0.000479417,
+        0.000417542,
+        0.000476541,
+        0.000439875,
+        0.000467542,
+        0.000436083,
+        0.000467042,
+        0.000404,
+        0.000468708,
+        0.000436375,
+        0.000483959,
+        0.000429042,
+        0.0004815,
+        0.000441542,
+        0.000473167,
+        0.000437875,
+        0.000477041,
+        0.000440875,
+        0.000483958,
+        0.000420584,
+        0.000434959,
+        0.000415292,
+        0.000485083,
+        0.00042825,
+        0.000474166,
+        0.0004445,
+        0.000484125,
+        0.0004425,
+        0.000466209,
+        0.000439,
+        0.000480458,
+        0.000427708,
+        0.000480708,
+        0.000435916,
+        0.0004745,
+        0.000454416,
+        0.000480083,
+        0.000437792,
+        0.000485166,
+        0.000422208,
+        0.000487042,
+        0.000444917,
+        0.00047675,
+        0.000442875,
+        0.000473792,
+        0.00043675,
+        0.000481875,
+        0.000424,
+        0.000443334,
+        0.000438292,
+        0.000457917,
+        0.000413333,
+        0.000473167,
+        0.000434291,
+        0.000475125,
+        0.000446417,
+        0.000466791,
+        0.000438167,
+        0.000490542,
+        0.000445292,
+        0.000451042,
+        0.000444458,
+        0.000474458,
+        0.000440167
+      ],
+      "weight_shape": [
+        512,
+        2560,
+        80
+      ]
+    },
+    {
+      "code_bytes": 419430400,
+      "down_seconds": [
+        0.000672333,
+        0.000720084,
+        0.000665584,
+        0.000714791,
+        0.00065875,
+        0.000709875,
+        0.00066825,
+        0.000711667,
+        0.00070875,
+        0.000714166,
+        0.000643584,
+        0.000719416,
+        0.00067675,
+        0.00070925,
+        0.000662333,
+        0.000716959,
+        0.000672292,
+        0.000686375,
+        0.000660708,
+        0.000723708,
+        0.000667084,
+        0.000717541,
+        0.000664667,
+        0.000721917,
+        0.00066625,
+        0.000713541,
+        0.000662416,
+        0.000715916,
+        0.000663875,
+        0.000723833,
+        0.000638584,
+        0.000657917,
+        0.000646166,
+        0.000722792,
+        0.000672917,
+        0.000723917,
+        0.000668125,
+        0.000709041,
+        0.000675625,
+        0.000726166,
+        0.00065,
+        0.000717208,
+        0.000675584,
+        0.000717041,
+        0.000669916,
+        0.000727208,
+        0.000685958,
+        0.000723625,
+        0.00066,
+        0.000720666,
+        0.000650458,
+        0.000717459,
+        0.000667417,
+        0.000721125,
+        0.000667,
+        0.000685458,
+        0.000680542,
+        0.000722625,
+        0.000666583,
+        0.000703792,
+        0.000660459,
+        0.000716084,
+        0.000666542,
+        0.00070875,
+        0.000644167,
+        0.000722333,
+        0.00067025,
+        0.0007165,
+        0.000649708,
+        0.000726583,
+        0.000669042,
+        0.000693542,
+        0.000679125,
+        0.00069275,
+        0.000668333,
+        0.00070275,
+        0.000677709,
+        0.000678875,
+        0.000672416,
+        0.000676416,
+        0.000657083,
+        0.000658,
+        0.000684958,
+        0.000697459,
+        0.000653542,
+        0.0006855,
+        0.000682708,
+        0.000715875,
+        0.000666708,
+        0.000725834,
+        0.000661541,
+        0.000714167,
+        0.000641459,
+        0.000728916,
+        0.000707333,
+        0.000712417,
+        0.000673375,
+        0.000712916,
+        0.000717708,
+        0.000691667
+      ],
+      "ids": [
+        500,
+        343,
+        442,
+        388,
+        6,
+        56,
+        135,
+        400,
+        313,
+        355,
+        142,
+        7,
+        93,
+        417,
+        140,
+        302,
+        343,
+        394,
+        134,
+        460,
+        62,
+        480,
+        42,
+        425,
+        492,
+        370,
+        415,
+        9,
+        95,
+        417,
+        328,
+        492,
+        42,
+        194,
+        227,
+        374,
+        9,
+        451,
+        106,
+        91
+      ],
+      "layer": 0,
+      "native_down_max_error": 0.0,
+      "native_packed_max_error": 0.0,
+      "native_seconds": [
+        0.000737458,
+        0.000713959,
+        0.000734959,
+        0.000728083,
+        0.00072725,
+        0.000728083,
+        0.000716958,
+        0.000726042,
+        0.0007265,
+        0.000728166,
+        0.000741333,
+        0.000708958,
+        0.000722125,
+        0.000728083,
+        0.000732,
+        0.000714292,
+        0.000755708,
+        0.000723958,
+        0.000747167,
+        0.0007255,
+        0.000745416,
+        0.000721708,
+        0.000742792,
+        0.000725667,
+        0.000735583,
+        0.000724208,
+        0.000741917,
+        0.000722708,
+        0.00073025,
+        0.000717083,
+        0.000739084,
+        0.000731542,
+        0.000717416,
+        0.000732875,
+        0.000741875,
+        0.00073125,
+        0.00072375,
+        0.000725333,
+        0.000726375,
+        0.000729708,
+        0.000724167,
+        0.000712958,
+        0.000744041,
+        0.0007165,
+        0.000735416,
+        0.000718041,
+        0.000735292,
+        0.000730625,
+        0.000718292,
+        0.000721417,
+        0.000737209,
+        0.000716292,
+        0.000720583,
+        0.000727,
+        0.000735583,
+        0.000720584,
+        0.000716292,
+        0.000727333,
+        0.000734458,
+        0.000732292,
+        0.00071625,
+        0.000724875,
+        0.00072125,
+        0.000734792,
+        0.000711791,
+        0.000728375,
+        0.000715959,
+        0.000803541,
+        0.000748542,
+        0.000727958,
+        0.000739542,
+        0.000764458,
+        0.000739417,
+        0.000759916,
+        0.000750708,
+        0.000753041,
+        0.0007385,
+        0.000715875,
+        0.000750625,
+        0.000734792,
+        0.000746625,
+        0.000731792,
+        0.000725333,
+        0.000732042,
+        0.000736417,
+        0.000719083,
+        0.000739916,
+        0.000722709,
+        0.000722375,
+        0.000715792,
+        0.0007645,
+        0.000727333,
+        0.000745417,
+        0.000718,
+        0.000720833,
+        0.000732875,
+        0.000718083,
+        0.000723833,
+        0.000789125,
+        0.000743875
+      ],
+      "native_vector_max_error": 0.0,
+      "packed_seconds": [
+        0.0022365,
+        0.002222291,
+        0.002227667,
+        0.002227542,
+        0.002225167,
+        0.002222542,
+        0.002230042,
+        0.002212875,
+        0.00227175,
+        0.002212042,
+        0.002225875,
+        0.002232083,
+        0.00222375,
+        0.002217958,
+        0.0022255,
+        0.002221459,
+        0.002232833,
+        0.002225417,
+        0.00222975,
+        0.002269292,
+        0.002242417,
+        0.002215084,
+        0.002209958,
+        0.0022115,
+        0.002212084,
+        0.002229,
+        0.00222475,
+        0.002208291,
+        0.002223833,
+        0.002219417,
+        0.002229208,
+        0.002219584,
+        0.002247625,
+        0.002209833,
+        0.002215167,
+        0.002226,
+        0.002236375,
+        0.002224459,
+        0.002227833,
+        0.002214708,
+        0.002231125,
+        0.002224917,
+        0.002235167,
+        0.002234583,
+        0.002223875,
+        0.002219917,
+        0.00228675,
+        0.0022305,
+        0.002237792,
+        0.00222,
+        0.002222541,
+        0.002211292,
+        0.002193,
+        0.002222708,
+        0.002206209,
+        0.0021975,
+        0.002222583,
+        0.002221542,
+        0.002230792,
+        0.002205958,
+        0.002234834,
+        0.002234375,
+        0.00222075,
+        0.0022325,
+        0.002219666,
+        0.002231583,
+        0.002210042,
+        0.002221041,
+        0.002234041,
+        0.002229833,
+        0.002227958,
+        0.002227209,
+        0.002250417,
+        0.002215791,
+        0.002241833,
+        0.002216625,
+        0.002224792,
+        0.00221275,
+        0.002283917,
+        0.002234042,
+        0.002246084,
+        0.002219125,
+        0.002207333,
+        0.0022065,
+        0.002241833,
+        0.002219958,
+        0.002243625,
+        0.002213167,
+        0.002235708,
+        0.002230375,
+        0.002249667,
+        0.002242209,
+        0.00222225,
+        0.0022195,
+        0.0022295,
+        0.00222625,
+        0.002250833,
+        0.0022215,
+        0.002235958,
+        0.002216
+      ],
+      "packed_shape": [
+        512,
+        640,
+        80,
+        4
+      ],
+      "packing_arithmetic_max_error": 0.0,
+      "packing_seconds": 0.05195675,
+      "retained_original_bytes": 419430400,
+      "routed_shape": [
+        1,
+        4,
+        10,
+        1,
+        640
+      ],
+      "rows": 4,
+      "vector_seconds": [
+        0.00058175,
+        0.000524292,
+        0.000551208,
+        0.000534708,
+        0.000530791,
+        0.000528834,
+        0.000572458,
+        0.000527,
+        0.000573667,
+        0.000563958,
+        0.000578125,
+        0.000534583,
+        0.000527083,
+        0.000542792,
+        0.000570708,
+        0.000528583,
+        0.000568333,
+        0.000528584,
+        0.00057575,
+        0.000505667,
+        0.000574208,
+        0.00052675,
+        0.0005855,
+        0.000532833,
+        0.000536125,
+        0.000527833,
+        0.000578875,
+        0.000524667,
+        0.000576625,
+        0.0005355,
+        0.00057575,
+        0.000533125,
+        0.000579917,
+        0.000528375,
+        0.000577708,
+        0.00053075,
+        0.000556542,
+        0.000523792,
+        0.000581666,
+        0.00053175,
+        0.000568334,
+        0.000531209,
+        0.000555583,
+        0.000528417,
+        0.0005785,
+        0.000533917,
+        0.000582625,
+        0.000528958,
+        0.00057625,
+        0.00053025,
+        0.000538,
+        0.000521,
+        0.000536584,
+        0.000529292,
+        0.000579584,
+        0.000531417,
+        0.000538292,
+        0.000540916,
+        0.00059,
+        0.000537,
+        0.000578709,
+        0.000554709,
+        0.000573292,
+        0.000545916,
+        0.000528291,
+        0.000535,
+        0.000576458,
+        0.000537958,
+        0.000578208,
+        0.000539958,
+        0.000562667,
+        0.000546292,
+        0.0005785,
+        0.000560083,
+        0.000548167,
+        0.000550791,
+        0.000539167,
+        0.0005535,
+        0.000581875,
+        0.000538375,
+        0.000570167,
+        0.000539041,
+        0.000547958,
+        0.000532791,
+        0.000578208,
+        0.0005415,
+        0.000580209,
+        0.000521917,
+        0.000576292,
+        0.000559208,
+        0.000587583,
+        0.000543375,
+        0.000533,
+        0.000528875,
+        0.000578416,
+        0.000535667,
+        0.000577791,
+        0.000546041,
+        0.000570625,
+        0.000533875
+      ],
+      "weight_shape": [
+        512,
+        2560,
+        80
+      ]
+    },
+    {
+      "code_bytes": 419430400,
+      "down_seconds": [
+        0.001045917,
+        0.001070542,
+        0.001090125,
+        0.001148083,
+        0.001076833,
+        0.001094083,
+        0.001071417,
+        0.0011125,
+        0.001060292,
+        0.00106375,
+        0.001123166,
+        0.001082292,
+        0.0010325,
+        0.001114583,
+        0.001075917,
+        0.001072416,
+        0.001053584,
+        0.00106225,
+        0.001082625,
+        0.001051291,
+        0.001075041,
+        0.001123375,
+        0.001057958,
+        0.00107375,
+        0.001007667,
+        0.001065959,
+        0.001096709,
+        0.0010835,
+        0.001103333,
+        0.001124667,
+        0.000989625,
+        0.001062333,
+        0.001054583,
+        0.0010325,
+        0.001062875,
+        0.001119083,
+        0.001034917,
+        0.001057166,
+        0.001074209,
+        0.001071291,
+        0.001074292,
+        0.00107575,
+        0.0010565,
+        0.001060417,
+        0.001063583,
+        0.001126375,
+        0.001119375,
+        0.001141625,
+        0.001070416,
+        0.001055208,
+        0.001023625,
+        0.001123042,
+        0.001067333,
+        0.0010675,
+        0.001133042,
+        0.00112125,
+        0.001059084,
+        0.001135708,
+        0.001066375,
+        0.001061667,
+        0.001023208,
+        0.001093208,
+        0.001094458,
+        0.001069292,
+        0.001090666,
+        0.001129208,
+        0.001068875,
+        0.001058958,
+        0.001037166,
+        0.001120542,
+        0.001053958,
+        0.001114583,
+        0.001073875,
+        0.001056125,
+        0.001070042,
+        0.0011345,
+        0.001054625,
+        0.001075792,
+        0.001062042,
+        0.001065,
+        0.001120208,
+        0.001064667,
+        0.00108075,
+        0.001078459,
+        0.001066583,
+        0.001067959,
+        0.001076333,
+        0.001047583,
+        0.00105925,
+        0.001030458,
+        0.001072541,
+        0.001071958,
+        0.00112875,
+        0.001073208,
+        0.001071834,
+        0.001144292,
+        0.001060208,
+        0.001077125,
+        0.001063334,
+        0.001075542
+      ],
+      "ids": [
+        500,
+        343,
+        442,
+        388,
+        6,
+        56,
+        135,
+        400,
+        313,
+        355,
+        142,
+        7,
+        93,
+        417,
+        140,
+        302,
+        343,
+        394,
+        134,
+        460,
+        62,
+        480,
+        42,
+        425,
+        492,
+        370,
+        415,
+        9,
+        95,
+        417,
+        328,
+        492,
+        42,
+        194,
+        227,
+        374,
+        9,
+        451,
+        106,
+        91,
+        341,
+        508,
+        339,
+        474,
+        365,
+        503,
+        344,
+        106,
+        194,
+        298,
+        66,
+        427,
+        339,
+        56,
+        442,
+        355,
+        47,
+        335,
+        400,
+        500,
+        390,
+        197,
+        7,
+        355,
+        394,
+        302,
+        343,
+        134,
+        93,
+        460,
+        425,
+        370,
+        394,
+        460,
+        42,
+        480,
+        95,
+        140,
+        131,
+        417
+      ],
+      "layer": 0,
+      "native_down_max_error": 0.0,
+      "native_packed_max_error": 0.0,
+      "native_seconds": [
+        0.001231042,
+        0.001297834,
+        0.001293333,
+        0.00127575,
+        0.001279375,
+        0.001266292,
+        0.001327667,
+        0.001254042,
+        0.001291166,
+        0.001313167,
+        0.001316125,
+        0.001294208,
+        0.0012855,
+        0.001270083,
+        0.001305083,
+        0.0012835,
+        0.001264209,
+        0.001261875,
+        0.001264834,
+        0.001290833,
+        0.001248167,
+        0.00129325,
+        0.001304,
+        0.001238833,
+        0.001245333,
+        0.001232583,
+        0.00121275,
+        0.001243417,
+        0.001266333,
+        0.001290917,
+        0.001249125,
+        0.001233,
+        0.001266709,
+        0.001250375,
+        0.001255042,
+        0.001294958,
+        0.00123075,
+        0.001285125,
+        0.001266959,
+        0.001256458,
+        0.001289792,
+        0.00126625,
+        0.001293291,
+        0.001259541,
+        0.001259292,
+        0.001254291,
+        0.001251333,
+        0.001248334,
+        0.001301875,
+        0.001247167,
+        0.001261042,
+        0.001252084,
+        0.00129075,
+        0.001296292,
+        0.001304292,
+        0.001252042,
+        0.001238667,
+        0.001249416,
+        0.001265625,
+        0.001287,
+        0.001254542,
+        0.001296459,
+        0.001297833,
+        0.001292792,
+        0.001251958,
+        0.001250833,
+        0.001292125,
+        0.001290542,
+        0.001267167,
+        0.001282708,
+        0.001250417,
+        0.001269,
+        0.001306083,
+        0.0012925,
+        0.001301125,
+        0.00129325,
+        0.00124625,
+        0.001271167,
+        0.001280791,
+        0.00129025,
+        0.001304,
+        0.001242875,
+        0.001257791,
+        0.001236875,
+        0.001262792,
+        0.001288375,
+        0.001303875,
+        0.001223083,
+        0.001274083,
+        0.001248541,
+        0.0012195,
+        0.001273041,
+        0.001316584,
+        0.001241416,
+        0.001257583,
+        0.001241375,
+        0.001256583,
+        0.00124825,
+        0.001262666,
+        0.001317625
+      ],
+      "native_vector_max_error": 0.0,
+      "packed_seconds": [
+        0.004083583,
+        0.004093542,
+        0.004186417,
+        0.004093167,
+        0.004138125,
+        0.004103333,
+        0.004132917,
+        0.004145166,
+        0.004111208,
+        0.004097834,
+        0.004140709,
+        0.004120209,
+        0.004122291,
+        0.004103042,
+        0.004143708,
+        0.004111458,
+        0.004111834,
+        0.004093542,
+        0.004132209,
+        0.004087417,
+        0.004138417,
+        0.004098875,
+        0.004081375,
+        0.004082834,
+        0.004129416,
+        0.004082167,
+        0.0041205,
+        0.004089375,
+        0.004140791,
+        0.004079708,
+        0.004073917,
+        0.00409275,
+        0.004116417,
+        0.004091958,
+        0.004103375,
+        0.004073959,
+        0.00411425,
+        0.004092459,
+        0.004146458,
+        0.004057125,
+        0.004103542,
+        0.004085583,
+        0.004097209,
+        0.004069083,
+        0.004131292,
+        0.004086083,
+        0.00413275,
+        0.004076459,
+        0.004108625,
+        0.004089833,
+        0.004116959,
+        0.004098292,
+        0.004135042,
+        0.004090042,
+        0.004142417,
+        0.004095583,
+        0.004128958,
+        0.004126208,
+        0.004194458,
+        0.004084917,
+        0.004095458,
+        0.004079333,
+        0.004133875,
+        0.004096125,
+        0.004128208,
+        0.004110708,
+        0.004125084,
+        0.004085667,
+        0.004127708,
+        0.004096375,
+        0.004133625,
+        0.004107459,
+        0.004116792,
+        0.004106375,
+        0.004118125,
+        0.004138708,
+        0.004122125,
+        0.00409125,
+        0.0041225,
+        0.004083375,
+        0.004116875,
+        0.004080583,
+        0.004135708,
+        0.0041195,
+        0.004126167,
+        0.0041145,
+        0.004145375,
+        0.004095042,
+        0.004140916,
+        0.004100666,
+        0.004113333,
+        0.0040715,
+        0.004124666,
+        0.004091542,
+        0.004144208,
+        0.004115792,
+        0.004130333,
+        0.004083125,
+        0.004129167,
+        0.00409925
+      ],
+      "packed_shape": [
+        512,
+        640,
+        80,
+        4
+      ],
+      "packing_arithmetic_max_error": 0.0,
+      "packing_seconds": 0.05195675,
+      "retained_original_bytes": 419430400,
+      "routed_shape": [
+        1,
+        8,
+        10,
+        1,
+        640
+      ],
+      "rows": 8,
+      "vector_seconds": [
+        0.000881958,
+        0.000825583,
+        0.000854,
+        0.000880709,
+        0.000845792,
+        0.000806083,
+        0.000835875,
+        0.000803708,
+        0.000851208,
+        0.000818958,
+        0.000834208,
+        0.0008085,
+        0.000844291,
+        0.000829917,
+        0.00083525,
+        0.000799042,
+        0.00083025,
+        0.000802292,
+        0.000817417,
+        0.000792791,
+        0.000818708,
+        0.000790875,
+        0.000830666,
+        0.000788125,
+        0.000827,
+        0.000798666,
+        0.000823958,
+        0.000787917,
+        0.000822042,
+        0.000791583,
+        0.000840709,
+        0.000789334,
+        0.000811666,
+        0.000789625,
+        0.000784667,
+        0.00079175,
+        0.000836042,
+        0.000788625,
+        0.000835042,
+        0.00078625,
+        0.000840708,
+        0.000795583,
+        0.0008365,
+        0.000795958,
+        0.00083675,
+        0.000803458,
+        0.000827791,
+        0.000765917,
+        0.000838583,
+        0.000795583,
+        0.000813959,
+        0.000793709,
+        0.000831292,
+        0.000798375,
+        0.000834583,
+        0.000789916,
+        0.000828416,
+        0.000806417,
+        0.00083575,
+        0.000801083,
+        0.000831333,
+        0.000765125,
+        0.000838292,
+        0.000832583,
+        0.000820833,
+        0.000819125,
+        0.000842667,
+        0.000795625,
+        0.00084625,
+        0.000829084,
+        0.000836292,
+        0.000801334,
+        0.000826959,
+        0.000795917,
+        0.000867834,
+        0.000826458,
+        0.000833958,
+        0.000789541,
+        0.000831542,
+        0.000790167,
+        0.000842084,
+        0.000824041,
+        0.000818834,
+        0.000793792,
+        0.000832334,
+        0.000890959,
+        0.000842375,
+        0.000832667,
+        0.00081025,
+        0.000798166,
+        0.0008355,
+        0.000788541,
+        0.00083275,
+        0.000802541,
+        0.000839541,
+        0.000790667,
+        0.000839625,
+        0.000804292,
+        0.000863375,
+        0.000839167
+      ],
+      "weight_shape": [
+        512,
+        2560,
+        80
+      ]
+    },
+    {
+      "code_bytes": 419430400,
+      "down_seconds": [],
+      "ids": [
+        374,
+        457,
+        21,
+        307,
+        277,
+        15,
+        189,
+        338,
+        123,
+        244
+      ],
+      "layer": 23,
+      "native_down_max_error": 0.0,
+      "native_packed_max_error": 0.0,
+      "native_seconds": [],
+      "native_vector_max_error": 0.0,
+      "packed_seconds": [],
+      "packed_shape": [
+        512,
+        640,
+        80,
+        4
+      ],
+      "packing_arithmetic_max_error": 0.0,
+      "packing_seconds": 0.036283125,
+      "retained_original_bytes": 419430400,
+      "routed_shape": [
+        1,
+        1,
+        10,
+        1,
+        640
+      ],
+      "rows": 1,
+      "vector_seconds": [],
+      "weight_shape": [
+        512,
+        2560,
+        80
+      ]
+    },
+    {
+      "code_bytes": 419430400,
+      "down_seconds": [],
+      "ids": [
+        374,
+        457,
+        21,
+        307,
+        277,
+        15,
+        189,
+        338,
+        123,
+        244,
+        361,
+        32,
+        107,
+        97,
+        143,
+        200,
+        170,
+        160,
+        367,
+        362
+      ],
+      "layer": 23,
+      "native_down_max_error": 0.0,
+      "native_packed_max_error": 0.0,
+      "native_seconds": [],
+      "native_vector_max_error": 0.0,
+      "packed_seconds": [],
+      "packed_shape": [
+        512,
+        640,
+        80,
+        4
+      ],
+      "packing_arithmetic_max_error": 0.0,
+      "packing_seconds": 0.036283125,
+      "retained_original_bytes": 419430400,
+      "routed_shape": [
+        1,
+        2,
+        10,
+        1,
+        640
+      ],
+      "rows": 2,
+      "vector_seconds": [],
+      "weight_shape": [
+        512,
+        2560,
+        80
+      ]
+    },
+    {
+      "code_bytes": 419430400,
+      "down_seconds": [],
+      "ids": [
+        374,
+        457,
+        21,
+        307,
+        277,
+        15,
+        189,
+        338,
+        123,
+        244,
+        361,
+        32,
+        107,
+        97,
+        143,
+        200,
+        170,
+        160,
+        367,
+        362,
+        222,
+        200,
+        158,
+        191,
+        120,
+        477,
+        199,
+        97,
+        237,
+        136
+      ],
+      "layer": 23,
+      "native_down_max_error": 0.0,
+      "native_packed_max_error": 0.0,
+      "native_seconds": [],
+      "native_vector_max_error": 0.0,
+      "packed_seconds": [],
+      "packed_shape": [
+        512,
+        640,
+        80,
+        4
+      ],
+      "packing_arithmetic_max_error": 0.0,
+      "packing_seconds": 0.036283125,
+      "retained_original_bytes": 419430400,
+      "routed_shape": [
+        1,
+        3,
+        10,
+        1,
+        640
+      ],
+      "rows": 3,
+      "vector_seconds": [],
+      "weight_shape": [
+        512,
+        2560,
+        80
+      ]
+    },
+    {
+      "code_bytes": 419430400,
+      "down_seconds": [],
+      "ids": [
+        374,
+        457,
+        21,
+        307,
+        277,
+        15,
+        189,
+        338,
+        123,
+        244,
+        361,
+        32,
+        107,
+        97,
+        143,
+        200,
+        170,
+        160,
+        367,
+        362,
+        222,
+        200,
+        158,
+        191,
+        120,
+        477,
+        199,
+        97,
+        237,
+        136,
+        66,
+        300,
+        43,
+        265,
+        358,
+        225,
+        311,
+        296,
+        227,
+        417
+      ],
+      "layer": 23,
+      "native_down_max_error": 0.0,
+      "native_packed_max_error": 0.0,
+      "native_seconds": [],
+      "native_vector_max_error": 0.0,
+      "packed_seconds": [],
+      "packed_shape": [
+        512,
+        640,
+        80,
+        4
+      ],
+      "packing_arithmetic_max_error": 0.0,
+      "packing_seconds": 0.036283125,
+      "retained_original_bytes": 419430400,
+      "routed_shape": [
+        1,
+        4,
+        10,
+        1,
+        640
+      ],
+      "rows": 4,
+      "vector_seconds": [],
+      "weight_shape": [
+        512,
+        2560,
+        80
+      ]
+    },
+    {
+      "code_bytes": 419430400,
+      "down_seconds": [],
+      "ids": [
+        374,
+        457,
+        21,
+        307,
+        277,
+        15,
+        189,
+        338,
+        123,
+        244,
+        361,
+        32,
+        107,
+        97,
+        143,
+        200,
+        170,
+        160,
+        367,
+        362,
+        222,
+        200,
+        158,
+        191,
+        120,
+        477,
+        199,
+        97,
+        237,
+        136,
+        66,
+        300,
+        43,
+        265,
+        358,
+        225,
+        311,
+        296,
+        227,
+        417,
+        296,
+        43,
+        370,
+        39,
+        142,
+        139,
+        397,
+        417,
+        225,
+        461,
+        376,
+        338,
+        466,
+        463,
+        244,
+        123,
+        307,
+        39,
+        189,
+        277,
+        289,
+        31,
+        21,
+        506,
+        123,
+        36,
+        160,
+        244,
+        338,
+        362,
+        81,
+        367,
+        487,
+        158,
+        200,
+        4,
+        97,
+        199,
+        191,
+        136
+      ],
+      "layer": 23,
+      "native_down_max_error": 0.0,
+      "native_packed_max_error": 0.0,
+      "native_seconds": [],
+      "native_vector_max_error": 0.0,
+      "packed_seconds": [],
+      "packed_shape": [
+        512,
+        640,
+        80,
+        4
+      ],
+      "packing_arithmetic_max_error": 0.0,
+      "packing_seconds": 0.036283125,
+      "retained_original_bytes": 419430400,
+      "routed_shape": [
+        1,
+        8,
+        10,
+        1,
+        640
+      ],
+      "rows": 8,
+      "vector_seconds": [],
+      "weight_shape": [
+        512,
+        2560,
+        80
+      ]
+    },
+    {
+      "code_bytes": 419430400,
+      "down_seconds": [],
+      "ids": [
+        157,
+        382,
+        86,
+        109,
+        374,
+        445,
+        433,
+        464,
+        6,
+        279
+      ],
+      "layer": 47,
+      "native_down_max_error": 0.0,
+      "native_packed_max_error": 0.0,
+      "native_seconds": [],
+      "native_vector_max_error": 0.0,
+      "packed_seconds": [],
+      "packed_shape": [
+        512,
+        640,
+        80,
+        4
+      ],
+      "packing_arithmetic_max_error": 0.0,
+      "packing_seconds": 0.035584833,
+      "retained_original_bytes": 419430400,
+      "routed_shape": [
+        1,
+        1,
+        10,
+        1,
+        640
+      ],
+      "rows": 1,
+      "vector_seconds": [],
+      "weight_shape": [
+        512,
+        2560,
+        80
+      ]
+    },
+    {
+      "code_bytes": 419430400,
+      "down_seconds": [],
+      "ids": [
+        157,
+        382,
+        86,
+        109,
+        374,
+        445,
+        433,
+        464,
+        6,
+        279,
+        484,
+        333,
+        470,
+        170,
+        175,
+        345,
+        80,
+        374,
+        348,
+        416
+      ],
+      "layer": 47,
+      "native_down_max_error": 0.0,
+      "native_packed_max_error": 0.0,
+      "native_seconds": [],
+      "native_vector_max_error": 0.0,
+      "packed_seconds": [],
+      "packed_shape": [
+        512,
+        640,
+        80,
+        4
+      ],
+      "packing_arithmetic_max_error": 0.0,
+      "packing_seconds": 0.035584833,
+      "retained_original_bytes": 419430400,
+      "routed_shape": [
+        1,
+        2,
+        10,
+        1,
+        640
+      ],
+      "rows": 2,
+      "vector_seconds": [],
+      "weight_shape": [
+        512,
+        2560,
+        80
+      ]
+    },
+    {
+      "code_bytes": 419430400,
+      "down_seconds": [],
+      "ids": [
+        157,
+        382,
+        86,
+        109,
+        374,
+        445,
+        433,
+        464,
+        6,
+        279,
+        484,
+        333,
+        470,
+        170,
+        175,
+        345,
+        80,
+        374,
+        348,
+        416,
+        11,
+        90,
+        217,
+        511,
+        232,
+        175,
+        29,
+        229,
+        78,
+        416
+      ],
+      "layer": 47,
+      "native_down_max_error": 0.0,
+      "native_packed_max_error": 0.0,
+      "native_seconds": [],
+      "native_vector_max_error": 0.0,
+      "packed_seconds": [],
+      "packed_shape": [
+        512,
+        640,
+        80,
+        4
+      ],
+      "packing_arithmetic_max_error": 0.0,
+      "packing_seconds": 0.035584833,
+      "retained_original_bytes": 419430400,
+      "routed_shape": [
+        1,
+        3,
+        10,
+        1,
+        640
+      ],
+      "rows": 3,
+      "vector_seconds": [],
+      "weight_shape": [
+        512,
+        2560,
+        80
+      ]
+    },
+    {
+      "code_bytes": 419430400,
+      "down_seconds": [],
+      "ids": [
+        157,
+        382,
+        86,
+        109,
+        374,
+        445,
+        433,
+        464,
+        6,
+        279,
+        484,
+        333,
+        470,
+        170,
+        175,
+        345,
+        80,
+        374,
+        348,
+        416,
+        11,
+        90,
+        217,
+        511,
+        232,
+        175,
+        29,
+        229,
+        78,
+        416,
+        391,
+        392,
+        117,
+        492,
+        354,
+        184,
+        297,
+        302,
+        400,
+        11
+      ],
+      "layer": 47,
+      "native_down_max_error": 0.0,
+      "native_packed_max_error": 0.0,
+      "native_seconds": [],
+      "native_vector_max_error": 0.0,
+      "packed_seconds": [],
+      "packed_shape": [
+        512,
+        640,
+        80,
+        4
+      ],
+      "packing_arithmetic_max_error": 0.0,
+      "packing_seconds": 0.035584833,
+      "retained_original_bytes": 419430400,
+      "routed_shape": [
+        1,
+        4,
+        10,
+        1,
+        640
+      ],
+      "rows": 4,
+      "vector_seconds": [],
+      "weight_shape": [
+        512,
+        2560,
+        80
+      ]
+    },
+    {
+      "code_bytes": 419430400,
+      "down_seconds": [],
+      "ids": [
+        157,
+        382,
+        86,
+        109,
+        374,
+        445,
+        433,
+        464,
+        6,
+        279,
+        484,
+        333,
+        470,
+        170,
+        175,
+        345,
+        80,
+        374,
+        348,
+        416,
+        11,
+        90,
+        217,
+        511,
+        232,
+        175,
+        29,
+        229,
+        78,
+        416,
+        391,
+        392,
+        117,
+        492,
+        354,
+        184,
+        297,
+        302,
+        400,
+        11,
+        161,
+        371,
+        438,
+        154,
+        89,
+        211,
+        225,
+        471,
+        398,
+        400,
+        300,
+        493,
+        377,
+        399,
+        375,
+        86,
+        464,
+        382,
+        157,
+        279,
+        484,
+        80,
+        345,
+        237,
+        445,
+        6,
+        348,
+        170,
+        374,
+        120,
+        511,
+        232,
+        217,
+        348,
+        29,
+        80,
+        229,
+        78,
+        175,
+        416
+      ],
+      "layer": 47,
+      "native_down_max_error": 0.0,
+      "native_packed_max_error": 0.0,
+      "native_seconds": [],
+      "native_vector_max_error": 0.0,
+      "packed_seconds": [],
+      "packed_shape": [
+        512,
+        640,
+        80,
+        4
+      ],
+      "packing_arithmetic_max_error": 0.0,
+      "packing_seconds": 0.035584833,
+      "retained_original_bytes": 419430400,
+      "routed_shape": [
+        1,
+        8,
+        10,
+        1,
+        640
+      ],
+      "rows": 8,
+      "vector_seconds": [],
+      "weight_shape": [
+        512,
+        2560,
+        80
+      ]
+    }
+  ],
+  "sampler": "component native softmax/top10",
+  "warmup_pairs": 10
+}

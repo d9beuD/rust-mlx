@@ -1,0 +1,22 @@
+--- a/src/moe_down.rs
++++ b/src/moe_down.rs
+@@ -10,7 +10,7 @@
+ thread_local! {
+     static MODE:Cell<u8>=const {Cell::new(0)};
+     static CALLS:Cell<usize>=const {Cell::new(0)};
+-    static KERNELS:RefCell<[Option<Kernel>;3]>=const {RefCell::new([None,None,None])};
++    static KERNELS:RefCell<[Option<Kernel>;2]>=const {RefCell::new([None,None])};
+ }
+ pub fn configure(kind: Option<&str>, enabled: bool) {
+     MODE.with(|m| {
+--- a/src/moe_route.rs
++++ b/src/moe_route.rs
+@@ -6,7 +6,7 @@
+ 
+ thread_local! {
+     static KERNEL: RefCell<Option<Kernel>> = const { RefCell::new(None) };
+-    static ENABLED: Cell<bool> = Cell::new(std::env::var("RUST_MLX_ROUTE_TAIL").is_ok_and(|v|v=="1"));
++    static ENABLED: Cell<bool> = Cell::new(std::env::var_os("RUST_MLX_ROUTE_TAIL").is_some());
+     static CALLS: Cell<usize> = const { Cell::new(0) };
+ }
+ 

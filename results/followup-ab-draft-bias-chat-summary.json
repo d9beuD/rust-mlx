@@ -1,0 +1,271 @@
+{
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "kernel": "draft-bias",
+  "suite": "chat",
+  "source_sha256": "9ecd7a2fea7fe7b7e45aa6d63065a0d8734b5b87320913caa21dbe493faad349",
+  "protocol": "four alternating baseline/candidate pairs in one model process; both warmed256; fresh caches; greedy depth3; complete priming/draft/verify/rollback/sync cost",
+  "records": [
+    {
+      "prompt": 0,
+      "report": "results/followup-ab-draft-bias-chat-p0.json",
+      "receipt": {
+        "command": [
+          "target/release/mtp-infer",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--prompt",
+          "Write a short Rust function that computes Fibonacci numbers.",
+          "--max-tokens",
+          "256",
+          "--warmup-tokens",
+          "256",
+          "--runs",
+          "4",
+          "--draft-depth",
+          "3",
+          "--ignore-eos",
+          "--ab-kernel",
+          "draft-bias",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-draft-bias-chat-p0.json",
+          "--draft-logit-bias",
+          ".unlazy/followup-draft-bias",
+          "--chat",
+          "--no-thinking",
+          "--expected",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-draft-bias-chat-p0-oracle.json"
+        ],
+        "exit_code": 0,
+        "source_sha256": "9ecd7a2fea7fe7b7e45aa6d63065a0d8734b5b87320913caa21dbe493faad349",
+        "binary_sha256": "5b948bd840e553cd163bbf6ecc0429c7890fd296efc234e34b8661cf5b3c0e93",
+        "started_unix": 1791301514.481397,
+        "ended_unix": 1791301568.104915,
+        "log_sha256": "d2793ee748e94183399ce8c4a861b131c8131bf5a9dfea0a1a17b30bd1ed1c16",
+        "report_sha256": "9e8d06f447f2e05fa3c3179504e9443c91da30b57ec528083abe7069491d5426",
+        "oracle_report": "results/decode3-config-combo-full-chat-p0-c1-native.json",
+        "oracle_sha256": "34198dd61ac9ab982c65e6875a32b16ef78ab97598175aaa0166628e5239b8ec"
+      },
+      "native_samples": [
+        55.34827686163115,
+        55.91712759257273,
+        56.12724486624864,
+        55.774508474157365
+      ],
+      "candidate_samples": [
+        56.142373315904244,
+        56.91300141476883,
+        55.88276241228861,
+        56.03224366716402
+      ],
+      "native_median": 55.84581803336505,
+      "candidate_median": 56.08730849153413,
+      "paired_gain_samples_percent": [
+        1.4347266063193143,
+        1.7809817225453717,
+        -0.4355860590389393,
+        0.46210213242143805
+      ],
+      "paired_gain_median_percent": 0.9484143693703762,
+      "native_cv": 0.0059016359512788505,
+      "candidate_cv": 0.008168645906308699,
+      "exact_original_256_ids": true
+    },
+    {
+      "prompt": 1,
+      "report": "results/followup-ab-draft-bias-chat-p1.json",
+      "receipt": {
+        "command": [
+          "target/release/mtp-infer",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--prompt",
+          "Explique en fran\u00e7ais comment fonctionne le cache KV d'un mod\u00e8le de langage et donne un exemple concret.",
+          "--max-tokens",
+          "256",
+          "--warmup-tokens",
+          "256",
+          "--runs",
+          "4",
+          "--draft-depth",
+          "3",
+          "--ignore-eos",
+          "--ab-kernel",
+          "draft-bias",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-draft-bias-chat-p1.json",
+          "--draft-logit-bias",
+          ".unlazy/followup-draft-bias",
+          "--chat",
+          "--no-thinking",
+          "--expected",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-draft-bias-chat-p1-oracle.json"
+        ],
+        "exit_code": 0,
+        "source_sha256": "9ecd7a2fea7fe7b7e45aa6d63065a0d8734b5b87320913caa21dbe493faad349",
+        "binary_sha256": "5b948bd840e553cd163bbf6ecc0429c7890fd296efc234e34b8661cf5b3c0e93",
+        "started_unix": 1791301568.130999,
+        "ended_unix": 1791301627.5270789,
+        "log_sha256": "ee7ec9551df5f27a11b21e9522fc978c13709d65c1f3bc87dc01b6b0e7771c72",
+        "report_sha256": "ef1eb85a8a889de94dd957362ebe6311ae634be9fe8560de0478eb342791a7c7",
+        "oracle_report": "results/decode3-config-combo-full-chat-p1-c1-native.json",
+        "oracle_sha256": "88711fb12a11888a3c33046898a2e9867f20f9a08c156257b6768cf89aa332b9"
+      },
+      "native_samples": [
+        49.87277552752684,
+        49.92668201156646,
+        49.76359649316349,
+        49.85906463336562
+      ],
+      "candidate_samples": [
+        49.66532912793503,
+        49.52190325291217,
+        50.459023760362776,
+        50.29151121448792
+      ],
+      "native_median": 49.86592008044623,
+      "candidate_median": 49.978420171211475,
+      "paired_gain_samples_percent": [
+        -0.4159511825791884,
+        -0.8107463631581213,
+        1.3974618319534393,
+        0.8673379340391918
+      ],
+      "paired_gain_median_percent": 0.2256933757300017,
+      "native_cv": 0.0013615929787659472,
+      "candidate_cv": 0.009206447107583957,
+      "exact_original_256_ids": true
+    },
+    {
+      "prompt": 2,
+      "report": "results/followup-ab-draft-bias-chat-p2.json",
+      "receipt": {
+        "command": [
+          "target/release/mtp-infer",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--prompt",
+          "Write a SQL query that returns each customer's three most recent orders. Explain how the window function works.",
+          "--max-tokens",
+          "256",
+          "--warmup-tokens",
+          "256",
+          "--runs",
+          "4",
+          "--draft-depth",
+          "3",
+          "--ignore-eos",
+          "--ab-kernel",
+          "draft-bias",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-draft-bias-chat-p2.json",
+          "--draft-logit-bias",
+          ".unlazy/followup-draft-bias",
+          "--chat",
+          "--no-thinking",
+          "--expected",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-draft-bias-chat-p2-oracle.json"
+        ],
+        "exit_code": 0,
+        "source_sha256": "9ecd7a2fea7fe7b7e45aa6d63065a0d8734b5b87320913caa21dbe493faad349",
+        "binary_sha256": "5b948bd840e553cd163bbf6ecc0429c7890fd296efc234e34b8661cf5b3c0e93",
+        "started_unix": 1791301627.5556,
+        "ended_unix": 1791301680.24975,
+        "log_sha256": "c06be152c6003198411458e2040c00ad2691bd16f132e810cf5b67ba7a235912",
+        "report_sha256": "812a753cdaedd5e8822e771cec87f8bb3382c73a4386e018218dda48f1b28b49",
+        "oracle_report": "results/decode3-config-combo-full-chat-p2-c1-native.json",
+        "oracle_sha256": "913b81933f8cded348780d83536a1e08b127b8e591b88f1f14825ec5d02cb6a3"
+      },
+      "native_samples": [
+        58.1335996897236,
+        58.61091049886142,
+        57.9596784031828,
+        58.177159575558505
+      ],
+      "candidate_samples": [
+        55.40547593038095,
+        57.759283528007195,
+        58.32026210256516,
+        58.04183796483175
+      ],
+      "native_median": 58.15537963264106,
+      "candidate_median": 57.90056074641947,
+      "paired_gain_samples_percent": [
+        -4.692851937439735,
+        -1.4530178146111017,
+        0.622128537142741,
+        -0.23260264288256227
+      ],
+      "paired_gain_median_percent": -0.842810228746832,
+      "native_cv": 0.004754595375875316,
+      "candidate_cv": 0.023304460277827697,
+      "exact_original_256_ids": true
+    },
+    {
+      "prompt": 3,
+      "report": "results/followup-ab-draft-bias-chat-p3.json",
+      "receipt": {
+        "command": [
+          "target/release/mtp-infer",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--prompt",
+          "A train leaves Paris at 9:00 at 80 km/h. A second train leaves at 9:45 at 120 km/h on the same route. When does it catch the first train? Explain carefully.",
+          "--max-tokens",
+          "256",
+          "--warmup-tokens",
+          "256",
+          "--runs",
+          "4",
+          "--draft-depth",
+          "3",
+          "--ignore-eos",
+          "--ab-kernel",
+          "draft-bias",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-draft-bias-chat-p3.json",
+          "--draft-logit-bias",
+          ".unlazy/followup-draft-bias",
+          "--chat",
+          "--no-thinking",
+          "--expected",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-draft-bias-chat-p3-oracle.json"
+        ],
+        "exit_code": 0,
+        "source_sha256": "9ecd7a2fea7fe7b7e45aa6d63065a0d8734b5b87320913caa21dbe493faad349",
+        "binary_sha256": "5b948bd840e553cd163bbf6ecc0429c7890fd296efc234e34b8661cf5b3c0e93",
+        "started_unix": 1791301680.274401,
+        "ended_unix": 1791301730.8003168,
+        "log_sha256": "5c3709545937d51dc265c6ebfebd981ef7c0875718489a30bb63e98eee582374",
+        "report_sha256": "ed2307b58fb00746e110d00998993bc1a5e4d3843c78c0fcc20d54516bde74f9",
+        "oracle_report": "results/decode3-config-combo-full-chat-p3-c1-native.json",
+        "oracle_sha256": "86ed72a995d12ae6e971bdf0c064e2c6662884d9c00a551ec8cb66a5991736a3"
+      },
+      "native_samples": [
+        61.169827982347705,
+        61.89957725627882,
+        62.02044929741623,
+        62.37068146982171
+      ],
+      "candidate_samples": [
+        61.04585493818757,
+        61.08089286971299,
+        61.56991017817878,
+        62.09268291197335
+      ],
+      "native_median": 61.96001327684752,
+      "candidate_median": 61.325401523945885,
+      "paired_gain_samples_percent": [
+        -0.20267025141204043,
+        -1.3226009334058597,
+        -0.7264364001571599,
+        -0.4457199300970771
+      ],
+      "paired_gain_median_percent": -0.5860781651271185,
+      "native_cv": 0.008158984478674703,
+      "candidate_cv": 0.008011115135496679,
+      "exact_original_256_ids": true
+    }
+  ],
+  "complete": true,
+  "promoted": false
+}

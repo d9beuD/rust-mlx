@@ -1,0 +1,33 @@
+{
+  "command": [
+    "target/release/mtp-infer",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--prompt",
+    "Write a short Rust function that computes Fibonacci numbers.",
+    "--max-tokens",
+    "256",
+    "--warmup-tokens",
+    "256",
+    "--runs",
+    "4",
+    "--draft-depth",
+    "3",
+    "--ignore-eos",
+    "--ab-kernel",
+    "down-packed-vector",
+    "--output",
+    "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-down-packed-vector-raw-p0.json",
+    "--expected",
+    "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-down-packed-vector-raw-p0-oracle.json"
+  ],
+  "exit_code": 0,
+  "source_sha256": "9ecd7a2fea7fe7b7e45aa6d63065a0d8734b5b87320913caa21dbe493faad349",
+  "binary_sha256": "5b948bd840e553cd163bbf6ecc0429c7890fd296efc234e34b8661cf5b3c0e93",
+  "started_unix": 1791301237.511463,
+  "ended_unix": 1791301292.4680278,
+  "log_sha256": "0744d94837e994c6e9bd6c8071a2dfed47e91e1591feaedd702b0eefd743d68b",
+  "report_sha256": "6697507d048eae22bc8dc6b482eda04a911dca2e89058537c35f4352506e5ab1",
+  "oracle_report": "results/target-baseline-256.json",
+  "oracle_sha256": "6c6eeb4533507faa5c8725b68a1a63c4d12837de0986ee9ec826ce9a9afa2106"
+}

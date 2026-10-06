@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "scripts/server_smoke.py"
+  ],
+  "log": "results/followup-current-fifo-server_smoke.log",
+  "sha256": "a581bf9bb96555a02a967f9ad607a1b0f16ce29aa50b6aafbe404098f1fa637d",
+  "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+  "started_unix": 1791302186.0594099,
+  "ended_unix": 1791302194.896516,
+  "exit_code": 0,
+  "passed": true,
+  "success_marker": "SERVER_SMOKE_PASSED",
+  "contains_metal_validation_enabled": false,
+  "validation_environment": {}
+}
