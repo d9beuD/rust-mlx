@@ -4,6 +4,8 @@ use clap::Parser;
 struct Args {
     #[arg(long)]
     route_tail: bool,
+    #[arg(long)]
+    moe_hc_epilogue: bool,
     #[arg(long,value_parser=["down-tail","down-packed","down-packed-vector"])]
     down_kernel: Option<String>,
     #[arg(long,value_parser=["ple-prepare","rope-ids","config-reuse","runtime-prepare"])]
@@ -88,6 +90,7 @@ fn main() -> Result<()> {
     for depth in [2, 3, 4, 5, 6, 7, 8, 2, 3, 4, 5, 6, 7, 8] {
         rust_mlx::moe_down::configure(None, false);
         rust_mlx::moe_route::set_enabled(false);
+        rust_mlx::moe_epilogue::set_enabled(false);
         rust_mlx::runtime_prepare::configure(None, false);
         rust_mlx::moe_layout::set_enabled(false);
         let mut batched = cache.clone();
@@ -110,6 +113,7 @@ fn main() -> Result<()> {
         let route_before = rust_mlx::moe_route::calls();
         rust_mlx::moe_down::configure(args.down_kernel.as_deref(), true);
         rust_mlx::moe_route::set_enabled(args.route_tail);
+        rust_mlx::moe_epilogue::set_enabled(args.moe_hc_epilogue);
         rust_mlx::runtime_prepare::configure(args.runtime_prepare.as_deref(), true);
         rust_mlx::moe_layout::set_enabled(args.native_gate_up);
         let started = std::time::Instant::now();
@@ -170,7 +174,7 @@ fn main() -> Result<()> {
             reference * 1e3,
             candidate * 1e3
         );
-        records.push(serde_json::json!({"down_kernel":args.down_kernel,"down_calls":rust_mlx::moe_down::calls(),"runtime_prepare":args.runtime_prepare,"runtime_prepare_calls":rust_mlx::runtime_prepare::stats(),"route_tail":args.route_tail,"route_tail_calls":rust_mlx::moe_route::calls(),"resident_overlay":args.resident_overlay,"native_gate_up":args.native_gate_up,"layout_calls":rust_mlx::moe_layout::calls(),"matrix_affine":args.matrix_affine,"matrix_packed":args.matrix_packed,"matrix_calls":rust_mlx::matrix_kernel::calls(),"sorted_moe":args.sorted_moe,"depth":depth,"logit_error":le,"hidden_error":he,"state_error":state,"reference_seconds":reference,"candidate_seconds":candidate,"tokens":tokens}));
+        records.push(serde_json::json!({"down_kernel":args.down_kernel,"down_calls":rust_mlx::moe_down::calls(),"runtime_prepare":args.runtime_prepare,"runtime_prepare_calls":rust_mlx::runtime_prepare::stats(),"moe_hc_epilogue":args.moe_hc_epilogue,"epilogue_calls":rust_mlx::moe_epilogue::calls(),"route_tail":args.route_tail,"route_tail_calls":rust_mlx::moe_route::calls(),"resident_overlay":args.resident_overlay,"native_gate_up":args.native_gate_up,"layout_calls":rust_mlx::moe_layout::calls(),"matrix_affine":args.matrix_affine,"matrix_packed":args.matrix_packed,"matrix_calls":rust_mlx::matrix_kernel::calls(),"sorted_moe":args.sorted_moe,"depth":depth,"logit_error":le,"hidden_error":he,"state_error":state,"reference_seconds":reference,"candidate_seconds":candidate,"tokens":tokens}));
         std::fs::write(&args.output, serde_json::to_vec_pretty(&records)?)?;
         if args.native_gate_up {
             ensure!(

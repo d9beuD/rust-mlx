@@ -13,6 +13,8 @@ struct Args {
     #[arg(long)]
     resident_overlay: Option<PathBuf>,
     #[arg(long)]
+    draft_adapter: Option<PathBuf>,
+    #[arg(long)]
     draft_head_bits: Option<i32>,
     #[arg(long)]
     draft_logit_bias: Option<PathBuf>,
@@ -22,7 +24,7 @@ struct Args {
     #[arg(long)]
     native_gate_up: bool,
     /// Alternate a kernel candidate in the same process.
-    #[arg(long,value_parser=["packed","moe","qmv","shortlist","hc","stream-x","gemv","gdn","gpu-draft","sorted-moe","adaptive-depth","adaptive-vocab","adaptive","greedy-head","kv-blocks","qmv-address","matrix-affine","matrix-packed","route-tail","ple-prepare","rope-ids","config-reuse","runtime-prepare","down-tail","down-packed","down-packed-vector","draft-bias"])]
+    #[arg(long,value_parser=["packed","moe","qmv","shortlist","hc","stream-x","gemv","gdn","gpu-draft","sorted-moe","adaptive-depth","adaptive-vocab","adaptive","greedy-head","kv-blocks","qmv-address","matrix-affine","matrix-packed","route-tail","ple-prepare","rope-ids","config-reuse","runtime-prepare","down-tail","down-packed","down-packed-vector","draft-bias","draft-adapter","moe-hc-epilogue"])]
     ab_kernel: Option<String>,
     #[arg(long)]
     gpu_draft: bool,
@@ -94,6 +96,27 @@ fn main() -> Result<()> {
         .transpose()?;
     let mut m = HybridModel::load(&w, &a.model)?;
     let mut draft = Mtp::load(&w, &m.config)?;
+    if let Some(path) = &a.draft_adapter {
+        ensure!(
+            a.draft_logit_bias.is_none()
+                && a.draft_vocab_ids.is_none()
+                && a.draft_head_bits.is_none()
+                && !a.adaptive_vocab
+                && a.draft_vocab_limit.unwrap_or(0) == 0,
+            "adapter requires original full draft head"
+        );
+        draft.adapter = Some(rust_mlx::draft_adapter::DraftAdapter::load(
+            &a.model,
+            path,
+            m.config.hidden_size,
+            m.config.hc_count,
+        )?);
+        draft.adapter_enabled.set(true);
+    }
+    ensure!(
+        a.ab_kernel.as_deref() != Some("draft-adapter") || draft.adapter.is_some(),
+        "missing draft adapter"
+    );
     let fixed_head = if a.draft_head_bits.is_some() || a.draft_vocab_ids.is_some() {
         ensure!(
             !a.adaptive_vocab && a.draft_vocab_limit.unwrap_or(0) == 0 && a.ab_kernel.is_none(),
@@ -228,6 +251,12 @@ fn main() -> Result<()> {
             vec![false]
         };
         for candidate in modes {
+            if a.ab_kernel.as_deref() == Some("draft-adapter") {
+                draft.adapter_enabled.set(candidate);
+            }
+            if a.ab_kernel.as_deref() == Some("moe-hc-epilogue") {
+                rust_mlx::moe_epilogue::set_enabled(candidate);
+            }
             rust_mlx::moe_down::configure(a.ab_kernel.as_deref(), candidate);
             if a.ab_kernel.as_deref() == Some("draft-bias") {
                 draft.draft_head_enabled.set(candidate);
@@ -310,6 +339,7 @@ fn main() -> Result<()> {
                 let mut emitted = String::new();
                 let matrix_start = rust_mlx::matrix_kernel::calls();
                 let down_start = rust_mlx::moe_down::calls();
+                let epilogue_start = rust_mlx::moe_epilogue::calls();
                 let runtime_start = rust_mlx::runtime_prepare::stats();
                 let route_start = rust_mlx::moe_route::calls();
                 let layout_start = rust_mlx::moe_layout::calls();
@@ -345,6 +375,13 @@ fn main() -> Result<()> {
                 let gemv_launches = rust_mlx::gemv_kernel::launches().wrapping_sub(gemv_start);
                 let matrix_calls = rust_mlx::matrix_kernel::calls().wrapping_sub(matrix_start);
                 let down_calls = rust_mlx::moe_down::calls().wrapping_sub(down_start);
+                let epilogue_calls = rust_mlx::moe_epilogue::calls().wrapping_sub(epilogue_start);
+                if candidate
+                    && a.ab_kernel.as_deref() == Some("moe-hc-epilogue")
+                    && g.tokens.len() > 1
+                {
+                    ensure!(epilogue_calls > 0, "epilogue did not engage");
+                }
                 if candidate
                     && matches!(
                         a.ab_kernel.as_deref(),
@@ -453,7 +490,7 @@ fn main() -> Result<()> {
                                 serde_json::to_vec_pretty(&json!({
                                     "environment":environment,"model":a.model,"quantization":w.config["quantization"],
                                     "prompt_ids":ids,"runtime":{"mtp":true,"draft_depth":depth,"sampler":"greedy","batch_size":1,"prefix_cache":false,"warmup_tokens":a.warmup_tokens,"ignore_eos":a.ignore_eos},
-                                    "kernel_candidate":a.ab_kernel,"candidate_enabled":candidate,"matrix_calls":matrix_calls,"down_calls":down_calls,"draft_head_enabled":draft.draft_head_enabled.get(),"route_tail_calls":route_calls,"runtime_prepare_calls":runtime_calls,
+                                    "kernel_candidate":a.ab_kernel,"candidate_enabled":candidate,"matrix_calls":matrix_calls,"epilogue_calls":epilogue_calls,"down_calls":down_calls,"draft_adapter_enabled":draft.adapter_enabled.get(),"draft_head_enabled":draft.draft_head_enabled.get(),"route_tail_calls":route_calls,"runtime_prepare_calls":runtime_calls,
                                     "generation":g,"expected_tokens":e,"run":run,
                                     "first_mismatch":g.tokens.iter().zip(e).position(|(a,b)|a!=b),
                                     "complete":false,"qualified":false,"failure":"MTP trajectory differs from baseline"
@@ -465,12 +502,12 @@ fn main() -> Result<()> {
                             "MTP trajectory differs from baseline"
                         );
                     }
-                    records.push(json!({"down_calls":down_calls,"draft_head_enabled":draft.draft_head_enabled.get(),"route_tail_calls":route_calls,"runtime_prepare_calls":runtime_calls,"native_gate_up":a.native_gate_up,"layout_calls":layout_calls,"run":run,"kernel_candidate":a.ab_kernel,"candidate_enabled":candidate,"adaptive_depth":draft.adaptive_depth.get(),"adaptive_depth_costs":draft.adaptive_depth_costs.get(),"adaptive_vocab":draft.adaptive_vocab.get(),"kv_blocks":rust_mlx::kv_blocks::enabled(),"kv_block_calls":kv_calls,"greedy_head":rust_mlx::greedy_head::enabled(),"greedy_head_calls":head_calls,"sorted_moe_calls":sorted_calls,"gpu_draft":draft.gpu_draft.get(),"draft_vocab_limit":draft.draft_vocab_limit.get(),"draft_vocab_refresh_rounds":draft.draft_vocab_refresh_rounds.get(),"qmv_address32_calls":address_calls,"qmv_address32":rust_mlx::qmv_kernel::address32(),"qmv":rust_mlx::qmv_kernel::enabled(),"hc_projection":rust_mlx::hc_kernel::enabled(),"shared_gemv":rust_mlx::gemv_kernel::enabled(),"gemv_narrow":rust_mlx::gemv_kernel::narrow(),"gemv_launches":gemv_launches,"matrix_enabled":rust_mlx::matrix_kernel::enabled(),"matrix_packed":rust_mlx::matrix_kernel::packed(),"matrix_calls":matrix_calls,"compiled_gdn":rust_mlx::gdn_compiled::enabled(),"compiled_gdn_calls":gdn_calls,"draft_depth":depth,"decode_tokens_per_second":tps,"text":t.decode(&g.tokens,true).ok(),"generation":g,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
+                    records.push(json!({"epilogue_calls":epilogue_calls,"down_calls":down_calls,"draft_adapter_enabled":draft.adapter_enabled.get(),"draft_head_enabled":draft.draft_head_enabled.get(),"route_tail_calls":route_calls,"runtime_prepare_calls":runtime_calls,"native_gate_up":a.native_gate_up,"layout_calls":layout_calls,"run":run,"kernel_candidate":a.ab_kernel,"candidate_enabled":candidate,"adaptive_depth":draft.adaptive_depth.get(),"adaptive_depth_costs":draft.adaptive_depth_costs.get(),"adaptive_vocab":draft.adaptive_vocab.get(),"kv_blocks":rust_mlx::kv_blocks::enabled(),"kv_block_calls":kv_calls,"greedy_head":rust_mlx::greedy_head::enabled(),"greedy_head_calls":head_calls,"sorted_moe_calls":sorted_calls,"gpu_draft":draft.gpu_draft.get(),"draft_vocab_limit":draft.draft_vocab_limit.get(),"draft_vocab_refresh_rounds":draft.draft_vocab_refresh_rounds.get(),"qmv_address32_calls":address_calls,"qmv_address32":rust_mlx::qmv_kernel::address32(),"qmv":rust_mlx::qmv_kernel::enabled(),"hc_projection":rust_mlx::hc_kernel::enabled(),"shared_gemv":rust_mlx::gemv_kernel::enabled(),"gemv_narrow":rust_mlx::gemv_kernel::narrow(),"gemv_launches":gemv_launches,"matrix_enabled":rust_mlx::matrix_kernel::enabled(),"matrix_packed":rust_mlx::matrix_kernel::packed(),"matrix_calls":matrix_calls,"compiled_gdn":rust_mlx::gdn_compiled::enabled(),"compiled_gdn_calls":gdn_calls,"draft_depth":depth,"decode_tokens_per_second":tps,"text":t.decode(&g.tokens,true).ok(),"generation":g,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
                 }
             }
         }
     }
-    let report = json!({"environment":environment,"model":a.model,"quantization":w.config["quantization"],"expert_layout":expert_layout,"resident_variant":resident_variant,"fixed_draft_head":fixed_head,"draft_bias_artifact":bias_artifact,"down_layout":down_layout,"runtime":{"native_gate_up":a.native_gate_up,"mtp":true,"draft_depth":a.draft_depth,"sampler":"greedy","batch_size":1,"prefix_cache":false,"kv_cache":"fresh per run","warmup_tokens":a.warmup_tokens,"prefill_chunk":a.prefill_chunk,"ignore_eos":a.ignore_eos,"rate_definition":"generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization"},"prompt_ids":ids,"runs":records});
+    let report = json!({"environment":environment,"model":a.model,"quantization":w.config["quantization"],"expert_layout":expert_layout,"resident_variant":resident_variant,"fixed_draft_head":fixed_head,"draft_adapter":a.draft_adapter,"draft_adapter_sha256":a.draft_adapter.as_ref().map(|p| rust_mlx::resident_quant::sha256_file(&p.join("adapter.safetensors"))).transpose()?,"draft_bias_artifact":bias_artifact,"down_layout":down_layout,"runtime":{"native_gate_up":a.native_gate_up,"mtp":true,"draft_depth":a.draft_depth,"sampler":"greedy","batch_size":1,"prefix_cache":false,"kv_cache":"fresh per run","warmup_tokens":a.warmup_tokens,"prefill_chunk":a.prefill_chunk,"ignore_eos":a.ignore_eos,"rate_definition":"generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization"},"prompt_ids":ids,"runs":records});
     if let Some(p) = a.output {
         std::fs::write(p, serde_json::to_vec_pretty(&report)?)?;
     } else if !a.stream {

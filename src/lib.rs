@@ -38,3 +38,9 @@ pub mod kv_blocks;
 pub mod runtime_prepare;
 
 pub mod moe_down;
+
+pub mod draft_adapter;
+
+pub mod moe_epilogue;
+
+pub mod expert_capture;

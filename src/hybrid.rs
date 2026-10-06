@@ -189,7 +189,7 @@ impl MoE {
             x.shape()[2],
         ])?)
     }
-    pub fn forward(&self, x: &Array) -> Result<Array> {
+    fn parts(&self, x: &Array) -> Result<(Array, Array, Array)> {
         ensure!(
             self.gate.weight.ndim() == 3
                 && self.up.weight.ndim() == 3
@@ -258,6 +258,7 @@ impl MoE {
                 )
             };
             let routed = crate::compiled::swiglu(&gate, &up)?;
+            crate::expert_capture::record(x, &routed, &ids, &scores);
             if let Some(y) = crate::moe_down::reduce(
                 &self.down,
                 &routed,
@@ -282,7 +283,27 @@ impl MoE {
             Some(factor) => factor,
             None => ops::sigmoid(&self.shared_gate.forward_rows(x)?)?,
         };
-        Ok(y.add(&self.shared.forward(x)?.multiply(&shared_factor)?)?)
+        Ok((y, self.shared.forward(x)?, shared_factor))
+    }
+    pub fn forward(&self, x: &Array) -> Result<Array> {
+        let (y, shared, factor) = self.parts(x)?;
+        Ok(y.add(shared.multiply(factor)?)?)
+    }
+    pub fn forward_write(
+        &self,
+        x: &Array,
+        residual: &Array,
+        gate: &Array,
+        hc: &HyperConnection,
+    ) -> Result<Array> {
+        let (y, shared, factor) = self.parts(x)?;
+        crate::expert_capture::record_epilogue(&y, &shared, &factor, residual, gate);
+        if let Some(output) =
+            crate::moe_epilogue::apply(&y, &shared, &factor, residual, gate, hc.hc)?
+        {
+            return Ok(output);
+        }
+        hc.write(residual, &y.add(shared.multiply(factor)?)?, gate)
     }
 }
 #[derive(Default, Clone)]
@@ -643,10 +664,11 @@ impl HybridModel {
                 inject.as_ref().context("missing attention inject")?,
             )?;
             let (mixed, inject) = l.mlp_hc.forward(&h)?;
-            h = l.mlp_hc.write(
+            h = l.moe.forward_write(
+                &mixed,
                 &h,
-                &l.moe.forward(&mixed)?,
                 inject.as_ref().context("missing MLP inject")?,
+                &l.mlp_hc,
             )?;
             if self.async_layers.get() {
                 mlx_rs::transforms::async_eval([&h])?;

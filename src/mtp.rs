@@ -8,6 +8,8 @@ use crate::{
 use anyhow::{Context, Result, ensure};
 use mlx_rs::Array;
 pub struct Mtp {
+    pub adapter: Option<crate::draft_adapter::DraftAdapter>,
+    pub adapter_enabled: std::cell::Cell<bool>,
     pub draft_head: Option<crate::draft_head::DraftHead>,
     pub draft_head_enabled: std::cell::Cell<bool>,
     /// Experimental lazy draft chain; target verification still consumes CPU IDs.
@@ -37,6 +39,8 @@ impl Mtp {
     pub fn load(w: &Weights, c: &HybridConfig) -> Result<Self> {
         let p = "mtp.layers.0";
         Ok(Self {
+            adapter: None,
+            adapter_enabled: std::cell::Cell::new(false),
             draft_head: None,
             draft_head_enabled: std::cell::Cell::new(false),
             gpu_draft: std::cell::Cell::new(false),
@@ -104,11 +108,21 @@ impl Mtp {
             gate.as_ref().context("MTP attention injection")?,
         )?;
         let (mixed, gate) = self.mlp_hyper.forward(&h)?;
-        h = self.mlp_hyper.write(
+        h = self.mlp.forward_write(
+            &mixed,
             &h,
-            &self.mlp.forward(&mixed)?,
             gate.as_ref().context("MTP MLP injection")?,
+            &self.mlp_hyper,
         )?;
-        Ok((self.mixer.forward(&h)?.0, h))
+        let mixed = self.mixer.forward(&h)?.0;
+        let mixed = if self.adapter_enabled.get() {
+            self.adapter
+                .as_ref()
+                .context("missing draft adapter")?
+                .apply(&mixed, previous_hidden, embedding)?
+        } else {
+            mixed
+        };
+        Ok((mixed, h))
     }
 }
