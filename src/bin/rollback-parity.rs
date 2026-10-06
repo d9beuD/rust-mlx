@@ -3,6 +3,8 @@ use clap::Parser;
 #[derive(Parser)]
 struct Args {
     #[arg(long)]
+    matrix_packed: bool,
+    #[arg(long)]
     kv_blocks: bool,
     #[arg(long)]
     sorted_moe: bool,
@@ -40,6 +42,8 @@ fn error(a: &Array, b: &Array) -> Result<f32> {
 }
 fn main() -> Result<()> {
     let args = Args::parse();
+    rust_mlx::matrix_kernel::set_enabled(args.matrix_packed);
+    rust_mlx::matrix_kernel::set_packed(args.matrix_packed);
     rust_mlx::kv_blocks::set_enabled(args.kv_blocks);
     let path = args.model.as_path();
     let w = Weights::load(path)?;
@@ -109,7 +113,7 @@ fn main() -> Result<()> {
         }
         println!("keep={keep} logits={le} state={state}");
         ensure!(le == 0. && state == 0., "rollback is not exact");
-        reports.push(serde_json::json!({"sorted_moe":args.sorted_moe,"keep":keep,"logit_error":le,"state_error":state}));
+        reports.push(serde_json::json!({"matrix_packed":args.matrix_packed,"matrix_calls":rust_mlx::matrix_kernel::calls(),"sorted_moe":args.sorted_moe,"keep":keep,"logit_error":le,"state_error":state}));
     }
     std::fs::write(&args.output, serde_json::to_vec_pretty(&reports)?)?;
     println!("ROLLBACK_PARITY_PASSED");

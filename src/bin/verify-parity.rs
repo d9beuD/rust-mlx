@@ -3,6 +3,10 @@ use clap::Parser;
 #[derive(Parser)]
 struct Args {
     #[arg(long)]
+    matrix_affine: bool,
+    #[arg(long, conflicts_with = "matrix_affine")]
+    matrix_packed: bool,
+    #[arg(long)]
     kv_blocks: bool,
     #[arg(long)]
     sorted_moe: bool,
@@ -43,6 +47,8 @@ fn error(a: &Array, b: &Array) -> Result<f32> {
 }
 fn main() -> Result<()> {
     let args = Args::parse();
+    rust_mlx::matrix_kernel::set_enabled(args.matrix_affine || args.matrix_packed);
+    rust_mlx::matrix_kernel::set_packed(args.matrix_packed);
     rust_mlx::kv_blocks::set_enabled(args.kv_blocks);
     let path = args.model.as_path();
     let w = Weights::load(path)?;
@@ -73,6 +79,7 @@ fn main() -> Result<()> {
             hidden.push(h);
         }
         let reference = started.elapsed().as_secs_f64();
+        let matrix_before = rust_mlx::matrix_kernel::calls();
         let started = std::time::Instant::now();
         let (l, h) = verification::with_mode(|| m.forward(&tokens, &mut batched))?;
         l.eval()?;
@@ -125,8 +132,14 @@ fn main() -> Result<()> {
             reference * 1e3,
             candidate * 1e3
         );
-        records.push(serde_json::json!({"sorted_moe":args.sorted_moe,"depth":depth,"logit_error":le,"hidden_error":he,"state_error":state,"reference_seconds":reference,"candidate_seconds":candidate,"tokens":tokens}));
+        records.push(serde_json::json!({"matrix_affine":args.matrix_affine,"matrix_packed":args.matrix_packed,"matrix_calls":rust_mlx::matrix_kernel::calls(),"sorted_moe":args.sorted_moe,"depth":depth,"logit_error":le,"hidden_error":he,"state_error":state,"reference_seconds":reference,"candidate_seconds":candidate,"tokens":tokens}));
         std::fs::write(&args.output, serde_json::to_vec_pretty(&records)?)?;
+        if (args.matrix_affine || args.matrix_packed) && (2..=4).contains(&depth) {
+            ensure!(
+                rust_mlx::matrix_kernel::calls() > matrix_before,
+                "matrix candidate did not engage; cooperative inputs fall back under shader validation"
+            );
+        }
         ensure!(
             le == 0. && he == 0. && state == 0.,
             "verification is not exact"

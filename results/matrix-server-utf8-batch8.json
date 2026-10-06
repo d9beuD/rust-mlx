@@ -1,0 +1,819 @@
+{
+  "health": {
+    "batch_size": 8,
+    "scheduler": "cooperative plain decode; equal-offset groups",
+    "status": "ready"
+  },
+  "message_sets": [
+    [
+      {
+        "role": "system",
+        "content": "Repeat the requested text exactly, with no explanation."
+      },
+      {
+        "role": "user",
+        "content": "🫎🫨 café 中文 🪿"
+      }
+    ],
+    [
+      {
+        "role": "user",
+        "content": "Recopie exactement ce texte, sans aucun commentaire : 🐱"
+      }
+    ]
+  ],
+  "partial_codepoint_cases": 2,
+  "records": [
+    {
+      "prompt_index": 0,
+      "max_tokens": 1,
+      "tokens": [
+        895
+      ],
+      "text": "ca",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 2,
+      "tokens": [
+        895,
+        56868
+      ],
+      "text": "café",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 3,
+      "tokens": [
+        895,
+        56868,
+        220
+      ],
+      "text": "café ",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 4,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 5,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 6,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 7,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 8,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 9,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 10,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 11,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 12,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 13,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 14,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 15,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 16,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 17,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 18,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 19,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 20,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 21,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 22,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 23,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 24,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 25,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 26,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 27,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 28,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 29,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 30,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 31,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 0,
+      "max_tokens": 32,
+      "tokens": [
+        895,
+        56868,
+        220,
+        99986
+      ],
+      "text": "café 中文",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 1,
+      "tokens": [
+        9008
+      ],
+      "text": "�",
+      "final_partial_codepoint": true,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 2,
+      "tokens": [
+        9008,
+        238
+      ],
+      "text": "�",
+      "final_partial_codepoint": true,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 3,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 4,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 5,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 6,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 7,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 8,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 9,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 10,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 11,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 12,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 13,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 14,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 15,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 16,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 17,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 18,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 19,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 20,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 21,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 22,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 23,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 24,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 25,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 26,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 27,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 28,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 29,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 30,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 31,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    },
+    {
+      "prompt_index": 1,
+      "max_tokens": 32,
+      "tokens": [
+        9008,
+        238,
+        109
+      ],
+      "text": "🐱",
+      "final_partial_codepoint": false,
+      "exact": true
+    }
+  ]
+}

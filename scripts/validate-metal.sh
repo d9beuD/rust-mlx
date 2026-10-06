@@ -11,4 +11,5 @@ cargo test --release --test gdn_compile -- --test-threads=1
 cargo test --release --test sorted_moe -- --test-threads=1
 cargo test --release --test greedy_head -- --test-threads=1
 cargo test --release --test kv_blocks -- --test-threads=1
+cargo test --release --test matrix_kernel -- --test-threads=1
 printf 'METAL_VALIDATION_PASSED\n'

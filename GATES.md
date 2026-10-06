@@ -9,7 +9,7 @@ Scope: native Rust inference, verified against an independent MLX oracle, measur
 - [x] G2: Rust formatting, strict Clippy and release tests pass
   CHECK: scripts/check.sh
   EXPECT: QUALITY_CHECKS_PASSED
-  EVIDENCE: results/quality-current.json; format, strict workspace/all-target/all-feature Clippy,25 release tests pass; code SHA verifies no subsequent core change; stable32e74c1 evidence archived separately
+  EVIDENCE: results/quality-current.json; format, strict workspace/all-target/all-feature Clippy,29 release tests pass; core source SHA4b866a77; preceding25-test qualification archived in quality-current-before-matrix.json
 - [x] G3: numerical kernel tests pass against native MLX
   EVIDENCE: tests/native_kernels.rs; real BF16 GDN output/state and QSA prefill match the independent oracle exactly
 - [x] G4: dense model autoregressive trajectory matches MLX oracle
@@ -35,7 +35,7 @@ Scope: native Rust inference, verified against an independent MLX oracle, measur
 - [x] G14: instrumented Metal validation passes outside performance measurements
   CHECK: scripts/validate-metal.sh
   EXPECT: METAL_VALIDATION_PASSED
-  EVIDENCE: results/metal-validation.json,24 passing portable instrumented tests and actual validation marker; round2-final-validation.json adds actual head/private chains, sparse cache/verifier/all-prefix rollback and independent batch/HTTP checks; stable32e74c1 evidence archived separately; component capture is results/head-component.json and ignored GPU trace
+  EVIDENCE: results/metal-validation.json,28 passing portable instrumented tests including the expected cooperative numerical counterexample/native fallback; matrix-study-validation.json adds actual mixed-weight shapes, short verifier/rollback and HTTP checks; preceding24-test qualification is archived in metal-validation-before-matrix.json. A passing negative control does not qualify the rejected cooperative kernel.
 
 - [x] G15: compiled GDN attention experiment evaluated without loosening exactness
   EVIDENCE: compiled-gdn-target-direct.json, compiled-gdn-portable.json, compiled-gdn-statistics.json; BF16 exact logits/complete caches, F32 rejection retained with native fallback; four full256-token pairs gain1.72%, below5%, experiment off by default
@@ -74,3 +74,20 @@ Scope: native Rust inference, verified against an independent MLX oracle, measur
   CHECK: .venv/bin/python scripts/verify_round2.py final
   EXPECT: ROUND2_FINAL_INTEGRATION_PUBLICATION_VERIFIED
   EVIDENCE: round2-final-validation.json source483b3cd,25 release/24 portable instrumented tests, expanded actual head/private/sparse/rollback/batch checks, HTTP/SSE/prefix/cancellation/Unicode; latest raw45.28/68.43; implementation2b67a7a public main verified; publication oracle rejects local unpublished changes and validates qualified source, report hashes, defaults and remote HEAD
+
+G18–G24 describe the completed historical round-two scope (source483b3cd). Its final oracle is tied to that snapshot and is not a current-source qualification. Current-source evidence follows in G25–G28.
+
+## M5 matrix-unit optimization (completed rejection study)
+
+- [x] G25: implement and execute Metal matrix-unit kernels on real verifier geometries, with native numerical reference and safe fallback
+  EVIDENCE: six variants,207 final component configurations using actual BF16/mixed affine weights and synthetic activation stages; matrix-study-summary.json records every numerical failure and paired gain. Geometry/hardware guards and unchanged native/default fallback are tested.
+- [x] G26: implement and execute the macOS27 register/cooperative-tensor alternative and compare it to staged Metal tensor operations
+  EVIDENCE: matrix-final-{components,hybrid,affine,packed}-metal.json; all variants compile and execute,207 instrumented geometries. Register multiply-accumulate counterexample remains unqualified; selected affine falls back under validation. Paired timing is separate and no prototype passes the exactness/performance promotion gates.
+- [x] G27: integrate diagnostic dispatch into actual solo MTP, then qualify or reject it before promotion
+  CHECK: .venv/bin/python scripts/analyze_matrix_study.py
+  EXPECT: MATRIX_STUDY_EVIDENCE_VERIFIED
+  EVIDENCE: Packed engagesT2–4 and preserves short logits/hidden/full caches plus rollback0–4, but the attempted warmed four-pair256-token A/B stops at first candidate mismatch103 (2830→1048). matrix-packed-rejected-256.json preserves complete IDs; no completed candidate four-pair/chat gain is claimed. Strict rejection and its negative control pass. Native four256-token control runs remain exact, median68.715tok/s, prototypes off. Rejection ends candidate throughput qualification; no new default.
+- [x] G28: refresh quality, actual-model shader validation and documentation for the resulting code
+  CHECK: PATH="$PWD/.venv/bin:$PATH" scripts/check.sh
+  EXPECT: QUALITY_CHECKS_PASSED
+  EVIDENCE: matrix-study-validation.json, quality-current.json, metal-validation.json and server-qualification.json; core4b866a77,29 release/28 portable instrumented tests, actual short verifier/rollback, FIFO/batch8 HTTP/SSE/prefix/cancellation and64 Unicode caps per mode. docs/optimization-study-m5-matrix.md gives commands, input provenance and rejected outcomes; performance-summary.json is unchanged.

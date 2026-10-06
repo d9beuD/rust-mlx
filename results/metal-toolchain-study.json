@@ -1,0 +1,51 @@
+{
+  "kind": "compiler feasibility, no GPU execution or throughput measurement",
+  "git_commit": "e1ca7024ab9d892adb8e5ff327ee049a8c74239b",
+  "script_sha256": "5bd7217f8befd6e071e1039f9d3c853106177170f10dadf5a3a24dcd1ee30480",
+  "metal_version": "Apple metal version 32023.921 (metalfe-32023.921.6)\nTarget: air64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /private/var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v27.1.266.1.kLh4Zc/Metal.xctoolchain/usr/metal/current/bin",
+  "cpu_capabilities": "machdep.cpu.brand_string: Apple M5 Max\nhw.optional.arm.FEAT_SME: 1\nhw.optional.arm.FEAT_SME2: 1",
+  "cases": {
+    "simd": {
+      "source": "#include <metal_stdlib>\nusing namespace metal;\nkernel void probe(device float *y [[buffer(0)]], uint tid [[thread_position_in_grid]]) { y[tid] = simd_sum(float(tid)); }\n",
+      "command": [
+        "xcrun",
+        "metal",
+        "-std=metal4.0",
+        "-c",
+        "<temporary>/simd.metal",
+        "-o",
+        "<temporary>/simd.air"
+      ],
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    "inline_gpu_asm": {
+      "source": "#include <metal_stdlib>\nusing namespace metal;\nkernel void probe(device float *y [[buffer(0)]], uint tid [[thread_position_in_grid]]) { asm(\"nop\"); y[tid] = float(tid); }\n",
+      "command": [
+        "xcrun",
+        "metal",
+        "-std=metal4.0",
+        "-c",
+        "<temporary>/inline_gpu_asm.metal",
+        "-o",
+        "<temporary>/inline_gpu_asm.air"
+      ],
+      "exit_code": 1,
+      "diagnostics": "<temporary>/inline_gpu_asm.metal:3:90: error: illegal asm statement\nkernel void probe(device float *y [[buffer(0)]], uint tid [[thread_position_in_grid]]) { asm(\"nop\"); y[tid] = float(tid); }\n                                                                                         ^~~~~~~~~~\n1 error generated.\n"
+    },
+    "mpp_tensor_ops": {
+      "source": "#include <metal_stdlib>\nusing namespace metal;\n#include <MetalPerformancePrimitives/MetalPerformancePrimitives.h>\nusing namespace mpp::tensor_ops;\nkernel void probe(device float *y [[buffer(0)]], uint tid [[thread_position_in_grid]]) { constexpr auto d = matmul2d_descriptor(16,32,16,false,false,false,matmul2d_descriptor::mode::multiply_accumulate); [[maybe_unused]] matmul2d<d, metal::execution_simdgroup> op; y[tid] = float(tid); }\n",
+      "command": [
+        "xcrun",
+        "metal",
+        "-std=metal4.0",
+        "-c",
+        "<temporary>/mpp_tensor_ops.metal",
+        "-o",
+        "<temporary>/mpp_tensor_ops.air"
+      ],
+      "exit_code": 0,
+      "diagnostics": ""
+    }
+  }
+}

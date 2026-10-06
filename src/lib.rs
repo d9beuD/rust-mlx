@@ -8,6 +8,7 @@ pub mod gdn_compiled;
 pub mod gemv_kernel;
 pub mod hc_kernel;
 pub mod hybrid;
+pub mod matrix_kernel;
 pub mod metal;
 pub mod ngram;
 pub mod ple;

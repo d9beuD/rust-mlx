@@ -1,0 +1,33 @@
+[
+  {
+    "candidate_seconds": 3.3751245,
+    "depth": 2,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "matrix_affine": true,
+    "matrix_calls": 132,
+    "reference_seconds": 7.077341125,
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      271,
+      248068
+    ]
+  },
+  {
+    "candidate_seconds": 3.038687208,
+    "depth": 3,
+    "hidden_error": 0.234375,
+    "logit_error": 0.625,
+    "matrix_affine": true,
+    "matrix_calls": 264,
+    "reference_seconds": 0.373538334,
+    "sorted_moe": false,
+    "state_error": 1.125,
+    "tokens": [
+      198,
+      760,
+      1156
+    ]
+  }
+]

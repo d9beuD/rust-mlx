@@ -1,0 +1,42 @@
+[
+  {
+    "keep": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 37,
+    "matrix_packed": true,
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "keep": 1,
+    "logit_error": 0.0,
+    "matrix_calls": 74,
+    "matrix_packed": true,
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "keep": 2,
+    "logit_error": 0.0,
+    "matrix_calls": 111,
+    "matrix_packed": true,
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "keep": 3,
+    "logit_error": 0.0,
+    "matrix_calls": 148,
+    "matrix_packed": true,
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "keep": 4,
+    "logit_error": 0.0,
+    "matrix_calls": 185,
+    "matrix_packed": true,
+    "sorted_moe": false,
+    "state_error": 0.0
+  }
+]

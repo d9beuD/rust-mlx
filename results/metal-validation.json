@@ -1,19 +1,21 @@
 {
-  "log": "results/round2-portable-metal.log",
-  "sha256": "c3041e89bbe6097b1075a7d560bece5263d202903f0e61f472084a3c0e4f31d7",
+  "log": "results/matrix-metal-final.log",
+  "sha256": "183f3d5b44043ddc8de59a9e9b44560940eba1e8bacf172dc57d2a25b046b3db",
   "passed": true,
   "exit_code": 0,
   "success_marker": "METAL_VALIDATION_PASSED",
-  "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+  "command": "PATH=\"$PWD/.venv/bin:$PATH\" scripts/validate-metal.sh",
+  "code_sha256": "4b866a772dd65cd530552ed204dca4b31fdd6093a2de4718ab6c061b59faf490",
   "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
   "contains_metal_validation_enabled": true,
-  "captured_unix_seconds": 1791268038.1979861,
-  "validation_tests_passed": 24,
+  "captured_unix_seconds": 1791278406.161271,
+  "validation_tests_passed": 28,
   "instrumentation": [
     "MTL_SHADER_VALIDATION=1",
     "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING=1",
     "MTL_SHADER_VALIDATION_REPORT_TO_STDERR=1",
     "MTL_SHADER_VALIDATION_ABORT_ON_FAULT=1"
   ],
-  "timing": "diagnostic only; excluded from throughput"
+  "timing": "diagnostic only; excluded from throughput",
+  "negative_control": "cooperative multiply-accumulate discrepancy is reproduced and rejected; selected affine path uses native fallback; that kernel is not qualified"
 }

@@ -11,7 +11,7 @@ use std::{
 #[derive(Parser)]
 struct Args {
     /// Alternate a kernel candidate in the same process.
-    #[arg(long,value_parser=["packed","moe","qmv","shortlist","hc","stream-x","gemv","gdn","gpu-draft","sorted-moe","adaptive-depth","adaptive-vocab","adaptive","greedy-head","kv-blocks","qmv-address"])]
+    #[arg(long,value_parser=["packed","moe","qmv","shortlist","hc","stream-x","gemv","gdn","gpu-draft","sorted-moe","adaptive-depth","adaptive-vocab","adaptive","greedy-head","kv-blocks","qmv-address","matrix-affine","matrix-packed"])]
     ab_kernel: Option<String>,
     #[arg(long)]
     gpu_draft: bool,
@@ -141,6 +141,10 @@ fn main() -> Result<()> {
         };
         for candidate in modes {
             if let Some(kernel) = &a.ab_kernel {
+                if kernel == "matrix-affine" || kernel == "matrix-packed" {
+                    rust_mlx::matrix_kernel::set_packed(kernel == "matrix-packed");
+                    rust_mlx::matrix_kernel::set_enabled(candidate);
+                }
                 if kernel == "qmv-address" {
                     rust_mlx::qmv_kernel::set_address32(candidate);
                 }
@@ -208,6 +212,7 @@ fn main() -> Result<()> {
                 let warm = run == 0;
                 let mut decoder = t.decode_stream(true);
                 let mut emitted = String::new();
+                let matrix_start = rust_mlx::matrix_kernel::calls();
                 let gemv_start = rust_mlx::gemv_kernel::launches();
                 let gdn_start = rust_mlx::gdn_compiled::calls();
                 let address_start = rust_mlx::qmv_kernel::address32_calls();
@@ -238,6 +243,15 @@ fn main() -> Result<()> {
                     },
                 )?;
                 let gemv_launches = rust_mlx::gemv_kernel::launches().wrapping_sub(gemv_start);
+                let matrix_calls = rust_mlx::matrix_kernel::calls().wrapping_sub(matrix_start);
+                if matches!(
+                    a.ab_kernel.as_deref(),
+                    Some("matrix-affine" | "matrix-packed")
+                ) && candidate
+                    && g.tokens.len() > 1
+                {
+                    ensure!(matrix_calls > 0, "matrix candidate was not engaged");
+                }
                 let gdn_calls = rust_mlx::gdn_compiled::calls().wrapping_sub(gdn_start);
                 let address_calls =
                     rust_mlx::qmv_kernel::address32_calls().wrapping_sub(address_start);
@@ -290,12 +304,29 @@ fn main() -> Result<()> {
                 );
                 if !warm {
                     if let Some(e) = &expected {
+                        if g.tokens != e[..g.tokens.len().min(e.len())]
+                            && let Some(p) = &a.output
+                        {
+                            // Preserve the actual failed trajectory before returning
+                            // an error; this report is never a qualified A/B cohort.
+                            std::fs::write(
+                                p,
+                                serde_json::to_vec_pretty(&json!({
+                                    "environment":environment,"model":a.model,"quantization":w.config["quantization"],
+                                    "prompt_ids":ids,"runtime":{"mtp":true,"draft_depth":depth,"sampler":"greedy","batch_size":1,"prefix_cache":false,"warmup_tokens":a.warmup_tokens,"ignore_eos":a.ignore_eos},
+                                    "kernel_candidate":a.ab_kernel,"candidate_enabled":candidate,"matrix_calls":matrix_calls,
+                                    "generation":g,"expected_tokens":e,"run":run,
+                                    "first_mismatch":g.tokens.iter().zip(e).position(|(a,b)|a!=b),
+                                    "complete":false,"qualified":false,"failure":"MTP trajectory differs from baseline"
+                                }))?,
+                            )?;
+                        }
                         ensure!(
                             g.tokens == e[..g.tokens.len().min(e.len())],
                             "MTP trajectory differs from baseline"
                         );
                     }
-                    records.push(json!({"run":run,"kernel_candidate":a.ab_kernel,"candidate_enabled":candidate,"adaptive_depth":draft.adaptive_depth.get(),"adaptive_depth_costs":draft.adaptive_depth_costs.get(),"adaptive_vocab":draft.adaptive_vocab.get(),"kv_blocks":rust_mlx::kv_blocks::enabled(),"kv_block_calls":kv_calls,"greedy_head":rust_mlx::greedy_head::enabled(),"greedy_head_calls":head_calls,"sorted_moe_calls":sorted_calls,"gpu_draft":draft.gpu_draft.get(),"draft_vocab_limit":draft.draft_vocab_limit.get(),"draft_vocab_refresh_rounds":draft.draft_vocab_refresh_rounds.get(),"qmv_address32_calls":address_calls,"qmv_address32":rust_mlx::qmv_kernel::address32(),"qmv":rust_mlx::qmv_kernel::enabled(),"hc_projection":rust_mlx::hc_kernel::enabled(),"shared_gemv":rust_mlx::gemv_kernel::enabled(),"gemv_narrow":rust_mlx::gemv_kernel::narrow(),"gemv_launches":gemv_launches,"compiled_gdn":rust_mlx::gdn_compiled::enabled(),"compiled_gdn_calls":gdn_calls,"draft_depth":depth,"decode_tokens_per_second":tps,"text":t.decode(&g.tokens,true).ok(),"generation":g,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
+                    records.push(json!({"run":run,"kernel_candidate":a.ab_kernel,"candidate_enabled":candidate,"adaptive_depth":draft.adaptive_depth.get(),"adaptive_depth_costs":draft.adaptive_depth_costs.get(),"adaptive_vocab":draft.adaptive_vocab.get(),"kv_blocks":rust_mlx::kv_blocks::enabled(),"kv_block_calls":kv_calls,"greedy_head":rust_mlx::greedy_head::enabled(),"greedy_head_calls":head_calls,"sorted_moe_calls":sorted_calls,"gpu_draft":draft.gpu_draft.get(),"draft_vocab_limit":draft.draft_vocab_limit.get(),"draft_vocab_refresh_rounds":draft.draft_vocab_refresh_rounds.get(),"qmv_address32_calls":address_calls,"qmv_address32":rust_mlx::qmv_kernel::address32(),"qmv":rust_mlx::qmv_kernel::enabled(),"hc_projection":rust_mlx::hc_kernel::enabled(),"shared_gemv":rust_mlx::gemv_kernel::enabled(),"gemv_narrow":rust_mlx::gemv_kernel::narrow(),"gemv_launches":gemv_launches,"matrix_enabled":rust_mlx::matrix_kernel::enabled(),"matrix_packed":rust_mlx::matrix_kernel::packed(),"matrix_calls":matrix_calls,"compiled_gdn":rust_mlx::gdn_compiled::enabled(),"compiled_gdn_calls":gdn_calls,"draft_depth":depth,"decode_tokens_per_second":tps,"text":t.decode(&g.tokens,true).ok(),"generation":g,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
                 }
             }
         }
