@@ -1,29 +1,29 @@
 {
   "passed": true,
-  "code_sha256": "4b866a772dd65cd530552ed204dca4b31fdd6093a2de4718ab6c061b59faf490",
+  "code_sha256": "86cf87809f7a00dabadd266dbe7e357daad1565f8a8f6a568606939e71dc6be2",
   "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
-  "binary_sha256": "4235c3d6acc317e9defe8febc25db66a4eb62b5df82b75ba953d058a7a71aafc",
-  "runtime": "no kernel overrides; matrix prototypes disabled; exact greedy; default FIFO MTP/plain and optional independent plain batch8",
+  "binary_sha256": "a65e62d5a5806eb7b175c4205b76dfa8acd8924b26d645e552bee2363ae25fa0",
+  "runtime": "actual defaults; greedy; no kernel overrides",
   "server_modes": [
     "default FIFO",
     "--no-mtp --batch-size8"
   ],
   "reports": {
     "server-smoke": {
-      "sha256": "19c1bef27a3694b7037acc6c5aa762a025c01dd68d122e16a01b3f01ffebb72e",
-      "mtime": 1791277734.413675
+      "sha256": "d718f17abedeb6ddf9752383eb8e93e41b8c0560528857526905747d9c59c126",
+      "mtime": 1791293358.1950893
     },
     "server-batch-smoke": {
-      "sha256": "c44a2e1f438e74e415f2ab911a02b1a06d7602b8728a207e7f08f1452bf77ef4",
-      "mtime": 1791278271.1043136
+      "sha256": "1de9aeb784e255c4d031183500f7c00b36b792b2e434861454b562e5256e8a27",
+      "mtime": 1791293434.5259876
     },
     "server-utf8-batch1": {
       "sha256": "458697670a799505557567daa9aebaad3f49cdbe6903e5391bae087344ac30fc",
-      "mtime": 1791277936.4031565
+      "mtime": 1791293368.3442123
     },
     "server-utf8-batch8": {
       "sha256": "3a7f1375cb234477c8334017a6996e4de8e442dc1cc586d9a02596250bbe59ca",
-      "mtime": 1791278288.2526472
+      "mtime": 1791293444.8732862
     }
   },
   "scripts": {
@@ -31,9 +31,37 @@
     "server_batch_smoke": "2cb6df6c97e1405a8fde45a8961098a6fef9e941d4796d0f45721591bf52535a",
     "server_utf8_smoke": "f29c5e38abfc5217ff284278feee14c23035967a7b5c16a161345d029391cb54"
   },
-  "timing": "HTTP/prefix timings excluded from raw inference speed",
-  "captured_unix_seconds": 1791278406.1716878,
+  "owned_servers": [
+    {
+      "pid": 44172,
+      "command": [
+        "target/release/server",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp"
+      ],
+      "stopped": true,
+      "exit_code": -15,
+      "log": "results/decode3-current-server-fifo.log",
+      "log_sha256": "4712ae8460e824197e12213cc243a47d94fc385f3feb85fedfaf20f3951e5ce8"
+    },
+    {
+      "pid": 44207,
+      "command": [
+        "target/release/server",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--no-mtp",
+        "--batch-size",
+        "8"
+      ],
+      "stopped": true,
+      "exit_code": -15,
+      "log": "results/decode3-current-server-batch8.log",
+      "log_sha256": "8c0522dc0e444683e860177315c7e220cbf0ae4448707115e346cd729d656dbb"
+    }
+  ],
   "owned_servers_stopped": true,
+  "timing": "HTTP/prefix/diagnostic timings excluded from raw inference speed",
   "partial_codepoint_cases": [
     2,
     2
@@ -41,52 +69,77 @@
   "concurrent_cancellation_survivors": 3,
   "success_logs": [
     {
-      "log": "results/matrix-server-smoke.log",
+      "command": [
+        ".venv/bin/python",
+        "scripts/server_smoke.py"
+      ],
+      "log": "results/decode3-current-fifo-server_smoke.log",
       "sha256": "a581bf9bb96555a02a967f9ad607a1b0f16ce29aa50b6aafbe404098f1fa637d",
-      "passed": true,
+      "code_sha256": "86cf87809f7a00dabadd266dbe7e357daad1565f8a8f6a568606939e71dc6be2",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "runner_sha256": "509f02911ae6de7af76e1d76545b9c0279fc46f98dc7c3476357a938f5203fc5",
+      "started_unix": 1791293351.0794308,
+      "ended_unix": 1791293358.203485,
       "exit_code": 0,
+      "passed": true,
       "success_marker": "SERVER_SMOKE_PASSED",
-      "command": ".venv/bin/python scripts/server_smoke.py",
-      "code_sha256": "4b866a772dd65cd530552ed204dca4b31fdd6093a2de4718ab6c061b59faf490",
-      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
       "contains_metal_validation_enabled": false,
-      "captured_unix_seconds": 1791278406.173594
+      "validation_environment": {}
     },
     {
-      "log": "results/matrix-server-batch-smoke.log",
+      "command": [
+        ".venv/bin/python",
+        "scripts/server_utf8_smoke.py"
+      ],
+      "log": "results/decode3-current-fifo-server_utf8_smoke.log",
+      "sha256": "3d35b0336814d0c418020a657cace03b279a9a3f2b2105f7d0acea98dbb848d6",
+      "code_sha256": "86cf87809f7a00dabadd266dbe7e357daad1565f8a8f6a568606939e71dc6be2",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "runner_sha256": "509f02911ae6de7af76e1d76545b9c0279fc46f98dc7c3476357a938f5203fc5",
+      "started_unix": 1791293358.224681,
+      "ended_unix": 1791293368.352669,
+      "exit_code": 0,
+      "passed": true,
+      "success_marker": "SERVER_UTF8_SMOKE_PASSED",
+      "contains_metal_validation_enabled": false,
+      "validation_environment": {}
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/server_batch_smoke.py"
+      ],
+      "log": "results/decode3-current-batch8-server_batch_smoke.log",
       "sha256": "944f61d45ae75e36191ed4996bd01611bb855ae8d87624502bb7a2e696931cf6",
-      "passed": true,
+      "code_sha256": "86cf87809f7a00dabadd266dbe7e357daad1565f8a8f6a568606939e71dc6be2",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "runner_sha256": "509f02911ae6de7af76e1d76545b9c0279fc46f98dc7c3476357a938f5203fc5",
+      "started_unix": 1791293373.228108,
+      "ended_unix": 1791293434.536575,
       "exit_code": 0,
+      "passed": true,
       "success_marker": "SERVER_BATCH_SMOKE_PASSED",
-      "command": ".venv/bin/python scripts/server_batch_smoke.py",
-      "code_sha256": "4b866a772dd65cd530552ed204dca4b31fdd6093a2de4718ab6c061b59faf490",
-      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
       "contains_metal_validation_enabled": false,
-      "captured_unix_seconds": 1791278406.17376
+      "validation_environment": {}
     },
     {
-      "log": "results/matrix-server-utf8-fifo.log",
+      "command": [
+        ".venv/bin/python",
+        "scripts/server_utf8_smoke.py"
+      ],
+      "log": "results/decode3-current-batch8-server_utf8_smoke.log",
       "sha256": "3d35b0336814d0c418020a657cace03b279a9a3f2b2105f7d0acea98dbb848d6",
-      "passed": true,
-      "exit_code": 0,
-      "success_marker": "SERVER_UTF8_SMOKE_PASSED",
-      "command": ".venv/bin/python scripts/server_utf8_smoke.py (FIFO)",
-      "code_sha256": "4b866a772dd65cd530552ed204dca4b31fdd6093a2de4718ab6c061b59faf490",
+      "code_sha256": "86cf87809f7a00dabadd266dbe7e357daad1565f8a8f6a568606939e71dc6be2",
       "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
-      "contains_metal_validation_enabled": false,
-      "captured_unix_seconds": 1791278406.173941
-    },
-    {
-      "log": "results/matrix-server-utf8-batch8.log",
-      "sha256": "3d35b0336814d0c418020a657cace03b279a9a3f2b2105f7d0acea98dbb848d6",
-      "passed": true,
+      "runner_sha256": "509f02911ae6de7af76e1d76545b9c0279fc46f98dc7c3476357a938f5203fc5",
+      "started_unix": 1791293434.562041,
+      "ended_unix": 1791293444.886025,
       "exit_code": 0,
+      "passed": true,
       "success_marker": "SERVER_UTF8_SMOKE_PASSED",
-      "command": ".venv/bin/python scripts/server_utf8_smoke.py (plain batch8)",
-      "code_sha256": "4b866a772dd65cd530552ed204dca4b31fdd6093a2de4718ab6c061b59faf490",
-      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
       "contains_metal_validation_enabled": false,
-      "captured_unix_seconds": 1791278406.174073
+      "validation_environment": {}
     }
-  ]
+  ],
+  "captured_unix_seconds": 1791293445.5307388
 }

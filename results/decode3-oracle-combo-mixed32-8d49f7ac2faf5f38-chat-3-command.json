@@ -1,0 +1,27 @@
+{
+  "command": [
+    "target/release/infer",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--max-tokens",
+    "256",
+    "--warmup-tokens",
+    "256",
+    "--runs",
+    "1",
+    "--ignore-eos",
+    "--chat",
+    "--no-thinking",
+    "--prompt",
+    "A train leaves Paris at 9:00 at 80 km/h. A second train leaves at 9:45 at 120 km/h on the same route. When does it catch the first train? Explain carefully.",
+    "--resident-overlay",
+    ".unlazy/decode3-quant-mixed32",
+    "--output",
+    "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/decode3-config-oracles/combo-mixed32-8d49f7ac2faf5f38-chat-3.json"
+  ],
+  "started_unix": 1791294610.5675929,
+  "ended_unix": 1791294634.387705,
+  "exit_code": 0,
+  "log_sha256": "b1d6de724c21159304ec3c18bcd17563b954d0d68b2bc1a7a5cd2d54820cb3c0",
+  "binary_sha256": "d7cecf3beb280afcb5c98875a09a8656c2e0ada69514129c253c0ad34cd056d6"
+}

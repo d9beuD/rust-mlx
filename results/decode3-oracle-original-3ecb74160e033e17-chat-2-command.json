@@ -1,0 +1,25 @@
+{
+  "command": [
+    "target/release/infer",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--max-tokens",
+    "256",
+    "--warmup-tokens",
+    "256",
+    "--runs",
+    "1",
+    "--ignore-eos",
+    "--chat",
+    "--no-thinking",
+    "--prompt",
+    "Write a SQL query that returns each customer's three most recent orders. Explain how the window function works.",
+    "--output",
+    "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/decode3-config-oracles/original-3ecb74160e033e17-chat-2.json"
+  ],
+  "started_unix": 1791293857.638581,
+  "ended_unix": 1791293879.087799,
+  "exit_code": 0,
+  "log_sha256": "76ba8c802c7dc37077f96dc8ce4d9273cf035542fe90d0a64b493cd514cb55c5",
+  "binary_sha256": "d7cecf3beb280afcb5c98875a09a8656c2e0ada69514129c253c0ad34cd056d6"
+}

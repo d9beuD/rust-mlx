@@ -1,0 +1,25 @@
+{
+  "command": [
+    "target/release/infer",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--max-tokens",
+    "256",
+    "--warmup-tokens",
+    "256",
+    "--runs",
+    "1",
+    "--ignore-eos",
+    "--prompt",
+    "Write a short Rust function that computes Fibonacci numbers.",
+    "--resident-overlay",
+    ".unlazy/decode3-quant-mixed32",
+    "--output",
+    "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/decode3-config-oracles/mixed32-8d49f7ac2faf5f38-raw-0.json"
+  ],
+  "started_unix": 1791293554.036095,
+  "ended_unix": 1791293575.437226,
+  "exit_code": 0,
+  "log_sha256": "f6ddab078319fff8ff25f29344b6c4d8ff62faba3878e76f8274f2ab2162b53e",
+  "binary_sha256": "d7cecf3beb280afcb5c98875a09a8656c2e0ada69514129c253c0ad34cd056d6"
+}

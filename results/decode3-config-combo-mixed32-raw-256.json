@@ -1,0 +1,231 @@
+{
+  "case": "combo-mixed32",
+  "suite": "raw",
+  "candidate_flags": [
+    "--resident-overlay",
+    ".unlazy/decode3-quant-mixed32",
+    "--native-gate-up",
+    "--draft-head-bits",
+    "4"
+  ],
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "source_sha256": "86cf87809f7a00dabadd266dbe7e357daad1565f8a8f6a568606939e71dc6be2",
+  "runner_sha256": "65160d4e4028947cece7ee94283418392dcdb95ebb4f92a2b0c4c5cefb30731d",
+  "approximate_target": true,
+  "max_tokens": 256,
+  "warmup_tokens": 256,
+  "runs": 4,
+  "batch_size": 1,
+  "prefix_cache": false,
+  "mtp": true,
+  "sampler": "greedy",
+  "records": [
+    {
+      "prompt": 0,
+      "cycle": 1,
+      "candidate": true,
+      "rate": 71.59615892424911,
+      "report": "results/decode3-config-combo-mixed32-raw-p0-c1-candidate.json",
+      "report_sha256": "39b92ec16957b4a54058b09dac94e6821eda50ebe171d26e67d525f2f3cce656",
+      "oracle_sha256": "bae9f4783327e667695770f7a473610af26a688892b888606a946c65bfc5f1a6",
+      "oracle_report": ".unlazy/decode3-config-oracles/combo-mixed32-8d49f7ac2faf5f38-raw-0.json",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": false
+    },
+    {
+      "prompt": 0,
+      "cycle": 1,
+      "candidate": false,
+      "rate": 70.05202702236339,
+      "report": "results/decode3-config-combo-mixed32-raw-p0-c1-native.json",
+      "report_sha256": "c4d1ff9034915aa61bc7caec88e1f0161782d9b660a76c7ee5b2294c1ef087e8",
+      "oracle_sha256": "67a65b57be7c5101ff6cfb2c3178dd6a12cfd38b92676c78f238d12ae490cc86",
+      "oracle_report": ".unlazy/decode3-config-oracles/original-3ecb74160e033e17-raw-0.json",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": true
+    },
+    {
+      "prompt": 0,
+      "cycle": 2,
+      "candidate": false,
+      "rate": 70.20281536646509,
+      "report": "results/decode3-config-combo-mixed32-raw-p0-c2-native.json",
+      "report_sha256": "275c7e0e7b89a9931a36e287221ca809f170fe4cd5d1fd86d84da740773ab52b",
+      "oracle_sha256": "67a65b57be7c5101ff6cfb2c3178dd6a12cfd38b92676c78f238d12ae490cc86",
+      "oracle_report": ".unlazy/decode3-config-oracles/original-3ecb74160e033e17-raw-0.json",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": true
+    },
+    {
+      "prompt": 0,
+      "cycle": 2,
+      "candidate": true,
+      "rate": 71.27444875846602,
+      "report": "results/decode3-config-combo-mixed32-raw-p0-c2-candidate.json",
+      "report_sha256": "8ab18e123246cf168ad610cd3a94f71ab0723d0c1976eba82b65d01b65fe784d",
+      "oracle_sha256": "bae9f4783327e667695770f7a473610af26a688892b888606a946c65bfc5f1a6",
+      "oracle_report": ".unlazy/decode3-config-oracles/combo-mixed32-8d49f7ac2faf5f38-raw-0.json",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": false
+    },
+    {
+      "prompt": 0,
+      "cycle": 3,
+      "candidate": true,
+      "rate": 71.42637395716223,
+      "report": "results/decode3-config-combo-mixed32-raw-p0-c3-candidate.json",
+      "report_sha256": "0f610318dcf9ad772a4819bbca90153839ba1aeb8c8230b60d6d61286ae08832",
+      "oracle_sha256": "bae9f4783327e667695770f7a473610af26a688892b888606a946c65bfc5f1a6",
+      "oracle_report": ".unlazy/decode3-config-oracles/combo-mixed32-8d49f7ac2faf5f38-raw-0.json",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": false
+    },
+    {
+      "prompt": 0,
+      "cycle": 3,
+      "candidate": false,
+      "rate": 69.75523230920115,
+      "report": "results/decode3-config-combo-mixed32-raw-p0-c3-native.json",
+      "report_sha256": "83556202ec812c4dc5f93f353903f3e0fee60bbf55abec504a16507f99b2d5b1",
+      "oracle_sha256": "67a65b57be7c5101ff6cfb2c3178dd6a12cfd38b92676c78f238d12ae490cc86",
+      "oracle_report": ".unlazy/decode3-config-oracles/original-3ecb74160e033e17-raw-0.json",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": true
+    },
+    {
+      "prompt": 0,
+      "cycle": 4,
+      "candidate": false,
+      "rate": 70.180615419976,
+      "report": "results/decode3-config-combo-mixed32-raw-p0-c4-native.json",
+      "report_sha256": "7be19896fa0ff1e431c836373f6b1d100c54bba159466622b64526c51cc117fd",
+      "oracle_sha256": "67a65b57be7c5101ff6cfb2c3178dd6a12cfd38b92676c78f238d12ae490cc86",
+      "oracle_report": ".unlazy/decode3-config-oracles/original-3ecb74160e033e17-raw-0.json",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": true
+    },
+    {
+      "prompt": 0,
+      "cycle": 4,
+      "candidate": true,
+      "rate": 71.43065398228528,
+      "report": "results/decode3-config-combo-mixed32-raw-p0-c4-candidate.json",
+      "report_sha256": "28871bcb4da4ab3f7f629009580237a24d06057aac2b38c73e58ae4cd95c59ce",
+      "oracle_sha256": "bae9f4783327e667695770f7a473610af26a688892b888606a946c65bfc5f1a6",
+      "oracle_report": ".unlazy/decode3-config-oracles/combo-mixed32-8d49f7ac2faf5f38-raw-0.json",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": false
+    }
+  ],
+  "protocol": "separate process/model/layout per arm; full256-token warmup then256 measured; alternate original/candidate arms; init outside decode, recorded separately",
+  "complete": true,
+  "qualified": false,
+  "statistics": [
+    {
+      "prompt": 0,
+      "paired_gains_percent": [
+        2.204264412495549,
+        1.5264820739836482,
+        2.3957222886929586,
+        1.7811735545902208
+      ],
+      "paired_median_percent": 1.992718983542885
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "command": [
+    "scripts/check.sh"
+  ],
+  "log": "results/decode3-current-quality.log",
+  "sha256": "2913db74026b3c9b6cf604eca39769cee328c335e6895bcd61ba9d2551e01722",
+  "code_sha256": "86cf87809f7a00dabadd266dbe7e357daad1565f8a8f6a568606939e71dc6be2",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "runner_sha256": "509f02911ae6de7af76e1d76545b9c0279fc46f98dc7c3476357a938f5203fc5",
+  "started_unix": 1791293034.264025,
+  "ended_unix": 1791293048.539849,
+  "exit_code": 0,
+  "passed": true,
+  "success_marker": "QUALITY_CHECKS_PASSED",
+  "contains_metal_validation_enabled": false,
+  "validation_environment": {}
+}

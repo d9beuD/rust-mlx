@@ -1,0 +1,122 @@
+{
+  "case": "q4",
+  "suite": "raw",
+  "candidate_flags": [
+    "--resident-overlay",
+    ".unlazy/decode3-quant-resident-q4"
+  ],
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "approximate_target": true,
+  "max_tokens": 256,
+  "warmup_tokens": 256,
+  "runs": 4,
+  "batch_size": 1,
+  "prefix_cache": false,
+  "mtp": true,
+  "sampler": "greedy",
+  "records": [
+    {
+      "prompt": 0,
+      "cycle": 1,
+      "candidate": true,
+      "rate": 70.35932970187459,
+      "report": "results/decode3-config-q4-raw-p0-c1-candidate.json",
+      "report_sha256": "c1fde3729a93a1689e4233008fbdc53594e2bc2abcd8d654eb72cd297ee96069",
+      "oracle_sha256": "d54e6eab4bdab5c0a81cf45d6d0419fc60bedd607e454efb12ca256df253deba",
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": false
+    },
+    {
+      "prompt": 0,
+      "cycle": 1,
+      "candidate": false,
+      "rate": 70.11297687247736,
+      "report": "results/decode3-config-q4-raw-p0-c1-native.json",
+      "report_sha256": "92b874a80eeb7ac0cdde6ff54f1863693ce49174e7704b837de0d3c7b4e20a71",
+      "oracle_sha256": "59bea2a6c15c17ca46f7fba078107260411b990c29df02ee5a1fc19156c7300c",
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": true
+    },
+    {
+      "prompt": 0,
+      "cycle": 2,
+      "candidate": false,
+      "rate": 69.80718468548082,
+      "report": "results/decode3-config-q4-raw-p0-c2-native.json",
+      "report_sha256": "c6221c2250419c85b932ee06d59e0601d7538f464d3d1ce931260dd3466f6b16",
+      "oracle_sha256": "59bea2a6c15c17ca46f7fba078107260411b990c29df02ee5a1fc19156c7300c",
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": true
+    },
+    {
+      "prompt": 0,
+      "cycle": 2,
+      "candidate": true,
+      "rate": 70.20744372357154,
+      "report": "results/decode3-config-q4-raw-p0-c2-candidate.json",
+      "report_sha256": "ed88bcadfe255fac51f0a0022e1c493807c1ac6253d130dd03cab0f1611378fe",
+      "oracle_sha256": "d54e6eab4bdab5c0a81cf45d6d0419fc60bedd607e454efb12ca256df253deba",
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": false
+    },
+    {
+      "prompt": 0,
+      "cycle": 3,
+      "candidate": true,
+      "rate": 70.40575688359218,
+      "report": "results/decode3-config-q4-raw-p0-c3-candidate.json",
+      "report_sha256": "17c93f557e2c71fd92e1e29c3efaf826d647ee17fda1235db6d930bd85eeac74",
+      "oracle_sha256": "d54e6eab4bdab5c0a81cf45d6d0419fc60bedd607e454efb12ca256df253deba",
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": false
+    },
+    {
+      "prompt": 0,
+      "cycle": 3,
+      "candidate": false,
+      "rate": 69.71074267082739,
+      "report": "results/decode3-config-q4-raw-p0-c3-native.json",
+      "report_sha256": "0a4657de404c326c9f4642b04750a42b9c3387af58b8ad87718ac6c1a99c4c45",
+      "oracle_sha256": "59bea2a6c15c17ca46f7fba078107260411b990c29df02ee5a1fc19156c7300c",
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": true
+    },
+    {
+      "prompt": 0,
+      "cycle": 4,
+      "candidate": false,
+      "rate": 69.89103554234528,
+      "report": "results/decode3-config-q4-raw-p0-c4-native.json",
+      "report_sha256": "dbbe9188f09a84d7aa249022d04ae93f0b8b0514c15b05abee6e444622d90d65",
+      "oracle_sha256": "59bea2a6c15c17ca46f7fba078107260411b990c29df02ee5a1fc19156c7300c",
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": true
+    },
+    {
+      "prompt": 0,
+      "cycle": 4,
+      "candidate": true,
+      "rate": 70.13376768354641,
+      "report": "results/decode3-config-q4-raw-p0-c4-candidate.json",
+      "report_sha256": "e7dea258edcdfff2c292dcabc054748469d0681c2a30b0fa4fc4d8cd6ac1b933",
+      "oracle_sha256": "d54e6eab4bdab5c0a81cf45d6d0419fc60bedd607e454efb12ca256df253deba",
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": false
+    }
+  ],
+  "protocol": "separate process/model/layout per arm; full256-token warmup then256 measured; alternate original/candidate arms; init outside decode, recorded separately",
+  "complete": true,
+  "qualified": false,
+  "statistics": [
+    {
+      "prompt": 0,
+      "paired_gains_percent": [
+        0.3513655251656145,
+        0.5733779981159648,
+        0.9969972864105392,
+        0.34730082236951176
+      ],
+      "paired_median_percent": 0.46237176164078964
+    }
+  ]
+}

@@ -1,21 +1,31 @@
 {
-  "log": "results/matrix-metal-final.log",
-  "sha256": "183f3d5b44043ddc8de59a9e9b44560940eba1e8bacf172dc57d2a25b046b3db",
-  "passed": true,
-  "exit_code": 0,
-  "success_marker": "METAL_VALIDATION_PASSED",
-  "command": "PATH=\"$PWD/.venv/bin:$PATH\" scripts/validate-metal.sh",
-  "code_sha256": "4b866a772dd65cd530552ed204dca4b31fdd6093a2de4718ab6c061b59faf490",
-  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
-  "contains_metal_validation_enabled": true,
-  "captured_unix_seconds": 1791278406.161271,
-  "validation_tests_passed": 28,
-  "instrumentation": [
-    "MTL_SHADER_VALIDATION=1",
-    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING=1",
-    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR=1",
-    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT=1"
+  "command": [
+    "scripts/validate-metal.sh"
   ],
+  "log": "results/decode3-current-portable-metal.log",
+  "sha256": "1c5ca7179fb7369657033768f0ed7b6d6a9ee46b0d2bc3a783ab76aa007e1ca8",
+  "code_sha256": "86cf87809f7a00dabadd266dbe7e357daad1565f8a8f6a568606939e71dc6be2",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "runner_sha256": "509f02911ae6de7af76e1d76545b9c0279fc46f98dc7c3476357a938f5203fc5",
+  "started_unix": 1791293048.555768,
+  "ended_unix": 1791293052.2141829,
+  "exit_code": 0,
+  "passed": true,
+  "success_marker": "METAL_VALIDATION_PASSED",
+  "contains_metal_validation_enabled": true,
+  "validation_environment": {
+    "MTL_SHADER_VALIDATION": "1",
+    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+  },
+  "instrumentation": {
+    "MTL_SHADER_VALIDATION": "1",
+    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+  },
+  "validation_tests_passed": 33,
   "timing": "diagnostic only; excluded from throughput",
-  "negative_control": "cooperative multiply-accumulate discrepancy is reproduced and rejected; selected affine path uses native fallback; that kernel is not qualified"
+  "negative_control": "existing cooperative matrix discrepancy remains rejected; native fallback retained"
 }

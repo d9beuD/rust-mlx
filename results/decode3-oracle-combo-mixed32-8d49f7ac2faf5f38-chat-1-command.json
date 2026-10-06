@@ -1,0 +1,27 @@
+{
+  "command": [
+    "target/release/infer",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--max-tokens",
+    "256",
+    "--warmup-tokens",
+    "256",
+    "--runs",
+    "1",
+    "--ignore-eos",
+    "--chat",
+    "--no-thinking",
+    "--prompt",
+    "Explique en fran\u00e7ais comment fonctionne le cache KV d'un mod\u00e8le de langage et donne un exemple concret.",
+    "--resident-overlay",
+    ".unlazy/decode3-quant-mixed32",
+    "--output",
+    "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/decode3-config-oracles/combo-mixed32-8d49f7ac2faf5f38-chat-1.json"
+  ],
+  "started_unix": 1791294565.489631,
+  "ended_unix": 1791294588.314409,
+  "exit_code": 0,
+  "log_sha256": "f15eeabad70ca179c6d969eec76993d9920e9729bb3b0c7bfe983c7ef9211634",
+  "binary_sha256": "d7cecf3beb280afcb5c98875a09a8656c2e0ada69514129c253c0ad34cd056d6"
+}

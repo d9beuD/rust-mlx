@@ -1,0 +1,5232 @@
+{
+  "draft_cohorts": {
+    "decode3-final-draft-multi32-chat-256.json": {
+      "sha256": "f232b288c3b18e7c4eed05f135e94ab599fdf5cf2c0e9733fc8f5b67777db3a7",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": null,
+        "bytes": 92049408,
+        "group_size": 64,
+        "preparation_seconds": 0.058759708,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 33792,
+        "source_bits": 8,
+        "vocab_artifact_sha256": "2fbf62a3ff0dec229a947a989c1e8d1547a9cda7a044c014c595f7dd266dcc99",
+        "vocab_source": {
+          "algorithm": "count up to8192 tokens/document; rank descending count, ascending ID; fixed membership, no prompt-fit",
+          "corpus_independent_of_timing_prompts": true,
+          "corpus_manifest": "results/decode3-corpus-manifest.json",
+          "include_special_tail": 1024,
+          "observed_unique_ids": 36450,
+          "pad_to_rows_multiple": 128,
+          "requested_frequency_rows": 32768,
+          "unseen_fill_rows": 765,
+          "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-2"
+        }
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            68.34813503507053,
+            68.2878941864865,
+            68.2865577107775,
+            67.61304827097692
+          ],
+          "candidate_samples": [
+            66.42290616643598,
+            66.09162560108435,
+            66.23081020648284,
+            65.83415008707456
+          ],
+          "native_median": 68.287225948632,
+          "candidate_median": 66.1612179037836,
+          "paired_gain_samples_percent": [
+            -2.8167979530775544,
+            -3.2161902363021966,
+            -3.010471713922991,
+            -2.630998349272695
+          ],
+          "paired_gain_median_percent": -2.9136348335002724,
+          "paired_gain_range_percent": [
+            -3.2161902363021966,
+            -2.630998349272695
+          ],
+          "native_cv": 0.005113839432890634,
+          "candidate_cv": 0.0037448691634614267,
+          "acceptance": [
+            {
+              "True": [
+                168,
+                262
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                168,
+                262
+              ]
+            },
+            {
+              "True": [
+                168,
+                262
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                168,
+                262
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 1,
+          "native_samples": [
+            60.14136464079003,
+            60.25794950801241,
+            60.20769825584238,
+            60.19928974871312
+          ],
+          "candidate_samples": [
+            48.69608668548281,
+            48.5225705758753,
+            48.48145008441558,
+            48.56212969133682
+          ],
+          "native_median": 60.20349400227775,
+          "candidate_median": 48.542350133606064,
+          "paired_gain_samples_percent": [
+            -19.030625632901955,
+            -19.47523775361236,
+            -19.47632696669138,
+            -19.331058731677253
+          ],
+          "paired_gain_median_percent": -19.403148242644807,
+          "paired_gain_range_percent": [
+            -19.47632696669138,
+            -19.030625632901955
+          ],
+          "native_cv": 0.0007935107053067283,
+          "candidate_cv": 0.0019158430263635942,
+          "acceptance": [
+            {
+              "True": [
+                135,
+                360
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                135,
+                360
+              ]
+            },
+            {
+              "True": [
+                135,
+                360
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                135,
+                360
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 2,
+          "native_samples": [
+            69.51198453753827,
+            69.49102491052264,
+            69.45893554186185,
+            69.5243317830597
+          ],
+          "candidate_samples": [
+            41.50733592198983,
+            41.51768860219276,
+            41.53332540490926,
+            41.45276161142653
+          ],
+          "native_median": 69.50150472403045,
+          "candidate_median": 41.51251226209129,
+          "paired_gain_samples_percent": [
+            -40.28751128580599,
+            -40.254603158247605,
+            -40.20448905399975,
+            -40.3766126932745
+          ],
+          "paired_gain_median_percent": -40.2710572220268,
+          "paired_gain_range_percent": [
+            -40.3766126932745,
+            -40.20448905399975
+          ],
+          "native_cv": 0.0004116606406581626,
+          "candidate_cv": 0.0008436478566545251,
+          "acceptance": [
+            {
+              "True": [
+                115,
+                417
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                115,
+                417
+              ]
+            },
+            {
+              "True": [
+                115,
+                417
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                115,
+                417
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 3,
+          "native_samples": [
+            74.00019299076214,
+            73.90182164729985,
+            73.86589954205161,
+            73.41728174928744
+          ],
+          "candidate_samples": [
+            63.48354567178989,
+            63.2875656686052,
+            63.2530713473868,
+            63.105256872012006
+          ],
+          "native_median": 73.88386059467572,
+          "candidate_median": 63.270318507995995,
+          "paired_gain_samples_percent": [
+            -14.211648502437157,
+            -14.362644576410755,
+            -14.367696407220976,
+            -14.045773190690925
+          ],
+          "paired_gain_median_percent": -14.287146539423956,
+          "paired_gain_range_percent": [
+            -14.367696407220976,
+            -14.045773190690925
+          ],
+          "native_cv": 0.0035093393237405905,
+          "candidate_cv": 0.0024603783988841185,
+          "acceptance": [
+            {
+              "True": [
+                164,
+                275
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                164,
+                275
+              ]
+            },
+            {
+              "True": [
+                164,
+                275
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                164,
+                275
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-multi32-raw-256.json": {
+      "sha256": "f7628b1aa8635bd681e72f292d21bcada8e2816887fa709db6e7e085b51a0da9",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": null,
+        "bytes": 92049408,
+        "group_size": 64,
+        "preparation_seconds": 0.05878325,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 33792,
+        "source_bits": 8,
+        "vocab_artifact_sha256": "2fbf62a3ff0dec229a947a989c1e8d1547a9cda7a044c014c595f7dd266dcc99",
+        "vocab_source": {
+          "algorithm": "count up to8192 tokens/document; rank descending count, ascending ID; fixed membership, no prompt-fit",
+          "corpus_independent_of_timing_prompts": true,
+          "corpus_manifest": "results/decode3-corpus-manifest.json",
+          "include_special_tail": 1024,
+          "observed_unique_ids": 36450,
+          "pad_to_rows_multiple": 128,
+          "requested_frequency_rows": 32768,
+          "unseen_fill_rows": 765,
+          "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-2"
+        }
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            69.91084037490853,
+            69.76900871396505,
+            70.01580000979908,
+            69.77922206319045
+          ],
+          "candidate_samples": [
+            58.934253183347906,
+            58.697572234551934,
+            58.98093719271452,
+            58.84834425848267
+          ],
+          "native_median": 69.84503121904949,
+          "candidate_median": 58.89129872091529,
+          "paired_gain_samples_percent": [
+            -15.700837141560376,
+            -15.868702570797799,
+            -15.760532359182033,
+            -15.664946500562916
+          ],
+          "paired_gain_median_percent": -15.730684750371204,
+          "paired_gain_range_percent": [
+            -15.868702570797799,
+            -15.664946500562916
+          ],
+          "native_cv": 0.0016805094762089863,
+          "candidate_cv": 0.002116041422989255,
+          "acceptance": [
+            {
+              "True": [
+                157,
+                296
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                157,
+                296
+              ]
+            },
+            {
+              "True": [
+                157,
+                296
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                157,
+                296
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-multi64-chat-256.json": {
+      "sha256": "d057597540e23862a95a71fcbc57e3315125a26931f458abb58fae1385ffb1b6",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": null,
+        "bytes": 180612096,
+        "group_size": 64,
+        "preparation_seconds": 0.061125166,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 66304,
+        "source_bits": 8,
+        "vocab_artifact_sha256": "69d1493b71fb739d2adfef06308bb441ab63a6669620059d08f725e2a8b0c033",
+        "vocab_source": {
+          "algorithm": "count up to8192 tokens/document; rank descending count, ascending ID; fixed membership, no prompt-fit",
+          "corpus_independent_of_timing_prompts": true,
+          "corpus_manifest": "results/decode3-corpus-manifest.json",
+          "include_special_tail": 1024,
+          "observed_unique_ids": 36450,
+          "pad_to_rows_multiple": 128,
+          "requested_frequency_rows": 65536,
+          "unseen_fill_rows": 29854,
+          "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-2"
+        }
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            68.25077305101269,
+            68.34409428965661,
+            68.30342276495207,
+            68.26723359689649
+          ],
+          "candidate_samples": [
+            71.48066186967756,
+            71.25055481130548,
+            70.9016155280655,
+            71.16120860196689
+          ],
+          "native_median": 68.28532818092428,
+          "candidate_median": 71.20588170663618,
+          "paired_gain_samples_percent": [
+            4.732384226990005,
+            4.2526871587919235,
+            3.80389833764907,
+            4.239185993911376
+          ],
+          "paired_gain_median_percent": 4.2459365763516494,
+          "paired_gain_range_percent": [
+            3.80389833764907,
+            4.732384226990005
+          ],
+          "native_cv": 0.0006070457294903811,
+          "candidate_cv": 0.0033616376095425937,
+          "acceptance": [
+            {
+              "True": [
+                175,
+                241
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                175,
+                241
+              ]
+            },
+            {
+              "True": [
+                175,
+                241
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                175,
+                241
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 1,
+          "native_samples": [
+            60.425401351457616,
+            60.152818830690755,
+            60.18963571809391,
+            60.186635812048394
+          ],
+          "candidate_samples": [
+            56.7273113139786,
+            56.73637254530101,
+            56.61908618848721,
+            56.60220147603558
+          ],
+          "native_median": 60.18813576507115,
+          "candidate_median": 56.6731987512329,
+          "paired_gain_samples_percent": [
+            -6.120091807035721,
+            -5.679611283065311,
+            -5.932166704463604,
+            -5.955531967605454
+          ],
+          "paired_gain_median_percent": -5.943849336034529,
+          "paired_gain_range_percent": [
+            -6.120091807035721,
+            -5.679611283065311
+          ],
+          "native_cv": 0.0020855883486956975,
+          "candidate_cv": 0.0012424238236599233,
+          "acceptance": [
+            {
+              "True": [
+                154,
+                306
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                154,
+                306
+              ]
+            },
+            {
+              "True": [
+                154,
+                306
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                154,
+                306
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 2,
+          "native_samples": [
+            69.53671978522152,
+            69.61195294559566,
+            69.62182257073022,
+            69.55644841637528
+          ],
+          "candidate_samples": [
+            67.46023268886104,
+            67.59569138722357,
+            67.50427635222768,
+            67.51422463950352
+          ],
+          "native_median": 69.58420068098548,
+          "candidate_median": 67.5092504958656,
+          "paired_gain_samples_percent": [
+            -2.9861734962105424,
+            -2.896430100083358,
+            -3.0414978239779344,
+            -2.9360667822581954
+          ],
+          "paired_gain_median_percent": -2.961120139234369,
+          "paired_gain_range_percent": [
+            -3.0414978239779344,
+            -2.896430100083358
+          ],
+          "native_cv": 0.0005975262018687872,
+          "candidate_cv": 0.0008366921388352436,
+          "acceptance": [
+            {
+              "True": [
+                169,
+                255
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                169,
+                255
+              ]
+            },
+            {
+              "True": [
+                169,
+                255
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                169,
+                255
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 3,
+          "native_samples": [
+            73.77869053674682,
+            74.08061866903492,
+            74.07797792433438,
+            73.72192916375704
+          ],
+          "candidate_samples": [
+            78.33159138874841,
+            78.41401756432111,
+            78.02999656668015,
+            78.35713161001918
+          ],
+          "native_median": 73.9283342305406,
+          "candidate_median": 78.3443614993838,
+          "paired_gain_samples_percent": [
+            6.171024206147879,
+            5.849571687091637,
+            5.33494400506247,
+            6.287413390886809
+          ],
+          "paired_gain_median_percent": 6.010297946619758,
+          "paired_gain_range_percent": [
+            5.33494400506247,
+            6.287413390886809
+          ],
+          "native_cv": 0.0025888306803217805,
+          "candidate_cv": 0.0022006245818661893,
+          "acceptance": [
+            {
+              "True": [
+                182,
+                220
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                182,
+                220
+              ]
+            },
+            {
+              "True": [
+                182,
+                220
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                182,
+                220
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-multi64-raw-256.json": {
+      "sha256": "604119c0fceadad533d38dbb85325c6edff7ef613aa194ff1fd1d67603cee6dd",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": null,
+        "bytes": 180612096,
+        "group_size": 64,
+        "preparation_seconds": 0.062165958,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 66304,
+        "source_bits": 8,
+        "vocab_artifact_sha256": "69d1493b71fb739d2adfef06308bb441ab63a6669620059d08f725e2a8b0c033",
+        "vocab_source": {
+          "algorithm": "count up to8192 tokens/document; rank descending count, ascending ID; fixed membership, no prompt-fit",
+          "corpus_independent_of_timing_prompts": true,
+          "corpus_manifest": "results/decode3-corpus-manifest.json",
+          "include_special_tail": 1024,
+          "observed_unique_ids": 36450,
+          "pad_to_rows_multiple": 128,
+          "requested_frequency_rows": 65536,
+          "unseen_fill_rows": 29854,
+          "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-2"
+        }
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            69.96663061730685,
+            69.63369705675771,
+            69.85855184249363,
+            69.58060145941775
+          ],
+          "candidate_samples": [
+            69.71462819440724,
+            69.11381989101157,
+            69.42416814435079,
+            69.40512133988764
+          ],
+          "native_median": 69.74612444962567,
+          "candidate_median": 69.41464474211921,
+          "paired_gain_samples_percent": [
+            -0.36017515875242934,
+            -0.7465884876432627,
+            -0.6218046133023458,
+            -0.2521968994942614
+          ],
+          "paired_gain_median_percent": -0.4909898860273876,
+          "paired_gain_range_percent": [
+            -0.7465884876432627,
+            -0.2521968994942614
+          ],
+          "native_cv": 0.0026243012597765617,
+          "candidate_cv": 0.0035353209837667605,
+          "acceptance": [
+            {
+              "True": [
+                173,
+                248
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                173,
+                248
+              ]
+            },
+            {
+              "True": [
+                173,
+                248
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                173,
+                248
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-multi96-chat-256.json": {
+      "sha256": "2b1de8f4e723a0fc1bb7c17da11646dac17f54a1fd13cd5b72e4cadbba01507a",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": null,
+        "bytes": 269872128,
+        "group_size": 64,
+        "preparation_seconds": 0.062704625,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 99072,
+        "source_bits": 8,
+        "vocab_artifact_sha256": "b401ebc3a856ab209cc4cfcbd56f4ed5f265d259cfb1d09208c5f85b90b564d3",
+        "vocab_source": {
+          "algorithm": "count up to8192 tokens/document; rank descending count, ascending ID; fixed membership, no prompt-fit",
+          "corpus_independent_of_timing_prompts": true,
+          "corpus_manifest": "results/decode3-corpus-manifest.json",
+          "include_special_tail": 1024,
+          "observed_unique_ids": 36450,
+          "pad_to_rows_multiple": 128,
+          "requested_frequency_rows": 98304,
+          "unseen_fill_rows": 62622,
+          "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-2"
+        }
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            68.29461309002228,
+            68.13015736056911,
+            68.13868342552924,
+            68.27243812393431
+          ],
+          "candidate_samples": [
+            71.60095188349571,
+            71.50060277812088,
+            71.5648193782596,
+            71.57315955590245
+          ],
+          "native_median": 68.20556077473177,
+          "candidate_median": 71.56898946708102,
+          "paired_gain_samples_percent": [
+            4.841287832050822,
+            4.9470683000395255,
+            5.028180440960361,
+            4.834632426597052
+          ],
+          "paired_gain_median_percent": 4.894178066045174,
+          "paired_gain_range_percent": [
+            4.834632426597052,
+            5.028180440960361
+          ],
+          "native_cv": 0.0012700761216194057,
+          "candidate_cv": 0.0005929584079514344,
+          "acceptance": [
+            {
+              "True": [
+                176,
+                238
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                176,
+                238
+              ]
+            },
+            {
+              "True": [
+                176,
+                238
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                176,
+                238
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 1,
+          "native_samples": [
+            60.17104504422129,
+            60.121715819532625,
+            60.269533037883505,
+            60.05919186647806
+          ],
+          "candidate_samples": [
+            56.76065178638412,
+            56.73989791503978,
+            56.521422825373655,
+            56.55652806915692
+          ],
+          "native_median": 60.146380431876956,
+          "candidate_median": 56.64821299209835,
+          "paired_gain_samples_percent": [
+            -5.667831189122241,
+            -5.624952412609185,
+            -6.21891364274203,
+            -5.832019526849718
+          ],
+          "paired_gain_median_percent": -5.74992535798598,
+          "paired_gain_range_percent": [
+            -6.21891364274203,
+            -5.624952412609185
+          ],
+          "native_cv": 0.001476346607797728,
+          "candidate_cv": 0.0021736322258692348,
+          "acceptance": [
+            {
+              "True": [
+                155,
+                303
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                155,
+                303
+              ]
+            },
+            {
+              "True": [
+                155,
+                303
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                155,
+                303
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 2,
+          "native_samples": [
+            69.80753583299519,
+            69.38093028400063,
+            69.26659433334594,
+            69.46822562017158
+          ],
+          "candidate_samples": [
+            72.61508478741476,
+            72.89845632853223,
+            72.74392041593966,
+            72.76897110662458
+          ],
+          "native_median": 69.42457795208611,
+          "candidate_median": 72.75644576128212,
+          "paired_gain_samples_percent": [
+            4.021842227945482,
+            5.069874431105403,
+            5.020206516663817,
+            4.751446372763768
+          ],
+          "paired_gain_median_percent": 4.885826444713793,
+          "paired_gain_range_percent": [
+            4.021842227945482,
+            5.069874431105403
+          ],
+          "native_cv": 0.003352469783318993,
+          "candidate_cv": 0.0015962434552410552,
+          "acceptance": [
+            {
+              "True": [
+                176,
+                234
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                176,
+                234
+              ]
+            },
+            {
+              "True": [
+                176,
+                234
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                176,
+                234
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 3,
+          "native_samples": [
+            73.67610539439109,
+            73.66327071458649,
+            73.5659587517833,
+            73.89213770048254
+          ],
+          "candidate_samples": [
+            77.3905015450786,
+            77.44092367889486,
+            77.40335324202519,
+            77.43689249926526
+          ],
+          "native_median": 73.66968805448879,
+          "candidate_median": 77.42012287064523,
+          "paired_gain_samples_percent": [
+            5.041520762809348,
+            5.128272105843834,
+            5.216263820049605,
+            4.797201582056232
+          ],
+          "paired_gain_median_percent": 5.084896434326591,
+          "paired_gain_range_percent": [
+            4.797201582056232,
+            5.216263820049605
+          ],
+          "native_cv": 0.0018670620493689124,
+          "candidate_cv": 0.0003210301324833392,
+          "acceptance": [
+            {
+              "True": [
+                182,
+                220
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                182,
+                220
+              ]
+            },
+            {
+              "True": [
+                182,
+                220
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                182,
+                220
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-multi96-raw-256.json": {
+      "sha256": "1deccff8753bf76b5aa47a302387bcbd6e6763278cb71954a7e8e5d1c2c1138d",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": null,
+        "bytes": 269872128,
+        "group_size": 64,
+        "preparation_seconds": 0.062845041,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 99072,
+        "source_bits": 8,
+        "vocab_artifact_sha256": "b401ebc3a856ab209cc4cfcbd56f4ed5f265d259cfb1d09208c5f85b90b564d3",
+        "vocab_source": {
+          "algorithm": "count up to8192 tokens/document; rank descending count, ascending ID; fixed membership, no prompt-fit",
+          "corpus_independent_of_timing_prompts": true,
+          "corpus_manifest": "results/decode3-corpus-manifest.json",
+          "include_special_tail": 1024,
+          "observed_unique_ids": 36450,
+          "pad_to_rows_multiple": 128,
+          "requested_frequency_rows": 98304,
+          "unseen_fill_rows": 62622,
+          "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-2"
+        }
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            69.8532454207905,
+            69.78693399076273,
+            69.79543720179228,
+            69.85659741800428
+          ],
+          "candidate_samples": [
+            71.56232315450298,
+            71.2036740258107,
+            71.16129879939017,
+            71.13508357600435
+          ],
+          "native_median": 69.82434131129139,
+          "candidate_median": 71.18248641260044,
+          "paired_gain_samples_percent": [
+            2.446669046537675,
+            2.0300935347517868,
+            1.9569496980854417,
+            1.8301580741900692
+          ],
+          "paired_gain_median_percent": 1.9935216164186143,
+          "paired_gain_range_percent": [
+            1.8301580741900692,
+            2.446669046537675
+          ],
+          "native_cv": 0.0005297190050011813,
+          "candidate_cv": 0.0028039786095506573,
+          "acceptance": [
+            {
+              "True": [
+                175,
+                240
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                175,
+                240
+              ]
+            },
+            {
+              "True": [
+                175,
+                240
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                175,
+                240
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-q4-chat-256.json": {
+      "sha256": "86e55d37b9ebaf6fbe1dbca06273e594f3ee6a082d3701d8a8054bc666476af4",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": 4,
+        "bytes": 357580800,
+        "group_size": 64,
+        "preparation_seconds": 0.114232125,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 248320,
+        "source_bits": 8,
+        "vocab_artifact_sha256": null,
+        "vocab_source": null
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            67.71425037768951,
+            67.35173950724278,
+            67.18484774722353,
+            67.1346750710476
+          ],
+          "candidate_samples": [
+            69.2126956287376,
+            68.96081182930682,
+            68.81007579193735,
+            68.71516915653612
+          ],
+          "native_median": 67.26829362723316,
+          "candidate_median": 68.88544381062209,
+          "paired_gain_samples_percent": [
+            2.212894985457603,
+            2.3890582987704523,
+            2.4190395590812264,
+            2.3542142474301198
+          ],
+          "paired_gain_median_percent": 2.371636273100286,
+          "paired_gain_range_percent": [
+            2.212894985457603,
+            2.4190395590812264
+          ],
+          "native_cv": 0.003893517162242682,
+          "candidate_cv": 0.003148591543676057,
+          "acceptance": [
+            {
+              "True": [
+                175,
+                241
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                175,
+                241
+              ]
+            },
+            {
+              "True": [
+                175,
+                241
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                175,
+                241
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 1,
+          "native_samples": [
+            58.44316463295363,
+            58.1748313949375,
+            57.57661821175176,
+            57.86719065596914
+          ],
+          "candidate_samples": [
+            59.39744725033368,
+            58.0400203725752,
+            58.32593918628796,
+            58.66538549072083
+          ],
+          "native_median": 58.02101102545332,
+          "candidate_median": 58.495662338504395,
+          "paired_gain_samples_percent": [
+            1.6328387132581224,
+            -0.23173427258790236,
+            1.301432765259669,
+            1.3793564638330258
+          ],
+          "paired_gain_median_percent": 1.3403946145463475,
+          "paired_gain_range_percent": [
+            -0.23173427258790236,
+            1.6328387132581224
+          ],
+          "native_cv": 0.0064716153480421385,
+          "candidate_cv": 0.009991434674091986,
+          "acceptance": [
+            {
+              "True": [
+                162,
+                279
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                162,
+                279
+              ]
+            },
+            {
+              "True": [
+                162,
+                279
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                162,
+                279
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 2,
+          "native_samples": [
+            67.19596814831107,
+            67.25328601217008,
+            66.8060985569801,
+            66.66695351757411
+          ],
+          "candidate_samples": [
+            67.08570091454565,
+            67.71263361388125,
+            67.90709706107025,
+            67.40318894245812
+          ],
+          "native_median": 67.00103335264558,
+          "candidate_median": 67.55791127816968,
+          "paired_gain_samples_percent": [
+            -0.16409799100154387,
+            0.6830113871730381,
+            1.6480508933643057,
+            1.1043483855759595
+          ],
+          "paired_gain_median_percent": 0.8936798863744988,
+          "paired_gain_range_percent": [
+            -0.16409799100154387,
+            1.6480508933643057
+          ],
+          "native_cv": 0.004306090690812722,
+          "candidate_cv": 0.005332611566999763,
+          "acceptance": [
+            {
+              "True": [
+                174,
+                240
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                174,
+                240
+              ]
+            },
+            {
+              "True": [
+                174,
+                240
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                174,
+                240
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 3,
+          "native_samples": [
+            71.67262474637904,
+            71.65229500197685,
+            71.8107853392931,
+            72.24890170952482
+          ],
+          "candidate_samples": [
+            75.80788255309622,
+            76.26358954547311,
+            75.664983936769,
+            76.74549925124278
+          ],
+          "native_median": 71.74170504283607,
+          "candidate_median": 76.03573604928467,
+          "paired_gain_samples_percent": [
+            5.769647506771536,
+            6.435655052457201,
+            5.367158400044647,
+            6.223759026533626
+          ],
+          "paired_gain_median_percent": 5.996703266652581,
+          "paired_gain_range_percent": [
+            5.367158400044647,
+            6.435655052457201
+          ],
+          "native_cv": 0.003863519963373593,
+          "candidate_cv": 0.006419368737160087,
+          "acceptance": [
+            {
+              "True": [
+                184,
+                214
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                184,
+                214
+              ]
+            },
+            {
+              "True": [
+                184,
+                214
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                184,
+                214
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-q4-code64-chat-256.json": {
+      "sha256": "c1a8a790b4d40608bd79a0382cd37e33eb679858f74c9a8ef333c9014713cb91",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": 4,
+        "bytes": 94633984,
+        "group_size": 64,
+        "preparation_seconds": 0.078288375,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 65536,
+        "source_bits": 8,
+        "vocab_artifact_sha256": "0187903e5fc9113374207f7ab14a06e4ab8faf272aba23efbf43a8ee0df6d2a3",
+        "vocab_source": {
+          "fit": "upstream code corpus; independent of this benchmark suite; multilingual coverage not established here",
+          "license": "Apache-2.0; MTPLX by Youssof Altoukhi",
+          "ordering": "row-sorted64K membership; no smaller rank truncation valid",
+          "sha256": "922a4d0570ce0a79e03c1e1ecb25e6c8c1e9cae943b2c0d5ce11874d42d74a17",
+          "url": "https://github.com/youssofal/MTPLX/blob/9882703f3105363ddc37eca9f97aa09a1d387112/mtplx/data/qwen38_code_ranked_64k.npy"
+        }
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            68.3557880855174,
+            68.41442646350374,
+            68.47020314370869,
+            68.4667683775326
+          ],
+          "candidate_samples": [
+            72.48200019172029,
+            72.49170440825253,
+            72.07465917165584,
+            71.97423660354478
+          ],
+          "native_median": 68.44059742051817,
+          "candidate_median": 72.27832968168806,
+          "paired_gain_samples_percent": [
+            6.036375589790199,
+            5.959675693435562,
+            5.264269510610231,
+            5.122876848329749
+          ],
+          "paired_gain_median_percent": 5.611972602022897,
+          "paired_gain_range_percent": [
+            5.122876848329749,
+            6.036375589790199
+          ],
+          "native_cv": 0.0007859600588819571,
+          "candidate_cv": 0.0037385023232882155,
+          "acceptance": [
+            {
+              "True": [
+                175,
+                241
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                175,
+                241
+              ]
+            },
+            {
+              "True": [
+                175,
+                241
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                175,
+                241
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 1,
+          "native_samples": [
+            60.5536527328754,
+            60.422673190321504,
+            60.144503651477415,
+            60.332816527868744
+          ],
+          "candidate_samples": [
+            55.30316458752605,
+            55.267578168261615,
+            55.35881817935168,
+            55.205868271566985
+          ],
+          "native_median": 60.377744859095124,
+          "candidate_median": 55.28537137789383,
+          "paired_gain_samples_percent": [
+            -8.670803342799482,
+            -8.53172286142022,
+            -7.9569789117516105,
+            -8.497777082781365
+          ],
+          "paired_gain_median_percent": -8.514749972100793,
+          "paired_gain_range_percent": [
+            -8.670803342799482,
+            -7.9569789117516105
+          ],
+          "native_cv": 0.0028463304231764667,
+          "candidate_cv": 0.001160071074690664,
+          "acceptance": [
+            {
+              "True": [
+                149,
+                318
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                149,
+                318
+              ]
+            },
+            {
+              "True": [
+                149,
+                318
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                149,
+                318
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 2,
+          "native_samples": [
+            69.53472960990094,
+            69.71893188545795,
+            69.7780565251513,
+            69.75646627690946
+          ],
+          "candidate_samples": [
+            72.78025224657604,
+            72.60966319295868,
+            72.84183481256575,
+            72.49062594435385
+          ],
+          "native_median": 69.7376990811837,
+          "candidate_median": 72.69495771976736,
+          "paired_gain_samples_percent": [
+            4.66748437059139,
+            4.146264478420214,
+            4.39074752147921,
+            3.9195788051973546
+          ],
+          "paired_gain_median_percent": 4.268505999949712,
+          "paired_gain_range_percent": [
+            3.9195788051973546,
+            4.66748437059139
+          ],
+          "native_cv": 0.001591660423926901,
+          "candidate_cv": 0.002204984573755766,
+          "acceptance": [
+            {
+              "True": [
+                174,
+                240
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                174,
+                240
+              ]
+            },
+            {
+              "True": [
+                174,
+                240
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                174,
+                240
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 3,
+          "native_samples": [
+            73.95810520853063,
+            74.14402090803237,
+            74.03756517749702,
+            74.14509074813924
+          ],
+          "candidate_samples": [
+            81.61139948027942,
+            81.57343968803757,
+            81.25210234039534,
+            80.67882530839383
+          ],
+          "native_median": 74.09079304276469,
+          "candidate_median": 81.41277101421645,
+          "paired_gain_samples_percent": [
+            10.348148117329048,
+            10.020253405491154,
+            9.7444279071067,
+            8.81209328133239
+          ],
+          "paired_gain_median_percent": 9.882340656298927,
+          "paired_gain_range_percent": [
+            8.81209328133239,
+            10.348148117329048
+          ],
+          "native_cv": 0.0012246213796358663,
+          "candidate_cv": 0.005306694238055223,
+          "acceptance": [
+            {
+              "True": [
+                184,
+                214
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                184,
+                214
+              ]
+            },
+            {
+              "True": [
+                184,
+                214
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                184,
+                214
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-q4-code64-raw-256.json": {
+      "sha256": "069f995611ace6dccc462722bb5852bdc42056ea07acadf831994fbb372f6e9b",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": 4,
+        "bytes": 94633984,
+        "group_size": 64,
+        "preparation_seconds": 0.077984917,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 65536,
+        "source_bits": 8,
+        "vocab_artifact_sha256": "0187903e5fc9113374207f7ab14a06e4ab8faf272aba23efbf43a8ee0df6d2a3",
+        "vocab_source": {
+          "fit": "upstream code corpus; independent of this benchmark suite; multilingual coverage not established here",
+          "license": "Apache-2.0; MTPLX by Youssof Altoukhi",
+          "ordering": "row-sorted64K membership; no smaller rank truncation valid",
+          "sha256": "922a4d0570ce0a79e03c1e1ecb25e6c8c1e9cae943b2c0d5ce11874d42d74a17",
+          "url": "https://github.com/youssofal/MTPLX/blob/9882703f3105363ddc37eca9f97aa09a1d387112/mtplx/data/qwen38_code_ranked_64k.npy"
+        }
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            70.0033720514508,
+            69.91883383062533,
+            69.9733527231195,
+            69.78523978873677
+          ],
+          "candidate_samples": [
+            73.0128375179472,
+            72.84970698348005,
+            72.95615302816198,
+            72.99930813374162
+          ],
+          "native_median": 69.94609327687242,
+          "candidate_median": 72.9777305809518,
+          "paired_gain_samples_percent": [
+            4.299029287167078,
+            4.191822134726397,
+            4.262766023010567,
+            4.605656374807765
+          ],
+          "paired_gain_median_percent": 4.280897655088822,
+          "paired_gain_range_percent": [
+            4.191822134726397,
+            4.605656374807765
+          ],
+          "native_cv": 0.0013806924962643974,
+          "candidate_cv": 0.001013322161770031,
+          "acceptance": [
+            {
+              "True": [
+                175,
+                240
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                175,
+                240
+              ]
+            },
+            {
+              "True": [
+                175,
+                240
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                175,
+                240
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-q4-multi32-chat-256.json": {
+      "sha256": "1752dba1c751a7edac8ed2e22ea4c8139604e0d87908f4464f4534980517c68c",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": 4,
+        "bytes": 48795648,
+        "group_size": 64,
+        "preparation_seconds": 0.068451417,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 33792,
+        "source_bits": 8,
+        "vocab_artifact_sha256": "2fbf62a3ff0dec229a947a989c1e8d1547a9cda7a044c014c595f7dd266dcc99",
+        "vocab_source": {
+          "algorithm": "count up to8192 tokens/document; rank descending count, ascending ID; fixed membership, no prompt-fit",
+          "corpus_independent_of_timing_prompts": true,
+          "corpus_manifest": "results/decode3-corpus-manifest.json",
+          "include_special_tail": 1024,
+          "observed_unique_ids": 36450,
+          "pad_to_rows_multiple": 128,
+          "requested_frequency_rows": 32768,
+          "unseen_fill_rows": 765,
+          "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-2"
+        }
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            68.3554659034692,
+            68.42350270844709,
+            68.18109201672773,
+            68.54277346205313
+          ],
+          "candidate_samples": [
+            66.67567224030618,
+            66.79654228353738,
+            66.3657183818555,
+            66.95670882770538
+          ],
+          "native_median": 68.38948430595815,
+          "candidate_median": 66.73610726192177,
+          "paired_gain_samples_percent": [
+            -2.45743868608137,
+            -2.377780090917292,
+            -2.6625763553726034,
+            -2.3139779064029753
+          ],
+          "paired_gain_median_percent": -2.417609388499331,
+          "paired_gain_range_percent": [
+            -2.6625763553726034,
+            -2.3139779064029753
+          ],
+          "native_cv": 0.002209634505360959,
+          "candidate_cv": 0.003748687919668033,
+          "acceptance": [
+            {
+              "True": [
+                168,
+                262
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                168,
+                262
+              ]
+            },
+            {
+              "True": [
+                168,
+                262
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                168,
+                262
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 1,
+          "native_samples": [
+            60.34388263527722,
+            60.34461864653492,
+            60.35093000783142,
+            60.329955171294486
+          ],
+          "candidate_samples": [
+            49.03716448660042,
+            48.83644340125222,
+            49.00757263090427,
+            48.97865028950647
+          ],
+          "native_median": 60.34425064090607,
+          "candidate_median": 48.99311146020537,
+          "paired_gain_samples_percent": [
+            -18.73714062619308,
+            -19.070756437605752,
+            -18.795662925915448,
+            -18.81537098703011
+          ],
+          "paired_gain_median_percent": -18.80551695647278,
+          "paired_gain_range_percent": [
+            -19.070756437605752,
+            -18.73714062619308
+          ],
+          "native_cv": 0.00014659340189248808,
+          "candidate_cv": 0.001816488811972592,
+          "acceptance": [
+            {
+              "True": [
+                135,
+                360
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                135,
+                360
+              ]
+            },
+            {
+              "True": [
+                135,
+                360
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                135,
+                360
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 2,
+          "native_samples": [
+            69.79983370028124,
+            69.6681916968259,
+            69.71305741692373,
+            69.80198316653514
+          ],
+          "candidate_samples": [
+            41.26607890284662,
+            41.22205780997553,
+            41.28552771444856,
+            41.20868493726661
+          ],
+          "native_median": 69.75644555860248,
+          "candidate_median": 41.24406835641108,
+          "paired_gain_samples_percent": [
+            -40.879402263274514,
+            -40.83087732582326,
+            -40.777912712194464,
+            -40.963446784957384
+          ],
+          "paired_gain_median_percent": -40.85513979454889,
+          "paired_gain_range_percent": [
+            -40.963446784957384,
+            -40.777912712194464
+          ],
+          "native_cv": 0.0009500271263882342,
+          "candidate_cv": 0.0008775852265039535,
+          "acceptance": [
+            {
+              "True": [
+                113,
+                423
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                113,
+                423
+              ]
+            },
+            {
+              "True": [
+                113,
+                423
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                113,
+                423
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 3,
+          "native_samples": [
+            74.0739781275618,
+            74.03621542680874,
+            74.12641475167977,
+            73.95656799035751
+          ],
+          "candidate_samples": [
+            64.53370742637772,
+            64.50062807486587,
+            64.58486294771944,
+            64.5281374206843
+          ],
+          "native_median": 74.05509677718527,
+          "candidate_median": 64.53092242353101,
+          "paired_gain_samples_percent": [
+            -12.879382128977756,
+            -12.879625595354248,
+            -12.871999591406258,
+            -12.748604790452811
+          ],
+          "paired_gain_median_percent": -12.875690860192007,
+          "paired_gain_range_percent": [
+            -12.879625595354248,
+            -12.748604790452811
+          ],
+          "native_cv": 0.0009651241077023432,
+          "candidate_cv": 0.0005443920638097227,
+          "acceptance": [
+            {
+              "True": [
+                165,
+                272
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                165,
+                272
+              ]
+            },
+            {
+              "True": [
+                165,
+                272
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                165,
+                272
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-q4-multi32-raw-256.json": {
+      "sha256": "6282e74ac62f5edd6a5e3f7ac5784740f0ffe3afb84af33711159d24939aa692",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": 4,
+        "bytes": 48795648,
+        "group_size": 64,
+        "preparation_seconds": 0.068403541,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 33792,
+        "source_bits": 8,
+        "vocab_artifact_sha256": "2fbf62a3ff0dec229a947a989c1e8d1547a9cda7a044c014c595f7dd266dcc99",
+        "vocab_source": {
+          "algorithm": "count up to8192 tokens/document; rank descending count, ascending ID; fixed membership, no prompt-fit",
+          "corpus_independent_of_timing_prompts": true,
+          "corpus_manifest": "results/decode3-corpus-manifest.json",
+          "include_special_tail": 1024,
+          "observed_unique_ids": 36450,
+          "pad_to_rows_multiple": 128,
+          "requested_frequency_rows": 32768,
+          "unseen_fill_rows": 765,
+          "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-2"
+        }
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            70.01304461356924,
+            69.81973583016799,
+            69.67969802005892,
+            69.94029454325417
+          ],
+          "candidate_samples": [
+            59.28751174174349,
+            59.10842417607565,
+            59.19525100875672,
+            59.105734862636474
+          ],
+          "native_median": 69.88001518671108,
+          "candidate_median": 59.151837592416186,
+          "paired_gain_samples_percent": [
+            -15.319335033955994,
+            -15.341380953011496,
+            -15.046630954519935,
+            -15.491155350964558
+          ],
+          "paired_gain_median_percent": -15.330357993483744,
+          "paired_gain_range_percent": [
+            -15.491155350964558,
+            -15.046630954519935
+          ],
+          "native_cv": 0.002089979707911831,
+          "candidate_cv": 0.001456888548750316,
+          "acceptance": [
+            {
+              "True": [
+                157,
+                296
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                157,
+                296
+              ]
+            },
+            {
+              "True": [
+                157,
+                296
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                157,
+                296
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-q4-multi64-chat-256.json": {
+      "sha256": "658871669367ef5b86b012bf9787a01a1e5e4702513c5ab50795b59bd25c77e2",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": 4,
+        "bytes": 95742976,
+        "group_size": 64,
+        "preparation_seconds": 0.0781355,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 66304,
+        "source_bits": 8,
+        "vocab_artifact_sha256": "69d1493b71fb739d2adfef06308bb441ab63a6669620059d08f725e2a8b0c033",
+        "vocab_source": {
+          "algorithm": "count up to8192 tokens/document; rank descending count, ascending ID; fixed membership, no prompt-fit",
+          "corpus_independent_of_timing_prompts": true,
+          "corpus_manifest": "results/decode3-corpus-manifest.json",
+          "include_special_tail": 1024,
+          "observed_unique_ids": 36450,
+          "pad_to_rows_multiple": 128,
+          "requested_frequency_rows": 65536,
+          "unseen_fill_rows": 29854,
+          "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-2"
+        }
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            68.47665994917882,
+            68.37279431038007,
+            68.43289433588679,
+            68.0780961783454
+          ],
+          "candidate_samples": [
+            70.89338018388993,
+            71.10518062550254,
+            71.26617555740262,
+            71.17566272689518
+          ],
+          "native_median": 68.40284432313342,
+          "candidate_median": 71.14042167619886,
+          "paired_gain_samples_percent": [
+            3.529261264355932,
+            3.996306341845157,
+            4.1402329230871615,
+            4.550019349006229
+          ],
+          "paired_gain_median_percent": 4.068269632466159,
+          "paired_gain_range_percent": [
+            3.529261264355932,
+            4.550019349006229
+          ],
+          "native_cv": 0.0026308257380315337,
+          "candidate_cv": 0.002233118528608535,
+          "acceptance": [
+            {
+              "True": [
+                174,
+                244
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                174,
+                244
+              ]
+            },
+            {
+              "True": [
+                174,
+                244
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                174,
+                244
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 1,
+          "native_samples": [
+            60.268579251599135,
+            60.123995725232945,
+            60.3600768454222,
+            60.30900322479265
+          ],
+          "candidate_samples": [
+            57.369254644123615,
+            57.42807035659285,
+            57.23360099478984,
+            57.320343610760496
+          ],
+          "native_median": 60.28879123819589,
+          "candidate_median": 57.34479912744206,
+          "paired_gain_samples_percent": [
+            -4.8106735607154505,
+            -4.483942452794542,
+            -5.179708201232147,
+            -4.95557786437354
+          ],
+          "paired_gain_median_percent": -4.883125712544495,
+          "paired_gain_range_percent": [
+            -5.179708201232147,
+            -4.483942452794542
+          ],
+          "native_cv": 0.0016832208685918669,
+          "candidate_cv": 0.0014346611066919186,
+          "acceptance": [
+            {
+              "True": [
+                154,
+                306
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                154,
+                306
+              ]
+            },
+            {
+              "True": [
+                154,
+                306
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                154,
+                306
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 2,
+          "native_samples": [
+            69.55479306681914,
+            69.73557670860453,
+            69.62471515662133,
+            69.42606143678472
+          ],
+          "candidate_samples": [
+            69.2496107588685,
+            69.11478227302052,
+            69.27223305053623,
+            69.28738187501303
+          ],
+          "native_median": 69.58975411172024,
+          "candidate_median": 69.26092190470237,
+          "paired_gain_samples_percent": [
+            -0.4387653165145111,
+            -0.8902119475946102,
+            -0.5062600332255474,
+            -0.1997514462173111
+          ],
+          "paired_gain_median_percent": -0.47251267487002924,
+          "paired_gain_range_percent": [
+            -0.8902119475946102,
+            -0.1997514462173111
+          ],
+          "native_cv": 0.0018631233798122417,
+          "candidate_cv": 0.0011413815230964033,
+          "acceptance": [
+            {
+              "True": [
+                170,
+                252
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                170,
+                252
+              ]
+            },
+            {
+              "True": [
+                170,
+                252
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                170,
+                252
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 3,
+          "native_samples": [
+            73.91382456528001,
+            74.00928326244232,
+            73.99528280072145,
+            73.76947544201882
+          ],
+          "candidate_samples": [
+            81.16906693014252,
+            81.08350564548105,
+            81.3285296880727,
+            81.34000589835618
+          ],
+          "native_median": 73.95455368300074,
+          "candidate_median": 81.24879830910761,
+          "paired_gain_samples_percent": [
+            9.815812410646863,
+            9.558560860470733,
+            9.910424840324762,
+            10.262416007400832
+          ],
+          "paired_gain_median_percent": 9.863118625485813,
+          "paired_gain_range_percent": [
+            9.558560860470733,
+            10.262416007400832
+          ],
+          "native_cv": 0.0014884514050619905,
+          "candidate_cv": 0.0015405990120169826,
+          "acceptance": [
+            {
+              "True": [
+                184,
+                214
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                184,
+                214
+              ]
+            },
+            {
+              "True": [
+                184,
+                214
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                184,
+                214
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-q4-multi64-raw-256.json": {
+      "sha256": "741750afcd7529dc42fa25100140af0df1a8585c1b371a2c52a21d70eb4df8c0",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": 4,
+        "bytes": 95742976,
+        "group_size": 64,
+        "preparation_seconds": 0.078404167,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 66304,
+        "source_bits": 8,
+        "vocab_artifact_sha256": "69d1493b71fb739d2adfef06308bb441ab63a6669620059d08f725e2a8b0c033",
+        "vocab_source": {
+          "algorithm": "count up to8192 tokens/document; rank descending count, ascending ID; fixed membership, no prompt-fit",
+          "corpus_independent_of_timing_prompts": true,
+          "corpus_manifest": "results/decode3-corpus-manifest.json",
+          "include_special_tail": 1024,
+          "observed_unique_ids": 36450,
+          "pad_to_rows_multiple": 128,
+          "requested_frequency_rows": 65536,
+          "unseen_fill_rows": 29854,
+          "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-2"
+        }
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            69.96217870409237,
+            69.91082120814671,
+            69.77441930239536,
+            69.95206123521143
+          ],
+          "candidate_samples": [
+            70.36404830728561,
+            70.2343537914415,
+            70.54175664386449,
+            70.28118918114801
+          ],
+          "native_median": 69.93144122167908,
+          "candidate_median": 70.32261874421681,
+          "paired_gain_samples_percent": [
+            0.5744097891704714,
+            0.46277897713651317,
+            1.099740204420141,
+            0.47050500031713405
+          ],
+          "paired_gain_median_percent": 0.5224573947438027,
+          "paired_gain_range_percent": [
+            0.46277897713651317,
+            1.099740204420141
+          ],
+          "native_cv": 0.001237962744114676,
+          "candidate_cv": 0.0019238781606742755,
+          "acceptance": [
+            {
+              "True": [
+                173,
+                248
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                173,
+                248
+              ]
+            },
+            {
+              "True": [
+                173,
+                248
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                173,
+                248
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-q4-multi96-chat-256.json": {
+      "sha256": "8dcddaddfc49df9c843fd875ac8456ffc3cd10018ff7a0cc9b5805aba9b36c89",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": 4,
+        "bytes": 143059968,
+        "group_size": 64,
+        "preparation_seconds": 0.088466916,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 99072,
+        "source_bits": 8,
+        "vocab_artifact_sha256": "b401ebc3a856ab209cc4cfcbd56f4ed5f265d259cfb1d09208c5f85b90b564d3",
+        "vocab_source": {
+          "algorithm": "count up to8192 tokens/document; rank descending count, ascending ID; fixed membership, no prompt-fit",
+          "corpus_independent_of_timing_prompts": true,
+          "corpus_manifest": "results/decode3-corpus-manifest.json",
+          "include_special_tail": 1024,
+          "observed_unique_ids": 36450,
+          "pad_to_rows_multiple": 128,
+          "requested_frequency_rows": 98304,
+          "unseen_fill_rows": 62622,
+          "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-2"
+        }
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            68.1504079503464,
+            68.31490818999283,
+            68.26705388810487,
+            68.32749061968926
+          ],
+          "candidate_samples": [
+            71.97400722912799,
+            71.56633998081567,
+            71.76129912434682,
+            71.48885301214415
+          ],
+          "native_median": 68.29098103904886,
+          "candidate_median": 71.66381955258124,
+          "paired_gain_samples_percent": [
+            5.610530287019588,
+            4.759476191902601,
+            5.11849426220925,
+            4.6267795930792
+          ],
+          "paired_gain_median_percent": 4.938985227055925,
+          "paired_gain_range_percent": [
+            4.6267795930792,
+            5.610530287019588
+          ],
+          "native_cv": 0.0011819764243447,
+          "candidate_cv": 0.0030265570332890642,
+          "acceptance": [
+            {
+              "True": [
+                175,
+                241
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                175,
+                241
+              ]
+            },
+            {
+              "True": [
+                175,
+                241
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                175,
+                241
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 1,
+          "native_samples": [
+            60.256607484254125,
+            60.28676523344891,
+            60.25853866464451,
+            60.41040935942652
+          ],
+          "candidate_samples": [
+            57.59878297159745,
+            57.48882662777824,
+            57.47603083678852,
+            57.57299894515904
+          ],
+          "native_median": 60.27265194904671,
+          "candidate_median": 57.53091278646864,
+          "paired_gain_samples_percent": [
+            -4.4108432645352575,
+            -4.641049482147852,
+            -4.617615842530509,
+            -4.696889897543333
+          ],
+          "paired_gain_median_percent": -4.629332662339181,
+          "paired_gain_range_percent": [
+            -4.696889897543333,
+            -4.4108432645352575
+          ],
+          "native_cv": 0.0012083685849547914,
+          "candidate_cv": 0.0010581341421002648,
+          "acceptance": [
+            {
+              "True": [
+                155,
+                303
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                155,
+                303
+              ]
+            },
+            {
+              "True": [
+                155,
+                303
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                155,
+                303
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 2,
+          "native_samples": [
+            69.59795433238358,
+            69.59324296639454,
+            69.74021995338434,
+            69.30799433060606
+          ],
+          "candidate_samples": [
+            73.04318731957986,
+            73.2892528157399,
+            72.80000352797381,
+            72.74742068692275
+          ],
+          "native_median": 69.59559864938906,
+          "candidate_median": 72.92159542377684,
+          "paired_gain_samples_percent": [
+            4.9501928903580295,
+            5.310874578915814,
+            4.387401669559821,
+            4.962524726816198
+          ],
+          "paired_gain_median_percent": 4.9563588085871135,
+          "paired_gain_range_percent": [
+            4.387401669559821,
+            5.310874578915814
+          ],
+          "native_cv": 0.002605364842444326,
+          "candidate_cv": 0.003409757571712967,
+          "acceptance": [
+            {
+              "True": [
+                175,
+                237
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                175,
+                237
+              ]
+            },
+            {
+              "True": [
+                175,
+                237
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                175,
+                237
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 3,
+          "native_samples": [
+            73.9415002396937,
+            73.90059998813256,
+            73.8649571984335,
+            74.02268555827202
+          ],
+          "candidate_samples": [
+            80.7829643300841,
+            80.59787289716013,
+            80.78188309459713,
+            80.80114068624353
+          ],
+          "native_median": 73.92105011391313,
+          "candidate_median": 80.78242371234062,
+          "paired_gain_samples_percent": [
+            9.252536218784657,
+            9.062541995738972,
+            9.364286068130735,
+            9.157267230780741
+          ],
+          "paired_gain_median_percent": 9.2049017247827,
+          "paired_gain_range_percent": [
+            9.062541995738972,
+            9.364286068130735
+          ],
+          "native_cv": 0.0009171713264718338,
+          "candidate_cv": 0.0011865487573480865,
+          "acceptance": [
+            {
+              "True": [
+                184,
+                214
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                184,
+                214
+              ]
+            },
+            {
+              "True": [
+                184,
+                214
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                184,
+                214
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-q4-multi96-raw-256.json": {
+      "sha256": "c1c1965bc65088d84032312caf9e69ea328772d0ae053d63268f1d21e54d7912",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": 4,
+        "bytes": 143059968,
+        "group_size": 64,
+        "preparation_seconds": 0.088039208,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 99072,
+        "source_bits": 8,
+        "vocab_artifact_sha256": "b401ebc3a856ab209cc4cfcbd56f4ed5f265d259cfb1d09208c5f85b90b564d3",
+        "vocab_source": {
+          "algorithm": "count up to8192 tokens/document; rank descending count, ascending ID; fixed membership, no prompt-fit",
+          "corpus_independent_of_timing_prompts": true,
+          "corpus_manifest": "results/decode3-corpus-manifest.json",
+          "include_special_tail": 1024,
+          "observed_unique_ids": 36450,
+          "pad_to_rows_multiple": 128,
+          "requested_frequency_rows": 98304,
+          "unseen_fill_rows": 62622,
+          "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-2"
+        }
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            69.75941301963411,
+            69.89167248213118,
+            70.01557731550066,
+            69.71360375136524
+          ],
+          "candidate_samples": [
+            71.76895210838067,
+            71.52669940837704,
+            71.2148669831958,
+            71.4329076061553
+          ],
+          "native_median": 69.82554275088265,
+          "candidate_median": 71.47980350726617,
+          "paired_gain_samples_percent": [
+            2.880670868289803,
+            2.339373015667756,
+            1.712889779214355,
+            2.466238671180987
+          ],
+          "paired_gain_median_percent": 2.4028058434243715,
+          "paired_gain_range_percent": [
+            1.712889779214355,
+            2.880670868289803
+          ],
+          "native_cv": 0.0019537709587721212,
+          "candidate_cv": 0.003210825707108308,
+          "acceptance": [
+            {
+              "True": [
+                174,
+                243
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                174,
+                243
+              ]
+            },
+            {
+              "True": [
+                174,
+                243
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                174,
+                243
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-q4-raw-256.json": {
+      "sha256": "0256a19c4a51d92cc28de2d1c7781712cf14aef78d3a581be15795d61771181f",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": 4,
+        "bytes": 357580800,
+        "group_size": 64,
+        "preparation_seconds": 0.097620916,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 248320,
+        "source_bits": 8,
+        "vocab_artifact_sha256": null,
+        "vocab_source": null
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            69.85866747512705,
+            69.88183712771598,
+            69.98963662901495,
+            69.52279722384566
+          ],
+          "candidate_samples": [
+            72.47753744752494,
+            72.45586760555635,
+            72.29717371184957,
+            71.8565110079872
+          ],
+          "native_median": 69.87025230142152,
+          "candidate_median": 72.37652065870296,
+          "paired_gain_samples_percent": [
+            3.7488118039616714,
+            3.683404134233159,
+            3.296969657187798,
+            3.3567604833671716
+          ],
+          "paired_gain_median_percent": 3.5200823088001654,
+          "paired_gain_range_percent": [
+            3.296969657187798,
+            3.7488118039616714
+          ],
+          "native_cv": 0.002891424339824112,
+          "candidate_cv": 0.003988844368958051,
+          "acceptance": [
+            {
+              "True": [
+                177,
+                234
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                177,
+                234
+              ]
+            },
+            {
+              "True": [
+                177,
+                234
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                177,
+                234
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-q6-chat-256.json": {
+      "sha256": "be288b3e0eb7e449664212c6b0f49e19d98d2aef59a5fa92bc254e661d48748f",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": 6,
+        "bytes": 516505600,
+        "group_size": 64,
+        "preparation_seconds": 0.128742125,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 248320,
+        "source_bits": 8,
+        "vocab_artifact_sha256": null,
+        "vocab_source": null
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            67.86638917741345,
+            67.35128663175468,
+            68.15841606255981,
+            68.46472945490933
+          ],
+          "candidate_samples": [
+            68.94306839008091,
+            69.12963662632198,
+            69.49999208599502,
+            69.74876426729777
+          ],
+          "native_median": 68.01240261998663,
+          "candidate_median": 69.31481435615851,
+          "paired_gain_samples_percent": [
+            1.5864689807687293,
+            2.6404098325403913,
+            1.968320423121095,
+            1.8754690518920425
+          ],
+          "paired_gain_median_percent": 1.9218947375065687,
+          "paired_gain_range_percent": [
+            1.5864689807687293,
+            2.6404098325403913
+          ],
+          "native_cv": 0.00697150040472007,
+          "candidate_cv": 0.005227946496406292,
+          "acceptance": [
+            {
+              "True": [
+                176,
+                238
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                176,
+                238
+              ]
+            },
+            {
+              "True": [
+                176,
+                238
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                176,
+                238
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 1,
+          "native_samples": [
+            60.28413923346407,
+            60.43095684217665,
+            60.126170638062376,
+            60.230516941267915
+          ],
+          "candidate_samples": [
+            61.63394613440997,
+            61.43505605361619,
+            61.360926382932654,
+            61.252571857373745
+          ],
+          "native_median": 60.25732808736599,
+          "candidate_median": 61.39799121827442,
+          "paired_gain_samples_percent": [
+            2.2390746854964005,
+            1.6615643105931222,
+            2.053607824624426,
+            1.6969054359976088
+          ],
+          "paired_gain_median_percent": 1.8752566303110174,
+          "paired_gain_range_percent": [
+            1.6615643105931222,
+            2.2390746854964005
+          ],
+          "native_cv": 0.0021061440982180586,
+          "candidate_cv": 0.002617169613733739,
+          "acceptance": [
+            {
+              "True": [
+                165,
+                273
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                165,
+                273
+              ]
+            },
+            {
+              "True": [
+                165,
+                273
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                165,
+                273
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 2,
+          "native_samples": [
+            69.79809668801873,
+            69.75017606790767,
+            69.27822874845282,
+            69.37436947318935
+          ],
+          "candidate_samples": [
+            69.95891491253832,
+            69.80636615761877,
+            69.78487931661175,
+            69.90403923014681
+          ],
+          "native_median": 69.5622727705485,
+          "candidate_median": 69.85520269388279,
+          "paired_gain_samples_percent": [
+            0.2304048851624163,
+            0.0805590650500898,
+            0.731327254336378,
+            0.7634948771133132
+          ],
+          "paired_gain_median_percent": 0.48086606974939716,
+          "paired_gain_range_percent": [
+            0.0805590650500898,
+            0.7634948771133132
+          ],
+          "native_cv": 0.0037706818408002724,
+          "candidate_cv": 0.001174324727213993,
+          "acceptance": [
+            {
+              "True": [
+                175,
+                237
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                175,
+                237
+              ]
+            },
+            {
+              "True": [
+                175,
+                237
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                175,
+                237
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 3,
+          "native_samples": [
+            73.39690544030606,
+            73.37366990890767,
+            73.54253830196335,
+            73.60012117108326
+          ],
+          "candidate_samples": [
+            74.77672641589656,
+            74.72410596361735,
+            74.76581898555229,
+            75.21096121599312
+          ],
+          "native_median": 73.46972187113471,
+          "candidate_median": 74.77127270072442,
+          "paired_gain_samples_percent": [
+            1.8799443482160338,
+            1.8404913593476069,
+            1.663364784291499,
+            2.188637762111112
+          ],
+          "paired_gain_median_percent": 1.8602178537818204,
+          "paired_gain_range_percent": [
+            1.663364784291499,
+            2.188637762111112
+          ],
+          "native_cv": 0.0015019706464757619,
+          "candidate_cv": 0.0030564114383086244,
+          "acceptance": [
+            {
+              "True": [
+                182,
+                220
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                182,
+                220
+              ]
+            },
+            {
+              "True": [
+                182,
+                220
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                182,
+                220
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-q6-multi64-chat-256.json": {
+      "sha256": "3ee905753c0241dd0d16692ea933a6f04a0629e57669446dbeae50384ebff50e",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": 6,
+        "bytes": 138177536,
+        "group_size": 64,
+        "preparation_seconds": 0.085142417,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 66304,
+        "source_bits": 8,
+        "vocab_artifact_sha256": "69d1493b71fb739d2adfef06308bb441ab63a6669620059d08f725e2a8b0c033",
+        "vocab_source": {
+          "algorithm": "count up to8192 tokens/document; rank descending count, ascending ID; fixed membership, no prompt-fit",
+          "corpus_independent_of_timing_prompts": true,
+          "corpus_manifest": "results/decode3-corpus-manifest.json",
+          "include_special_tail": 1024,
+          "observed_unique_ids": 36450,
+          "pad_to_rows_multiple": 128,
+          "requested_frequency_rows": 65536,
+          "unseen_fill_rows": 29854,
+          "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-2"
+        }
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            68.37933510913197,
+            68.24146408611122,
+            68.16651716813833,
+            68.3928294080322
+          ],
+          "candidate_samples": [
+            71.8349815390478,
+            71.75580824456289,
+            71.7569179598708,
+            71.79749727737767
+          ],
+          "native_median": 68.3103995976216,
+          "candidate_median": 71.77720761862423,
+          "paired_gain_samples_percent": [
+            5.053641461123726,
+            5.149866295390515,
+            5.26710317746828,
+            4.978106475217148
+          ],
+          "paired_gain_median_percent": 5.101753878257121,
+          "paired_gain_range_percent": [
+            4.978106475217148,
+            5.26710317746828
+          ],
+          "native_cv": 0.0016052571325112668,
+          "candidate_cv": 0.0005266735696506191,
+          "acceptance": [
+            {
+              "True": [
+                175,
+                241
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                175,
+                241
+              ]
+            },
+            {
+              "True": [
+                175,
+                241
+              ],
+              "False": [
+                176,
+                238
+              ]
+            },
+            {
+              "False": [
+                176,
+                238
+              ],
+              "True": [
+                175,
+                241
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 1,
+          "native_samples": [
+            60.25845620338178,
+            60.43812426772606,
+            60.30566041756048,
+            60.39861724504697
+          ],
+          "candidate_samples": [
+            57.11804519202135,
+            56.875565347719785,
+            56.996801641239664,
+            57.02660433658813
+          ],
+          "native_median": 60.352138831303726,
+          "candidate_median": 57.011702988913896,
+          "paired_gain_samples_percent": [
+            -5.21156898006323,
+            -5.894555734762729,
+            -5.486812934988283,
+            -5.582930640246353
+          ],
+          "paired_gain_median_percent": -5.534871787617318,
+          "paired_gain_range_percent": [
+            -5.894555734762729,
+            -5.21156898006323
+          ],
+          "native_cv": 0.001368922676881652,
+          "candidate_cv": 0.001756133418628246,
+          "acceptance": [
+            {
+              "True": [
+                154,
+                306
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                154,
+                306
+              ]
+            },
+            {
+              "True": [
+                154,
+                306
+              ],
+              "False": [
+                165,
+                273
+              ]
+            },
+            {
+              "False": [
+                165,
+                273
+              ],
+              "True": [
+                154,
+                306
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 2,
+          "native_samples": [
+            69.55289511816159,
+            69.33747205785528,
+            69.51017576159046,
+            69.59171089037955
+          ],
+          "candidate_samples": [
+            68.7723300839701,
+            68.77625466093981,
+            68.90216902509542,
+            68.8800877694389
+          ],
+          "native_median": 69.53153543987602,
+          "candidate_median": 68.82817121518936,
+          "paired_gain_samples_percent": [
+            -1.1222610257493937,
+            -0.8093998530075974,
+            -0.8747017682424141,
+            -1.0225687971108899
+          ],
+          "paired_gain_median_percent": -0.948635282676652,
+          "paired_gain_range_percent": [
+            -1.1222610257493937,
+            -0.8093998530075974
+          ],
+          "native_cv": 0.001613281828712884,
+          "candidate_cv": 0.0009889753514279237,
+          "acceptance": [
+            {
+              "True": [
+                170,
+                252
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                170,
+                252
+              ]
+            },
+            {
+              "True": [
+                170,
+                252
+              ],
+              "False": [
+                176,
+                234
+              ]
+            },
+            {
+              "False": [
+                176,
+                234
+              ],
+              "True": [
+                170,
+                252
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        },
+        {
+          "prompt": 3,
+          "native_samples": [
+            74.03413577080791,
+            73.93185770026749,
+            73.73339669493745,
+            73.51134482552791
+          ],
+          "candidate_samples": [
+            78.88294530574858,
+            78.85237735447876,
+            78.75707844530666,
+            78.54183438883975
+          ],
+          "native_median": 73.83262719760248,
+          "candidate_median": 78.80472789989271,
+          "paired_gain_samples_percent": [
+            6.549424106133195,
+            6.655479528405617,
+            6.813305741432263,
+            6.843147238363301
+          ],
+          "paired_gain_median_percent": 6.73439263491894,
+          "paired_gain_range_percent": [
+            6.549424106133195,
+            6.843147238363301
+          ],
+          "native_cv": 0.003128520405178137,
+          "candidate_cv": 0.001956683544918794,
+          "acceptance": [
+            {
+              "True": [
+                182,
+                220
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                182,
+                220
+              ]
+            },
+            {
+              "True": [
+                182,
+                220
+              ],
+              "False": [
+                182,
+                220
+              ]
+            },
+            {
+              "False": [
+                182,
+                220
+              ],
+              "True": [
+                182,
+                220
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-q6-multi64-raw-256.json": {
+      "sha256": "dc5df2e43962fd70c0b6ac058ca462a86edc264dbf3953fd7dd56f2d1798d827",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": 6,
+        "bytes": 138177536,
+        "group_size": 64,
+        "preparation_seconds": 0.086049708,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 66304,
+        "source_bits": 8,
+        "vocab_artifact_sha256": "69d1493b71fb739d2adfef06308bb441ab63a6669620059d08f725e2a8b0c033",
+        "vocab_source": {
+          "algorithm": "count up to8192 tokens/document; rank descending count, ascending ID; fixed membership, no prompt-fit",
+          "corpus_independent_of_timing_prompts": true,
+          "corpus_manifest": "results/decode3-corpus-manifest.json",
+          "include_special_tail": 1024,
+          "observed_unique_ids": 36450,
+          "pad_to_rows_multiple": 128,
+          "requested_frequency_rows": 65536,
+          "unseen_fill_rows": 29854,
+          "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-2"
+        }
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            69.9246583578813,
+            70.01830086177426,
+            70.04690201563938,
+            70.10536539226693
+          ],
+          "candidate_samples": [
+            70.11558829693841,
+            69.86752557115543,
+            69.76795804791287,
+            69.81390885214114
+          ],
+          "native_median": 70.03260143870682,
+          "candidate_median": 69.84071721164828,
+          "paired_gain_samples_percent": [
+            0.27305094303058386,
+            -0.21533697442399635,
+            -0.3982245605440582,
+            -0.4157407047163608
+          ],
+          "paired_gain_median_percent": -0.3067807674840273,
+          "paired_gain_range_percent": [
+            -0.4157407047163608,
+            0.27305094303058386
+          ],
+          "native_cv": 0.001076474888611041,
+          "candidate_cv": 0.0022177017083919097,
+          "acceptance": [
+            {
+              "True": [
+                173,
+                248
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                173,
+                248
+              ]
+            },
+            {
+              "True": [
+                173,
+                248
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                173,
+                248
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    },
+    "decode3-final-draft-q6-raw-256.json": {
+      "sha256": "56d8758dc2a7b99fd4cb5e018926f2ec7ac94e1aed51324207fab47ab0e298e8",
+      "head": {
+        "amortization": "model-scoped, evaluated once before prompt processing; no prompt-fit rows",
+        "bits": 6,
+        "bytes": 516505600,
+        "group_size": 64,
+        "preparation_seconds": 0.129080959,
+        "requantization_source": "dequantized existing affine checkpoint; original BF16 weights unavailable",
+        "rows": 248320,
+        "source_bits": 8,
+        "vocab_artifact_sha256": null,
+        "vocab_source": null
+      },
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            68.81080691262572,
+            68.3334367950695,
+            68.5537267318066,
+            68.94517398652621
+          ],
+          "candidate_samples": [
+            69.9132866191487,
+            69.110609016544,
+            69.25940925632851,
+            69.16339281972779
+          ],
+          "native_median": 68.68226682221616,
+          "candidate_median": 69.21140103802816,
+          "paired_gain_samples_percent": [
+            1.6021897663878404,
+            1.1373234801656862,
+            1.0293860861607884,
+            0.3165106715724786
+          ],
+          "paired_gain_median_percent": 1.0833547831632373,
+          "paired_gain_range_percent": [
+            0.3165106715724786,
+            1.6021897663878404
+          ],
+          "native_cv": 0.003961950405996971,
+          "candidate_cv": 0.005375654728926556,
+          "acceptance": [
+            {
+              "True": [
+                177,
+                234
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                177,
+                234
+              ]
+            },
+            {
+              "True": [
+                177,
+                234
+              ],
+              "False": [
+                177,
+                234
+              ]
+            },
+            {
+              "False": [
+                177,
+                234
+              ],
+              "True": [
+                177,
+                234
+              ]
+            }
+          ],
+          "exact_original_target_ids": true
+        }
+      ]
+    }
+  },
+  "resident_quality": {
+    "4": {
+      "sha256": "de886f2262025681f4c3a9f6b4f5669f394ce7001e1e5d8bac9d8917bfe81757",
+      "predictions": 6239,
+      "original_nll": 2.640196383219152,
+      "variant_nll": 2.6860414274343793,
+      "nll_delta": 0.04584504421522725,
+      "perplexity_relative_change": 0.04691217329002901,
+      "kl_original_to_variant": 0.07303932654153539,
+      "argmax_agreement": 0.8671262000477988,
+      "identical_greedy_continuations": 0,
+      "greedy_continuations": 7,
+      "saved_weight_bytes": 419430400,
+      "approximate_target": true,
+      "broad_quality_equivalence_established": false
+    },
+    "5": {
+      "sha256": "50a7a439f46079f418144209913cc9ddfe20665a7626e85fa22d9800932e03ab",
+      "predictions": 6239,
+      "original_nll": 2.640196383219152,
+      "variant_nll": 2.6422214042989465,
+      "nll_delta": 0.00202502107979453,
+      "perplexity_relative_change": 0.0020270728196864376,
+      "kl_original_to_variant": 0.01756762622875457,
+      "argmax_agreement": 0.9414970900485446,
+      "identical_greedy_continuations": 0,
+      "greedy_continuations": 7,
+      "saved_weight_bytes": 174653440,
+      "approximate_target": true,
+      "broad_quality_equivalence_established": false
+    },
+    "6": {
+      "sha256": "5e219826892bff63bb7f687314fcdcf384a6264b577b205ace98140e9fe4af8c",
+      "predictions": 6239,
+      "original_nll": 2.640196383219152,
+      "variant_nll": 2.6389360895407545,
+      "nll_delta": -0.001260293678397417,
+      "perplexity_relative_change": -0.0012594998418435977,
+      "kl_original_to_variant": 0.011679139394805105,
+      "argmax_agreement": 0.9490303478861566,
+      "identical_greedy_continuations": 3,
+      "greedy_continuations": 7,
+      "saved_weight_bytes": 69468160,
+      "approximate_target": true,
+      "broad_quality_equivalence_established": false
+    },
+    "mixed32": {
+      "sha256": "3de330325c4ada940ff8943cdb67b575f85e022bc3364bf2303403a15bcd7e28",
+      "predictions": 6239,
+      "original_nll": 2.640196383219152,
+      "variant_nll": 2.6792892503669616,
+      "nll_delta": 0.03909286714780978,
+      "perplexity_relative_change": 0.03986704865314002,
+      "kl_original_to_variant": 0.04900792156846062,
+      "argmax_agreement": 0.8836352550213412,
+      "identical_greedy_continuations": 0,
+      "greedy_continuations": 7,
+      "saved_weight_bytes": 361267200,
+      "approximate_target": true,
+      "broad_quality_equivalence_established": false
+    }
+  },
+  "complete_configurations": {
+    "decode3-config-combo-full-chat-256.json": {
+      "sha256": "3560c7850c244e08bc98de05aa65046472d0dd6ab21a02139a154b4b5abb253b",
+      "approximate_target": false,
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            68.49164213949626,
+            68.4778291615118,
+            68.44200990698093,
+            68.37842901900082
+          ],
+          "candidate_samples": [
+            70.32658956378016,
+            70.21553736382776,
+            70.14874973608252,
+            69.8242556699228
+          ],
+          "native_median": 68.45991953424637,
+          "candidate_median": 70.18214354995514,
+          "paired_gain_samples_percent": [
+            2.6790822456069563,
+            2.537621626727393,
+            2.4937020865126724,
+            2.1144484769022975
+          ],
+          "paired_gain_median_percent": 2.515661856620033,
+          "paired_gain_range_percent": [
+            2.1144484769022975,
+            2.6790822456069563
+          ],
+          "native_cv": 0.0007386871174717587,
+          "candidate_cv": 0.0030780811725170244,
+          "cost_samples": {
+            "False": [
+              {
+                "cold_complete_process_seconds": 14.524502038955688,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74633627264
+              },
+              {
+                "cold_complete_process_seconds": 14.824313163757324,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74633297184
+              },
+              {
+                "cold_complete_process_seconds": 14.769469976425171,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74633990400
+              },
+              {
+                "cold_complete_process_seconds": 14.670463800430298,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74633340508
+              }
+            ],
+            "True": [
+              {
+                "cold_complete_process_seconds": 15.003187894821167,
+                "head_preparation_seconds": 0.087813084,
+                "expert_layout_preparation_seconds": 3.084893042,
+                "peak_memory_bytes": 74993562822
+              },
+              {
+                "cold_complete_process_seconds": 15.277202129364014,
+                "head_preparation_seconds": 0.106003791,
+                "expert_layout_preparation_seconds": 3.102874,
+                "peak_memory_bytes": 74993571780
+              },
+              {
+                "cold_complete_process_seconds": 15.718577861785889,
+                "head_preparation_seconds": 0.105804125,
+                "expert_layout_preparation_seconds": 4.0004425,
+                "peak_memory_bytes": 74993596350
+              },
+              {
+                "cold_complete_process_seconds": 14.896313667297363,
+                "head_preparation_seconds": 0.07294325,
+                "expert_layout_preparation_seconds": 3.078718208,
+                "peak_memory_bytes": 74994198150
+              }
+            ]
+          },
+          "cold_wall_scope": "process launch through exit, including model init, full warmup, measured prefill/decode and serialization; model-load-only time is not separated"
+        },
+        {
+          "prompt": 1,
+          "native_samples": [
+            60.54759121827273,
+            60.427230586713776,
+            60.683453939528505,
+            60.48388232998928
+          ],
+          "candidate_samples": [
+            61.542193056049555,
+            61.39507055275566,
+            61.39717949784451,
+            61.486829295110475
+          ],
+          "native_median": 60.515736774131,
+          "candidate_median": 61.44200439647749,
+          "paired_gain_samples_percent": [
+            1.6426777973566509,
+            1.6016619604186877,
+            1.1761452455017363,
+            1.6582053374968542
+          ],
+          "paired_gain_median_percent": 1.6221698788876693,
+          "paired_gain_range_percent": [
+            1.1761452455017363,
+            1.6582053374968542
+          ],
+          "native_cv": 0.0018201955976813863,
+          "candidate_cv": 0.00117151048372404,
+          "cost_samples": {
+            "False": [
+              {
+                "cold_complete_process_seconds": 15.736233949661255,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74651597632
+              },
+              {
+                "cold_complete_process_seconds": 15.708868741989136,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74651087424
+              },
+              {
+                "cold_complete_process_seconds": 16.160266876220703,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74651060928
+              },
+              {
+                "cold_complete_process_seconds": 15.84934115409851,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74651104830
+              }
+            ],
+            "True": [
+              {
+                "cold_complete_process_seconds": 17.081986904144287,
+                "head_preparation_seconds": 0.084132375,
+                "expert_layout_preparation_seconds": 3.057668083,
+                "peak_memory_bytes": 75013146038
+              },
+              {
+                "cold_complete_process_seconds": 16.65084218978882,
+                "head_preparation_seconds": 0.071153833,
+                "expert_layout_preparation_seconds": 3.116213542,
+                "peak_memory_bytes": 75013304246
+              },
+              {
+                "cold_complete_process_seconds": 16.769312143325806,
+                "head_preparation_seconds": 0.074428667,
+                "expert_layout_preparation_seconds": 3.102997583,
+                "peak_memory_bytes": 75013274870
+              },
+              {
+                "cold_complete_process_seconds": 18.26366901397705,
+                "head_preparation_seconds": 0.098935875,
+                "expert_layout_preparation_seconds": 3.104050541,
+                "peak_memory_bytes": 75013396406
+              }
+            ]
+          },
+          "cold_wall_scope": "process launch through exit, including model init, full warmup, measured prefill/decode and serialization; model-load-only time is not separated"
+        },
+        {
+          "prompt": 2,
+          "native_samples": [
+            69.78085072345586,
+            70.1406835234695,
+            70.10740845101805,
+            70.10425877873708
+          ],
+          "candidate_samples": [
+            70.6637183269367,
+            70.49256136534623,
+            70.48661180446553,
+            70.52209094127839
+          ],
+          "native_median": 70.10583361487755,
+          "candidate_median": 70.5073261533123,
+          "paired_gain_samples_percent": [
+            1.2652004014391816,
+            0.5016743838246018,
+            0.5408891325834997,
+            0.5960153774110521
+          ],
+          "paired_gain_median_percent": 0.5684522549972759,
+          "paired_gain_range_percent": [
+            0.5016743838246018,
+            1.2652004014391816
+          ],
+          "native_cv": 0.0024146309173220287,
+          "candidate_cv": 0.0011781662922954084,
+          "cost_samples": {
+            "False": [
+              {
+                "cold_complete_process_seconds": 14.482434034347534,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74647913416
+              },
+              {
+                "cold_complete_process_seconds": 14.958211898803711,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74647965358
+              },
+              {
+                "cold_complete_process_seconds": 14.295795202255249,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74648028104
+              },
+              {
+                "cold_complete_process_seconds": 15.545274019241333,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74647815112
+              }
+            ],
+            "True": [
+              {
+                "cold_complete_process_seconds": 15.73254108428955,
+                "head_preparation_seconds": 0.068986875,
+                "expert_layout_preparation_seconds": 2.951422917,
+                "peak_memory_bytes": 75008584646
+              },
+              {
+                "cold_complete_process_seconds": 15.186998128890991,
+                "head_preparation_seconds": 0.072912583,
+                "expert_layout_preparation_seconds": 3.000875084,
+                "peak_memory_bytes": 75009079654
+              },
+              {
+                "cold_complete_process_seconds": 15.549535989761353,
+                "head_preparation_seconds": 0.074201417,
+                "expert_layout_preparation_seconds": 3.624440416,
+                "peak_memory_bytes": 75009657598
+              },
+              {
+                "cold_complete_process_seconds": 16.362761974334717,
+                "head_preparation_seconds": 0.091912083,
+                "expert_layout_preparation_seconds": 3.05715175,
+                "peak_memory_bytes": 75008917182
+              }
+            ]
+          },
+          "cold_wall_scope": "process launch through exit, including model init, full warmup, measured prefill/decode and serialization; model-load-only time is not separated"
+        },
+        {
+          "prompt": 3,
+          "native_samples": [
+            74.50601780474749,
+            74.20571330657468,
+            74.49464239045427,
+            74.58348141871383
+          ],
+          "candidate_samples": [
+            79.42202980536666,
+            79.25029326990585,
+            79.47358257209783,
+            79.04308274222151
+          ],
+          "native_median": 74.50033009760088,
+          "candidate_median": 79.33616153763626,
+          "paired_gain_samples_percent": [
+            6.598140855551038,
+            6.798101842225979,
+            6.683621830878872,
+            5.9793418578456325
+          ],
+          "paired_gain_median_percent": 6.640881343214955,
+          "paired_gain_range_percent": [
+            5.9793418578456325,
+            6.798101842225979
+          ],
+          "native_cv": 0.0022288226135599555,
+          "candidate_cv": 0.0024525624640375546,
+          "cost_samples": {
+            "False": [
+              {
+                "cold_complete_process_seconds": 14.085856914520264,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74688714092
+              },
+              {
+                "cold_complete_process_seconds": 14.124781847000122,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74688751396
+              },
+              {
+                "cold_complete_process_seconds": 14.030202150344849,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74688579366
+              },
+              {
+                "cold_complete_process_seconds": 14.838960886001587,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74688649710
+              }
+            ],
+            "True": [
+              {
+                "cold_complete_process_seconds": 15.453068017959595,
+                "head_preparation_seconds": 0.1117295,
+                "expert_layout_preparation_seconds": 3.0001465,
+                "peak_memory_bytes": 75047301198
+              },
+              {
+                "cold_complete_process_seconds": 14.56658935546875,
+                "head_preparation_seconds": 0.096822459,
+                "expert_layout_preparation_seconds": 2.983786333,
+                "peak_memory_bytes": 75047246086
+              },
+              {
+                "cold_complete_process_seconds": 14.531334161758423,
+                "head_preparation_seconds": 0.099001916,
+                "expert_layout_preparation_seconds": 3.108585208,
+                "peak_memory_bytes": 75047389446
+              },
+              {
+                "cold_complete_process_seconds": 14.215247869491577,
+                "head_preparation_seconds": 0.072547208,
+                "expert_layout_preparation_seconds": 2.941349208,
+                "peak_memory_bytes": 75047304966
+              }
+            ]
+          },
+          "cold_wall_scope": "process launch through exit, including model init, full warmup, measured prefill/decode and serialization; model-load-only time is not separated"
+        }
+      ],
+      "native_oracles": [
+        "results/decode3-native-oracle-2f9fa79e10cafb2720863c1086885127b64afbf4b98a67bb956468c029fd1bc7.json",
+        "results/decode3-native-oracle-6795ea56fbde292a7648dab132761bf3ff49ae5a8aea7b4a14647d5cde3429da.json",
+        "results/decode3-native-oracle-a732cfc00ad99519ec088528276c22a51282f57e20a7355924da11a6a83eadce.json",
+        "results/decode3-native-oracle-c52f949695257d37da53dcad6127fab19e6be39672b2e1aa5464c0ad588ff5af.json"
+      ]
+    },
+    "decode3-config-combo-full-raw-256.json": {
+      "sha256": "1d3e5c9de7dfc838bc1ebf3ccf681a3eaf87865b801fab6730b37073ae3a2596",
+      "approximate_target": false,
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            69.74281083680336,
+            70.09118853458256,
+            70.03753989891362,
+            70.23338899444171
+          ],
+          "candidate_samples": [
+            72.61614199837223,
+            72.8591343470873,
+            72.57604891460394,
+            72.7985140538602
+          ],
+          "native_median": 70.06436421674809,
+          "candidate_median": 72.70732802611622,
+          "paired_gain_samples_percent": [
+            4.1198958388591445,
+            3.9490638843127313,
+            3.624497689887729,
+            3.6522871758637443
+          ],
+          "paired_gain_median_percent": 3.8006755300882378,
+          "paired_gain_range_percent": [
+            3.624497689887729,
+            4.1198958388591445
+          ],
+          "native_cv": 0.0029449971826048795,
+          "candidate_cv": 0.0018924275125012154,
+          "cost_samples": {
+            "False": [
+              {
+                "cold_complete_process_seconds": 14.170109987258911,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615379150
+              },
+              {
+                "cold_complete_process_seconds": 14.301293134689331,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615432400
+              },
+              {
+                "cold_complete_process_seconds": 13.967116117477417,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615312590
+              },
+              {
+                "cold_complete_process_seconds": 14.373450994491577,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615256782
+              }
+            ],
+            "True": [
+              {
+                "cold_complete_process_seconds": 14.698798179626465,
+                "head_preparation_seconds": 0.111010542,
+                "expert_layout_preparation_seconds": 2.938850833,
+                "peak_memory_bytes": 74975101404
+              },
+              {
+                "cold_complete_process_seconds": 14.958276748657227,
+                "head_preparation_seconds": 0.084605125,
+                "expert_layout_preparation_seconds": 3.195900167,
+                "peak_memory_bytes": 74974693726
+              },
+              {
+                "cold_complete_process_seconds": 15.555302143096924,
+                "head_preparation_seconds": 0.103599083,
+                "expert_layout_preparation_seconds": 3.852182292,
+                "peak_memory_bytes": 74975265238
+              },
+              {
+                "cold_complete_process_seconds": 14.703959703445435,
+                "head_preparation_seconds": 0.06994425,
+                "expert_layout_preparation_seconds": 3.1198155,
+                "peak_memory_bytes": 74975185364
+              }
+            ]
+          },
+          "cold_wall_scope": "process launch through exit, including model init, full warmup, measured prefill/decode and serialization; model-load-only time is not separated"
+        }
+      ],
+      "native_oracles": [
+        "results/decode3-native-oracle-67a65b57be7c5101ff6cfb2c3178dd6a12cfd38b92676c78f238d12ae490cc86.json"
+      ]
+    },
+    "decode3-config-combo-mixed32-raw-256.json": {
+      "sha256": "7ca53626a9c281407d579f057a80e9473bc6e36654ec0489198400f00fc6b399",
+      "approximate_target": true,
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            70.05202702236339,
+            70.20281536646509,
+            69.75523230920115,
+            70.180615419976
+          ],
+          "candidate_samples": [
+            71.59615892424911,
+            71.27444875846602,
+            71.42637395716223,
+            71.43065398228528
+          ],
+          "native_median": 70.1163212211697,
+          "candidate_median": 71.42851396972375,
+          "paired_gain_samples_percent": [
+            2.204264412495549,
+            1.5264820739836482,
+            2.3957222886929586,
+            1.7811735545902208
+          ],
+          "paired_gain_median_percent": 1.992718983542885,
+          "paired_gain_range_percent": [
+            1.5264820739836482,
+            2.3957222886929586
+          ],
+          "native_cv": 0.002940569659531791,
+          "candidate_cv": 0.0018396223092917276,
+          "cost_samples": {
+            "False": [
+              {
+                "cold_complete_process_seconds": 14.673623085021973,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615665348
+              },
+              {
+                "cold_complete_process_seconds": 14.340336084365845,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615316686
+              },
+              {
+                "cold_complete_process_seconds": 14.459706783294678,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615427280
+              },
+              {
+                "cold_complete_process_seconds": 14.383649110794067,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615395534
+              }
+            ],
+            "True": [
+              {
+                "cold_complete_process_seconds": 17.02114200592041,
+                "head_preparation_seconds": 0.065098791,
+                "expert_layout_preparation_seconds": 3.344048542,
+                "peak_memory_bytes": 74616358014
+              },
+              {
+                "cold_complete_process_seconds": 16.566640853881836,
+                "head_preparation_seconds": 0.069729333,
+                "expert_layout_preparation_seconds": 3.245894791,
+                "peak_memory_bytes": 74616179326
+              },
+              {
+                "cold_complete_process_seconds": 17.271313190460205,
+                "head_preparation_seconds": 0.100694458,
+                "expert_layout_preparation_seconds": 3.900082083,
+                "peak_memory_bytes": 74616630910
+              },
+              {
+                "cold_complete_process_seconds": 18.915005922317505,
+                "head_preparation_seconds": 0.073670458,
+                "expert_layout_preparation_seconds": 3.36899175,
+                "peak_memory_bytes": 74616758908
+              }
+            ]
+          },
+          "cold_wall_scope": "process launch through exit, including model init, full warmup, measured prefill/decode and serialization; model-load-only time is not separated"
+        }
+      ],
+      "native_oracles": [
+        "results/decode3-native-oracle-67a65b57be7c5101ff6cfb2c3178dd6a12cfd38b92676c78f238d12ae490cc86.json",
+        "results/decode3-native-oracle-bae9f4783327e667695770f7a473610af26a688892b888606a946c65bfc5f1a6.json"
+      ]
+    },
+    "decode3-config-layout-raw-256.json": {
+      "sha256": "2d3a65b510bee115cb1b07a5ade736b8a7e5af53828ea6dbd349b19f9b4eb74b",
+      "approximate_target": false,
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            69.77723787829994,
+            69.95694208649198,
+            69.83782264112763,
+            69.74029147843238
+          ],
+          "candidate_samples": [
+            70.13973416628164,
+            69.90819147473563,
+            69.83897745693336,
+            69.8979802494255
+          ],
+          "native_median": 69.80753025971379,
+          "candidate_median": 69.90308586208056,
+          "paired_gain_samples_percent": [
+            0.5195050692805347,
+            -0.06968659621524598,
+            0.0016535678835083445,
+            0.2261085631422688
+          ],
+          "paired_gain_median_percent": 0.11388106551288857,
+          "paired_gain_range_percent": [
+            -0.06968659621524598,
+            0.5195050692805347
+          ],
+          "native_cv": 0.0013583999783804963,
+          "candidate_cv": 0.0018952687436488657,
+          "cost_samples": {
+            "False": [
+              {
+                "cold_complete_process_seconds": 13.821858882904053,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615349702
+              },
+              {
+                "cold_complete_process_seconds": 14.087146997451782,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615476432
+              },
+              {
+                "cold_complete_process_seconds": 14.207953929901123,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615542992
+              },
+              {
+                "cold_complete_process_seconds": 14.318966150283813,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615437008
+              }
+            ],
+            "True": [
+              {
+                "cold_complete_process_seconds": 15.111489057540894,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 2.946444666,
+                "peak_memory_bytes": 74617744222
+              },
+              {
+                "cold_complete_process_seconds": 14.862358093261719,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 2.993144416,
+                "peak_memory_bytes": 74617640628
+              },
+              {
+                "cold_complete_process_seconds": 15.499118089675903,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 3.796084417,
+                "peak_memory_bytes": 74617549886
+              },
+              {
+                "cold_complete_process_seconds": 14.829275846481323,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 3.119692417,
+                "peak_memory_bytes": 74617609054
+              }
+            ]
+          },
+          "cold_wall_scope": "process launch through exit, including model init, full warmup, measured prefill/decode and serialization; model-load-only time is not separated"
+        }
+      ],
+      "native_oracles": [
+        "results/decode3-native-oracle-59bea2a6c15c17ca46f7fba078107260411b990c29df02ee5a1fc19156c7300c.json"
+      ]
+    },
+    "decode3-config-mixed32-raw-256.json": {
+      "sha256": "af695069ad47a9904154feede1badeed7f891daa72d6d763832126d43e898c60",
+      "approximate_target": true,
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            69.78142040586945,
+            70.04579484191008,
+            69.66078667906729,
+            69.96732251656819
+          ],
+          "candidate_samples": [
+            72.07717684231186,
+            71.9954473467119,
+            72.06691879725683,
+            71.71241801759035
+          ],
+          "native_median": 69.87437146121883,
+          "candidate_median": 72.03118307198437,
+          "paired_gain_samples_percent": [
+            3.2899250589764506,
+            2.783396932252802,
+            3.4540696895583256,
+            2.4941578986517943
+          ],
+          "paired_gain_median_percent": 3.036660995614626,
+          "paired_gain_range_percent": [
+            2.4941578986517943,
+            3.4540696895583256
+          ],
+          "native_cv": 0.0025043932538317912,
+          "candidate_cv": 0.002375633931606188,
+          "cost_samples": {
+            "False": [
+              {
+                "cold_complete_process_seconds": 13.916163206100464,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615395534
+              },
+              {
+                "cold_complete_process_seconds": 14.880104303359985,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615542214
+              },
+              {
+                "cold_complete_process_seconds": 14.9743492603302,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615485648
+              },
+              {
+                "cold_complete_process_seconds": 14.773379802703857,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615451856
+              }
+            ],
+            "True": [
+              {
+                "cold_complete_process_seconds": 15.973159790039062,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74254378512
+              },
+              {
+                "cold_complete_process_seconds": 16.399529933929443,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74254697230
+              },
+              {
+                "cold_complete_process_seconds": 15.618215084075928,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74254256656
+              },
+              {
+                "cold_complete_process_seconds": 15.887542963027954,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74254260754
+              }
+            ]
+          },
+          "cold_wall_scope": "process launch through exit, including model init, full warmup, measured prefill/decode and serialization; model-load-only time is not separated"
+        }
+      ],
+      "native_oracles": [
+        "results/decode3-native-oracle-67a65b57be7c5101ff6cfb2c3178dd6a12cfd38b92676c78f238d12ae490cc86.json",
+        "results/decode3-native-oracle-d0a7c940caaf63673a90c9fc10b355fc883decf82daf347ae0a490026f0d68b0.json"
+      ]
+    },
+    "decode3-config-q4-raw-256.json": {
+      "sha256": "e66f171973dec288dd4f18774fe432c743553a9e02e56cdbf7b939f988e47b88",
+      "approximate_target": true,
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            70.11297687247736,
+            69.80718468548082,
+            69.71074267082739,
+            69.89103554234528
+          ],
+          "candidate_samples": [
+            70.35932970187459,
+            70.20744372357154,
+            70.40575688359218,
+            70.13376768354641
+          ],
+          "native_median": 69.84911011391304,
+          "candidate_median": 70.28338671272306,
+          "paired_gain_samples_percent": [
+            0.3513655251656145,
+            0.5733779981159648,
+            0.9969972864105392,
+            0.34730082236951176
+          ],
+          "paired_gain_median_percent": 0.46237176164078964,
+          "paired_gain_range_percent": [
+            0.34730082236951176,
+            0.9969972864105392
+          ],
+          "native_cv": 0.002455753218298349,
+          "candidate_cv": 0.001813155334634212,
+          "cost_samples": {
+            "False": [
+              {
+                "cold_complete_process_seconds": 14.410980939865112,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615362768
+              },
+              {
+                "cold_complete_process_seconds": 14.452661991119385,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615833542
+              },
+              {
+                "cold_complete_process_seconds": 14.60791277885437,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615251152
+              },
+              {
+                "cold_complete_process_seconds": 14.495574951171875,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615386320
+              }
+            ],
+            "True": [
+              {
+                "cold_complete_process_seconds": 16.204512119293213,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74197193648
+              },
+              {
+                "cold_complete_process_seconds": 16.394824981689453,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74197594792
+              },
+              {
+                "cold_complete_process_seconds": 16.756529808044434,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74197391528
+              },
+              {
+                "cold_complete_process_seconds": 16.522088766098022,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74197438384
+              }
+            ]
+          },
+          "cold_wall_scope": "process launch through exit, including model init, full warmup, measured prefill/decode and serialization; model-load-only time is not separated"
+        }
+      ],
+      "native_oracles": [
+        "results/decode3-native-oracle-59bea2a6c15c17ca46f7fba078107260411b990c29df02ee5a1fc19156c7300c.json",
+        "results/decode3-native-oracle-d54e6eab4bdab5c0a81cf45d6d0419fc60bedd607e454efb12ca256df253deba.json"
+      ]
+    },
+    "decode3-config-q5-raw-256.json": {
+      "sha256": "fa83d9c224a1ed6a811971396e4e4191cdf5b25ffe9587689fc53e5dbe132d07",
+      "approximate_target": true,
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            61.93467093457561,
+            63.09140199337562,
+            66.8236243014962,
+            66.64771562831105
+          ],
+          "candidate_samples": [
+            65.38563179587888,
+            64.19303222395816,
+            65.03000246252807,
+            66.00899275454233
+          ],
+          "native_median": 64.86955881084333,
+          "candidate_median": 65.20781712920348,
+          "paired_gain_samples_percent": [
+            5.57193702530312,
+            1.7460861476785716,
+            -2.684113377142827,
+            -0.958356738482713
+          ],
+          "paired_gain_median_percent": 0.3938647045979293,
+          "paired_gain_range_percent": [
+            -2.684113377142827,
+            5.57193702530312
+          ],
+          "native_cv": 0.038442039158962764,
+          "candidate_cv": 0.011633251736184921,
+          "cost_samples": {
+            "False": [
+              {
+                "cold_complete_process_seconds": 15.44030213356018,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615313864
+              },
+              {
+                "cold_complete_process_seconds": 15.212366104125977,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615321298
+              },
+              {
+                "cold_complete_process_seconds": 15.667983055114746,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615551438
+              },
+              {
+                "cold_complete_process_seconds": 15.092169046401978,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615395782
+              }
+            ],
+            "True": [
+              {
+                "cold_complete_process_seconds": 16.52178692817688,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74442636068
+              },
+              {
+                "cold_complete_process_seconds": 16.37933588027954,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74442529190
+              },
+              {
+                "cold_complete_process_seconds": 16.612824201583862,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74442562096
+              },
+              {
+                "cold_complete_process_seconds": 15.943426132202148,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74442734628
+              }
+            ]
+          },
+          "cold_wall_scope": "process launch through exit, including model init, full warmup, measured prefill/decode and serialization; model-load-only time is not separated"
+        }
+      ],
+      "native_oracles": [
+        "results/decode3-native-oracle-13efba955eaec9bc64ea06ac3da3062ab33af221abd79533ed1d224216dc642f.json",
+        "results/decode3-native-oracle-59bea2a6c15c17ca46f7fba078107260411b990c29df02ee5a1fc19156c7300c.json"
+      ]
+    },
+    "decode3-config-q6-raw-256.json": {
+      "sha256": "4b1cbde2a8d2cf9472f81b998d376fe3d6c670606dc6697e8b4ccfba847ed610",
+      "approximate_target": true,
+      "statistics": [
+        {
+          "prompt": 0,
+          "native_samples": [
+            68.87278037323335,
+            66.99776628212355,
+            68.34623825204685,
+            67.98096230313627
+          ],
+          "candidate_samples": [
+            56.604766737840734,
+            61.926740655604725,
+            63.201104976196646,
+            63.80220882111009
+          ],
+          "native_median": 68.16360027759156,
+          "candidate_median": 62.56392281590068,
+          "paired_gain_samples_percent": [
+            -17.812572062446385,
+            -7.568947306638618,
+            -7.528041641261963,
+            -6.1469466457278905
+          ],
+          "paired_gain_median_percent": -7.54849447395029,
+          "paired_gain_range_percent": [
+            -17.812572062446385,
+            -6.1469466457278905
+          ],
+          "native_cv": 0.011622794852415946,
+          "candidate_cv": 0.0534426882642267,
+          "cost_samples": {
+            "False": [
+              {
+                "cold_complete_process_seconds": 14.622320890426636,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615444688
+              },
+              {
+                "cold_complete_process_seconds": 14.928473949432373,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615297482
+              },
+              {
+                "cold_complete_process_seconds": 14.614830732345581,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615714514
+              },
+              {
+                "cold_complete_process_seconds": 14.563261032104492,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74615714758
+              }
+            ],
+            "True": [
+              {
+                "cold_complete_process_seconds": 16.745382070541382,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74548116976
+              },
+              {
+                "cold_complete_process_seconds": 15.651288032531738,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74548240374
+              },
+              {
+                "cold_complete_process_seconds": 15.54967188835144,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74548087280
+              },
+              {
+                "cold_complete_process_seconds": 15.843446016311646,
+                "head_preparation_seconds": 0,
+                "expert_layout_preparation_seconds": 0,
+                "peak_memory_bytes": 74548199144
+              }
+            ]
+          },
+          "cold_wall_scope": "process launch through exit, including model init, full warmup, measured prefill/decode and serialization; model-load-only time is not separated"
+        }
+      ],
+      "native_oracles": [
+        "results/decode3-native-oracle-52eafd73cc038302c4a8194748004b0769ad828d745f02157470612f58148d0a.json",
+        "results/decode3-native-oracle-59bea2a6c15c17ca46f7fba078107260411b990c29df02ee5a1fc19156c7300c.json"
+      ]
+    }
+  },
+  "source_sha256": "86cf87809f7a00dabadd266dbe7e357daad1565f8a8f6a568606939e71dc6be2",
+  "analysis_script_sha256": "893de6455928f1d39c090dfe265b9386094ca2a57078847341f1de11036df8b6",
+  "scope_complete": false,
+  "qualification": {},
+  "default_promoted": false,
+  "solo100_demonstrated": false,
+  "limitation": "No broad target-quality equivalence or general speedup is inferred from a small held-out corpus. Publication is verified separately."
+}

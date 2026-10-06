@@ -1,0 +1,18 @@
+{
+  "log": "results/matrix-quality-final.log",
+  "sha256": "8962760d16ce3ec083aa403defa4e4ddfbed15eeb21a9df9504db05a5571f824",
+  "passed": true,
+  "exit_code": 0,
+  "success_marker": "QUALITY_CHECKS_PASSED",
+  "command": "PATH=\"$PWD/.venv/bin:$PATH\" scripts/check.sh",
+  "code_sha256": "4b866a772dd65cd530552ed204dca4b31fdd6093a2de4718ab6c061b59faf490",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "contains_metal_validation_enabled": false,
+  "captured_unix_seconds": 1791278406.1608598,
+  "release_tests_passed": 29,
+  "checks": [
+    "cargo fmt --check",
+    "cargo clippy --workspace --all-targets --all-features -- -D warnings",
+    "cargo test --workspace --release"
+  ]
+}

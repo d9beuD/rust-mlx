@@ -1,0 +1,30 @@
+{
+  "command": [
+    "target/release/draft-study",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--prompts",
+    "results/workload-prompts.json",
+    "--output",
+    "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/decode3-final-draft-q4-multi64-chat-256.json",
+    "--max-tokens",
+    "256",
+    "--warmup-tokens",
+    "256",
+    "--runs",
+    "4",
+    "--depth",
+    "3",
+    "--ignore-eos",
+    "--head-bits",
+    "4",
+    "--vocab-ids",
+    "results/decode3-vocab-multilingual-65536.json",
+    "--chat"
+  ],
+  "started_unix": 1791290040.729743,
+  "ended_unix": 1791290227.071143,
+  "exit_code": 0,
+  "log_sha256": "7e30f576a8bc426452455c346979c294a9df4cdfaaf73f2b2fa7544bd5a0423d",
+  "output_sha256": "658871669367ef5b86b012bf9787a01a1e5e4702513c5ab50795b59bd25c77e2"
+}

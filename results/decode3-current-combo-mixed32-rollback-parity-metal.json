@@ -1,0 +1,57 @@
+[
+  {
+    "keep": 0,
+    "layout_calls": 96,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": true,
+    "resident_overlay": ".unlazy/decode3-quant-mixed32",
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "keep": 1,
+    "layout_calls": 192,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": true,
+    "resident_overlay": ".unlazy/decode3-quant-mixed32",
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "keep": 2,
+    "layout_calls": 288,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": true,
+    "resident_overlay": ".unlazy/decode3-quant-mixed32",
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "keep": 3,
+    "layout_calls": 384,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": true,
+    "resident_overlay": ".unlazy/decode3-quant-mixed32",
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "keep": 4,
+    "layout_calls": 480,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": true,
+    "resident_overlay": ".unlazy/decode3-quant-mixed32",
+    "sorted_moe": false,
+    "state_error": 0.0
+  }
+]

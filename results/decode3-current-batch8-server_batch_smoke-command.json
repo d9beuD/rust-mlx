@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "scripts/server_batch_smoke.py"
+  ],
+  "log": "results/decode3-current-batch8-server_batch_smoke.log",
+  "sha256": "944f61d45ae75e36191ed4996bd01611bb855ae8d87624502bb7a2e696931cf6",
+  "code_sha256": "86cf87809f7a00dabadd266dbe7e357daad1565f8a8f6a568606939e71dc6be2",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "runner_sha256": "509f02911ae6de7af76e1d76545b9c0279fc46f98dc7c3476357a938f5203fc5",
+  "started_unix": 1791293373.228108,
+  "ended_unix": 1791293434.536575,
+  "exit_code": 0,
+  "passed": true,
+  "success_marker": "SERVER_BATCH_SMOKE_PASSED",
+  "contains_metal_validation_enabled": false,
+  "validation_environment": {}
+}

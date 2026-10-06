@@ -1,0 +1,25 @@
+{
+  "command": [
+    "target/release/rollback-parity",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--output",
+    "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/decode3-current-original-rollback-parity-metal.json"
+  ],
+  "validation_environment": {
+    "MTL_SHADER_VALIDATION": "1",
+    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+  },
+  "source_sha256": "86cf87809f7a00dabadd266dbe7e357daad1565f8a8f6a568606939e71dc6be2",
+  "started_unix": 1791293071.713613,
+  "ended_unix": 1791293081.5340722,
+  "exit_code": 0,
+  "success_marker": "ROLLBACK_PARITY_PASSED",
+  "passed": true,
+  "timings_are_diagnostic": true,
+  "binary_sha256": "c18af92234ef5462e115d22e39662c903c5d60445a94ce53f16ee3afe9700dad",
+  "output_sha256": "71fd366b086cf791f250f6a79c76023b864bfcd07fe6441e57ad1bd40e90fade",
+  "log_sha256": "8a8fd43ec46f5820150240dc1eb9333ee4a9d98c2d8a0ab36f060121afb04169"
+}

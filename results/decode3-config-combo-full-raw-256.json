@@ -1,0 +1,229 @@
+{
+  "case": "combo-full",
+  "suite": "raw",
+  "candidate_flags": [
+    "--native-gate-up",
+    "--draft-head-bits",
+    "4"
+  ],
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "source_sha256": "86cf87809f7a00dabadd266dbe7e357daad1565f8a8f6a568606939e71dc6be2",
+  "runner_sha256": "65160d4e4028947cece7ee94283418392dcdb95ebb4f92a2b0c4c5cefb30731d",
+  "approximate_target": false,
+  "max_tokens": 256,
+  "warmup_tokens": 256,
+  "runs": 4,
+  "batch_size": 1,
+  "prefix_cache": false,
+  "mtp": true,
+  "sampler": "greedy",
+  "records": [
+    {
+      "prompt": 0,
+      "cycle": 1,
+      "candidate": true,
+      "rate": 72.61614199837223,
+      "report": "results/decode3-config-combo-full-raw-p0-c1-candidate.json",
+      "report_sha256": "9758f461f11618067831ab9fc9b1a274655d6b9e52681e3d3a4dd9fa61e87a2f",
+      "oracle_sha256": "67a65b57be7c5101ff6cfb2c3178dd6a12cfd38b92676c78f238d12ae490cc86",
+      "oracle_report": ".unlazy/decode3-config-oracles/original-3ecb74160e033e17-raw-0.json",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": true
+    },
+    {
+      "prompt": 0,
+      "cycle": 1,
+      "candidate": false,
+      "rate": 69.74281083680336,
+      "report": "results/decode3-config-combo-full-raw-p0-c1-native.json",
+      "report_sha256": "d3f65619eadab3772b5612fe8cadc73cf1b891183fe37f716b6b586f4d563bca",
+      "oracle_sha256": "67a65b57be7c5101ff6cfb2c3178dd6a12cfd38b92676c78f238d12ae490cc86",
+      "oracle_report": ".unlazy/decode3-config-oracles/original-3ecb74160e033e17-raw-0.json",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": true
+    },
+    {
+      "prompt": 0,
+      "cycle": 2,
+      "candidate": false,
+      "rate": 70.09118853458256,
+      "report": "results/decode3-config-combo-full-raw-p0-c2-native.json",
+      "report_sha256": "0f347d495b6d727e15f35f8583356f3640ff79677b8c337255a302197a152944",
+      "oracle_sha256": "67a65b57be7c5101ff6cfb2c3178dd6a12cfd38b92676c78f238d12ae490cc86",
+      "oracle_report": ".unlazy/decode3-config-oracles/original-3ecb74160e033e17-raw-0.json",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": true
+    },
+    {
+      "prompt": 0,
+      "cycle": 2,
+      "candidate": true,
+      "rate": 72.8591343470873,
+      "report": "results/decode3-config-combo-full-raw-p0-c2-candidate.json",
+      "report_sha256": "5efdfcb5027825bd59721bd4085504868c872fed5d59e28df4d971c2d250cf61",
+      "oracle_sha256": "67a65b57be7c5101ff6cfb2c3178dd6a12cfd38b92676c78f238d12ae490cc86",
+      "oracle_report": ".unlazy/decode3-config-oracles/original-3ecb74160e033e17-raw-0.json",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": true
+    },
+    {
+      "prompt": 0,
+      "cycle": 3,
+      "candidate": true,
+      "rate": 72.57604891460394,
+      "report": "results/decode3-config-combo-full-raw-p0-c3-candidate.json",
+      "report_sha256": "49a7644c45816fb80ceb8d66f70005815871e80eb838cd6193fb263c3b65d3f8",
+      "oracle_sha256": "67a65b57be7c5101ff6cfb2c3178dd6a12cfd38b92676c78f238d12ae490cc86",
+      "oracle_report": ".unlazy/decode3-config-oracles/original-3ecb74160e033e17-raw-0.json",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": true
+    },
+    {
+      "prompt": 0,
+      "cycle": 3,
+      "candidate": false,
+      "rate": 70.03753989891362,
+      "report": "results/decode3-config-combo-full-raw-p0-c3-native.json",
+      "report_sha256": "a5e7274b2c4ad444a9afa581c2facfc40b817e987b7eef4ca60cd9f0e9f75eeb",
+      "oracle_sha256": "67a65b57be7c5101ff6cfb2c3178dd6a12cfd38b92676c78f238d12ae490cc86",
+      "oracle_report": ".unlazy/decode3-config-oracles/original-3ecb74160e033e17-raw-0.json",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": true
+    },
+    {
+      "prompt": 0,
+      "cycle": 4,
+      "candidate": false,
+      "rate": 70.23338899444171,
+      "report": "results/decode3-config-combo-full-raw-p0-c4-native.json",
+      "report_sha256": "8b00743216e0f1a13d0b3b2bbb54e75f908433584945998afa22df87dc9d8341",
+      "oracle_sha256": "67a65b57be7c5101ff6cfb2c3178dd6a12cfd38b92676c78f238d12ae490cc86",
+      "oracle_report": ".unlazy/decode3-config-oracles/original-3ecb74160e033e17-raw-0.json",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": true
+    },
+    {
+      "prompt": 0,
+      "cycle": 4,
+      "candidate": true,
+      "rate": 72.7985140538602,
+      "report": "results/decode3-config-combo-full-raw-p0-c4-candidate.json",
+      "report_sha256": "c0444a433865a880fe452dc3291c94c0dbf4cb44faa1d034bca5ce9050f1d586",
+      "oracle_sha256": "67a65b57be7c5101ff6cfb2c3178dd6a12cfd38b92676c78f238d12ae490cc86",
+      "oracle_report": ".unlazy/decode3-config-oracles/original-3ecb74160e033e17-raw-0.json",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "own_native_oracle_exact": true,
+      "exact_original_distribution": true
+    }
+  ],
+  "protocol": "separate process/model/layout per arm; full256-token warmup then256 measured; alternate original/candidate arms; init outside decode, recorded separately",
+  "complete": true,
+  "qualified": false,
+  "statistics": [
+    {
+      "prompt": 0,
+      "paired_gains_percent": [
+        4.1198958388591445,
+        3.9490638843127313,
+        3.624497689887729,
+        3.6522871758637443
+      ],
+      "paired_median_percent": 3.8006755300882378
+    }
+  ]
+}

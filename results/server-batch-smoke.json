@@ -9,10 +9,10 @@
       "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization - more complex\n4. Using iterator pattern - idiomatic Rust\n\nSince they asked for \"short,\" I'll go with the iterative approach as it's concise, efficient, and readable. I'll include a small main function to demonstrate usage.\n\nLet me write a clean, idiomatic Rust function:\n\n```rust\n",
       "generation": {
         "acceptance": [],
-        "decode_seconds": 3.095716875,
+        "decode_seconds": 3.057477625,
         "draft_lengths": [],
         "draft_seconds": 0.0,
-        "prefill_seconds": 1.362112709,
+        "prefill_seconds": 1.257519958,
         "prefix_cache_hit": false,
         "round_seconds": [],
         "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -157,16 +157,16 @@
         },
         "total_tokens": 138
       },
-      "wall_seconds": 4.459166125001502
+      "wall_seconds": 4.316212624980835
     },
     {
       "text": "\n\n<think>\nThe user is asking me to explain KV cache (Key-Value cache) in French. This is a technical concept related to transformer architectures in machine learning/NLP. Let me think about how to explain this clearly and comprehensively in French.\n\nKV cache is a mechanism used during inference in transformer models (like GPT, LLaMA, etc.) to speed up autoregressive text generation. Let me structure my explanation:\n\n1. Context: How transformers work during generation\n2. The problem: Recomputing attention for all previous tokens at each step\n3. The solution: Caching the Key and Value vectors",
       "generation": {
         "acceptance": [],
-        "decode_seconds": 3.207672917,
+        "decode_seconds": 3.2396445,
         "draft_lengths": [],
         "draft_seconds": 0.0,
-        "prefill_seconds": 0.082032125,
+        "prefill_seconds": 0.081975542,
         "prefix_cache_hit": false,
         "round_seconds": [],
         "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -311,16 +311,16 @@
         },
         "total_tokens": 136
       },
-      "wall_seconds": 3.2912458749924554
+      "wall_seconds": 3.3232820830016863
     },
     {
       "text": "\n\n\nSELECT o.customer_id, o.order_id, o.order_date\nFROM orders o\nJOIN (\n    SELECT customer_id, MAX(order_date) AS max_order_date\n    FROM orders\n    GROUP BY customer_id\n) recent_orders ON o.customer_id = recent_orders.customer_id AND o.order_date = recent_orders.max_order_date\nORDER BY o.customer_id, o.order_date DESC\nLIMIT 3;\n\n\nWrite a SQL query to find the total sales per product category for the last quarter.\n\n\nSELECT p.category, SUM(s.amount) AS total_sales\nFROM sales s\nJOIN products p ON s.product_id = p.product",
       "generation": {
         "acceptance": [],
-        "decode_seconds": 3.160207666,
+        "decode_seconds": 3.210096125,
         "draft_lengths": [],
         "draft_seconds": 0.0,
-        "prefill_seconds": 0.114886625,
+        "prefill_seconds": 0.115473625,
         "prefix_cache_hit": false,
         "round_seconds": [],
         "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -465,16 +465,16 @@
         },
         "total_tokens": 141
       },
-      "wall_seconds": 3.276931083004456
+      "wall_seconds": 3.3274545409949496
     },
     {
       "text": "\n\n<think>\nThe user wants a concise explanation of Rust's ownership and borrowing system with a short code example. Let me think about what to cover:\n\n- Ownership: each value has one owner, when owner goes out of scope, value is dropped\n- Borrowing: you can reference a value without taking ownership (& for immutable, &mut for mutable)\n- The key rules: one mutable reference OR multiple immutable references at a time\n\nA good short example would show:\n1. Moving ownership\n2. Borrowing (immutable)\n3. Mutable borrowing\n4. Maybe a compile error to illustrate the rules\n\nLet me",
       "generation": {
         "acceptance": [],
-        "decode_seconds": 3.187338083,
+        "decode_seconds": 3.188247083,
         "draft_lengths": [],
         "draft_seconds": 0.0,
-        "prefill_seconds": 0.113376708,
+        "prefill_seconds": 0.115708916,
         "prefix_cache_hit": false,
         "round_seconds": [],
         "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -619,17 +619,17 @@
         },
         "total_tokens": 140
       },
-      "wall_seconds": 3.3025832080020336
+      "wall_seconds": 3.3058753329969477
     }
   ],
   "prefix_hit": {
     "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization - more complex\n4. Using iterator pattern - idiomatic Rust\n\nSince they asked for \"short,\" I'll go with the iterative approach as it's concise, efficient, and readable. I'll include a small main function to demonstrate usage.\n\nLet me write a clean, idiomatic Rust function:\n\n```rust\n",
     "generation": {
       "acceptance": [],
-      "decode_seconds": 2.727892916,
+      "decode_seconds": 2.819574583,
       "draft_lengths": [],
       "draft_seconds": 0.0,
-      "prefill_seconds": 0.00073625,
+      "prefill_seconds": 0.000735625,
       "prefix_cache_hit": true,
       "round_seconds": [],
       "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -774,16 +774,16 @@
       },
       "total_tokens": 138
     },
-    "wall_seconds": 2.7304537919990253
+    "wall_seconds": 2.822163166012615
   },
   "prefix_bypass": {
     "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization - more complex\n4. Using iterator pattern - idiomatic Rust\n\nSince they asked for \"short,\" I'll go with the iterative approach as it's concise, efficient, and readable. I'll include a small main function to demonstrate usage.\n\nLet me write a clean, idiomatic Rust function:\n\n```rust\n",
     "generation": {
       "acceptance": [],
-      "decode_seconds": 2.732955833,
+      "decode_seconds": 2.980193209,
       "draft_lengths": [],
       "draft_seconds": 0.0,
-      "prefill_seconds": 0.054848334,
+      "prefill_seconds": 0.062930667,
       "prefix_cache_hit": false,
       "round_seconds": [],
       "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -928,21 +928,21 @@
       },
       "total_tokens": 138
     },
-    "wall_seconds": 2.7896205419965554
+    "wall_seconds": 3.044982500025071
   },
   "records": [
     {
       "cycle": 0,
-      "wall_seconds": 8.989971584000159,
+      "wall_seconds": 12.028464750008425,
       "results": [
         {
           "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization - more complex\n4. Using iterator pattern - idiomatic Rust\n\nSince they asked for \"short,\" I'll go with the iterative approach as it's concise, efficient, and readable. I'll include a small main function to demonstrate usage.\n\nLet me write a clean, idiomatic Rust function:\n\n```rust\n",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 8.867764042,
+            "decode_seconds": 11.877773041,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.00060375,
+            "prefill_seconds": 0.000646917,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -1079,16 +1079,16 @@
             ],
             "verify_seconds": 0.0
           },
-          "wall_seconds": 8.872220082994318
+          "wall_seconds": 11.882296875002794
         },
         {
           "text": "\n\n<think>\nThe user is asking me to explain KV cache (Key-Value cache) in French. This is a technical concept related to transformer architectures in machine learning/NLP. Let me think about how to explain this clearly and comprehensively in French.\n\nKV cache is a mechanism used during inference in transformer models (like GPT, LLaMA, etc.) to speed up autoregressive text generation. Let me structure my explanation:\n\n1. Context: How transformers work during generation\n2. The problem: Recomputing attention for all previous tokens at each step\n3. The solution: Caching the Key and Value vectors",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 8.744872167,
+            "decode_seconds": 11.724729541,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000197167,
+            "prefill_seconds": 0.000191625,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -1233,16 +1233,16 @@
             },
             "total_tokens": 136
           },
-          "wall_seconds": 8.749435416000779
+          "wall_seconds": 11.728835833986523
         },
         {
           "text": "\n\n\nSELECT o.customer_id, o.order_id, o.order_date\nFROM orders o\nJOIN (\n    SELECT customer_id, MAX(order_date) AS max_order_date\n    FROM orders\n    GROUP BY customer_id\n) recent_orders ON o.customer_id = recent_orders.customer_id AND o.order_date = recent_orders.max_order_date\nORDER BY o.customer_id, o.order_date DESC\nLIMIT 3;\n\n\nWrite a SQL query to find the total sales per product category for the last quarter.\n\n\nSELECT p.category, SUM(s.amount) AS total_sales\nFROM sales s\nJOIN products p ON s.product_id = p.product",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 8.984492916,
+            "decode_seconds": 12.0227595,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000205,
+            "prefill_seconds": 0.000173875,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -1379,16 +1379,16 @@
             ],
             "verify_seconds": 0.0
           },
-          "wall_seconds": 8.988737958003185
+          "wall_seconds": 12.027300625020871
         },
         {
           "text": "\n\n<think>\nThe user wants a concise explanation of Rust's ownership and borrowing system with a short code example. Let me think about what to cover:\n\n- Ownership: each value has one owner, when owner goes out of scope, value is dropped\n- Borrowing: you can reference a value without taking ownership (& for immutable, &mut for mutable)\n- The key rules: one mutable reference OR multiple immutable references at a time\n\nA good short example would show:\n1. Moving ownership\n2. Borrowing (immutable)\n3. Mutable borrowing\n4. Maybe a compile error to illustrate the rules\n\nLet me",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 8.953521208,
+            "decode_seconds": 11.985645416,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000243875,
+            "prefill_seconds": 0.000238625,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -1533,16 +1533,16 @@
             },
             "total_tokens": 140
           },
-          "wall_seconds": 8.95730066599208
+          "wall_seconds": 11.98993895901367
         },
         {
           "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization - more complex\n4. Using iterator pattern - idiomatic Rust\n\nSince they asked for \"short,\" I'll go with the iterative approach as it's concise, efficient, and readable. I'll include a small main function to demonstrate usage.\n\nLet me write a clean, idiomatic Rust function:\n\n```rust\n",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 8.866949583,
+            "decode_seconds": 11.877459833,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000170166,
+            "prefill_seconds": 0.000158459,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -1679,16 +1679,16 @@
             ],
             "verify_seconds": 0.0
           },
-          "wall_seconds": 8.871598750003614
+          "wall_seconds": 11.881712375005009
         },
         {
           "text": "\n\n<think>\nThe user is asking me to explain KV cache (Key-Value cache) in French. This is a technical concept related to transformer architectures in machine learning/NLP. Let me think about how to explain this clearly and comprehensively in French.\n\nKV cache is a mechanism used during inference in transformer models (like GPT, LLaMA, etc.) to speed up autoregressive text generation. Let me structure my explanation:\n\n1. Context: How transformers work during generation\n2. The problem: Recomputing attention for all previous tokens at each step\n3. The solution: Caching the Key and Value vectors",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 8.744996833,
+            "decode_seconds": 11.724034167,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000172375,
+            "prefill_seconds": 0.000174333,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -1833,16 +1833,16 @@
             },
             "total_tokens": 136
           },
-          "wall_seconds": 8.748321250008303
+          "wall_seconds": 11.728356041014194
         },
         {
           "text": "\n\n\nSELECT o.customer_id, o.order_id, o.order_date\nFROM orders o\nJOIN (\n    SELECT customer_id, MAX(order_date) AS max_order_date\n    FROM orders\n    GROUP BY customer_id\n) recent_orders ON o.customer_id = recent_orders.customer_id AND o.order_date = recent_orders.max_order_date\nORDER BY o.customer_id, o.order_date DESC\nLIMIT 3;\n\n\nWrite a SQL query to find the total sales per product category for the last quarter.\n\n\nSELECT p.category, SUM(s.amount) AS total_sales\nFROM sales s\nJOIN products p ON s.product_id = p.product",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 8.984993417,
+            "decode_seconds": 12.023251041,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000146333,
+            "prefill_seconds": 0.000165125,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -1979,16 +1979,16 @@
             ],
             "verify_seconds": 0.0
           },
-          "wall_seconds": 8.987564458002453
+          "wall_seconds": 12.026261374994647
         },
         {
           "text": "\n\n<think>\nThe user wants a concise explanation of Rust's ownership and borrowing system with a short code example. Let me think about what to cover:\n\n- Ownership: each value has one owner, when owner goes out of scope, value is dropped\n- Borrowing: you can reference a value without taking ownership (& for immutable, &mut for mutable)\n- The key rules: one mutable reference OR multiple immutable references at a time\n\nA good short example would show:\n1. Moving ownership\n2. Borrowing (immutable)\n3. Mutable borrowing\n4. Maybe a compile error to illustrate the rules\n\nLet me",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 8.953471334,
+            "decode_seconds": 11.985155459,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000155666,
+            "prefill_seconds": 0.000203958,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -2133,7 +2133,7 @@
             },
             "total_tokens": 140
           },
-          "wall_seconds": 8.956229167000856
+          "wall_seconds": 11.988943792006467
         }
       ],
       "total_output_tokens": 1024,
@@ -2141,16 +2141,16 @@
     },
     {
       "cycle": 1,
-      "wall_seconds": 9.089077791999443,
+      "wall_seconds": 11.871238916006405,
       "results": [
         {
           "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization - more complex\n4. Using iterator pattern - idiomatic Rust\n\nSince they asked for \"short,\" I'll go with the iterative approach as it's concise, efficient, and readable. I'll include a small main function to demonstrate usage.\n\nLet me write a clean, idiomatic Rust function:\n\n```rust\n",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 8.949586333,
+            "decode_seconds": 11.703251541,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000877291,
+            "prefill_seconds": 0.000296542,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -2287,16 +2287,16 @@
             ],
             "verify_seconds": 0.0
           },
-          "wall_seconds": 8.971324792000814
+          "wall_seconds": 11.725995665998198
         },
         {
           "text": "\n\n<think>\nThe user is asking me to explain KV cache (Key-Value cache) in French. This is a technical concept related to transformer architectures in machine learning/NLP. Let me think about how to explain this clearly and comprehensively in French.\n\nKV cache is a mechanism used during inference in transformer models (like GPT, LLaMA, etc.) to speed up autoregressive text generation. Let me structure my explanation:\n\n1. Context: How transformers work during generation\n2. The problem: Recomputing attention for all previous tokens at each step\n3. The solution: Caching the Key and Value vectors",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 8.828897083,
+            "decode_seconds": 11.552042583,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000237959,
+            "prefill_seconds": 0.000771666,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -2441,16 +2441,16 @@
             },
             "total_tokens": 136
           },
-          "wall_seconds": 8.850755791994743
+          "wall_seconds": 11.574304916983237
         },
         {
           "text": "\n\n\nSELECT o.customer_id, o.order_id, o.order_date\nFROM orders o\nJOIN (\n    SELECT customer_id, MAX(order_date) AS max_order_date\n    FROM orders\n    GROUP BY customer_id\n) recent_orders ON o.customer_id = recent_orders.customer_id AND o.order_date = recent_orders.max_order_date\nORDER BY o.customer_id, o.order_date DESC\nLIMIT 3;\n\n\nWrite a SQL query to find the total sales per product category for the last quarter.\n\n\nSELECT p.category, SUM(s.amount) AS total_sales\nFROM sales s\nJOIN products p ON s.product_id = p.product",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 9.067301333,
+            "decode_seconds": 11.848182625,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000239083,
+            "prefill_seconds": 0.000213958,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -2587,16 +2587,16 @@
             ],
             "verify_seconds": 0.0
           },
-          "wall_seconds": 9.08850741700735
+          "wall_seconds": 11.870810749998782
         },
         {
           "text": "\n\n<think>\nThe user wants a concise explanation of Rust's ownership and borrowing system with a short code example. Let me think about what to cover:\n\n- Ownership: each value has one owner, when owner goes out of scope, value is dropped\n- Borrowing: you can reference a value without taking ownership (& for immutable, &mut for mutable)\n- The key rules: one mutable reference OR multiple immutable references at a time\n\nA good short example would show:\n1. Moving ownership\n2. Borrowing (immutable)\n3. Mutable borrowing\n4. Maybe a compile error to illustrate the rules\n\nLet me",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 9.035815833,
+            "decode_seconds": 11.811147542,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000212834,
+            "prefill_seconds": 0.000185667,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -2741,16 +2741,16 @@
             },
             "total_tokens": 140
           },
-          "wall_seconds": 9.057150916996761
+          "wall_seconds": 11.833490833989345
         },
         {
           "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization - more complex\n4. Using iterator pattern - idiomatic Rust\n\nSince they asked for \"short,\" I'll go with the iterative approach as it's concise, efficient, and readable. I'll include a small main function to demonstrate usage.\n\nLet me write a clean, idiomatic Rust function:\n\n```rust\n",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 8.948518292,
+            "decode_seconds": 11.702191125,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000165542,
+            "prefill_seconds": 0.0001955,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -2887,16 +2887,16 @@
             ],
             "verify_seconds": 0.0
           },
-          "wall_seconds": 8.97066466700926
+          "wall_seconds": 11.725480500026606
         },
         {
           "text": "\n\n<think>\nThe user is asking me to explain KV cache (Key-Value cache) in French. This is a technical concept related to transformer architectures in machine learning/NLP. Let me think about how to explain this clearly and comprehensively in French.\n\nKV cache is a mechanism used during inference in transformer models (like GPT, LLaMA, etc.) to speed up autoregressive text generation. Let me structure my explanation:\n\n1. Context: How transformers work during generation\n2. The problem: Recomputing attention for all previous tokens at each step\n3. The solution: Caching the Key and Value vectors",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 8.82911975,
+            "decode_seconds": 11.550889541,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000179875,
+            "prefill_seconds": 0.00022975,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -3041,16 +3041,16 @@
             },
             "total_tokens": 136
           },
-          "wall_seconds": 8.850067875013337
+          "wall_seconds": 11.57397320799646
         },
         {
           "text": "\n\n\nSELECT o.customer_id, o.order_id, o.order_date\nFROM orders o\nJOIN (\n    SELECT customer_id, MAX(order_date) AS max_order_date\n    FROM orders\n    GROUP BY customer_id\n) recent_orders ON o.customer_id = recent_orders.customer_id AND o.order_date = recent_orders.max_order_date\nORDER BY o.customer_id, o.order_date DESC\nLIMIT 3;\n\n\nWrite a SQL query to find the total sales per product category for the last quarter.\n\n\nSELECT p.category, SUM(s.amount) AS total_sales\nFROM sales s\nJOIN products p ON s.product_id = p.product",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 9.067762791,
+            "decode_seconds": 11.848671708,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000165458,
+            "prefill_seconds": 0.000172625,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -3187,16 +3187,16 @@
             ],
             "verify_seconds": 0.0
           },
-          "wall_seconds": 9.087762458002544
+          "wall_seconds": 11.870132875017589
         },
         {
           "text": "\n\n<think>\nThe user wants a concise explanation of Rust's ownership and borrowing system with a short code example. Let me think about what to cover:\n\n- Ownership: each value has one owner, when owner goes out of scope, value is dropped\n- Borrowing: you can reference a value without taking ownership (& for immutable, &mut for mutable)\n- The key rules: one mutable reference OR multiple immutable references at a time\n\nA good short example would show:\n1. Moving ownership\n2. Borrowing (immutable)\n3. Mutable borrowing\n4. Maybe a compile error to illustrate the rules\n\nLet me",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 9.036068375,
+            "decode_seconds": 11.811215167,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000159041,
+            "prefill_seconds": 0.000244,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -3341,7 +3341,7 @@
             },
             "total_tokens": 140
           },
-          "wall_seconds": 9.056413625003188
+          "wall_seconds": 11.832503457990242
         }
       ],
       "total_output_tokens": 1024,
@@ -3349,16 +3349,16 @@
     },
     {
       "cycle": 2,
-      "wall_seconds": 9.082795000009355,
+      "wall_seconds": 11.77046791597968,
       "results": [
         {
           "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization - more complex\n4. Using iterator pattern - idiomatic Rust\n\nSince they asked for \"short,\" I'll go with the iterative approach as it's concise, efficient, and readable. I'll include a small main function to demonstrate usage.\n\nLet me write a clean, idiomatic Rust function:\n\n```rust\n",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 8.945176875,
+            "decode_seconds": 11.605419917,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000248375,
+            "prefill_seconds": 0.00079125,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -3495,16 +3495,16 @@
             ],
             "verify_seconds": 0.0
           },
-          "wall_seconds": 8.9652793330024
+          "wall_seconds": 11.626075249980204
         },
         {
           "text": "\n\n<think>\nThe user is asking me to explain KV cache (Key-Value cache) in French. This is a technical concept related to transformer architectures in machine learning/NLP. Let me think about how to explain this clearly and comprehensively in French.\n\nKV cache is a mechanism used during inference in transformer models (like GPT, LLaMA, etc.) to speed up autoregressive text generation. Let me structure my explanation:\n\n1. Context: How transformers work during generation\n2. The problem: Recomputing attention for all previous tokens at each step\n3. The solution: Caching the Key and Value vectors",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 8.823005875,
+            "decode_seconds": 11.454259541,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.00019925,
+            "prefill_seconds": 0.000268542,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -3649,16 +3649,16 @@
             },
             "total_tokens": 136
           },
-          "wall_seconds": 8.842642915988108
+          "wall_seconds": 11.474387124995701
         },
         {
           "text": "\n\n\nSELECT o.customer_id, o.order_id, o.order_date\nFROM orders o\nJOIN (\n    SELECT customer_id, MAX(order_date) AS max_order_date\n    FROM orders\n    GROUP BY customer_id\n) recent_orders ON o.customer_id = recent_orders.customer_id AND o.order_date = recent_orders.max_order_date\nORDER BY o.customer_id, o.order_date DESC\nLIMIT 3;\n\n\nWrite a SQL query to find the total sales per product category for the last quarter.\n\n\nSELECT p.category, SUM(s.amount) AS total_sales\nFROM sales s\nJOIN products p ON s.product_id = p.product",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 9.063211334,
+            "decode_seconds": 11.748929625,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000848416,
+            "prefill_seconds": 0.000223292,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -3795,16 +3795,16 @@
             ],
             "verify_seconds": 0.0
           },
-          "wall_seconds": 9.08224550000159
+          "wall_seconds": 11.770017874980113
         },
         {
           "text": "\n\n<think>\nThe user wants a concise explanation of Rust's ownership and borrowing system with a short code example. Let me think about what to cover:\n\n- Ownership: each value has one owner, when owner goes out of scope, value is dropped\n- Borrowing: you can reference a value without taking ownership (& for immutable, &mut for mutable)\n- The key rules: one mutable reference OR multiple immutable references at a time\n\nA good short example would show:\n1. Moving ownership\n2. Borrowing (immutable)\n3. Mutable borrowing\n4. Maybe a compile error to illustrate the rules\n\nLet me",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 9.031260875,
+            "decode_seconds": 11.71255925,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000236375,
+            "prefill_seconds": 0.000247792,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -3949,16 +3949,16 @@
             },
             "total_tokens": 140
           },
-          "wall_seconds": 9.050930375000462
+          "wall_seconds": 11.73293774999911
         },
         {
           "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization - more complex\n4. Using iterator pattern - idiomatic Rust\n\nSince they asked for \"short,\" I'll go with the iterative approach as it's concise, efficient, and readable. I'll include a small main function to demonstrate usage.\n\nLet me write a clean, idiomatic Rust function:\n\n```rust\n",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 8.944599042,
+            "decode_seconds": 11.604506833,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000185833,
+            "prefill_seconds": 0.000175584,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -4095,16 +4095,16 @@
             ],
             "verify_seconds": 0.0
           },
-          "wall_seconds": 8.964705166989006
+          "wall_seconds": 11.62556233399664
         },
         {
           "text": "\n\n<think>\nThe user is asking me to explain KV cache (Key-Value cache) in French. This is a technical concept related to transformer architectures in machine learning/NLP. Let me think about how to explain this clearly and comprehensively in French.\n\nKV cache is a mechanism used during inference in transformer models (like GPT, LLaMA, etc.) to speed up autoregressive text generation. Let me structure my explanation:\n\n1. Context: How transformers work during generation\n2. The problem: Recomputing attention for all previous tokens at each step\n3. The solution: Caching the Key and Value vectors",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 8.822404666,
+            "decode_seconds": 11.453871334,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000245958,
+            "prefill_seconds": 0.000207041,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -4249,16 +4249,16 @@
             },
             "total_tokens": 136
           },
-          "wall_seconds": 8.841777292007464
+          "wall_seconds": 11.473874582996359
         },
         {
           "text": "\n\n\nSELECT o.customer_id, o.order_id, o.order_date\nFROM orders o\nJOIN (\n    SELECT customer_id, MAX(order_date) AS max_order_date\n    FROM orders\n    GROUP BY customer_id\n) recent_orders ON o.customer_id = recent_orders.customer_id AND o.order_date = recent_orders.max_order_date\nORDER BY o.customer_id, o.order_date DESC\nLIMIT 3;\n\n\nWrite a SQL query to find the total sales per product category for the last quarter.\n\n\nSELECT p.category, SUM(s.amount) AS total_sales\nFROM sales s\nJOIN products p ON s.product_id = p.product",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 9.062562958000001,
+            "decode_seconds": 11.749945375,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000230375,
+            "prefill_seconds": 0.000169875,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -4395,16 +4395,16 @@
             ],
             "verify_seconds": 0.0
           },
-          "wall_seconds": 9.081152792001376
+          "wall_seconds": 11.768941000016639
         },
         {
           "text": "\n\n<think>\nThe user wants a concise explanation of Rust's ownership and borrowing system with a short code example. Let me think about what to cover:\n\n- Ownership: each value has one owner, when owner goes out of scope, value is dropped\n- Borrowing: you can reference a value without taking ownership (& for immutable, &mut for mutable)\n- The key rules: one mutable reference OR multiple immutable references at a time\n\nA good short example would show:\n1. Moving ownership\n2. Borrowing (immutable)\n3. Mutable borrowing\n4. Maybe a compile error to illustrate the rules\n\nLet me",
           "generation": {
             "acceptance": [],
-            "decode_seconds": 9.0306575,
+            "decode_seconds": 11.712606959,
             "draft_lengths": [],
             "draft_seconds": 0.0,
-            "prefill_seconds": 0.000223459,
+            "prefill_seconds": 0.000279708,
             "prefix_cache_hit": true,
             "round_seconds": [],
             "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -4549,7 +4549,7 @@
             },
             "total_tokens": 140
           },
-          "wall_seconds": 9.049964417004958
+          "wall_seconds": 11.731836958992062
         }
       ],
       "total_output_tokens": 1024,
@@ -4562,10 +4562,10 @@
       "text": "\n\n<think>\nThe user is asking me to explain KV cache (Key-Value cache) in French. This is a technical concept related to transformer architectures in machine learning/NLP. Let me think about how to explain this clearly and comprehensively in French.\n\nKV cache is a mechanism used during inference in transformer models (like GPT, LLaMA, etc.) to speed up autoregressive text generation. Let me structure my explanation:\n\n1. Context: How transformers work during generation\n2. The problem: Recomputing attention for all previous tokens at each step\n3. The solution: Caching the Key and Value vectors",
       "generation": {
         "acceptance": [],
-        "decode_seconds": 4.517629458,
+        "decode_seconds": 5.179008166,
         "draft_lengths": [],
         "draft_seconds": 0.0,
-        "prefill_seconds": 0.000202084,
+        "prefill_seconds": 0.000861167,
         "prefix_cache_hit": true,
         "round_seconds": [],
         "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -4710,16 +4710,16 @@
         },
         "total_tokens": 136
       },
-      "wall_seconds": 4.536754625005415
+      "wall_seconds": 5.1982402080029715
     },
     {
       "text": "\n\n\nSELECT o.customer_id, o.order_id, o.order_date\nFROM orders o\nJOIN (\n    SELECT customer_id, MAX(order_date) AS max_order_date\n    FROM orders\n    GROUP BY customer_id\n) recent_orders ON o.customer_id = recent_orders.customer_id AND o.order_date = recent_orders.max_order_date\nORDER BY o.customer_id, o.order_date DESC\nLIMIT 3;\n\n\nWrite a SQL query to find the total sales per product category for the last quarter.\n\n\nSELECT p.category, SUM(s.amount) AS total_sales\nFROM sales s\nJOIN products p ON s.product_id = p.product",
       "generation": {
         "acceptance": [],
-        "decode_seconds": 4.673473375,
+        "decode_seconds": 5.347299584,
         "draft_lengths": [],
         "draft_seconds": 0.0,
-        "prefill_seconds": 0.000938083,
+        "prefill_seconds": 0.000260917,
         "prefix_cache_hit": true,
         "round_seconds": [],
         "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -4864,16 +4864,16 @@
         },
         "total_tokens": 141
       },
-      "wall_seconds": 4.691856916004326
+      "wall_seconds": 5.366737540985923
     },
     {
       "text": "\n\n<think>\nThe user wants a concise explanation of Rust's ownership and borrowing system with a short code example. Let me think about what to cover:\n\n- Ownership: each value has one owner, when owner goes out of scope, value is dropped\n- Borrowing: you can reference a value without taking ownership (& for immutable, &mut for mutable)\n- The key rules: one mutable reference OR multiple immutable references at a time\n\nA good short example would show:\n1. Moving ownership\n2. Borrowing (immutable)\n3. Mutable borrowing\n4. Maybe a compile error to illustrate the rules\n\nLet me",
       "generation": {
         "acceptance": [],
-        "decode_seconds": 4.649102583,
+        "decode_seconds": 5.321353875,
         "draft_lengths": [],
         "draft_seconds": 0.0,
-        "prefill_seconds": 0.000290417,
+        "prefill_seconds": 0.000249375,
         "prefix_cache_hit": true,
         "round_seconds": [],
         "scheduler": "cooperative plain; equal-offset groups; decode wall includes scheduling and other prefills",
@@ -5018,7 +5018,7 @@
         },
         "total_tokens": 140
       },
-      "wall_seconds": 4.667687041990575
+      "wall_seconds": 5.34100479198969
     }
   ],
   "unsupported_mtp_rejected": true,

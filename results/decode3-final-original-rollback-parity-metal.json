@@ -1,0 +1,57 @@
+[
+  {
+    "keep": 0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "keep": 1,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "keep": 2,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "keep": 3,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "keep": 4,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "sorted_moe": false,
+    "state_error": 0.0
+  }
+]
