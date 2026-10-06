@@ -1,0 +1,422 @@
+[
+  {
+    "candidate_seconds": 0.159767416,
+    "depth": 2,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 6.000230958,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "runtime-prepare",
+    "runtime_prepare_calls": [
+      1,
+      23,
+      265
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      271,
+      248068
+    ]
+  },
+  {
+    "candidate_seconds": 0.20631725,
+    "depth": 3,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.312490042,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "runtime-prepare",
+    "runtime_prepare_calls": [
+      2,
+      46,
+      530
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      198,
+      760,
+      1156
+    ]
+  },
+  {
+    "candidate_seconds": 0.263181042,
+    "depth": 4,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.416442875,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "runtime-prepare",
+    "runtime_prepare_calls": [
+      3,
+      69,
+      795
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      6587,
+      264,
+      2716,
+      32671
+    ]
+  },
+  {
+    "candidate_seconds": 0.274280458,
+    "depth": 5,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.522844583,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "runtime-prepare",
+    "runtime_prepare_calls": [
+      4,
+      92,
+      943
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      709,
+      310,
+      12204,
+      76938,
+      4947
+    ]
+  },
+  {
+    "candidate_seconds": 0.312747834,
+    "depth": 6,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.631586708,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "runtime-prepare",
+    "runtime_prepare_calls": [
+      5,
+      115,
+      1091
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      13,
+      6558,
+      728,
+      1683,
+      883,
+      279
+    ]
+  },
+  {
+    "candidate_seconds": 0.354787375,
+    "depth": 7,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.732880917,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "runtime-prepare",
+    "runtime_prepare_calls": [
+      6,
+      138,
+      1239
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      1786,
+      5313,
+      25,
+      271,
+      3670,
+      25,
+      198
+    ]
+  },
+  {
+    "candidate_seconds": 0.395619792,
+    "depth": 8,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.843897167,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "runtime-prepare",
+    "runtime_prepare_calls": [
+      7,
+      161,
+      1390
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      16,
+      13,
+      82930,
+      318,
+      3267,
+      520,
+      8,
+      471
+    ]
+  },
+  {
+    "candidate_seconds": 0.1583415,
+    "depth": 2,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.20836075,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "runtime-prepare",
+    "runtime_prepare_calls": [
+      8,
+      184,
+      1660
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      4145,
+      694
+    ]
+  },
+  {
+    "candidate_seconds": 0.205891917,
+    "depth": 3,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.312316834,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "runtime-prepare",
+    "runtime_prepare_calls": [
+      9,
+      207,
+      1930
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      496,
+      7,
+      17
+    ]
+  },
+  {
+    "candidate_seconds": 0.262912333,
+    "depth": 4,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.420475292,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "runtime-prepare",
+    "runtime_prepare_calls": [
+      10,
+      230,
+      2200
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      83193,
+      681,
+      524,
+      14542
+    ]
+  },
+  {
+    "candidate_seconds": 0.274044416,
+    "depth": 5,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.522411,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "runtime-prepare",
+    "runtime_prepare_calls": [
+      11,
+      253,
+      2349
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      198,
+      17,
+      13,
+      13310,
+      1340
+    ]
+  },
+  {
+    "candidate_seconds": 0.312800209,
+    "depth": 6,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.629569709,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "runtime-prepare",
+    "runtime_prepare_calls": [
+      12,
+      276,
+      2498
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      471,
+      496,
+      1393,
+      681,
+      4145,
+      11
+    ]
+  },
+  {
+    "candidate_seconds": 0.354725,
+    "depth": 7,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.73070375,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "runtime-prepare",
+    "runtime_prepare_calls": [
+      13,
+      299,
+      2647
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      10727,
+      198,
+      18,
+      13,
+      82930,
+      440,
+      20781
+    ]
+  },
+  {
+    "candidate_seconds": 0.395347875,
+    "depth": 8,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.839526041,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "runtime-prepare",
+    "runtime_prepare_calls": [
+      14,
+      322,
+      2799
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      1954,
+      471,
+      777,
+      6150,
+      198,
+      19,
+      13,
+      11747
+    ]
+  }
+]

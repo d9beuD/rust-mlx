@@ -1,0 +1,422 @@
+[
+  {
+    "candidate_seconds": 0.159671583,
+    "depth": 2,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 5.879092167,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      23,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      271,
+      248068
+    ]
+  },
+  {
+    "candidate_seconds": 0.206088666,
+    "depth": 3,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.312099334,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      46,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      198,
+      760,
+      1156
+    ]
+  },
+  {
+    "candidate_seconds": 0.2624765,
+    "depth": 4,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.417585291,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      69,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      6587,
+      264,
+      2716,
+      32671
+    ]
+  },
+  {
+    "candidate_seconds": 0.273708625,
+    "depth": 5,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.520698209,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      92,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      709,
+      310,
+      12204,
+      76938,
+      4947
+    ]
+  },
+  {
+    "candidate_seconds": 0.312001125,
+    "depth": 6,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.629756959,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      115,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      13,
+      6558,
+      728,
+      1683,
+      883,
+      279
+    ]
+  },
+  {
+    "candidate_seconds": 0.353352166,
+    "depth": 7,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.732235459,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      138,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      1786,
+      5313,
+      25,
+      271,
+      3670,
+      25,
+      198
+    ]
+  },
+  {
+    "candidate_seconds": 0.393918875,
+    "depth": 8,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.83961725,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      161,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      16,
+      13,
+      82930,
+      318,
+      3267,
+      520,
+      8,
+      471
+    ]
+  },
+  {
+    "candidate_seconds": 0.158394833,
+    "depth": 2,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.208294875,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      184,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      4145,
+      694
+    ]
+  },
+  {
+    "candidate_seconds": 0.205662959,
+    "depth": 3,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.311828208,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      207,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      496,
+      7,
+      17
+    ]
+  },
+  {
+    "candidate_seconds": 0.262361792,
+    "depth": 4,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.419108208,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      230,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      83193,
+      681,
+      524,
+      14542
+    ]
+  },
+  {
+    "candidate_seconds": 0.273206917,
+    "depth": 5,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.520943,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      253,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      198,
+      17,
+      13,
+      13310,
+      1340
+    ]
+  },
+  {
+    "candidate_seconds": 0.312577375,
+    "depth": 6,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.637873458,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      276,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      471,
+      496,
+      1393,
+      681,
+      4145,
+      11
+    ]
+  },
+  {
+    "candidate_seconds": 0.353607625,
+    "depth": 7,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.730229167,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      299,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      10727,
+      198,
+      18,
+      13,
+      82930,
+      440,
+      20781
+    ]
+  },
+  {
+    "candidate_seconds": 0.39391325,
+    "depth": 8,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.84263175,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "rope-ids",
+    "runtime_prepare_calls": [
+      0,
+      322,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      1954,
+      471,
+      777,
+      6150,
+      198,
+      19,
+      13,
+      11747
+    ]
+  }
+]

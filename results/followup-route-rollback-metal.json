@@ -1,0 +1,67 @@
+[
+  {
+    "keep": 0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "route_tail": true,
+    "route_tail_calls": 96,
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "keep": 1,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "route_tail": true,
+    "route_tail_calls": 192,
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "keep": 2,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "route_tail": true,
+    "route_tail_calls": 288,
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "keep": 3,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "route_tail": true,
+    "route_tail_calls": 384,
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "keep": 4,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "resident_overlay": null,
+    "route_tail": true,
+    "route_tail_calls": 480,
+    "sorted_moe": false,
+    "state_error": 0.0
+  }
+]

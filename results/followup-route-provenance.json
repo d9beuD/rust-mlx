@@ -1,0 +1,13 @@
+{
+  "repository": "https://github.com/youssofal/MTPLX",
+  "commit": "9882703f3105363ddc37eca9f97aa09a1d387112",
+  "source": "mtplx/kernels/qwen4_m4_route.py",
+  "source_sha256": "850ab2b4d25ac9d271331f517caacb14d771a830d67d7c0685cf49709ed749d0",
+  "license": "Apache-2.0",
+  "notice": "third-party/MTPLX-NOTICE",
+  "outputs": {
+    "moe_route_tail.h": "b2432790336eb62667fabf9868429d87093900ab39e4fe8551ba6fb44b00e0c6",
+    "moe_route_tail.metal": "28a172deba00f17bd7875c04a53d1cef2074624e84af73afcc0617abbdaf2862"
+  },
+  "scope": "routing tail only; original router projections, affine formats and weight ownership unchanged"
+}

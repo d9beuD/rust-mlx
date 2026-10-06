@@ -1,0 +1,438 @@
+{
+  "scope": "MTPLX routing-tail port, exact finite BF16512-expert/top10 geometry,1\u20138 independent rows; native router/shared projection unchanged",
+  "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+  "provenance": "results/followup-route-provenance.json",
+  "actual_240_component_cases_exact": true,
+  "actual_verifier_rollback_instrumented_checks": {
+    "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+    "checks": [
+      {
+        "name": "actual-components",
+        "command": [
+          "target/release/route-bench",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-route-actual-components.json"
+        ],
+        "started_unix": 1791297907.6215491,
+        "ended_unix": 1791297909.8891132,
+        "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+        "binary_sha256": "846912e3e5933bf88bc2db3139a7e94f17a40c0ea877e57332236a1d65c0a202",
+        "exit_code": 0,
+        "success_marker": "ACTUAL_ROUTE_TAIL_COMPONENTS_EXACT",
+        "passed": true,
+        "validation_environment": {
+          "MTL_SHADER_VALIDATION": "1",
+          "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+          "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+          "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+        },
+        "log_sha256": "0a270d9681ed1b3326e27d3e0ca693b287d1b8c2c25fa1c31d570899ecff1753",
+        "report_sha256": "cceb4511adc09d0245437e7181a9c70b3435f62e1f51fb0127ad0a1d787dd2c3",
+        "timing_qualified": false
+      },
+      {
+        "name": "verify-metal",
+        "command": [
+          "target/release/verify-parity",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-route-verify-metal.json",
+          "--route-tail"
+        ],
+        "started_unix": 1791297909.905746,
+        "ended_unix": 1791297929.345192,
+        "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+        "binary_sha256": "9f59504c7c91f5023619bb3466dddf4c8fb85f1abc587d25dc76deae1f2485fc",
+        "exit_code": 0,
+        "success_marker": "VERIFY_PARITY_PASSED",
+        "passed": true,
+        "validation_environment": {
+          "MTL_SHADER_VALIDATION": "1",
+          "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+          "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+          "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+        },
+        "log_sha256": "a6ab9036e81d456da05dfd808d8ff53c98f0fcca495529953b38d466f873860e",
+        "report_sha256": "0be643cdf42950c32afd6b0f0ec6a10f303b58cd41e6c697434bbed3a2e31e18",
+        "timing_qualified": false
+      },
+      {
+        "name": "rollback-metal",
+        "command": [
+          "target/release/rollback-parity",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-route-rollback-metal.json",
+          "--route-tail"
+        ],
+        "started_unix": 1791297929.373922,
+        "ended_unix": 1791297939.294147,
+        "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+        "binary_sha256": "2d731e65d73dbf10f405cff0266ee7b09d66d3a5d3d219676e52824e1590e5df",
+        "exit_code": 0,
+        "success_marker": "ROLLBACK_PARITY_PASSED",
+        "passed": true,
+        "validation_environment": {
+          "MTL_SHADER_VALIDATION": "1",
+          "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+          "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+          "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+        },
+        "log_sha256": "dcd317981aea9d4e02f9e53b446bd470e5d224669cfe78d00d6d88847639775f",
+        "report_sha256": "a283b14042fe007516c1e6969e21d4dc2d202b5c131dc071496c2e0e2efcd529",
+        "timing_qualified": false
+      },
+      {
+        "name": "synchronized-phases",
+        "command": [
+          "target/release/verify-profile",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-route-synchronized-phases.json",
+          "--proposals",
+          "results/followup-baseline-raw-256.json",
+          "--rounds",
+          "12"
+        ],
+        "started_unix": 1791297939.324766,
+        "ended_unix": 1791297947.424702,
+        "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+        "binary_sha256": "82da5cc08fca394d84d689587a9f5c56aebeecae6986a77bab0127f2791c66e8",
+        "exit_code": 0,
+        "success_marker": "VERIFY_PROFILE_PASSED",
+        "passed": true,
+        "validation_environment": {},
+        "log_sha256": "d5d7698a8849576aa1969b154dbbb044062f164cefc139d79782ade53207311b",
+        "report_sha256": "b9bafb4d15849be0a4167c06f51703d7e16046333847b115142033fb72a851d5",
+        "timing_qualified": false
+      }
+    ],
+    "complete": true,
+    "passed": true
+  },
+  "raw_statistics": {
+    "prompt": 0,
+    "report": "results/followup-ab-route-tail-raw-p0.json",
+    "receipt": {
+      "command": [
+        "target/release/mtp-infer",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--prompt",
+        "Write a short Rust function that computes Fibonacci numbers.",
+        "--max-tokens",
+        "256",
+        "--warmup-tokens",
+        "256",
+        "--runs",
+        "4",
+        "--draft-depth",
+        "3",
+        "--ignore-eos",
+        "--ab-kernel",
+        "route-tail",
+        "--output",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-route-tail-raw-p0.json",
+        "--expected",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-route-tail-raw-p0-oracle.json"
+      ],
+      "exit_code": 0,
+      "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+      "binary_sha256": "2bffd08c10d5babdda4630e12aefedcce7154864bbeaf55ae9364885dd8ae959",
+      "started_unix": 1791298314.766619,
+      "ended_unix": 1791298361.726589,
+      "log_sha256": "54667c986c4af6d4107a009badb91b4f4b780539752bf8f42d67f70380a880e9",
+      "report_sha256": "30dd2b1b8bd8468a42961a4672b469b268e69b304b72da549410430fee063832",
+      "oracle_report": "results/target-baseline-256.json",
+      "oracle_sha256": "6c6eeb4533507faa5c8725b68a1a63c4d12837de0986ee9ec826ce9a9afa2106"
+    },
+    "native_samples": [
+      70.27257768357885,
+      70.13240620125862,
+      69.90292938209359,
+      69.96558355081407
+    ],
+    "candidate_samples": [
+      70.65495166006407,
+      70.45252763638538,
+      70.51247546078405,
+      70.28624683999959
+    ],
+    "native_median": 70.04899487603635,
+    "candidate_median": 70.48250154858471,
+    "paired_gain_samples_percent": [
+      0.5441297147330548,
+      0.4564529473124246,
+      0.8719893201594386,
+      0.458315750275462
+    ],
+    "paired_gain_median_percent": 0.5012227325042584,
+    "native_cv": 0.002384384005423072,
+    "candidate_cv": 0.0021660320325969655,
+    "exact_original_256_ids": true
+  },
+  "chat_statistics": [
+    {
+      "prompt": 0,
+      "report": "results/followup-ab-route-tail-chat-p0.json",
+      "receipt": {
+        "command": [
+          "target/release/mtp-infer",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--prompt",
+          "Write a short Rust function that computes Fibonacci numbers.",
+          "--max-tokens",
+          "256",
+          "--warmup-tokens",
+          "256",
+          "--runs",
+          "4",
+          "--draft-depth",
+          "3",
+          "--ignore-eos",
+          "--ab-kernel",
+          "route-tail",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-route-tail-chat-p0.json",
+          "--chat",
+          "--no-thinking",
+          "--expected",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-route-tail-chat-p0-oracle.json"
+        ],
+        "exit_code": 0,
+        "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+        "binary_sha256": "2bffd08c10d5babdda4630e12aefedcce7154864bbeaf55ae9364885dd8ae959",
+        "started_unix": 1791298390.006392,
+        "ended_unix": 1791298437.037139,
+        "log_sha256": "5d6f9dbebce7f5fb17b3e4412f4f465e8e91b408577d706bbbea1db20a8afe88",
+        "report_sha256": "92cd97e25f66611d5aa690dc03b1f296df951c5fb1a8c3a1944963bc2758ea42",
+        "oracle_report": "results/decode3-config-combo-full-chat-p0-c1-native.json",
+        "oracle_sha256": "34198dd61ac9ab982c65e6875a32b16ef78ab97598175aaa0166628e5239b8ec"
+      },
+      "native_samples": [
+        68.36685350955958,
+        68.22912705447433,
+        67.97236847092604,
+        68.08473372060642
+      ],
+      "candidate_samples": [
+        68.72108345660178,
+        68.69316209070871,
+        68.63487949885233,
+        68.16931212051372
+      ],
+      "native_median": 68.15693038754037,
+      "candidate_median": 68.66402079478053,
+      "paired_gain_samples_percent": [
+        0.5181311247455245,
+        0.6801128143760327,
+        0.9746769795283328,
+        0.12422520480783739
+      ],
+      "paired_gain_median_percent": 0.5991219695607786,
+      "native_cv": 0.002518269223923179,
+      "candidate_cv": 0.003783307350189336,
+      "exact_original_256_ids": true
+    },
+    {
+      "prompt": 1,
+      "report": "results/followup-ab-route-tail-chat-p1.json",
+      "receipt": {
+        "command": [
+          "target/release/mtp-infer",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--prompt",
+          "Explique en fran\u00e7ais comment fonctionne le cache KV d'un mod\u00e8le de langage et donne un exemple concret.",
+          "--max-tokens",
+          "256",
+          "--warmup-tokens",
+          "256",
+          "--runs",
+          "4",
+          "--draft-depth",
+          "3",
+          "--ignore-eos",
+          "--ab-kernel",
+          "route-tail",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-route-tail-chat-p1.json",
+          "--chat",
+          "--no-thinking",
+          "--expected",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-route-tail-chat-p1-oracle.json"
+        ],
+        "exit_code": 0,
+        "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+        "binary_sha256": "2bffd08c10d5babdda4630e12aefedcce7154864bbeaf55ae9364885dd8ae959",
+        "started_unix": 1791298437.063916,
+        "ended_unix": 1791298490.837614,
+        "log_sha256": "e3ce4790587cb6604aa4ec285876d4f9395c6e289438a6172d1f34151a566d2c",
+        "report_sha256": "3d823106e6cd9749289c6777a7875b2160b7861f37d48fbe700936e2ce67cf0b",
+        "oracle_report": "results/decode3-config-combo-full-chat-p1-c1-native.json",
+        "oracle_sha256": "88711fb12a11888a3c33046898a2e9867f20f9a08c156257b6768cf89aa332b9"
+      },
+      "native_samples": [
+        56.43461536642097,
+        56.097284934043124,
+        55.46453952707206,
+        55.82676385960303
+      ],
+      "candidate_samples": [
+        58.37220075315823,
+        56.26929808537178,
+        56.49927553482676,
+        55.52536388693113
+      ],
+      "native_median": 55.962024396823075,
+      "candidate_median": 56.38428681009927,
+      "paired_gain_samples_percent": [
+        3.4333278860090077,
+        0.3066336481897469,
+        1.865581174165598,
+        -0.539884370567989
+      ],
+      "paired_gain_median_percent": 1.0861074111776725,
+      "native_cv": 0.007348751373546176,
+      "candidate_cv": 0.021365238481561636,
+      "exact_original_256_ids": true
+    },
+    {
+      "prompt": 2,
+      "report": "results/followup-ab-route-tail-chat-p2.json",
+      "receipt": {
+        "command": [
+          "target/release/mtp-infer",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--prompt",
+          "Write a SQL query that returns each customer's three most recent orders. Explain how the window function works.",
+          "--max-tokens",
+          "256",
+          "--warmup-tokens",
+          "256",
+          "--runs",
+          "4",
+          "--draft-depth",
+          "3",
+          "--ignore-eos",
+          "--ab-kernel",
+          "route-tail",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-route-tail-chat-p2.json",
+          "--chat",
+          "--no-thinking",
+          "--expected",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-route-tail-chat-p2-oracle.json"
+        ],
+        "exit_code": 0,
+        "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+        "binary_sha256": "2bffd08c10d5babdda4630e12aefedcce7154864bbeaf55ae9364885dd8ae959",
+        "started_unix": 1791298490.8620212,
+        "ended_unix": 1791298538.572871,
+        "log_sha256": "55eddbca4c96748008ebff32f94a956233cf8a0f83a373dd121984f651b608f2",
+        "report_sha256": "1ea07b3e0b4e3335b499b1e5c961f264739ab4833548953973fff5630c30ee90",
+        "oracle_report": "results/decode3-config-combo-full-chat-p2-c1-native.json",
+        "oracle_sha256": "913b81933f8cded348780d83536a1e08b127b8e591b88f1f14825ec5d02cb6a3"
+      },
+      "native_samples": [
+        65.54075152045709,
+        64.21995763623461,
+        63.1792961424738,
+        63.423152083740355
+      ],
+      "candidate_samples": [
+        70.106445538738,
+        64.00671962321935,
+        64.18811262493968,
+        65.38469012434578
+      ],
+      "native_median": 63.82155485998749,
+      "candidate_median": 64.78640137464274,
+      "paired_gain_samples_percent": [
+        6.966191128973898,
+        -0.33204321657002156,
+        1.5967516956677086,
+        3.092779176310123
+      ],
+      "paired_gain_median_percent": 2.344765435988916,
+      "native_cv": 0.016599851280725164,
+      "candidate_cv": 0.04332668915125158,
+      "exact_original_256_ids": true
+    },
+    {
+      "prompt": 3,
+      "report": "results/followup-ab-route-tail-chat-p3.json",
+      "receipt": {
+        "command": [
+          "target/release/mtp-infer",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--prompt",
+          "A train leaves Paris at 9:00 at 80 km/h. A second train leaves at 9:45 at 120 km/h on the same route. When does it catch the first train? Explain carefully.",
+          "--max-tokens",
+          "256",
+          "--warmup-tokens",
+          "256",
+          "--runs",
+          "4",
+          "--draft-depth",
+          "3",
+          "--ignore-eos",
+          "--ab-kernel",
+          "route-tail",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-route-tail-chat-p3.json",
+          "--chat",
+          "--no-thinking",
+          "--expected",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-route-tail-chat-p3-oracle.json"
+        ],
+        "exit_code": 0,
+        "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+        "binary_sha256": "2bffd08c10d5babdda4630e12aefedcce7154864bbeaf55ae9364885dd8ae959",
+        "started_unix": 1791298538.598295,
+        "ended_unix": 1791298584.03096,
+        "log_sha256": "08cd299ab68286f43d7c25a723593e98adafde2153f419c42259760d072036b1",
+        "report_sha256": "9d5b68e39482b75e87dd443431eb8ed5678ea3330bf713d47a2b146f5f9e62ab",
+        "oracle_report": "results/decode3-config-combo-full-chat-p3-c1-native.json",
+        "oracle_sha256": "86ed72a995d12ae6e971bdf0c064e2c6662884d9c00a551ec8cb66a5991736a3"
+      },
+      "native_samples": [
+        70.92116803762879,
+        68.80752667433863,
+        69.32294599470463,
+        69.93157217875866
+      ],
+      "candidate_samples": [
+        74.71600593379048,
+        70.08967539410689,
+        70.23533312377496,
+        70.41361115625766
+      ],
+      "native_median": 69.62725908673164,
+      "candidate_median": 70.32447214001631,
+      "paired_gain_samples_percent": [
+        5.350783131699499,
+        1.8633844024601887,
+        1.3161401552958196,
+        0.6893009301532915
+      ],
+      "paired_gain_median_percent": 1.5897622788780041,
+      "native_cv": 0.013023366226751964,
+      "candidate_cv": 0.03137202186386148,
+      "exact_original_256_ids": true
+    }
+  ],
+  "promote_default": false,
+  "rejection": "raw paired median below5%; other directions still pending",
+  "component_input": "synthetic sin(j*.013) BF16 layer0 oracle stages with actual48 router banks; full verifier/rollback tests use actual model activations",
+  "scope_complete": false
+}

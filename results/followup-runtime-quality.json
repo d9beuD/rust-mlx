@@ -1,0 +1,13 @@
+{
+  "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+  "required_command": "PATH=\"$PWD/.venv/bin:$PATH\" scripts/check.sh",
+  "quality_log_sha256": "acb0f7855b59de7a7839aa9f966d7ab67c5ac1f84f7f7ebcb380ff1390c35923",
+  "passed": true,
+  "release_tests": 37,
+  "actual_checks": "results/followup-runtime-checks.json",
+  "portable_metal_log": "results/followup-runtime-portable-metal.log",
+  "default_policy": "all preparation switches off",
+  "snapshot_warning": "separate followup snapshot, not final goal qualification",
+  "portable_instrumented_tests": 36,
+  "portable_metal_log_sha256": "d33ed3ccc4b61a49ac43dcbae2857947b8f9e81a64a7a2c9b01940d64a135821"
+}

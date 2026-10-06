@@ -1,0 +1,422 @@
+[
+  {
+    "candidate_seconds": 0.159612708,
+    "depth": 2,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 5.917677708,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "config-reuse",
+    "runtime_prepare_calls": [
+      0,
+      0,
+      265
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      271,
+      248068
+    ]
+  },
+  {
+    "candidate_seconds": 0.20629225,
+    "depth": 3,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.311450709,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "config-reuse",
+    "runtime_prepare_calls": [
+      0,
+      0,
+      530
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      198,
+      760,
+      1156
+    ]
+  },
+  {
+    "candidate_seconds": 0.262710375,
+    "depth": 4,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.418948833,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "config-reuse",
+    "runtime_prepare_calls": [
+      0,
+      0,
+      795
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      6587,
+      264,
+      2716,
+      32671
+    ]
+  },
+  {
+    "candidate_seconds": 0.273556083,
+    "depth": 5,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.533807791,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "config-reuse",
+    "runtime_prepare_calls": [
+      0,
+      0,
+      943
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      709,
+      310,
+      12204,
+      76938,
+      4947
+    ]
+  },
+  {
+    "candidate_seconds": 0.311539417,
+    "depth": 6,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.640002292,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "config-reuse",
+    "runtime_prepare_calls": [
+      0,
+      0,
+      1091
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      13,
+      6558,
+      728,
+      1683,
+      883,
+      279
+    ]
+  },
+  {
+    "candidate_seconds": 0.353440375,
+    "depth": 7,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.739200375,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "config-reuse",
+    "runtime_prepare_calls": [
+      0,
+      0,
+      1239
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      1786,
+      5313,
+      25,
+      271,
+      3670,
+      25,
+      198
+    ]
+  },
+  {
+    "candidate_seconds": 0.393806792,
+    "depth": 8,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.846243958,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "config-reuse",
+    "runtime_prepare_calls": [
+      0,
+      0,
+      1390
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      16,
+      13,
+      82930,
+      318,
+      3267,
+      520,
+      8,
+      471
+    ]
+  },
+  {
+    "candidate_seconds": 0.158711417,
+    "depth": 2,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.211078417,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "config-reuse",
+    "runtime_prepare_calls": [
+      0,
+      0,
+      1660
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      4145,
+      694
+    ]
+  },
+  {
+    "candidate_seconds": 0.205907708,
+    "depth": 3,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.315229583,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "config-reuse",
+    "runtime_prepare_calls": [
+      0,
+      0,
+      1930
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      496,
+      7,
+      17
+    ]
+  },
+  {
+    "candidate_seconds": 0.262547167,
+    "depth": 4,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.425698542,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "config-reuse",
+    "runtime_prepare_calls": [
+      0,
+      0,
+      2200
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      83193,
+      681,
+      524,
+      14542
+    ]
+  },
+  {
+    "candidate_seconds": 0.273543292,
+    "depth": 5,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.526944833,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "config-reuse",
+    "runtime_prepare_calls": [
+      0,
+      0,
+      2349
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      198,
+      17,
+      13,
+      13310,
+      1340
+    ]
+  },
+  {
+    "candidate_seconds": 0.311843125,
+    "depth": 6,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.636261875,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "config-reuse",
+    "runtime_prepare_calls": [
+      0,
+      0,
+      2498
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      471,
+      496,
+      1393,
+      681,
+      4145,
+      11
+    ]
+  },
+  {
+    "candidate_seconds": 0.353455125,
+    "depth": 7,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.742944792,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "config-reuse",
+    "runtime_prepare_calls": [
+      0,
+      0,
+      2647
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      10727,
+      198,
+      18,
+      13,
+      82930,
+      440,
+      20781
+    ]
+  },
+  {
+    "candidate_seconds": 0.394152458,
+    "depth": 8,
+    "hidden_error": 0.0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_affine": false,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "native_gate_up": false,
+    "reference_seconds": 0.848823292,
+    "resident_overlay": null,
+    "route_tail": false,
+    "route_tail_calls": 0,
+    "runtime_prepare": "config-reuse",
+    "runtime_prepare_calls": [
+      0,
+      0,
+      2799
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0,
+    "tokens": [
+      1954,
+      471,
+      777,
+      6150,
+      198,
+      19,
+      13,
+      11747
+    ]
+  }
+]

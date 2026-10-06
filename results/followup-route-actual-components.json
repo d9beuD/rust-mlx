@@ -1,0 +1,8402 @@
+{
+  "cache": "component evaluated inputs; no prefix reuse",
+  "complete": true,
+  "environment": {
+    "captured_unix_seconds": 1791297908,
+    "hardware": {
+      "chip": "Apple M5 Max",
+      "gpu": "Apple M5 Max",
+      "gpu_cores": "40",
+      "memory": "128 GB",
+      "model": "Mac17,6"
+    },
+    "revision": {
+      "commit": "676498cc358bf9a2b91d881500a4726d1e8a02c0",
+      "dirty": true
+    },
+    "software": {
+      "macos": "27.0.1",
+      "macos_build": "26A434",
+      "mlx": "0.32.2",
+      "mlx_rs": "0.32.0",
+      "mlx_sys": "0.6.0",
+      "package_version": "0.1.0",
+      "rust": "rustc 1.98.1 (48a229cea 2026-09-01)",
+      "xcode": "Xcode 27.0\nBuild version 27A266a"
+    },
+    "workload": {
+      "binary_sha256": "846912e3e5933bf88bc2db3139a7e94f17a40c0ea877e57332236a1d65c0a202  /Users/d9beud/Documents/Repositories/d9beud/rust-mlx/target/release/route-bench",
+      "process_cpu_names": [
+        "  6.7 /usr/libexec/syspolicyd",
+        " 80.7 /System/Library/PrivateFrameworks/StorageManagement.framework/PlugIns/StorageManagementService",
+        " 99.3 /System/Library/PrivateFrameworks/StorageManagement.framework/PlugIns/ApplicationsStorageExtension.appex/Contents/MacOS/ApplicationsStorageExtension",
+        "  7.9 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared"
+      ],
+      "swap": "vm.swapusage: total = 2048.00M  used = 1041.44M  free = 1006.56M  (encrypted)",
+      "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    }
+  },
+  "exact": true,
+  "input": "actual layer0 BF16 mlp_input fixture reused across48 actual router banks; not48 natural layer activations",
+  "measurement_pairs": 100,
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "quantization": {
+    "bits": 4,
+    "group_size": 64,
+    "language_model.lm_head": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.embed_tokens": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.key_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.0": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.1": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.10": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.100": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.101": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.102": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.103": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.104": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.105": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.106": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.107": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.108": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.109": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.11": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.110": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.111": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.112": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.113": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.114": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.115": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.116": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.117": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.118": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.119": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.12": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.120": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.121": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.122": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.123": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.124": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.125": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.126": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.127": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.13": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.14": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.15": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.16": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.17": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.18": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.19": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.2": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.20": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.21": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.22": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.23": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.24": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.25": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.26": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.27": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.28": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.29": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.3": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.30": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.31": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.32": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.33": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.34": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.35": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.36": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.37": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.38": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.39": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.4": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.40": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.41": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.42": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.43": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.44": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.45": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.46": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.47": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.48": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.49": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.5": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.50": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.51": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.52": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.53": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.54": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.55": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.56": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.57": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.58": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.59": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.6": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.60": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.61": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.62": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.63": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.64": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.65": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.66": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.67": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.68": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.69": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.7": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.70": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.71": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.72": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.73": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.74": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.75": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.76": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.77": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.78": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.79": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.8": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.80": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.81": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.82": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.83": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.84": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.85": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.86": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.87": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.88": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.89": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.9": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.90": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.91": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.92": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.93": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.94": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.95": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.96": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.97": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.98": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.99": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.value_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.indexer.index_qk_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.k_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.q_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.v_proj": {
+      "bits": 6,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.indexer.index_qk_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.k_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.v_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.self_attn.indexer.index_qk_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.attn_hyper_connection.block_inject_weight": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_a": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_b": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_qkv": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_z": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp_hyper_connection.block_inject_weight": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.indexer.index_qk_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.k_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.q_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.v_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mode": "affine",
+    "mtp.layers.0.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.indexer.index_qk_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.k_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.q_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.v_proj": {
+      "bits": 6,
+      "group_size": 128,
+      "mode": "affine"
+    }
+  },
+  "records": [
+    {
+      "candidate_seconds": [
+        0.000314916,
+        0.0003105,
+        0.000309542,
+        0.000296458,
+        0.000324875,
+        0.000297167,
+        0.00030775,
+        0.000295792,
+        0.000302666,
+        0.000301917,
+        0.00030325,
+        0.0002945,
+        0.000307833,
+        0.000273584,
+        0.00030025,
+        0.000297167,
+        0.000298792,
+        0.000299709,
+        0.000292417,
+        0.0002935,
+        0.00030075,
+        0.0001965,
+        0.0002565,
+        0.000281458,
+        0.000238416,
+        0.000237459,
+        0.000246042,
+        0.000244583,
+        0.000292125,
+        0.00026625,
+        0.000271583,
+        0.000269042,
+        0.000231375,
+        0.000252875,
+        0.000245458,
+        0.000240083,
+        0.000259375,
+        0.000258834,
+        0.000254042,
+        0.000247542,
+        0.000256167,
+        0.000269292,
+        0.000244167,
+        0.000234208,
+        0.000283791,
+        0.000252833,
+        0.0002605,
+        0.000242833,
+        0.00023675,
+        0.000240083,
+        0.000267875,
+        0.000242125,
+        0.000230708,
+        0.000234458,
+        0.000231458,
+        0.000272083,
+        0.000240625,
+        0.000253541,
+        0.000258875,
+        0.000280875,
+        0.000256333,
+        0.000235625,
+        0.000231542,
+        0.00026875,
+        0.000228709,
+        0.000236208,
+        0.000235583,
+        0.000227084,
+        0.000238167,
+        0.000255958,
+        0.000269958,
+        0.000236334,
+        0.000229584,
+        0.000232,
+        0.000245,
+        0.000284208,
+        0.000244292,
+        0.000220625,
+        0.000187459,
+        0.000310458,
+        0.000233875,
+        0.00023025,
+        0.0002275,
+        0.000257417,
+        0.000227375,
+        0.000187292,
+        0.000259458,
+        0.00025625,
+        0.00025175,
+        0.000230875,
+        0.000260667,
+        0.000270375,
+        0.000236541,
+        0.000230209,
+        0.00023675,
+        0.00027,
+        0.000252584,
+        0.000243917,
+        0.000263917,
+        0.000259584
+      ],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 0,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [
+        0.000473584,
+        0.000446125,
+        0.000462833,
+        0.0004565,
+        0.000468542,
+        0.000487917,
+        0.000490375,
+        0.00045875,
+        0.000481875,
+        0.000451166,
+        0.000461916,
+        0.000436167,
+        0.00046075,
+        0.000447791,
+        0.000455542,
+        0.000450709,
+        0.00044225,
+        0.000445958,
+        0.000462125,
+        0.00044775,
+        0.000445458,
+        0.000309583,
+        0.00033325,
+        0.000321334,
+        0.000353083,
+        0.00035525,
+        0.000345708,
+        0.000369417,
+        0.0003935,
+        0.000343542,
+        0.000388625,
+        0.000309417,
+        0.000335083,
+        0.000362959,
+        0.00035325,
+        0.000304833,
+        0.000368667,
+        0.000348583,
+        0.000341417,
+        0.000358,
+        0.000368417,
+        0.000328708,
+        0.000334625,
+        0.000347667,
+        0.000367583,
+        0.000355917,
+        0.000366333,
+        0.00032875,
+        0.000334583,
+        0.000344667,
+        0.000412542,
+        0.000362083,
+        0.000358709,
+        0.00029675,
+        0.0003485,
+        0.0002975,
+        0.000319541,
+        0.000351084,
+        0.000351375,
+        0.000316791,
+        0.000362541,
+        0.000319417,
+        0.000329208,
+        0.000304958,
+        0.0003205,
+        0.000335875,
+        0.0003495,
+        0.000352458,
+        0.000402042,
+        0.0003405,
+        0.000338042,
+        0.000319167,
+        0.000403459,
+        0.000331625,
+        0.000329625,
+        0.000340334,
+        0.000381458,
+        0.000316334,
+        0.000334667,
+        0.000368459,
+        0.000341916,
+        0.000316333,
+        0.000330417,
+        0.000307833,
+        0.000331375,
+        0.000353458,
+        0.000368,
+        0.000349125,
+        0.000360167,
+        0.000348541,
+        0.000347333,
+        0.000339666,
+        0.000367334,
+        0.000328708,
+        0.000333583,
+        0.000316709,
+        0.00033975,
+        0.000332333,
+        0.000335167,
+        0.000302333
+      ],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [
+        0.000303875,
+        0.000303916,
+        0.00030325,
+        0.000293458,
+        0.000282917,
+        0.000282917,
+        0.000326083,
+        0.00029175,
+        0.00023825,
+        0.000228167,
+        0.000225291,
+        0.000215166,
+        0.000202209,
+        0.000226,
+        0.0002025,
+        0.000251625,
+        0.000222333,
+        0.000227083,
+        0.00022675,
+        0.000223083,
+        0.00024175,
+        0.000231041,
+        0.000232167,
+        0.000211542,
+        0.000230541,
+        0.00020175,
+        0.000223792,
+        0.000216625,
+        0.000227875,
+        0.000224,
+        0.00022075,
+        0.000266167,
+        0.000217209,
+        0.000227167,
+        0.000274083,
+        0.00027525,
+        0.000215542,
+        0.000247334,
+        0.000227125,
+        0.000218833,
+        0.00021825,
+        0.000201667,
+        0.000209292,
+        0.000238791,
+        0.000194583,
+        0.000234708,
+        0.000284166,
+        0.00027025,
+        0.000189625,
+        0.000217958,
+        0.000216375,
+        0.000205708,
+        0.000228375,
+        0.000220584,
+        0.000216292,
+        0.000270958,
+        0.00023375,
+        0.0002155,
+        0.0002625,
+        0.000244208,
+        0.00019825,
+        0.000202667,
+        0.000190167,
+        0.000194958,
+        0.000170916,
+        0.000250167,
+        0.000206208,
+        0.000260458,
+        0.000212958,
+        0.000233792,
+        0.000361292,
+        0.000239334,
+        0.000251917,
+        0.000258,
+        0.000216292,
+        0.000207167,
+        0.000263625,
+        0.00026175,
+        0.000213334,
+        0.000189791,
+        0.000164292,
+        0.000283167,
+        0.000241917,
+        0.000260209,
+        0.000197541,
+        0.00025125,
+        0.000230666,
+        0.000279584,
+        0.000206375,
+        0.00019525,
+        0.00022875,
+        0.00020375,
+        0.00027675,
+        0.000265375,
+        0.00027025,
+        0.000344916,
+        0.000266791,
+        0.000271875,
+        0.000194291,
+        0.000239625
+      ],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 0,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [
+        0.000471542,
+        0.000462292,
+        0.000490417,
+        0.000462917,
+        0.000477083,
+        0.000473,
+        0.000490416,
+        0.000441125,
+        0.000384958,
+        0.000339417,
+        0.000344166,
+        0.000315125,
+        0.00032575,
+        0.000308334,
+        0.000331333,
+        0.000310209,
+        0.000329042,
+        0.00030175,
+        0.000330208,
+        0.000333084,
+        0.000363958,
+        0.000329042,
+        0.000342084,
+        0.000317125,
+        0.00032825,
+        0.000320958,
+        0.000324333,
+        0.000324625,
+        0.000345208,
+        0.000324417,
+        0.000324792,
+        0.000311333,
+        0.000328625,
+        0.000336625,
+        0.000385167,
+        0.00032625,
+        0.000361041,
+        0.000358667,
+        0.000361167,
+        0.000299125,
+        0.000328792,
+        0.000291583,
+        0.000304625,
+        0.000293583,
+        0.00033875,
+        0.000357083,
+        0.00038275,
+        0.000303083,
+        0.000327791,
+        0.000291333,
+        0.000330125,
+        0.000323458,
+        0.00036175,
+        0.00035975,
+        0.000373167,
+        0.000301291,
+        0.000341083,
+        0.000330458,
+        0.000396167,
+        0.000301333,
+        0.000330625,
+        0.000328792,
+        0.000321333,
+        0.000308333,
+        0.000324667,
+        0.000286459,
+        0.000309166,
+        0.000304417,
+        0.000327125,
+        0.000351,
+        0.000380542,
+        0.000346875,
+        0.0003775,
+        0.00031025,
+        0.000349459,
+        0.000342458,
+        0.000377083,
+        0.000285792,
+        0.000319875,
+        0.000331,
+        0.0003195,
+        0.000297041,
+        0.000333,
+        0.000353791,
+        0.000347,
+        0.000298125,
+        0.00029675,
+        0.000279166,
+        0.000324917,
+        0.000304875,
+        0.000367208,
+        0.000355875,
+        0.000369667,
+        0.000353416,
+        0.000375792,
+        0.000346833,
+        0.000347167,
+        0.000284125,
+        0.000336666,
+        0.0002785
+      ],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [
+        0.000295709,
+        0.000304291,
+        0.00028625,
+        0.000292125,
+        0.000299625,
+        0.000294459,
+        0.000282292,
+        0.000298542,
+        0.000247958,
+        0.0002405,
+        0.000254208,
+        0.000248125,
+        0.0002575,
+        0.000229209,
+        0.000241792,
+        0.000242208,
+        0.000245042,
+        0.0002395,
+        0.000232209,
+        0.000349791,
+        0.000238,
+        0.000198958,
+        0.00024825,
+        0.000243292,
+        0.000249709,
+        0.000238791,
+        0.000252916,
+        0.000235667,
+        0.000246,
+        0.000235209,
+        0.000245167,
+        0.000247375,
+        0.000247458,
+        0.000252875,
+        0.000254167,
+        0.000249625,
+        0.000247,
+        0.000241667,
+        0.000233917,
+        0.000229,
+        0.0002275,
+        0.000206584,
+        0.000230042,
+        0.000191959,
+        0.000226333,
+        0.000221875,
+        0.000181375,
+        0.000305459,
+        0.000220958,
+        0.000230875,
+        0.000207625,
+        0.000282084,
+        0.000234,
+        0.000197166,
+        0.000264875,
+        0.000266209,
+        0.000197084,
+        0.00018125,
+        0.0002325,
+        0.000226833,
+        0.000230083,
+        0.000259542,
+        0.000227625,
+        0.000201458,
+        0.000224917,
+        0.000222792,
+        0.000195709,
+        0.000225708,
+        0.000195917,
+        0.000327791,
+        0.000211125,
+        0.00019125,
+        0.000240416,
+        0.000221666,
+        0.000220584,
+        0.000246458,
+        0.00023275,
+        0.0002155,
+        0.0003025,
+        0.0002365,
+        0.000224292,
+        0.000272,
+        0.000235666,
+        0.000207209,
+        0.000209792,
+        0.000206333,
+        0.000231459,
+        0.000219375,
+        0.00022125,
+        0.000242458,
+        0.000217166,
+        0.000251791,
+        0.000262792,
+        0.000295625,
+        0.00023375,
+        0.000225792,
+        0.000234584,
+        0.000274541,
+        0.000210958,
+        0.000187375
+      ],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 0,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [
+        0.0004885,
+        0.000486792,
+        0.000489875,
+        0.0005085,
+        0.000462958,
+        0.000476125,
+        0.000487875,
+        0.000470834,
+        0.000415958,
+        0.0003755,
+        0.000383833,
+        0.000365875,
+        0.000416916,
+        0.000376333,
+        0.000389667,
+        0.000412083,
+        0.000418208,
+        0.000384375,
+        0.000387875,
+        0.0003695,
+        0.000370667,
+        0.000375625,
+        0.000386,
+        0.000393625,
+        0.000392083,
+        0.000389459,
+        0.000390666,
+        0.000405542,
+        0.000386,
+        0.000352541,
+        0.000383792,
+        0.000379209,
+        0.000393166,
+        0.00037825,
+        0.000389333,
+        0.000371583,
+        0.00039725,
+        0.000381625,
+        0.00037975,
+        0.000380125,
+        0.00038325,
+        0.000375208,
+        0.000345458,
+        0.000334125,
+        0.000327875,
+        0.000329209,
+        0.000345,
+        0.000371292,
+        0.000349875,
+        0.000338917,
+        0.000350792,
+        0.000316375,
+        0.00035525,
+        0.000345709,
+        0.000354333,
+        0.000312791,
+        0.000345583,
+        0.000332,
+        0.000348416,
+        0.000357583,
+        0.000358833,
+        0.000302542,
+        0.000351583,
+        0.000337958,
+        0.000346666,
+        0.000319833,
+        0.000339792,
+        0.000309042,
+        0.000346292,
+        0.000322709,
+        0.00035925,
+        0.000317375,
+        0.000341416,
+        0.000336041,
+        0.000342583,
+        0.000322334,
+        0.000344208,
+        0.000356375,
+        0.000359791,
+        0.00036675,
+        0.000386333,
+        0.000316542,
+        0.000346292,
+        0.000319208,
+        0.000335667,
+        0.000324417,
+        0.00034425,
+        0.000326708,
+        0.0003425,
+        0.000310375,
+        0.000337375,
+        0.000335041,
+        0.000349083,
+        0.000334583,
+        0.000339042,
+        0.000333709,
+        0.000349834,
+        0.000304417,
+        0.000350417,
+        0.000319292
+      ],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [
+        0.000300584,
+        0.000300583,
+        0.000305792,
+        0.000304917,
+        0.000308208,
+        0.000296,
+        0.0002945,
+        0.000294083,
+        0.000308333,
+        0.0002955,
+        0.000298,
+        0.000292833,
+        0.000296291,
+        0.000302709,
+        0.000239833,
+        0.000237334,
+        0.000247625,
+        0.000283417,
+        0.000257541,
+        0.000239167,
+        0.000257916,
+        0.000268167,
+        0.000249625,
+        0.000235958,
+        0.000252167,
+        0.000252333,
+        0.000231625,
+        0.000203084,
+        0.000247333,
+        0.000252,
+        0.000246833,
+        0.000251,
+        0.000248583,
+        0.000244416,
+        0.00026175,
+        0.000209083,
+        0.000217958,
+        0.000219333,
+        0.000238958,
+        0.000224834,
+        0.000181792,
+        0.00018875,
+        0.000288375,
+        0.000225292,
+        0.000227208,
+        0.000208208,
+        0.000235125,
+        0.000224375,
+        0.000195042,
+        0.00033175,
+        0.000195208,
+        0.000194375,
+        0.000278875,
+        0.000198458,
+        0.000225333,
+        0.0002215,
+        0.000237125,
+        0.000325,
+        0.000221708,
+        0.0002035,
+        0.000223166,
+        0.000237583,
+        0.000199,
+        0.000197292,
+        0.000224458,
+        0.00019375,
+        0.000223666,
+        0.000220625,
+        0.00023575,
+        0.00019675,
+        0.000217667,
+        0.000197333,
+        0.00022125,
+        0.00022375,
+        0.000261459,
+        0.000251083,
+        0.000227666,
+        0.000181792,
+        0.00023875,
+        0.000220416,
+        0.000208542,
+        0.000241625,
+        0.000298167,
+        0.000258709,
+        0.000210875,
+        0.000213334,
+        0.000218416,
+        0.000186625,
+        0.000260916,
+        0.000193542,
+        0.000192708,
+        0.00020425,
+        0.000218791,
+        0.000216417,
+        0.000180375,
+        0.0002275,
+        0.000209959,
+        0.000170166,
+        0.000197541,
+        0.000185625
+      ],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 0,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [
+        0.000500416,
+        0.000478666,
+        0.000482084,
+        0.000461333,
+        0.000478167,
+        0.00047525,
+        0.000482834,
+        0.000469667,
+        0.000479917,
+        0.000470834,
+        0.00048525,
+        0.000467458,
+        0.000496209,
+        0.000455375,
+        0.000387667,
+        0.000366791,
+        0.000372708,
+        0.000384916,
+        0.000390334,
+        0.000375125,
+        0.00038025,
+        0.000408542,
+        0.000390667,
+        0.000349625,
+        0.00038975,
+        0.000364,
+        0.000382917,
+        0.000361458,
+        0.000382334,
+        0.000365541,
+        0.0003805,
+        0.000379709,
+        0.000385166,
+        0.000373625,
+        0.000378666,
+        0.0003395,
+        0.000369708,
+        0.000308042,
+        0.000330542,
+        0.000322125,
+        0.000339583,
+        0.000325917,
+        0.00032525,
+        0.00032875,
+        0.0003535,
+        0.000326666,
+        0.000339541,
+        0.00032425,
+        0.000341583,
+        0.000323917,
+        0.0003425,
+        0.000351458,
+        0.00038725,
+        0.000314875,
+        0.000341334,
+        0.000323292,
+        0.000364292,
+        0.000333209,
+        0.000350334,
+        0.000323667,
+        0.000328958,
+        0.000335708,
+        0.000359167,
+        0.000318125,
+        0.000325708,
+        0.000316042,
+        0.000330916,
+        0.000308833,
+        0.00032725,
+        0.000317542,
+        0.000323583,
+        0.000319,
+        0.000346958,
+        0.000340292,
+        0.000346916,
+        0.000346209,
+        0.000341958,
+        0.000326333,
+        0.000354541,
+        0.00037225,
+        0.000367208,
+        0.000331042,
+        0.000386083,
+        0.000319333,
+        0.000333083,
+        0.000320583,
+        0.000339167,
+        0.000322792,
+        0.000346209,
+        0.000316334,
+        0.000332291,
+        0.000323292,
+        0.000331667,
+        0.000323459,
+        0.000313416,
+        0.000313083,
+        0.000330917,
+        0.000329584,
+        0.000343083,
+        0.000311333
+      ],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [
+        0.000292125,
+        0.0003065,
+        0.000274,
+        0.000281709,
+        0.000298666,
+        0.000314125,
+        0.0003095,
+        0.000296375,
+        0.000312166,
+        0.000304333,
+        0.000319083,
+        0.000338875,
+        0.000319167,
+        0.000307625,
+        0.000249583,
+        0.000238333,
+        0.000236125,
+        0.0001875,
+        0.000244666,
+        0.000242583,
+        0.000186125,
+        0.00023825,
+        0.000247458,
+        0.000230375,
+        0.000244375,
+        0.000231292,
+        0.000287542,
+        0.000226458,
+        0.000241291,
+        0.000228125,
+        0.000237917,
+        0.000225333,
+        0.000227791,
+        0.000237166,
+        0.000218291,
+        0.00021225,
+        0.000215417,
+        0.000230833,
+        0.000307875,
+        0.000201875,
+        0.000222375,
+        0.000221542,
+        0.00023475,
+        0.000225042,
+        0.000210334,
+        0.000226792,
+        0.000232584,
+        0.000211833,
+        0.000229625,
+        0.000215375,
+        0.000227792,
+        0.000230125,
+        0.000216541,
+        0.0001965,
+        0.000228541,
+        0.000221667,
+        0.000221417,
+        0.000223625,
+        0.000228583,
+        0.000221666,
+        0.000201459,
+        0.000225625,
+        0.000226666,
+        0.000199875,
+        0.000221583,
+        0.000224875,
+        0.000221417,
+        0.000222667,
+        0.000243958,
+        0.000250541,
+        0.000227792,
+        0.000200625,
+        0.000165958,
+        0.000217125,
+        0.000224375,
+        0.000199917,
+        0.000215583,
+        0.000357708,
+        0.000194833,
+        0.000192375,
+        0.000307958,
+        0.000262125,
+        0.000218541,
+        0.000211917,
+        0.000193042,
+        0.000223625,
+        0.000216209,
+        0.000192458,
+        0.00022725,
+        0.000216959,
+        0.000216542,
+        0.000214666,
+        0.000211666,
+        0.000262458,
+        0.000198375,
+        0.000191125,
+        0.000211542,
+        0.000211583,
+        0.000216458,
+        0.000218958
+      ],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 0,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [
+        0.000481042,
+        0.000477667,
+        0.000480792,
+        0.000499291,
+        0.000509917,
+        0.000477666,
+        0.000491625,
+        0.000467834,
+        0.000497833,
+        0.000516458,
+        0.000489042,
+        0.00047275,
+        0.000489,
+        0.000466625,
+        0.000486958,
+        0.00033825,
+        0.000353792,
+        0.000339666,
+        0.000342959,
+        0.000344709,
+        0.000346083,
+        0.000340958,
+        0.000341583,
+        0.0003425,
+        0.000364625,
+        0.000322291,
+        0.000368708,
+        0.00033625,
+        0.000345875,
+        0.000330042,
+        0.000356292,
+        0.000338584,
+        0.000349625,
+        0.000335875,
+        0.000345625,
+        0.000345041,
+        0.000352125,
+        0.000384375,
+        0.000354458,
+        0.000320583,
+        0.000337333,
+        0.000332875,
+        0.000328291,
+        0.000320625,
+        0.000334958,
+        0.000329166,
+        0.000329541,
+        0.000314792,
+        0.000338583,
+        0.000327459,
+        0.00033525,
+        0.000320209,
+        0.000336125,
+        0.000335333,
+        0.000338416,
+        0.000321542,
+        0.000360958,
+        0.000320583,
+        0.000335458,
+        0.000317625,
+        0.000330416,
+        0.000316625,
+        0.000339333,
+        0.000319958,
+        0.000348084,
+        0.0003185,
+        0.000345708,
+        0.00032175,
+        0.000342209,
+        0.000307625,
+        0.000328709,
+        0.000310791,
+        0.000323708,
+        0.000307833,
+        0.000330542,
+        0.000303916,
+        0.000312542,
+        0.000318875,
+        0.000338458,
+        0.000320292,
+        0.000335209,
+        0.0003165,
+        0.0003325,
+        0.000317,
+        0.000337542,
+        0.000323167,
+        0.000323541,
+        0.00031275,
+        0.000332,
+        0.00029575,
+        0.000331666,
+        0.000313542,
+        0.000343084,
+        0.000316458,
+        0.000327542,
+        0.000317792,
+        0.00034875,
+        0.000315292,
+        0.000330417,
+        0.000318792
+      ],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 1,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 1,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 1,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 1,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 1,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 2,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 2,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 2,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 2,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 2,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 3,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 3,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 3,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 3,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 3,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 4,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 4,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 4,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 4,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 4,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 5,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 5,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 5,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 5,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 5,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 6,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 6,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 6,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 6,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 6,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 7,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 7,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 7,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 7,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 7,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 8,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 8,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 8,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 8,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 8,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 9,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 9,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 9,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 9,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 9,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 10,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 10,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 10,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 10,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 10,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 11,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 11,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 11,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 11,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 11,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 12,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 12,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 12,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 12,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 12,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 13,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 13,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 13,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 13,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 13,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 14,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 14,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 14,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 14,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 14,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 15,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 15,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 15,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 15,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 15,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 16,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 16,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 16,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 16,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 16,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 17,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 17,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 17,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 17,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 17,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 18,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 18,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 18,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 18,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 18,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 19,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 19,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 19,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 19,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 19,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 20,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 20,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 20,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 20,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 20,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 21,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 21,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 21,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 21,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 21,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 22,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 22,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 22,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 22,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 22,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 23,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 23,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 23,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 23,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 23,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 24,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 24,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 24,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 24,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 24,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 25,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 25,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 25,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 25,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 25,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 26,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 26,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 26,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 26,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 26,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 27,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 27,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 27,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 27,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 27,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 28,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 28,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 28,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 28,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 28,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 29,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 29,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 29,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 29,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 29,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 30,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 30,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 30,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 30,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 30,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 31,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 31,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 31,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 31,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 31,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 32,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 32,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 32,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 32,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 32,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 33,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 33,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 33,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 33,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 33,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 34,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 34,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 34,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 34,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 34,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 35,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 35,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 35,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 35,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 35,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 36,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 36,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 36,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 36,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 36,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 37,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 37,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 37,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 37,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 37,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 38,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 38,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 38,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 38,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 38,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 39,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 39,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 39,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 39,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 39,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 40,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 40,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 40,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 40,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 40,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 41,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 41,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 41,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 41,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 41,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 42,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 42,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 42,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 42,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 42,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 43,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 43,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 43,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 43,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 43,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 44,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 44,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 44,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 44,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 44,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 45,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 45,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 45,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 45,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 45,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 46,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 46,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 46,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 46,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 46,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 47,
+      "logits_shape": [
+        1,
+        1,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 1
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 47,
+      "logits_shape": [
+        1,
+        2,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 2
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 47,
+      "logits_shape": [
+        1,
+        3,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 3
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 47,
+      "logits_shape": [
+        1,
+        4,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 4
+    },
+    {
+      "candidate_seconds": [],
+      "dtype": "BF16",
+      "errors": {
+        "ids": 0.0,
+        "scores": 0.0,
+        "shared_factor": 0.0
+      },
+      "layer": 47,
+      "logits_shape": [
+        1,
+        8,
+        512
+      ],
+      "native_seconds": [],
+      "rows": 8
+    }
+  ],
+  "sampler": "component native probabilities/top10",
+  "warmup_pairs": 10
+}

@@ -1,0 +1,28 @@
+{
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+  "binary_sha256": "82da5cc08fca394d84d689587a9f5c56aebeecae6986a77bab0127f2791c66e8",
+  "report_sha256": "d90ad932add6b788172d83002922d0d8359384d514c5a1b9ff7b8bd1a3926326",
+  "log_sha256": "f081d91254d9f6a4092cd357d58dd3f3e568704a73e99754ac776ad55ad710ce",
+  "command": [
+    "target/release/verify-profile",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--proposals",
+    ".unlazy/followup-long-proposals.json",
+    "--rounds",
+    "4",
+    "--output",
+    "results/followup-profile-long-synchronized.json"
+  ],
+  "source_proposals": "results/kv-blocks-context-ab-256.json, original-address32 historical native cohort, prompt2107, cycle1; proposal/state replay rechecked against current native forward",
+  "sampler": "greedy",
+  "fresh_cache": true,
+  "prefix_cache": false,
+  "logits_exact": true,
+  "prompt_length": 2107,
+  "diagnostic_only": true,
+  "exit_code": 0,
+  "success_marker": "VERIFY_PROFILE_PASSED",
+  "passed": true
+}

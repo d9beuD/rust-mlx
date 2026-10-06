@@ -1,0 +1,31 @@
+{
+  "receipt": "results/followup-profile-metal-short-r2-receipt.json",
+  "source_sha256": "86cf87809f7a00dabadd266dbe7e357daad1565f8a8f6a568606939e71dc6be2",
+  "pid": 58357,
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "instrumented": true,
+  "throughput_qualified": false,
+  "requested_seconds": 4,
+  "gpu_export_sha256": "19e68fe4ceaa98835d388bfcf5a0de671e2678b501d4e59581cfa5658709dd65",
+  "exported_rows": 24179,
+  "own_rows": 24158,
+  "own_compute_intervals": 24033,
+  "own_compute_union_seconds": 3.515565159999999,
+  "own_compute_sum_seconds": 3.515565159999999,
+  "own_observed_span_seconds": 4.566448292,
+  "own_compute_union_fraction": 0.7698686014158855,
+  "gaps_between_own_compute": {
+    "count": 24032,
+    "sum_seconds": 1.0508831320000005,
+    "median_seconds": 6.669999998987208e-07,
+    "maximum_seconds": 0.021460167000000085
+  },
+  "submission_latency_median_seconds": 0.001168708,
+  "label_counts": {
+    "GPU Execution ": 1,
+    "Command Buffer 0:Compute Command 0 ": 24032
+  },
+  "shader_function_attribution_available": false,
+  "dram_bytes_or_bandwidth_measured": false,
+  "warning": "Trace instrumentation changes scheduling. Gaps include CPU work, waits and request boundaries; they are not proved removable overhead or raw throughput percentages."
+}

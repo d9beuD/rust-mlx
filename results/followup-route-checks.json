@@ -1,0 +1,113 @@
+{
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+  "checks": [
+    {
+      "name": "actual-components",
+      "command": [
+        "target/release/route-bench",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-route-actual-components.json"
+      ],
+      "started_unix": 1791297907.6215491,
+      "ended_unix": 1791297909.8891132,
+      "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+      "binary_sha256": "846912e3e5933bf88bc2db3139a7e94f17a40c0ea877e57332236a1d65c0a202",
+      "exit_code": 0,
+      "success_marker": "ACTUAL_ROUTE_TAIL_COMPONENTS_EXACT",
+      "passed": true,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "log_sha256": "0a270d9681ed1b3326e27d3e0ca693b287d1b8c2c25fa1c31d570899ecff1753",
+      "report_sha256": "cceb4511adc09d0245437e7181a9c70b3435f62e1f51fb0127ad0a1d787dd2c3",
+      "timing_qualified": false
+    },
+    {
+      "name": "verify-metal",
+      "command": [
+        "target/release/verify-parity",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-route-verify-metal.json",
+        "--route-tail"
+      ],
+      "started_unix": 1791297909.905746,
+      "ended_unix": 1791297929.345192,
+      "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+      "binary_sha256": "9f59504c7c91f5023619bb3466dddf4c8fb85f1abc587d25dc76deae1f2485fc",
+      "exit_code": 0,
+      "success_marker": "VERIFY_PARITY_PASSED",
+      "passed": true,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "log_sha256": "a6ab9036e81d456da05dfd808d8ff53c98f0fcca495529953b38d466f873860e",
+      "report_sha256": "0be643cdf42950c32afd6b0f0ec6a10f303b58cd41e6c697434bbed3a2e31e18",
+      "timing_qualified": false
+    },
+    {
+      "name": "rollback-metal",
+      "command": [
+        "target/release/rollback-parity",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-route-rollback-metal.json",
+        "--route-tail"
+      ],
+      "started_unix": 1791297929.373922,
+      "ended_unix": 1791297939.294147,
+      "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+      "binary_sha256": "2d731e65d73dbf10f405cff0266ee7b09d66d3a5d3d219676e52824e1590e5df",
+      "exit_code": 0,
+      "success_marker": "ROLLBACK_PARITY_PASSED",
+      "passed": true,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "log_sha256": "dcd317981aea9d4e02f9e53b446bd470e5d224669cfe78d00d6d88847639775f",
+      "report_sha256": "a283b14042fe007516c1e6969e21d4dc2d202b5c131dc071496c2e0e2efcd529",
+      "timing_qualified": false
+    },
+    {
+      "name": "synchronized-phases",
+      "command": [
+        "target/release/verify-profile",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-route-synchronized-phases.json",
+        "--proposals",
+        "results/followup-baseline-raw-256.json",
+        "--rounds",
+        "12"
+      ],
+      "started_unix": 1791297939.324766,
+      "ended_unix": 1791297947.424702,
+      "source_sha256": "7150d0462d7f81f61690ba0e1815bbaefbea03f52c4e29f2fcb3f59bf62377c5",
+      "binary_sha256": "82da5cc08fca394d84d689587a9f5c56aebeecae6986a77bab0127f2791c66e8",
+      "exit_code": 0,
+      "success_marker": "VERIFY_PROFILE_PASSED",
+      "passed": true,
+      "validation_environment": {},
+      "log_sha256": "d5d7698a8849576aa1969b154dbbb044062f164cefc139d79782ade53207311b",
+      "report_sha256": "b9bafb4d15849be0a4167c06f51703d7e16046333847b115142033fb72a851d5",
+      "timing_qualified": false
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

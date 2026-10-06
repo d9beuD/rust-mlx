@@ -1,0 +1,28 @@
+{
+  "name": "config-reuse-verify-metal",
+  "command": [
+    "target/release/verify-parity",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--output",
+    "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-runtime-config-reuse-verify-metal.json",
+    "--runtime-prepare",
+    "config-reuse"
+  ],
+  "started_unix": 1791299320.909857,
+  "ended_unix": 1791299339.193932,
+  "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+  "binary_sha256": "0a99d311eca99bd530b4df3c0fb5ac6f4c8875e8f498af7e5ebdab444f16bfc4",
+  "exit_code": 0,
+  "success_marker": "VERIFY_PARITY_PASSED",
+  "passed": true,
+  "validation_environment": {
+    "MTL_SHADER_VALIDATION": "1",
+    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+  },
+  "log_sha256": "5c542e85fba1017e0e07d397ece9467f8c6503cfab48ed78b5eab9af56212643",
+  "report_sha256": "97a36694f1b43715763f2b1405f73d98370ed2393c19a22df9bda0f823943676",
+  "timing_qualified": false
+}

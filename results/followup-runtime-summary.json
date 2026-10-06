@@ -1,0 +1,833 @@
+{
+  "scope": "G36 preparation overlap and reusable setup, separately measured and combined",
+  "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+  "complete": true,
+  "raw": [
+    {
+      "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+      "kernel": "ple-prepare",
+      "suite": "raw",
+      "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+      "protocol": "four alternating baseline/candidate pairs in one model process; both warmed256; fresh caches; greedy depth3; complete priming/draft/verify/rollback/sync cost",
+      "records": [
+        {
+          "prompt": 0,
+          "report": "results/followup-ab-ple-prepare-raw-p0.json",
+          "receipt": {
+            "command": [
+              "target/release/mtp-infer",
+              "--model",
+              "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+              "--prompt",
+              "Write a short Rust function that computes Fibonacci numbers.",
+              "--max-tokens",
+              "256",
+              "--warmup-tokens",
+              "256",
+              "--runs",
+              "4",
+              "--draft-depth",
+              "3",
+              "--ignore-eos",
+              "--ab-kernel",
+              "ple-prepare",
+              "--output",
+              "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-ple-prepare-raw-p0.json",
+              "--expected",
+              "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-ple-prepare-raw-p0-oracle.json"
+            ],
+            "exit_code": 0,
+            "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+            "binary_sha256": "ead20d0ffedf7adcbe4ecb2026357288a250ab73041b933715692057848b58c6",
+            "started_unix": 1791299410.1743639,
+            "ended_unix": 1791299457.36006,
+            "log_sha256": "88f61d1557d2ed079fc70b5989036608bbc19181629b728ccda079c4f5690f20",
+            "report_sha256": "7c7706442fc73f5eb8874ec7602ae1bba6af7d464a6df44db7e2f5d7258b3623",
+            "oracle_report": "results/target-baseline-256.json",
+            "oracle_sha256": "6c6eeb4533507faa5c8725b68a1a63c4d12837de0986ee9ec826ce9a9afa2106"
+          },
+          "native_samples": [
+            69.66450722375617,
+            69.78041949114886,
+            69.90593243627323,
+            69.91262931255481
+          ],
+          "candidate_samples": [
+            69.90401845741975,
+            69.77365721385408,
+            69.75520368690445,
+            69.62047058985685
+          ],
+          "native_median": 69.84317596371105,
+          "candidate_median": 69.76443045037927,
+          "paired_gain_samples_percent": [
+            0.3438066860852018,
+            -0.00969079484487434,
+            -0.21561653512910395,
+            -0.41789119586937984
+          ],
+          "paired_gain_median_percent": -0.11265366498698914,
+          "native_cv": 0.0016875084880933022,
+          "candidate_cv": 0.0016629033158720658,
+          "exact_original_256_ids": true
+        }
+      ],
+      "complete": true,
+      "promoted": false
+    },
+    {
+      "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+      "kernel": "rope-ids",
+      "suite": "raw",
+      "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+      "protocol": "four alternating baseline/candidate pairs in one model process; both warmed256; fresh caches; greedy depth3; complete priming/draft/verify/rollback/sync cost",
+      "records": [
+        {
+          "prompt": 0,
+          "report": "results/followup-ab-rope-ids-raw-p0.json",
+          "receipt": {
+            "command": [
+              "target/release/mtp-infer",
+              "--model",
+              "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+              "--prompt",
+              "Write a short Rust function that computes Fibonacci numbers.",
+              "--max-tokens",
+              "256",
+              "--warmup-tokens",
+              "256",
+              "--runs",
+              "4",
+              "--draft-depth",
+              "3",
+              "--ignore-eos",
+              "--ab-kernel",
+              "rope-ids",
+              "--output",
+              "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-rope-ids-raw-p0.json",
+              "--expected",
+              "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-rope-ids-raw-p0-oracle.json"
+            ],
+            "exit_code": 0,
+            "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+            "binary_sha256": "ead20d0ffedf7adcbe4ecb2026357288a250ab73041b933715692057848b58c6",
+            "started_unix": 1791299457.464551,
+            "ended_unix": 1791299500.982827,
+            "log_sha256": "2388165a2c97a6ef362410bbd0d6def75b1001be6c0a6182dab676ed922c1f43",
+            "report_sha256": "c0d7f2ce4d58d7a71117a80047f256cec04e60b4b4e35a763d8671ce0147ed33",
+            "oracle_report": "results/target-baseline-256.json",
+            "oracle_sha256": "6c6eeb4533507faa5c8725b68a1a63c4d12837de0986ee9ec826ce9a9afa2106"
+          },
+          "native_samples": [
+            69.7891988675686,
+            69.98236238637385,
+            70.0183953756157,
+            69.98473281406962
+          ],
+          "candidate_samples": [
+            70.03146413991958,
+            70.04286314211666,
+            69.92630898194184,
+            70.03341395522273
+          ],
+          "native_median": 69.98354760022173,
+          "candidate_median": 70.03243904757116,
+          "paired_gain_samples_percent": [
+            0.3471386350353489,
+            0.08645143387526755,
+            -0.13151742935532118,
+            0.06955965850787837
+          ],
+          "paired_gain_median_percent": 0.07800554619157296,
+          "native_cv": 0.0014910399601682108,
+          "candidate_cv": 0.0007860188246469148,
+          "exact_original_256_ids": true
+        }
+      ],
+      "complete": true,
+      "promoted": false
+    },
+    {
+      "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+      "kernel": "config-reuse",
+      "suite": "raw",
+      "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+      "protocol": "four alternating baseline/candidate pairs in one model process; both warmed256; fresh caches; greedy depth3; complete priming/draft/verify/rollback/sync cost",
+      "records": [
+        {
+          "prompt": 0,
+          "report": "results/followup-ab-config-reuse-raw-p0.json",
+          "receipt": {
+            "command": [
+              "target/release/mtp-infer",
+              "--model",
+              "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+              "--prompt",
+              "Write a short Rust function that computes Fibonacci numbers.",
+              "--max-tokens",
+              "256",
+              "--warmup-tokens",
+              "256",
+              "--runs",
+              "4",
+              "--draft-depth",
+              "3",
+              "--ignore-eos",
+              "--ab-kernel",
+              "config-reuse",
+              "--output",
+              "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-config-reuse-raw-p0.json",
+              "--expected",
+              "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-config-reuse-raw-p0-oracle.json"
+            ],
+            "exit_code": 0,
+            "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+            "binary_sha256": "ead20d0ffedf7adcbe4ecb2026357288a250ab73041b933715692057848b58c6",
+            "started_unix": 1791299501.064936,
+            "ended_unix": 1791299546.163562,
+            "log_sha256": "006b986471d733485e4d5f73c2635262afc2a15838f50b8942da6fb5794514e1",
+            "report_sha256": "7c123540b446380f76424583cfb00b5a1c36944cb71ad0720e6224c66b6992e9",
+            "oracle_report": "results/target-baseline-256.json",
+            "oracle_sha256": "6c6eeb4533507faa5c8725b68a1a63c4d12837de0986ee9ec826ce9a9afa2106"
+          },
+          "native_samples": [
+            67.37616261905113,
+            67.32988881402503,
+            67.22890831921455,
+            67.0948664022452
+          ],
+          "candidate_samples": [
+            66.8874367393214,
+            66.98218339590476,
+            67.39769451802441,
+            67.4402363092551
+          ],
+          "native_median": 67.27939856661979,
+          "candidate_median": 67.18993895696458,
+          "paired_gain_samples_percent": [
+            -0.7253691227460002,
+            -0.5164206034569352,
+            0.25106193604755855,
+            0.5147486320925765
+          ],
+          "paired_gain_median_percent": -0.13267933370468832,
+          "native_cv": 0.0018528340868256726,
+          "candidate_cv": 0.004208660271178412,
+          "exact_original_256_ids": true
+        }
+      ],
+      "complete": true,
+      "promoted": false
+    },
+    {
+      "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+      "kernel": "runtime-prepare",
+      "suite": "raw",
+      "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+      "protocol": "four alternating baseline/candidate pairs in one model process; both warmed256; fresh caches; greedy depth3; complete priming/draft/verify/rollback/sync cost",
+      "records": [
+        {
+          "prompt": 0,
+          "report": "results/followup-ab-runtime-prepare-raw-p0.json",
+          "receipt": {
+            "command": [
+              "target/release/mtp-infer",
+              "--model",
+              "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+              "--prompt",
+              "Write a short Rust function that computes Fibonacci numbers.",
+              "--max-tokens",
+              "256",
+              "--warmup-tokens",
+              "256",
+              "--runs",
+              "4",
+              "--draft-depth",
+              "3",
+              "--ignore-eos",
+              "--ab-kernel",
+              "runtime-prepare",
+              "--output",
+              "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-runtime-prepare-raw-p0.json",
+              "--expected",
+              "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-runtime-prepare-raw-p0-oracle.json"
+            ],
+            "exit_code": 0,
+            "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+            "binary_sha256": "ead20d0ffedf7adcbe4ecb2026357288a250ab73041b933715692057848b58c6",
+            "started_unix": 1791299546.264807,
+            "ended_unix": 1791299590.601792,
+            "log_sha256": "f2a7825a6eedb3bb7d412e1c7cb6e4bbfebb44a531a4dffe69a340c7444c4dda",
+            "report_sha256": "5934bc89691e1de522a2d777ca9ea813f51a7d8f1c31cf36f0c0b09b2cbe810a",
+            "oracle_report": "results/target-baseline-256.json",
+            "oracle_sha256": "6c6eeb4533507faa5c8725b68a1a63c4d12837de0986ee9ec826ce9a9afa2106"
+          },
+          "native_samples": [
+            69.97452961423282,
+            69.48373009508269,
+            67.54334096668353,
+            67.2726747496764
+          ],
+          "candidate_samples": [
+            69.99201874971669,
+            67.81825535850878,
+            67.56548188165362,
+            67.7265435511921
+          ],
+          "native_median": 68.5135355308831,
+          "candidate_median": 67.77239945485044,
+          "paired_gain_samples_percent": [
+            0.024993573490661447,
+            -2.3969276466517364,
+            0.03278030765609952,
+            0.6746703668384813
+          ],
+          "paired_gain_median_percent": 0.028886940573380482,
+          "native_cv": 0.01982679479128348,
+          "candidate_cv": 0.016829676948756752,
+          "exact_original_256_ids": true
+        }
+      ],
+      "complete": true,
+      "promoted": false
+    }
+  ],
+  "combined_chat": {
+    "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "kernel": "runtime-prepare",
+    "suite": "chat",
+    "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+    "protocol": "four alternating baseline/candidate pairs in one model process; both warmed256; fresh caches; greedy depth3; complete priming/draft/verify/rollback/sync cost",
+    "records": [
+      {
+        "prompt": 0,
+        "report": "results/followup-ab-runtime-prepare-chat-p0.json",
+        "receipt": {
+          "command": [
+            "target/release/mtp-infer",
+            "--model",
+            "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+            "--prompt",
+            "Write a short Rust function that computes Fibonacci numbers.",
+            "--max-tokens",
+            "256",
+            "--warmup-tokens",
+            "256",
+            "--runs",
+            "4",
+            "--draft-depth",
+            "3",
+            "--ignore-eos",
+            "--ab-kernel",
+            "runtime-prepare",
+            "--output",
+            "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-runtime-prepare-chat-p0.json",
+            "--chat",
+            "--no-thinking",
+            "--expected",
+            "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-runtime-prepare-chat-p0-oracle.json"
+          ],
+          "exit_code": 0,
+          "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+          "binary_sha256": "ead20d0ffedf7adcbe4ecb2026357288a250ab73041b933715692057848b58c6",
+          "started_unix": 1791299668.6720672,
+          "ended_unix": 1791299716.056681,
+          "log_sha256": "5577cbe924bb219fc92d0320806acfbf759a2116af7f602af98eb397698802b5",
+          "report_sha256": "f5456f1af565c01886e5592f4318ae3a27bc6a596e370cebf699463d0c4a5dc7",
+          "oracle_report": "results/decode3-config-combo-full-chat-p0-c1-native.json",
+          "oracle_sha256": "34198dd61ac9ab982c65e6875a32b16ef78ab97598175aaa0166628e5239b8ec"
+        },
+        "native_samples": [
+          68.2884900252987,
+          68.21499319404968,
+          67.96811314939981,
+          68.26079568515577
+        ],
+        "candidate_samples": [
+          68.16649818055784,
+          68.02040612183656,
+          68.15131940949031,
+          68.37119327967733
+        ],
+        "native_median": 68.23789443960273,
+        "candidate_median": 68.15890879502408,
+        "paired_gain_samples_percent": [
+          -0.1786418834208603,
+          -0.2852555766729825,
+          0.2695473680250471,
+          0.161729135169697
+        ],
+        "paired_gain_median_percent": -0.008456374125581645,
+        "native_cv": 0.0021485170212479153,
+        "candidate_cv": 0.0021255740048791764,
+        "exact_original_256_ids": true
+      },
+      {
+        "prompt": 1,
+        "report": "results/followup-ab-runtime-prepare-chat-p1.json",
+        "receipt": {
+          "command": [
+            "target/release/mtp-infer",
+            "--model",
+            "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+            "--prompt",
+            "Explique en fran\u00e7ais comment fonctionne le cache KV d'un mod\u00e8le de langage et donne un exemple concret.",
+            "--max-tokens",
+            "256",
+            "--warmup-tokens",
+            "256",
+            "--runs",
+            "4",
+            "--draft-depth",
+            "3",
+            "--ignore-eos",
+            "--ab-kernel",
+            "runtime-prepare",
+            "--output",
+            "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-runtime-prepare-chat-p1.json",
+            "--chat",
+            "--no-thinking",
+            "--expected",
+            "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-runtime-prepare-chat-p1-oracle.json"
+          ],
+          "exit_code": 0,
+          "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+          "binary_sha256": "ead20d0ffedf7adcbe4ecb2026357288a250ab73041b933715692057848b58c6",
+          "started_unix": 1791299716.081048,
+          "ended_unix": 1791299768.446788,
+          "log_sha256": "9d4c16fcf7febfe97f6df36fd392e63fba8ce441ca67c4fb002db66618e7a6a7",
+          "report_sha256": "1e9ad5dbbe74804038e2a58c23d14aa145065be6a6fcaa49416cd11ac86a687e",
+          "oracle_report": "results/decode3-config-combo-full-chat-p1-c1-native.json",
+          "oracle_sha256": "88711fb12a11888a3c33046898a2e9867f20f9a08c156257b6768cf89aa332b9"
+        },
+        "native_samples": [
+          59.87319853966348,
+          59.664772897883665,
+          58.62512641821678,
+          58.31708610547814
+        ],
+        "candidate_samples": [
+          60.26205426467915,
+          58.90418522087575,
+          58.71040578206009,
+          59.071943285374736
+        ],
+        "native_median": 59.14494965805022,
+        "candidate_median": 58.988064253125245,
+        "paired_gain_samples_percent": [
+          0.649465427770779,
+          -1.274768410347693,
+          0.14546555215071422,
+          1.2944014015571437
+        ],
+        "paired_gain_median_percent": 0.3974654899607466,
+        "native_cv": 0.012932331476207133,
+        "candidate_cv": 0.011801010274680397,
+        "exact_original_256_ids": true
+      },
+      {
+        "prompt": 2,
+        "report": "results/followup-ab-runtime-prepare-chat-p2.json",
+        "receipt": {
+          "command": [
+            "target/release/mtp-infer",
+            "--model",
+            "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+            "--prompt",
+            "Write a SQL query that returns each customer's three most recent orders. Explain how the window function works.",
+            "--max-tokens",
+            "256",
+            "--warmup-tokens",
+            "256",
+            "--runs",
+            "4",
+            "--draft-depth",
+            "3",
+            "--ignore-eos",
+            "--ab-kernel",
+            "runtime-prepare",
+            "--output",
+            "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-runtime-prepare-chat-p2.json",
+            "--chat",
+            "--no-thinking",
+            "--expected",
+            "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-runtime-prepare-chat-p2-oracle.json"
+          ],
+          "exit_code": 0,
+          "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+          "binary_sha256": "ead20d0ffedf7adcbe4ecb2026357288a250ab73041b933715692057848b58c6",
+          "started_unix": 1791299768.473501,
+          "ended_unix": 1791299815.582377,
+          "log_sha256": "ef1d3d8a03c92a0cfae7bc1a69716c0387726da6cf428d1f07251c8d7d0c3a9f",
+          "report_sha256": "ff4690a7d10d26ffe443a58ceb482bf2eb227ad7114ac66b0401a2474d09c5ca",
+          "oracle_report": "results/decode3-config-combo-full-chat-p2-c1-native.json",
+          "oracle_sha256": "913b81933f8cded348780d83536a1e08b127b8e591b88f1f14825ec5d02cb6a3"
+        },
+        "native_samples": [
+          66.89898689213153,
+          66.96594315655003,
+          67.03917516277619,
+          67.11804870460685
+        ],
+        "candidate_samples": [
+          67.23973893758426,
+          67.12291530113596,
+          66.51129830828177,
+          66.6824946851051
+        ],
+        "native_median": 67.00255915966311,
+        "candidate_median": 66.90270499312052,
+        "paired_gain_samples_percent": [
+          0.5093530728681461,
+          0.23440593410142263,
+          -0.7874154973009362,
+          -0.6489372499767776
+        ],
+        "paired_gain_median_percent": -0.20726565793767748,
+        "native_cv": 0.0014082306948701069,
+        "candidate_cv": 0.005200672046900817,
+        "exact_original_256_ids": true
+      },
+      {
+        "prompt": 3,
+        "report": "results/followup-ab-runtime-prepare-chat-p3.json",
+        "receipt": {
+          "command": [
+            "target/release/mtp-infer",
+            "--model",
+            "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+            "--prompt",
+            "A train leaves Paris at 9:00 at 80 km/h. A second train leaves at 9:45 at 120 km/h on the same route. When does it catch the first train? Explain carefully.",
+            "--max-tokens",
+            "256",
+            "--warmup-tokens",
+            "256",
+            "--runs",
+            "4",
+            "--draft-depth",
+            "3",
+            "--ignore-eos",
+            "--ab-kernel",
+            "runtime-prepare",
+            "--output",
+            "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-ab-runtime-prepare-chat-p3.json",
+            "--chat",
+            "--no-thinking",
+            "--expected",
+            "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/.unlazy/followup-ab-runtime-prepare-chat-p3-oracle.json"
+          ],
+          "exit_code": 0,
+          "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+          "binary_sha256": "ead20d0ffedf7adcbe4ecb2026357288a250ab73041b933715692057848b58c6",
+          "started_unix": 1791299815.607672,
+          "ended_unix": 1791299860.200948,
+          "log_sha256": "d80a4b34c3abcb77b6dde5d832b54aa3335c2801b947a32cd0345bb6e691dcfc",
+          "report_sha256": "78a26379ce54a63f012acb6f71ad2dc592beea976a1c3425ac251e61b0c17902",
+          "oracle_report": "results/decode3-config-combo-full-chat-p3-c1-native.json",
+          "oracle_sha256": "86ed72a995d12ae6e971bdf0c064e2c6662884d9c00a551ec8cb66a5991736a3"
+        },
+        "native_samples": [
+          74.37243968847865,
+          74.29428892881438,
+          71.53722818226643,
+          70.56369996845744
+        ],
+        "candidate_samples": [
+          74.20339922861929,
+          71.97857748172785,
+          70.82770975089966,
+          71.13610886670101
+        ],
+        "native_median": 72.9157585555404,
+        "candidate_median": 71.55734317421442,
+        "paired_gain_samples_percent": [
+          -0.22728911484874992,
+          -3.1169440888051847,
+          -0.9918170572097429,
+          0.8111945639180496
+        ],
+        "paired_gain_median_percent": -0.6095530860292464,
+        "native_cv": 0.026644881343130974,
+        "candidate_cv": 0.02116044597383735,
+        "exact_original_256_ids": true
+      }
+    ],
+    "complete": true,
+    "promoted": false
+  },
+  "quality": {
+    "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+    "required_command": "PATH=\"$PWD/.venv/bin:$PATH\" scripts/check.sh",
+    "quality_log_sha256": "acb0f7855b59de7a7839aa9f966d7ab67c5ac1f84f7f7ebcb380ff1390c35923",
+    "passed": true,
+    "release_tests": 37,
+    "actual_checks": "results/followup-runtime-checks.json",
+    "portable_metal_log": "results/followup-runtime-portable-metal.log",
+    "default_policy": "all preparation switches off",
+    "snapshot_warning": "separate followup snapshot, not final goal qualification",
+    "portable_instrumented_tests": 36,
+    "portable_metal_log_sha256": "d33ed3ccc4b61a49ac43dcbae2857947b8f9e81a64a7a2c9b01940d64a135821"
+  },
+  "actual_checks": {
+    "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+    "checks": [
+      {
+        "name": "ple-prepare-verify-metal",
+        "command": [
+          "target/release/verify-parity",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-runtime-ple-prepare-verify-metal.json",
+          "--runtime-prepare",
+          "ple-prepare"
+        ],
+        "started_unix": 1791299263.1773381,
+        "ended_unix": 1791299282.694871,
+        "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+        "binary_sha256": "0a99d311eca99bd530b4df3c0fb5ac6f4c8875e8f498af7e5ebdab444f16bfc4",
+        "exit_code": 0,
+        "success_marker": "VERIFY_PARITY_PASSED",
+        "passed": true,
+        "validation_environment": {
+          "MTL_SHADER_VALIDATION": "1",
+          "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+          "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+          "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+        },
+        "log_sha256": "2598fe45dc03123e4a021018e6fc1760223b3186d89ca59b0b71667acacd2d12",
+        "report_sha256": "80d87a812a10f31d956474521608a402f382e6e30d8374e56b12ac5109e5b908",
+        "timing_qualified": false,
+        "engagement_axes": [
+          0
+        ]
+      },
+      {
+        "name": "ple-prepare-rollback-metal",
+        "command": [
+          "target/release/rollback-parity",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-runtime-ple-prepare-rollback-metal.json",
+          "--runtime-prepare",
+          "ple-prepare"
+        ],
+        "started_unix": 1791299282.724271,
+        "ended_unix": 1791299292.828801,
+        "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+        "binary_sha256": "a7a31a1ef780deadaf1baef5b7d64f0c7a6f15fe00d4d0f738022880da3ccf73",
+        "exit_code": 0,
+        "success_marker": "ROLLBACK_PARITY_PASSED",
+        "passed": true,
+        "validation_environment": {
+          "MTL_SHADER_VALIDATION": "1",
+          "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+          "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+          "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+        },
+        "log_sha256": "f463416bb5972d0c6e3cbb9e7cb8998d2d4c44a7007c08a4e7a1ab2376620aca",
+        "report_sha256": "9688af3e4321fe65fe2454769bc3a88a7c176405b02c75c64c372943e88cf4d4",
+        "timing_qualified": false,
+        "engagement_axes": [
+          0
+        ]
+      },
+      {
+        "name": "rope-ids-verify-metal",
+        "command": [
+          "target/release/verify-parity",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-runtime-rope-ids-verify-metal.json",
+          "--runtime-prepare",
+          "rope-ids"
+        ],
+        "started_unix": 1791299292.858298,
+        "ended_unix": 1791299310.9916532,
+        "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+        "binary_sha256": "0a99d311eca99bd530b4df3c0fb5ac6f4c8875e8f498af7e5ebdab444f16bfc4",
+        "exit_code": 0,
+        "success_marker": "VERIFY_PARITY_PASSED",
+        "passed": true,
+        "validation_environment": {
+          "MTL_SHADER_VALIDATION": "1",
+          "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+          "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+          "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+        },
+        "log_sha256": "958cccb8f6375567443e0afa2f50ce5a5b69a944fd908fd925b9cb8e82cfca43",
+        "report_sha256": "9014583506564dcb8887fce253849fa1fc77cb998983af961751e844da964db8",
+        "timing_qualified": false,
+        "engagement_axes": [
+          1
+        ]
+      },
+      {
+        "name": "rope-ids-rollback-metal",
+        "command": [
+          "target/release/rollback-parity",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-runtime-rope-ids-rollback-metal.json",
+          "--runtime-prepare",
+          "rope-ids"
+        ],
+        "started_unix": 1791299311.021997,
+        "ended_unix": 1791299320.879649,
+        "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+        "binary_sha256": "a7a31a1ef780deadaf1baef5b7d64f0c7a6f15fe00d4d0f738022880da3ccf73",
+        "exit_code": 0,
+        "success_marker": "ROLLBACK_PARITY_PASSED",
+        "passed": true,
+        "validation_environment": {
+          "MTL_SHADER_VALIDATION": "1",
+          "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+          "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+          "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+        },
+        "log_sha256": "c7400425891aaa985bcaa56dceb64b40e8d8a0ce18c79b196b416babc2e740cd",
+        "report_sha256": "7046c0c94c4826aff00e22aac698f8bf12b02f91b946d3725f152ceec5c2de86",
+        "timing_qualified": false,
+        "engagement_axes": [
+          1
+        ]
+      },
+      {
+        "name": "config-reuse-verify-metal",
+        "command": [
+          "target/release/verify-parity",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-runtime-config-reuse-verify-metal.json",
+          "--runtime-prepare",
+          "config-reuse"
+        ],
+        "started_unix": 1791299320.909857,
+        "ended_unix": 1791299339.193932,
+        "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+        "binary_sha256": "0a99d311eca99bd530b4df3c0fb5ac6f4c8875e8f498af7e5ebdab444f16bfc4",
+        "exit_code": 0,
+        "success_marker": "VERIFY_PARITY_PASSED",
+        "passed": true,
+        "validation_environment": {
+          "MTL_SHADER_VALIDATION": "1",
+          "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+          "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+          "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+        },
+        "log_sha256": "5c542e85fba1017e0e07d397ece9467f8c6503cfab48ed78b5eab9af56212643",
+        "report_sha256": "97a36694f1b43715763f2b1405f73d98370ed2393c19a22df9bda0f823943676",
+        "timing_qualified": false,
+        "engagement_axes": [
+          2
+        ]
+      },
+      {
+        "name": "config-reuse-rollback-metal",
+        "command": [
+          "target/release/rollback-parity",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-runtime-config-reuse-rollback-metal.json",
+          "--runtime-prepare",
+          "config-reuse"
+        ],
+        "started_unix": 1791299339.222201,
+        "ended_unix": 1791299349.170975,
+        "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+        "binary_sha256": "a7a31a1ef780deadaf1baef5b7d64f0c7a6f15fe00d4d0f738022880da3ccf73",
+        "exit_code": 0,
+        "success_marker": "ROLLBACK_PARITY_PASSED",
+        "passed": true,
+        "validation_environment": {
+          "MTL_SHADER_VALIDATION": "1",
+          "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+          "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+          "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+        },
+        "log_sha256": "afadeb592a606365290c0addcecb848861841022ce2e9344f4bb199086a1b251",
+        "report_sha256": "1f5ab7ec475ab13a8b1b2175e028097a1f7c10d797047c01f77725bfc5b789cd",
+        "timing_qualified": false,
+        "engagement_axes": [
+          2
+        ]
+      },
+      {
+        "name": "runtime-prepare-verify-metal",
+        "command": [
+          "target/release/verify-parity",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-runtime-runtime-prepare-verify-metal.json",
+          "--runtime-prepare",
+          "runtime-prepare"
+        ],
+        "started_unix": 1791299349.200348,
+        "ended_unix": 1791299367.4985101,
+        "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+        "binary_sha256": "0a99d311eca99bd530b4df3c0fb5ac6f4c8875e8f498af7e5ebdab444f16bfc4",
+        "exit_code": 0,
+        "success_marker": "VERIFY_PARITY_PASSED",
+        "passed": true,
+        "validation_environment": {
+          "MTL_SHADER_VALIDATION": "1",
+          "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+          "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+          "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+        },
+        "log_sha256": "0a8095de03786ca70ef1983ffdd842473c39b6bd151dd5e78e27bec79056a582",
+        "report_sha256": "14c1fc1827ace3d9b0d353b008ad05ee02e2fe7f940b6084bf1adc2d331c1e6a",
+        "timing_qualified": false,
+        "engagement_axes": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "name": "runtime-prepare-rollback-metal",
+        "command": [
+          "target/release/rollback-parity",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--output",
+          "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-runtime-runtime-prepare-rollback-metal.json",
+          "--runtime-prepare",
+          "runtime-prepare"
+        ],
+        "started_unix": 1791299367.527333,
+        "ended_unix": 1791299377.622253,
+        "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+        "binary_sha256": "a7a31a1ef780deadaf1baef5b7d64f0c7a6f15fe00d4d0f738022880da3ccf73",
+        "exit_code": 0,
+        "success_marker": "ROLLBACK_PARITY_PASSED",
+        "passed": true,
+        "validation_environment": {
+          "MTL_SHADER_VALIDATION": "1",
+          "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+          "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+          "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+        },
+        "log_sha256": "5123d135fd8bfee74a7905cf38a5c7dceb75883d3c6c505c7ddc30dcb15e5a4c",
+        "report_sha256": "3be153c5b4db2c0a8bafe7ecf03e4da3c7331ef9afa7869a9f03a60c5454a2fd",
+        "timing_qualified": false,
+        "engagement_axes": [
+          0,
+          1,
+          2
+        ]
+      }
+    ],
+    "complete": true,
+    "passed": true
+  },
+  "promote_default": false,
+  "conclusion": "All raw paired gains below0.2%; no significant throughput improvement. Exactness and safety pass; leave off by default."
+}

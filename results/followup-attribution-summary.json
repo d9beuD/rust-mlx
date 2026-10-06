@@ -1,0 +1,94 @@
+{
+  "scope": "G34 short and long solo MTP attribution",
+  "complete": true,
+  "inputs": [
+    {
+      "path": "results/followup-baseline-raw-256.json",
+      "sha256": "b4122e32ce6ba7e010aecc31053abd2bc129ba02055617354399a11dda5a6d41"
+    },
+    {
+      "path": "results/followup-profile-cpu-short-receipt.json",
+      "sha256": "a4dc2cb395a1a4495288d17302eefc83266a9c0488d7e67cd1b5e60daa5385eb"
+    },
+    {
+      "path": "results/followup-profile-cpu-short-summary.json",
+      "sha256": "5bca071ba476c3a2ea3cb4398c6f093429409e9419b144127866570f5a5890cd"
+    },
+    {
+      "path": "results/followup-profile-metal-short-r2-receipt.json",
+      "sha256": "cef1c346571a32b0738440c8c06ed70616951c345245d5e79fee2b663c01c634"
+    },
+    {
+      "path": "results/followup-profile-metal-short-r2-summary.json",
+      "sha256": "ff960cb7556a1f7c2bd3c44c5794c62fe3c58d2d852ccda8294c2eff947cd7fa"
+    },
+    {
+      "path": "results/followup-route-synchronized-phases.json",
+      "sha256": "b9bafb4d15849be0a4167c06f51703d7e16046333847b115142033fb72a851d5"
+    },
+    {
+      "path": "results/followup-profile-long-synchronized.json",
+      "sha256": "d90ad932add6b788172d83002922d0d8359384d514c5a1b9ff7b8bd1a3926326"
+    },
+    {
+      "path": "results/followup-profile-long-synchronized-command.json",
+      "sha256": "77ba9d4b907f6858a52de2e7d32d5af220144754180aed811504bd38a70c8a50"
+    }
+  ],
+  "baseline_rates": [
+    70.41675952013877,
+    70.36146119091289,
+    70.20354576817353,
+    70.11409660065894
+  ],
+  "baseline_median_rate": 70.28250347954321,
+  "synchronized_diagnostics": [
+    {
+      "report": "followup-route-synchronized-phases.json",
+      "prompt_length": 10,
+      "rounds": 12,
+      "native_logits_exact": true,
+      "synchronized_fraction": {
+        "attention_hyper": 0.1310874505234152,
+        "attention_write": 0.0759184609643707,
+        "embedding": 0.001846896553146416,
+        "gdn": 0.26456396946791844,
+        "head": 0.013844005790581102,
+        "mixer": 0.0026240094765510786,
+        "mlp_hyper": 0.13017013153114954,
+        "mlp_write": 0.07734913894962754,
+        "moe": 0.24324229008219075,
+        "ple": 0.0083180814198778,
+        "qsa": 0.05103556524117133
+      },
+      "warning": "Forced phase synchronization changes scheduling; these fractions are not natural decode wall attribution."
+    },
+    {
+      "report": "followup-profile-long-synchronized.json",
+      "prompt_length": 2107,
+      "rounds": 4,
+      "native_logits_exact": true,
+      "synchronized_fraction": {
+        "attention_hyper": 0.12826502111153415,
+        "attention_write": 0.07064956422196894,
+        "embedding": 0.001904374435401482,
+        "gdn": 0.2625361309862529,
+        "head": 0.013067506823457855,
+        "mixer": 0.0025524722852654953,
+        "mlp_hyper": 0.1277850865732815,
+        "mlp_write": 0.07138696956402889,
+        "moe": 0.23502605375128763,
+        "ple": 0.008804769148979184,
+        "qsa": 0.07802205109854202
+      },
+      "warning": "Forced phase synchronization changes scheduling; these fractions are not natural decode wall attribution."
+    }
+  ],
+  "limits": [
+    "Natural GPU timeline provides busy intervals but no function names or DRAM counters. Gaps include request boundaries/graph preparation/waits and are not an achievable speedup estimate.",
+    "CPU mlx_array_eval samples include graph walking and submission; inclusive stack categories overlap.",
+    "Profiler rates and synchronized diagnostics are excluded from production throughput.",
+    "First Metal trace timed out saving and export failed; successful shorter retry is separate and first failure remains recorded."
+  ],
+  "promotion": false
+}

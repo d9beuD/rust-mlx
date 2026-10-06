@@ -1,0 +1,28 @@
+{
+  "name": "rope-ids-rollback-metal",
+  "command": [
+    "target/release/rollback-parity",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--output",
+    "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/followup-runtime-rope-ids-rollback-metal.json",
+    "--runtime-prepare",
+    "rope-ids"
+  ],
+  "started_unix": 1791299311.021997,
+  "ended_unix": 1791299320.879649,
+  "source_sha256": "20a29348135cde7923a04c640b2385e83f371d8ad2e7fa25b2581151822bff4b",
+  "binary_sha256": "a7a31a1ef780deadaf1baef5b7d64f0c7a6f15fe00d4d0f738022880da3ccf73",
+  "exit_code": 0,
+  "success_marker": "ROLLBACK_PARITY_PASSED",
+  "passed": true,
+  "validation_environment": {
+    "MTL_SHADER_VALIDATION": "1",
+    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+  },
+  "log_sha256": "c7400425891aaa985bcaa56dceb64b40e8d8a0ce18c79b196b416babc2e740cd",
+  "report_sha256": "7046c0c94c4826aff00e22aac698f8bf12b02f91b946d3725f152ceec5c2de86",
+  "timing_qualified": false
+}

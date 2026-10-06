@@ -1,0 +1,15 @@
+{
+  "raw_sample": "results/followup-profile-cpu-short-sample.log",
+  "raw_sample_sha256": "95a56072e39f725cd98fa504b13e6d39726df9f4febc69887585adb3b82e1df5",
+  "receipt": "results/followup-profile-cpu-short-receipt.json",
+  "main_thread_total_samples": 7228,
+  "inclusive_main_thread_categories": {
+    "explicit_cvwait": 2261,
+    "forward_hidden_inclusive": 711,
+    "ple_forward_inclusive": 19,
+    "moe_forward_inclusive": 221,
+    "gdn_forward_inclusive": 190,
+    "mlx_array_eval_inclusive": 6284
+  },
+  "warning": "Inclusive stack samples, categories nest and must not be added; wait samples are explicit cvwait only. Sampling includes fresh-request prefill boundaries and instrumented scheduling; no CPU-only speedup is proved."
+}
