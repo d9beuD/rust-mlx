@@ -48,5 +48,14 @@
     "PATH=\"$PWD/.venv/bin:$PATH\" scripts/validate-metal.sh",
     ".venv/bin/python scripts/analyze_matrix_study.py"
   ],
-  "actual_kernel_commands": "Full model and component commands, target path and all validation variables are recorded in docs/optimization-study-m5-matrix.md and docs/research-log.md."
+  "actual_kernel_commands": "Full model and component commands, target path and all validation variables are recorded in docs/optimization-study-m5-matrix.md and docs/research-log.md.",
+  "implementation_commit": "865e464f29d070b246f3408d98c6002cd6ad4555",
+  "implementation_publication": {
+    "url": "https://github.com/d9beuD/rust-mlx",
+    "push_command": "git push origin main",
+    "push_exit_code": 0,
+    "remote_read_command": "gh api repos/d9beuD/rust-mlx/commits/main --jq .sha",
+    "observed_remote_commit": "865e464f29d070b246f3408d98c6002cd6ad4555",
+    "user_agents_directory_published": false
+  }
 }
