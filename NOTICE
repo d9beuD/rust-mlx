@@ -1,8 +1,10 @@
 Rust-MLX
 
 The Qwen3 graph and GatedDeltaNet recurrence are expressed in Rust with reference to mlx-lm, Copyright Apple Inc., under the MIT license (third-party/mlx-lm-MIT).
-The native GDN, text MRoPE and indexed QSA and experimental fused MoE Metal kernels adapt mlx-lm and mlx-vlm 0.7.6, Copyright Apple Inc. and mlx-vlm contributors, under MIT (third-party/mlx-lm-MIT and third-party/mlx-vlm-MIT).
+The native GDN, text MRoPE, indexed QSA, shared-weight verifier QMV and experimental fused MoE Metal kernels adapt MLX 0.32.2, mlx-lm and mlx-vlm 0.7.6, Copyright Apple Inc. and mlx-vlm contributors, under MIT (third-party/MLX-MIT, third-party/mlx-lm-MIT and third-party/mlx-vlm-MIT).
+The experimental shared unquantized GEMV ports Apple MLX0.32.2 singleton GEMV arithmetic (Copyright 2023–2024 Apple Inc., MIT; third-party/MLX-MIT), preserving its explicit shuffle-down reduction.
 The Qwen4Exp grouped norm, hyper-connection, QSA, PLE and checkpoint contracts are expressed in Rust with reference to oMLX, under Apache License 2.0 (third-party/omlx-APACHE-2.0).
+The combined HC down/injection kernel adapts oMLX's hc_projection.py under Apache-2.0, retaining Apple MLX MIT arithmetic and the separate fast/general reduction trees. Attribution and license texts are in third-party/omlx-APACHE-2.0 and third-party/MLX-MIT.
 Architectural study also consulted mlx-qwen4exp, Copyright 2026 RockTalk, under MIT (third-party/mlx-qwen4exp-MIT).
 MTPLX source was studied for comparison; no MTPLX code is embedded in the product at this stage. Research comparisons credit MTPLX by Youssof Altoukhi, https://github.com/youssofal/MTPLX.
 Model weights are not distributed with this software. The target checkpoint has the Qwen Community License 1.0.

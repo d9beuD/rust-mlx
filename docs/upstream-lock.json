@@ -46,7 +46,10 @@
     "date": "2026-10-06",
     "license_files": [
       "LICENSE"
-    ]
+    ],
+    "source_sha256": {
+      "omlx/patches/mlx_vlm_qwen4_exp_compat/vendor/mlx_vlm/models/qwen4_exp/hc_projection.py": "bff4173225a9b67b150fca0d81e7ca6b32879f76aebc7c2f4cafcd4dbd6703ad"
+    }
   },
   {
     "project": "rMLX",
@@ -75,6 +78,20 @@
       "models/switch_layers.py": "ace00152d1d004e52292d8265af640d8dd69ffa67b8906886b53a99eb21951de",
       "models/quantized_verifier.py": "f3f3c485f164fbaf237a7f294b44f7fa0ab3e2078bfcfd71c6fab6bf1a877289",
       "models/linear.py": "148a56193feaf170097ff1c5edccca8165c1b5df878f1605778c4d3642a4d2fa"
+    }
+  },
+  {
+    "project": "MLX native kernels",
+    "version": "0.32.2",
+    "reference": "v0.32.2 pinned by mlx-sys0.6.0 CMakeLists",
+    "date": "2026-10-06",
+    "license_files": [
+      "third-party/MLX-MIT"
+    ],
+    "source_sha256": {
+      "mlx/backend/metal/kernels/quantized.h": "2a007016da606afe569adb9adcc05e00f14558ad2e094bcb4f8974beb53c316f",
+      "mlx/backend/metal/kernels/gemv.h": "296ef622ea3c67d7485aa7cdf102bbfcb582e07bd3207793179a9d1e65ee5a65",
+      "mlx/backend/metal/matmul.cpp": "84d49f069d2538bf727b6af32df812a76bfff142c132d2a70f6abc7475d904fb"
     }
   }
 ]

@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "scope": "30s Metal System Trace hot attach to this task mtp-infer PID71007; filter only attributed own process Compute/Active/nesting0",
+  "trace": "results/full-hot-metal-system.trace",
+  "trace_size_bytes": 890294612,
+  "command": "xcrun xctrace record --template \"Metal System Trace\" --attach 71007 --time-limit 30s --no-prompt --output results/full-hot-metal-system.trace",
+  "requested_recording_seconds": 30,
+  "exported_gpu_rows": 112397,
+  "own_gpu_compute_interval_count": 111849,
+  "own_gpu_channels": {
+    "Compute": 112273
+  },
+  "own_gpu_label_groups": {
+    "Command Buffer 0:Compute Command 0": 111849
+  },
+  "own_compute_duration_sum_seconds": 20.418014783,
+  "own_compute_union_seconds": 20.418014783,
+  "own_observed_span_seconds": 30.545650042,
+  "own_first_timestamp_seconds": 0.359250291,
+  "own_last_timestamp_seconds": 30.904900333,
+  "application_submission_rows": 149577,
+  "per_kernel_function_names_available": false,
+  "limitations": [
+    "GPU labels identify compute command/process, but do not resolve specific MLX shader function names; no per-kernel ranking claim",
+    "different4096-token diagnostic context and instrumentation; never compare its27.76tok/s with raw256-token runs",
+    "other process rows excluded; no complete model-buffer MTLCaptureManager copy"
+  ],
+  "exports": {
+    "results/metal-hot-gpu-events.xml": "f047fe2827eebb058dbb0818d3004315aede768c0c463b32751ba1b07c94e52a",
+    "results/metal-hot-submissions.xml": "0093ce7c23fb2f0b3c26b74611d903ab05588c46d6aba93071ab62efc9e4ee66"
+  },
+  "generation": "results/profile-hot-attach-generation.json",
+  "prefix256_matches_reference": true,
+  "captured_unix_seconds": 1791253831.15622
+}

@@ -1,0 +1,44 @@
+{
+  "active_memory_bytes": 677478400,
+  "capture": "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/head-component.gputrace",
+  "completed": true,
+  "component": "actual 8-bit vocabulary head T4, native gather then shared-weight QMV",
+  "environment": {
+    "captured_unix_seconds": 1791245560,
+    "hardware": {
+      "chip": "Apple M5 Max",
+      "gpu": "Apple M5 Max",
+      "gpu_cores": "40",
+      "memory": "128 GB",
+      "model": "Mac17,6"
+    },
+    "revision": {
+      "commit": "e9ce3b3c4d1ea69553153a49ee18b6defc957bf4",
+      "dirty": true
+    },
+    "software": {
+      "macos": "27.0.1",
+      "macos_build": "26A434",
+      "mlx": "0.32.2",
+      "mlx_rs": "0.32.0",
+      "mlx_sys": "0.6.0",
+      "package_version": "0.1.0",
+      "rust": "rustc 1.98.1 (48a229cea 2026-09-01)",
+      "xcode": "Xcode 27.0\nBuild version 27A266a"
+    },
+    "workload": {
+      "binary_sha256": "3228873be59c9eaf51bf7771cf5ec199f528a547c1611d25e0e83395b5f2457f  /Users/d9beud/Documents/Repositories/d9beud/rust-mlx/target/release/capture-head",
+      "process_cpu_names": [
+        "  5.9 /usr/libexec/syspolicyd",
+        " 82.2 /System/Library/PrivateFrameworks/StorageManagement.framework/PlugIns/StorageManagementService",
+        " 99.8 /System/Library/PrivateFrameworks/StorageManagement.framework/PlugIns/ApplicationsStorageExtension.appex/Contents/MacOS/ApplicationsStorageExtension",
+        " 10.4 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/154.0.8037.98/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)",
+        "  6.1 target/release/capture-head"
+      ],
+      "swap": "vm.swapusage: total = 2048.00M  used = 1007.00M  free = 1041.00M  (encrypted)",
+      "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    }
+  },
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "warning": "GPU component capture; instrumentation changes timings. Not a full-model hotspot profile."
+}

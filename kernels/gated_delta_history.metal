@@ -72,4 +72,3 @@
           auto s_idx = n_per_t * dk_idx + i;
           o_state[s_idx] = static_cast<StT>(state[i]);
         }
-    

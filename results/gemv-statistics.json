@@ -1,0 +1,212 @@
+{
+  "method": "all saved timed samples; median of within-cycle candidate/reference gains; no outlier removal",
+  "reports": [
+    {
+      "source": "results/target-mtp-ab-gemv-256.json",
+      "runtime": {
+        "batch_size": 1,
+        "draft_depth": 3,
+        "ignore_eos": true,
+        "kv_cache": "fresh per run",
+        "mtp": true,
+        "prefill_chunk": 128,
+        "prefix_cache": false,
+        "rate_definition": "generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization",
+        "sampler": "greedy",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "raw",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                71.28473484775436,
+                70.93044976832972,
+                70.92164719457172,
+                70.79589754431588
+              ],
+              "n": 4,
+              "median": 70.92604848145072,
+              "mean": 70.98318233874292,
+              "minimum": 70.79589754431588,
+              "maximum": 71.28473484775436,
+              "standard_deviation": 0.21021957398969793
+            },
+            "false": {
+              "samples": [
+                70.60773753235928,
+                70.27139963407168,
+                70.10763092032134,
+                70.21800095636752
+              ],
+              "n": 4,
+              "median": 70.2447002952196,
+              "mean": 70.30119226077996,
+              "minimum": 70.10763092032134,
+              "maximum": 70.60773753235928,
+              "standard_deviation": 0.21544093528064623
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            0.9588146271997777,
+            0.9378639641304254,
+            1.161095109854049,
+            0.823003475002726
+          ],
+          "median_paired_gain_percent": 0.9483392956651016
+        }
+      ]
+    },
+    {
+      "source": "results/batch-ab-gemv-hc-qmv-target-256.json",
+      "runtime": {
+        "ab_gemv": true,
+        "ab_hc": false,
+        "ab_qmv": false,
+        "ab_stream_x": false,
+        "caches": "fresh per mode/run, independent per row",
+        "greedy": true,
+        "ignore_eos": true,
+        "mtp": false,
+        "output_tokens_per_row": 256,
+        "prefix_cache": false,
+        "timing": "aggregate B*(generated-1)/decode, graph+argmax+eval, no unused final forward; prefill separate",
+        "warmup_tokens_per_row": 256
+      },
+      "groups": [
+        {
+          "workload": "2",
+          "metric": "aggregate batch tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                66.64220651155085,
+                66.52131180042001,
+                66.37705518448989,
+                66.14982468350875
+              ],
+              "n": 4,
+              "median": 66.44918349245495,
+              "mean": 66.42259954499238,
+              "minimum": 66.14982468350875,
+              "maximum": 66.64220651155085,
+              "standard_deviation": 0.21170084471852854
+            },
+            "false": {
+              "samples": [
+                66.11646995752216,
+                65.92945399189608,
+                65.75022209931899,
+                66.01706379007665
+              ],
+              "n": 4,
+              "median": 65.97325889098636,
+              "mean": 65.95330245970347,
+              "minimum": 65.75022209931899,
+              "maximum": 66.11646995752216,
+              "standard_deviation": 0.15545580485143146
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            0.7951673075808019,
+            0.8977138026907916,
+            0.9533550840695737,
+            0.20110087575881952
+          ],
+          "median_paired_gain_percent": 0.8464405551357967,
+          "per_conversation_candidate_median": 33.224591746227475
+        },
+        {
+          "workload": "4",
+          "metric": "aggregate batch tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                94.91040105622592,
+                93.62953910067657,
+                93.85190148764164,
+                93.88798643152911
+              ],
+              "n": 4,
+              "median": 93.86994395958538,
+              "mean": 94.06995701901832,
+              "minimum": 93.62953910067657,
+              "maximum": 94.91040105622592,
+              "standard_deviation": 0.5718320359305485
+            },
+            "false": {
+              "samples": [
+                93.22457427785551,
+                93.32436056936203,
+                93.6548187024405,
+                93.79103788932649
+              ],
+              "n": 4,
+              "median": 93.48958963590127,
+              "mean": 93.49869785974613,
+              "minimum": 93.22457427785551,
+              "maximum": 93.79103788932649,
+              "standard_deviation": 0.2679388234813175
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            1.808350203183351,
+            0.3270084353674374,
+            0.21043528558559732,
+            0.10336653094404902
+          ],
+          "median_paired_gain_percent": 0.26872186047651736,
+          "per_conversation_candidate_median": 23.467485989896346
+        },
+        {
+          "workload": "8",
+          "metric": "aggregate batch tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                107.5363565225303,
+                107.74663204987309,
+                107.92255461229155,
+                107.57000866426327
+              ],
+              "n": 4,
+              "median": 107.65832035706818,
+              "mean": 107.69388796223956,
+              "minimum": 107.5363565225303,
+              "maximum": 107.92255461229155,
+              "standard_deviation": 0.17816903078281512
+            },
+            "false": {
+              "samples": [
+                105.56036483403211,
+                106.53738529042369,
+                106.95018718389518,
+                106.55862666615138
+              ],
+              "n": 4,
+              "median": 106.54800597828753,
+              "mean": 106.40164099362559,
+              "minimum": 105.56036483403211,
+              "maximum": 106.95018718389518,
+              "standard_deviation": 0.5920921986344173
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            1.8719068389020377,
+            1.1350445255934982,
+            0.909177864947952,
+            0.9491319752839456
+          ],
+          "median_paired_gain_percent": 1.0420882504387219,
+          "per_conversation_candidate_median": 13.457290044633522
+        }
+      ]
+    }
+  ]
+}

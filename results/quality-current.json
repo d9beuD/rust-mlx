@@ -1,0 +1,15 @@
+{
+  "log": "results/quality-current.log",
+  "sha256": "9537fd73a5328f7bbf71b527d86ea1fd0728455fab2592a7c978e18b4bdc9802",
+  "success_marker": "QUALITY_CHECKS_PASSED",
+  "passed": true,
+  "release_tests_passed": 16,
+  "checks": [
+    "cargo fmt --check",
+    "cargo clippy --workspace --all-targets --all-features -- -D warnings",
+    "cargo test --workspace --release"
+  ],
+  "code_sha256": "e4f3b820ae13ac677b0a828028cb5faed67107588647dd36701d6405e2134cac",
+  "contains_metal_validation_enabled": false,
+  "captured_unix_seconds": 1791252382.122507
+}

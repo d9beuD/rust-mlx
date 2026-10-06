@@ -20,6 +20,7 @@ pub(crate) fn gate_up(
         || x.shape()[0] != 1
         || !matches!(x.dtype(), Dtype::Bfloat16 | Dtype::Float16)
         || ![4, 5].contains(&u.bits)
+        || ![32, 64, 128].contains(&u.group_size)
         || u.bits != g.bits
         || u.group_size != g.group_size
         || up.bias.is_some()

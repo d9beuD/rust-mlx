@@ -159,6 +159,7 @@ fn main() -> Result<()> {
         let mut tokens = Vec::new();
         let mut latencies = Vec::new();
         let mut decoder = tokenizer.as_ref().map(|t| t.decode_stream(true));
+        let mut emitted = String::new();
         let decode = Instant::now();
         for _ in 0..limit {
             let token = greedy(&tail)?;
@@ -171,6 +172,7 @@ fn main() -> Result<()> {
                 && let Some(d) = &mut decoder
                 && let Some(s) = d.step(token).map_err(|e| anyhow::anyhow!("{e}"))?
             {
+                emitted.push_str(&s);
                 print!("{s}");
                 io::stdout().flush()?;
             }
@@ -181,6 +183,21 @@ fn main() -> Result<()> {
             latencies.push(started.elapsed().as_secs_f64());
         }
         let seconds = decode.elapsed().as_secs_f64();
+        if a.stream
+            && !warmup
+            && let Some(t) = &tokenizer
+        {
+            let complete = t
+                .decode(&tokens, true)
+                .map_err(|e| anyhow::anyhow!("{e}"))?;
+            print!(
+                "{}",
+                complete
+                    .strip_prefix(&emitted)
+                    .context("stream decoder changed emitted prefix")?
+            );
+            io::stdout().flush()?;
+        }
         let tps = tokens.len() as f64 / seconds;
         eprintln!(
             "{} {run}: prompt={} output={} prefill={prefill_seconds:.3}s decode={tps:.2} tok/s",

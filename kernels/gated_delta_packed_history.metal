@@ -96,4 +96,3 @@
         for (int i = 0; i < values_per_lane; ++i) {
           o_state[i] = static_cast<StT>(state[i]);
         }
-    

@@ -1,0 +1,6 @@
+[
+  "Write a short Rust function that computes Fibonacci numbers.",
+  "Explique en français comment fonctionne le cache KV d'un modèle de langage et donne un exemple concret.",
+  "Write a SQL query that returns each customer's three most recent orders. Explain how the window function works.",
+  "A train leaves Paris at 9:00 at 80 km/h. A second train leaves at 9:45 at 120 km/h on the same route. When does it catch the first train? Explain carefully."
+]

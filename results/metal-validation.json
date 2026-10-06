@@ -1,0 +1,17 @@
+{
+  "log": "results/metal-validation.log",
+  "sha256": "bc776cdc211c5b9f97fdadbe5d835e18cbaf184aac5d990d586cf31ba0ec5eaa",
+  "passed": true,
+  "success_marker": "METAL_VALIDATION_PASSED",
+  "contains_metal_validation_enabled": true,
+  "validation_tests_passed": 15,
+  "code_sha256": "e4f3b820ae13ac677b0a828028cb5faed67107588647dd36701d6405e2134cac",
+  "instrumentation": [
+    "MTL_SHADER_VALIDATION=1",
+    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING=1",
+    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR=1",
+    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT=1"
+  ],
+  "timing": "diagnostic instrumentation; excluded from throughput",
+  "captured_unix_seconds": 1791252418.5105972
+}

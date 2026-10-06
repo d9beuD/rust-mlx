@@ -1,5 +1,10 @@
 //! Greedy MTP with target verification and exact prefix cache commit.
-use crate::{hybrid::HybridModel, mtp::Mtp, qsa::QsaCache, verification};
+use crate::{
+    hybrid::{HybridCache, HybridModel},
+    mtp::Mtp,
+    qsa::QsaCache,
+    verification,
+};
 use anyhow::{Result, ensure};
 use mlx_rs::{
     Array,
@@ -9,7 +14,105 @@ use mlx_rs::{
     },
 };
 use serde::Serialize;
+use std::collections::VecDeque;
 use std::time::Instant;
+
+/// Immutable exact-prompt snapshot. Every continuation owns a cache clone.
+#[derive(Clone)]
+pub struct PreparedPrompt<'m> {
+    model: &'m HybridModel,
+    tokens: Vec<u32>,
+    cache: HybridCache,
+    logits: Array,
+    hidden: Array,
+    pub prefill_seconds: f64,
+}
+impl PreparedPrompt<'_> {
+    /// Independent handles for a non-speculative continuation scheduler.
+    pub fn decode_state(&self) -> (HybridCache, Array) {
+        (self.cache.clone(), self.logits.clone())
+    }
+}
+pub fn prepare<'m>(
+    model: &'m HybridModel,
+    tokens: &[u32],
+    chunk: usize,
+) -> Result<PreparedPrompt<'m>> {
+    ensure!(
+        !tokens.is_empty() && chunk > 0,
+        "invalid prompt preparation"
+    );
+    let started = Instant::now();
+    let mut cache = model.make_cache();
+    let mut hidden = Vec::new();
+    let mut logits = None;
+    for ids in tokens.chunks(chunk) {
+        let (l, h) = model.forward(ids, &mut cache)?;
+        let l = l.index((0, -1, ..));
+        l.eval()?;
+        logits = Some(l);
+        hidden.push(h);
+    }
+    let hidden = ops::concatenate(&hidden, 1)?;
+    hidden.eval()?;
+    Ok(PreparedPrompt {
+        model,
+        tokens: tokens.to_vec(),
+        cache,
+        logits: logits.expect("validated nonempty prompt"),
+        hidden,
+        prefill_seconds: started.elapsed().as_secs_f64(),
+    })
+}
+/// Model-scoped LRU, bounded by entry count and total prompt tokens.
+pub struct PrefixCache<'m> {
+    model: &'m HybridModel,
+    entries: VecDeque<PreparedPrompt<'m>>,
+    max_entries: usize,
+    max_tokens: usize,
+}
+impl<'m> PrefixCache<'m> {
+    pub fn new(model: &'m HybridModel, max_entries: usize, max_tokens: usize) -> Self {
+        Self {
+            model,
+            entries: VecDeque::new(),
+            max_entries,
+            max_tokens,
+        }
+    }
+    pub fn get_or_prepare(
+        &mut self,
+        tokens: &[u32],
+        chunk: usize,
+    ) -> Result<(PreparedPrompt<'m>, bool)> {
+        ensure!(
+            !tokens.is_empty() && chunk > 0,
+            "invalid prompt preparation"
+        );
+        if let Some(i) = self.entries.iter().position(|p| p.tokens == tokens) {
+            let p = self.entries.remove(i).expect("existing LRU index");
+            self.entries.push_back(p.clone());
+            return Ok((p, true));
+        }
+        let p = prepare(self.model, tokens, chunk)?;
+        if self.max_entries > 0 && tokens.len() <= self.max_tokens {
+            while self.entries.len() >= self.max_entries
+                || self.entries.iter().map(|p| p.tokens.len()).sum::<usize>() + tokens.len()
+                    > self.max_tokens
+            {
+                self.entries.pop_front();
+            }
+            self.entries.push_back(p.clone());
+        }
+        Ok((p, false))
+    }
+    pub fn clear(&mut self) {
+        self.entries.clear();
+    }
+    pub fn prepare_uncached(&self, tokens: &[u32], chunk: usize) -> Result<PreparedPrompt<'m>> {
+        prepare(self.model, tokens, chunk)
+    }
+}
 #[derive(Serialize)]
 pub struct Generation {
     pub tokens: Vec<u32>,
@@ -36,22 +139,27 @@ pub fn generate_plain(
     m: &HybridModel,
     prompt: &[u32],
     options: &Options<'_>,
-    mut emit: impl FnMut(u32) -> Result<()>,
+    emit: impl FnMut(u32) -> Result<()>,
 ) -> Result<Generation> {
     ensure!(
         !prompt.is_empty() && options.max_tokens > 0 && options.chunk > 0,
         "invalid generation request"
     );
-    let mut cache = m.make_cache();
+    let prepared = prepare(m, prompt, options.chunk)?;
+    let mut result = generate_plain_prepared(&prepared, options, emit)?;
+    result.prefill_seconds += prepared.prefill_seconds;
+    Ok(result)
+}
+pub fn generate_plain_prepared(
+    prompt: &PreparedPrompt<'_>,
+    options: &Options<'_>,
+    mut emit: impl FnMut(u32) -> Result<()>,
+) -> Result<Generation> {
+    ensure!(options.max_tokens > 0, "invalid generation limit");
     let prefill = Instant::now();
-    let mut tail = None;
-    for ids in prompt.chunks(options.chunk) {
-        let (l, _) = m.forward(ids, &mut cache)?;
-        let l = l.index((0, -1, ..));
-        l.eval()?;
-        tail = Some(l);
-    }
-    let mut token = greedy(&tail.expect("nonempty prompt"))?;
+    let m = prompt.model;
+    let mut cache = prompt.cache.clone();
+    let mut token = greedy(&prompt.logits)?;
     let mut result = Generation {
         tokens: Vec::new(),
         prefill_seconds: prefill.elapsed().as_secs_f64(),
@@ -90,8 +198,25 @@ pub fn generate(
     draft: &Mtp,
     prompt: &[u32],
     options: &Options<'_>,
+    emit: impl FnMut(u32) -> Result<()>,
+) -> Result<Generation> {
+    ensure!(
+        options.max_tokens > 0 && (1..=7).contains(&options.depth),
+        "invalid MTP generation request"
+    );
+    let prepared = prepare(m, prompt, options.chunk)?;
+    let mut result = generate_prepared(&prepared, draft, options, emit)?;
+    result.prefill_seconds += prepared.prefill_seconds;
+    Ok(result)
+}
+pub fn generate_prepared(
+    prepared: &PreparedPrompt<'_>,
+    draft: &Mtp,
+    options: &Options<'_>,
     mut emit: impl FnMut(u32) -> Result<()>,
 ) -> Result<Generation> {
+    let m = prepared.model;
+    let prompt = &prepared.tokens;
     let Options {
         max_tokens,
         depth,
@@ -103,16 +228,8 @@ pub fn generate(
         "invalid MTP generation request"
     );
     let started = Instant::now();
-    let mut cache = m.make_cache();
-    let mut hidden = Vec::new();
-    let mut logits = None;
-    for ids in prompt.chunks(chunk) {
-        let (l, h) = m.forward(ids, &mut cache)?;
-        l.eval()?;
-        logits = Some(l.index((0, -1, ..)));
-        hidden.push(h);
-    }
-    let mut bonus = greedy(&logits.expect("nonempty prompt"))?;
+    let mut cache = prepared.cache.clone();
+    let mut bonus = greedy(&prepared.logits)?;
     let prefill_seconds = started.elapsed().as_secs_f64();
     let mut result = Generation {
         tokens: Vec::new(),
@@ -134,7 +251,24 @@ pub fn generate(
         return Ok(result);
     }
     let decode = Instant::now();
-    let h = ops::concatenate(&hidden, 1)?;
+    let mut ranked = Vec::new();
+    let limit = draft.draft_vocab_limit.get();
+    if limit > 0 && limit < m.config.vocab_size as usize {
+        let count = 4096.min(m.config.vocab_size);
+        let ids = ops::argpartition_axis(&prepared.logits, -count, -1)?
+            .index(-count..)
+            .contiguous()?;
+        ids.eval()?;
+        ranked = ids.as_slice::<u32>().to_vec();
+    }
+    let mut draft_head = crate::draft_vocab::DraftVocabulary::new(
+        &m.head,
+        draft.draft_vocab_limit.get(),
+        prompt,
+        eos,
+        &ranked,
+    )?;
+    let h = &prepared.hidden;
     let mut shifted = prompt[1..].to_vec();
     shifted.push(bonus);
     let mut dc = QsaCache::default();
@@ -142,9 +276,9 @@ pub fn generate(
         .embedding
         .embedding(&Array::from_slice(&shifted, &[1, shifted.len() as i32]))?;
     let start = Instant::now();
-    let (mixed, wide) = draft.forward(&emb, &h, &mut dc, 0)?;
+    let (mixed, wide) = draft.forward(&emb, h, &mut dc, 0)?;
     let mut dh = wide.index((.., -1.., ..));
-    let mut seed = greedy(&m.head.forward(&mixed.index((.., -1.., ..)))?)?;
+    let mut seed = draft_head.greedy(&mixed.index((.., -1.., ..)))?;
     result.synchronize_draft_seconds += start.elapsed().as_secs_f64();
     while result.tokens.len() < max_tokens {
         let round = Instant::now();
@@ -160,7 +294,7 @@ pub fn generate(
                 .embedding(&Array::from_slice(&[token], &[1, 1]))?;
             let pos = dc.kv.offset;
             let (x, h) = draft.forward(&emb, &hh, &mut dc, pos)?;
-            let token = greedy(&m.head.forward(&x)?)?;
+            let token = draft_head.greedy(&x)?;
             hh = h;
             drafted.push(token);
             snapshots.push(dc.clone());
@@ -210,6 +344,25 @@ pub fn generate(
         }
         bonus = next;
         let start = Instant::now();
+        let refresh = draft.draft_vocab_refresh_rounds.get();
+        if limit > 0
+            && limit < m.config.vocab_size as usize
+            && refresh > 0
+            && result.acceptance.len().is_multiple_of(refresh)
+        {
+            let count = 4096.min(m.config.vocab_size);
+            let ids = ops::argpartition_axis(l.index((0, accepted as i32, ..)), -count, -1)?
+                .index(-count..)
+                .contiguous()?;
+            ids.eval()?;
+            draft_head = crate::draft_vocab::DraftVocabulary::new(
+                &m.head,
+                limit,
+                prompt,
+                eos,
+                ids.as_slice::<u32>(),
+            )?;
+        }
         let kept = accepted.min(k - 1);
         dc = snapshots[kept].clone();
         let mut sync_tokens = drafted[kept..accepted].to_vec();
@@ -222,7 +375,7 @@ pub fn generate(
         let pos = dc.kv.offset;
         let (x, wide) = draft.forward(&emb, &sync_hidden, &mut dc, pos)?;
         dh = wide.index((.., -1.., ..));
-        seed = greedy(&m.head.forward(&x.index((.., -1.., ..)))?)?;
+        seed = draft_head.greedy(&x.index((.., -1.., ..)))?;
         result.synchronize_draft_seconds += start.elapsed().as_secs_f64();
         result.round_seconds.push(round.elapsed().as_secs_f64());
     }

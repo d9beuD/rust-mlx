@@ -13,6 +13,12 @@ for enabled in [False,True]:
     assert data['rust_mlx']['tokens']==expected[:64],data
     assert data['usage']['completion_tokens']==64
     reports.append(dict(mtp=enabled,wall_seconds=time.monotonic()-s,generation=data['rust_mlx']))
+assert not reports[0]['generation']['prefix_cache_hit']
+assert reports[1]['generation']['prefix_cache_hit']
+bypass=requests.post(base+'/v1/completions',json=dict(prompt=prompt,max_tokens=64,mtp=True,prefix_cache=False),timeout=180)
+bypass.raise_for_status(); bypass=bypass.json()
+assert not bypass['rust_mlx']['prefix_cache_hit']
+assert bypass['rust_mlx']['tokens']==expected[:64]
 # The content stream must reconstruct the exact non-streamed UTF-8 decode.
 r=requests.post(base+'/v1/completions',json=dict(prompt=prompt,max_tokens=64,stream=True),stream=True,timeout=180)
 r.raise_for_status(); text=''; done=False; finish=None

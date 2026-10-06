@@ -1,0 +1,27 @@
+[
+  {
+    "keep": 0,
+    "logit_error": 0.0,
+    "state_error": 0.0
+  },
+  {
+    "keep": 1,
+    "logit_error": 0.0,
+    "state_error": 0.0
+  },
+  {
+    "keep": 2,
+    "logit_error": 0.0,
+    "state_error": 0.0
+  },
+  {
+    "keep": 3,
+    "logit_error": 0.0,
+    "state_error": 0.0
+  },
+  {
+    "keep": 4,
+    "logit_error": 0.0,
+    "state_error": 0.0
+  }
+]

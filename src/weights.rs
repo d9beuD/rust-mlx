@@ -109,6 +109,16 @@ pub struct Linear {
 impl Linear {
     /// Match the oracle's decode-equivalent reductions for narrow gate projections.
     pub fn forward_rows(&self, x: &Array) -> Result<Array> {
+        if crate::gemv_kernel::enabled()
+            && let Some(y) = crate::gemv_kernel::project(self, x)?
+        {
+            return Ok(y);
+        }
+        if crate::qmv_kernel::enabled()
+            && let Some(y) = crate::qmv_kernel::project(self, x)?
+        {
+            return Ok(y);
+        }
         if x.ndim() == 3
             && x.shape()[0] * x.shape()[1] > 1
             && self.quant.is_some()

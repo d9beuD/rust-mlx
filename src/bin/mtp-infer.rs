@@ -1,4 +1,4 @@
-use anyhow::{Result, ensure};
+use anyhow::{Context, Result, ensure};
 use clap::Parser;
 use rust_mlx::{
     environment::BenchmarkEnvironment, hybrid::HybridModel, mtp::Mtp, speculative, weights::Weights,
@@ -11,8 +11,12 @@ use std::{
 #[derive(Parser)]
 struct Args {
     /// Alternate a kernel candidate in the same process.
-    #[arg(long,value_parser=["packed","moe"])]
+    #[arg(long,value_parser=["packed","moe","qmv","shortlist","hc","stream-x","gemv"])]
     ab_kernel: Option<String>,
+    #[arg(long)]
+    draft_vocab_limit: Option<usize>,
+    #[arg(long, default_value_t = 0)]
+    draft_vocab_refresh_rounds: usize,
     #[arg(long)]
     model: PathBuf,
     #[arg(
@@ -58,6 +62,12 @@ fn main() -> Result<()> {
     let w = Weights::load(&a.model)?;
     let m = HybridModel::load(&w, &a.model)?;
     let draft = Mtp::load(&w, &m.config)?;
+    draft
+        .draft_vocab_refresh_rounds
+        .set(a.draft_vocab_refresh_rounds);
+    if let Some(limit) = a.draft_vocab_limit {
+        draft.draft_vocab_limit.set(limit);
+    }
     mlx_rs::transforms::eval(w.tensors.values())?;
     let t = tokenizers::Tokenizer::from_file(a.model.join("tokenizer.json"))
         .map_err(|e| anyhow::anyhow!("{e}"))?;
@@ -107,10 +117,31 @@ fn main() -> Result<()> {
         };
         for candidate in modes {
             if let Some(kernel) = &a.ab_kernel {
+                if kernel == "qmv" {
+                    rust_mlx::qmv_kernel::set_enabled(candidate);
+                }
+                if kernel == "hc" {
+                    rust_mlx::hc_kernel::set_enabled(candidate);
+                }
+                if kernel == "stream-x" {
+                    rust_mlx::qmv_kernel::set_stream_x(candidate);
+                }
+                if kernel == "gemv" {
+                    rust_mlx::gemv_kernel::set_enabled(candidate);
+                }
+                if kernel == "shortlist" {
+                    draft.draft_vocab_limit.set(if candidate {
+                        a.draft_vocab_limit.unwrap_or(32768)
+                    } else {
+                        0
+                    });
+                }
                 for layer in &m.layers {
                     if kernel == "moe" {
                         layer.moe.fused_mode.set(candidate);
-                    } else if let rust_mlx::hybrid::HybridAttention::Linear(g) = &layer.attention {
+                    } else if kernel == "packed"
+                        && let rust_mlx::hybrid::HybridAttention::Linear(g) = &layer.attention
+                    {
                         g.packed_mode.set(candidate);
                     }
                 }
@@ -123,6 +154,8 @@ fn main() -> Result<()> {
 
                 let warm = run == 0;
                 let mut decoder = t.decode_stream(true);
+                let mut emitted = String::new();
+                let gemv_start = rust_mlx::gemv_kernel::launches();
                 let g = speculative::generate(
                     &m,
                     &draft,
@@ -139,12 +172,29 @@ fn main() -> Result<()> {
                             && let Some(text) =
                                 decoder.step(token).map_err(|e| anyhow::anyhow!("{e}"))?
                         {
+                            emitted.push_str(&text);
                             print!("{text}");
                             io::stdout().flush()?;
                         }
                         Ok(())
                     },
                 )?;
+                let gemv_launches = rust_mlx::gemv_kernel::launches().wrapping_sub(gemv_start);
+                if a.ab_kernel.as_deref() == Some("gemv") && candidate && g.tokens.len() > 1 {
+                    ensure!(gemv_launches > 0, "GEMV candidate was not engaged");
+                }
+                if a.stream && !warm {
+                    let complete = t
+                        .decode(&g.tokens, true)
+                        .map_err(|e| anyhow::anyhow!("{e}"))?;
+                    print!(
+                        "{}",
+                        complete
+                            .strip_prefix(&emitted)
+                            .context("stream decoder changed emitted prefix")?
+                    );
+                    io::stdout().flush()?;
+                }
                 let tps = if g.decode_seconds > 0. {
                     g.tokens.len().saturating_sub(1) as f64 / g.decode_seconds
                 } else {
@@ -164,7 +214,7 @@ fn main() -> Result<()> {
                             "MTP trajectory differs from baseline"
                         );
                     }
-                    records.push(json!({"run":run,"kernel_candidate":a.ab_kernel,"candidate_enabled":candidate,"draft_depth":depth,"decode_tokens_per_second":tps,"text":t.decode(&g.tokens,true).ok(),"generation":g,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
+                    records.push(json!({"run":run,"kernel_candidate":a.ab_kernel,"candidate_enabled":candidate,"draft_vocab_limit":draft.draft_vocab_limit.get(),"draft_vocab_refresh_rounds":draft.draft_vocab_refresh_rounds.get(),"qmv":rust_mlx::qmv_kernel::enabled(),"hc_projection":rust_mlx::hc_kernel::enabled(),"shared_gemv":rust_mlx::gemv_kernel::enabled(),"gemv_narrow":rust_mlx::gemv_kernel::narrow(),"gemv_launches":gemv_launches,"draft_depth":depth,"decode_tokens_per_second":tps,"text":t.decode(&g.tokens,true).ok(),"generation":g,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
                 }
             }
         }

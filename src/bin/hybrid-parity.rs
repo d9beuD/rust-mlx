@@ -45,6 +45,10 @@ fn main() -> Result<()> {
     f32.eval()?;
     let actual = f32.as_slice::<f32>();
     ensure!(actual.len() == reference.len(), "vocabulary size mismatch");
+    ensure!(
+        actual.iter().chain(&reference).all(|v| v.is_finite()),
+        "non-finite oracle parity input"
+    );
     if let Some(p) = a.dump {
         std::fs::write(p, serde_json::to_vec(actual)?)?;
     }

@@ -1,0 +1,9 @@
+{
+  "log": "results/target-parity-hc.log",
+  "sha256": "b53df46e7e5354abe15909e26181789b2fc63251a462a3714c353240c875ecf6",
+  "kernel": "RUST_MLX_HC_PROJECTION=1",
+  "oracle": "target-oracle-mlx32.2.json",
+  "prefill_max_error": 0,
+  "greedy_tokens": 16,
+  "passed": true
+}

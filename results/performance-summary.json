@@ -1,0 +1,1574 @@
+{
+  "method": "all saved timed samples; median of within-cycle candidate/reference gains; no outlier removal",
+  "reports": [
+    {
+      "source": "results/final-raw-plain-mtp-256.json",
+      "runtime": {
+        "ab_gemv": false,
+        "ab_hc": false,
+        "ab_qmv": false,
+        "ab_shortlist": false,
+        "ab_stream_x": false,
+        "batch": 1,
+        "chat": false,
+        "depth": 3,
+        "greedy": true,
+        "ignore_eos": true,
+        "prefix_cache": false,
+        "reasoning_effort": "xhigh",
+        "thinking": true,
+        "timing": "(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "Write a short Rust function that computes Fibonacci numbers.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                70.7275342741644,
+                70.22915130092426,
+                70.5019708195572,
+                70.11033350890949
+              ],
+              "n": 4,
+              "median": 70.36556106024074,
+              "mean": 70.39224747588884,
+              "minimum": 70.11033350890949,
+              "maximum": 70.7275342741644,
+              "standard_deviation": 0.27720768165748405
+            },
+            "false": {
+              "samples": [
+                46.44545778124253,
+                46.40411973955278,
+                46.26991700008659,
+                46.35685106077549
+              ],
+              "n": 4,
+              "median": 46.38048540016413,
+              "mean": 46.36908639541435,
+              "minimum": 46.26991700008659,
+              "maximum": 46.44545778124253,
+              "standard_deviation": 0.07537505369425745
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            52.280842202675906,
+            51.342492207785796,
+            52.37107691251155,
+            51.240500389019815
+          ],
+          "median_paired_gain_percent": 51.81166720523085
+        }
+      ]
+    },
+    {
+      "source": "results/target-mtp-ab-qmv-256.json",
+      "runtime": {
+        "batch_size": 1,
+        "draft_depth": 3,
+        "ignore_eos": true,
+        "kv_cache": "fresh per run",
+        "mtp": true,
+        "prefill_chunk": 128,
+        "prefix_cache": false,
+        "rate_definition": "generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization",
+        "sampler": "greedy",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "raw",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                62.77644779691213,
+                62.539343194238086,
+                62.24394423375814,
+                59.596040509181556,
+                62.196726808810375,
+                62.01477365695792
+              ],
+              "n": 6,
+              "median": 62.220335521284255,
+              "mean": 61.8945460333097,
+              "minimum": 59.596040509181556,
+              "maximum": 62.77644779691213,
+              "standard_deviation": 1.1579713941959773
+            },
+            "false": {
+              "samples": [
+                56.77848663462046,
+                56.50521451813144,
+                56.33935483401409,
+                56.64729801135495,
+                56.41136710895036,
+                56.20727936388441
+              ],
+              "n": 6,
+              "median": 56.4582908135409,
+              "mean": 56.481500078492616,
+              "minimum": 56.20727936388441,
+              "maximum": 56.77848663462046,
+              "standard_deviation": 0.2081217182200798
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            10.563791882812247,
+            10.678888183267432,
+            10.480399388917473,
+            5.20544245064527,
+            10.255662991975424,
+            10.332281438985769
+          ],
+          "median_paired_gain_percent": 10.406340413951622
+        }
+      ]
+    },
+    {
+      "source": "results/target-workloads-ab-qmv-256.json",
+      "runtime": {
+        "ab_qmv": true,
+        "batch": 1,
+        "chat": true,
+        "depth": 3,
+        "greedy": true,
+        "ignore_eos": true,
+        "prefix_cache": false,
+        "reasoning_effort": "xhigh",
+        "thinking": true,
+        "timing": "(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "Write a short Rust function that computes Fibonacci numbers.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                52.24151792870907,
+                51.87830840420944,
+                51.98619721939176,
+                50.91688624843421
+              ],
+              "n": 4,
+              "median": 51.9322528118006,
+              "mean": 51.75572745018612,
+              "minimum": 50.91688624843421,
+              "maximum": 52.24151792870907,
+              "standard_deviation": 0.5795945006603374
+            },
+            "false": {
+              "samples": [
+                47.00090742182108,
+                47.11375443275832,
+                46.91656946044105,
+                46.5451009022494
+              ],
+              "n": 4,
+              "median": 46.95873844113107,
+              "mean": 46.89408305431746,
+              "minimum": 46.5451009022494,
+              "maximum": 47.11375443275832,
+              "standard_deviation": 0.24627974671165098
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            11.150019849308123,
+            10.11287261823124,
+            10.805623295252431,
+            9.392578942660613
+          ],
+          "median_paired_gain_percent": 10.459247956741835
+        },
+        {
+          "workload": "Explique en français comment fonctionne le cache KV d'un modèle de langage et donne un exemple concret.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                45.07473191958301,
+                42.85121750601629,
+                43.32986684713057,
+                41.66579636213295
+              ],
+              "n": 4,
+              "median": 43.09054217657343,
+              "mean": 43.2304031587157,
+              "minimum": 41.66579636213295,
+              "maximum": 45.07473191958301,
+              "standard_deviation": 1.414592731802036
+            },
+            "false": {
+              "samples": [
+                39.425894551867,
+                38.76491042873383,
+                38.96703732469131,
+                38.52332370205222
+              ],
+              "n": 4,
+              "median": 38.86597387671257,
+              "mean": 38.92029150183609,
+              "minimum": 38.52332370205222,
+              "maximum": 39.425894551867,
+              "standard_deviation": 0.38277335683083347
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            14.327734175529327,
+            10.54125246798856,
+            11.196205362204337,
+            8.157324856975755
+          ],
+          "median_paired_gain_percent": 10.868728915096447
+        },
+        {
+          "workload": "Write a SQL query that returns each customer's three most recent orders. Explain how the window function works.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                44.21207962439498,
+                44.18436092600912,
+                44.57376306555931,
+                44.669846152451484
+              ],
+              "n": 4,
+              "median": 44.39292134497715,
+              "mean": 44.41001244210372,
+              "minimum": 44.18436092600912,
+              "maximum": 44.669846152451484,
+              "standard_deviation": 0.24794073939626063
+            },
+            "false": {
+              "samples": [
+                39.58189975809286,
+                39.92296537870908,
+                40.39827044605231,
+                40.31209306275909
+              ],
+              "n": 4,
+              "median": 40.117529220734085,
+              "mean": 40.053807161403334,
+              "minimum": 39.58189975809286,
+              "maximum": 40.39827044605231,
+              "standard_deviation": 0.37646723217661343
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            11.697720156434489,
+            10.674045644847418,
+            10.335820255183803,
+            10.810039267641391
+          ],
+          "median_paired_gain_percent": 10.742042456244405
+        },
+        {
+          "workload": "A train leaves Paris at 9:00 at 80 km/h. A second train leaves at 9:45 at 120 km/h on the same route. When does it catch the first train? Explain carefully.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                44.39524857418231,
+                54.63282762884931,
+                56.210753226383545,
+                55.884501998071144
+              ],
+              "n": 4,
+              "median": 55.25866481346023,
+              "mean": 52.78083285687158,
+              "minimum": 44.39524857418231,
+              "maximum": 56.210753226383545,
+              "standard_deviation": 5.631607949089546
+            },
+            "false": {
+              "samples": [
+                49.22017351210992,
+                39.08339651749354,
+                50.51822203333223,
+                50.8657601723292
+              ],
+              "n": 4,
+              "median": 49.86919777272108,
+              "mean": 47.42188805881622,
+              "minimum": 39.08339651749354,
+              "maximum": 50.8657601723292,
+              "standard_deviation": 5.603921572500579
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            -9.802738579823389,
+            39.785260486242336,
+            11.268273038776687,
+            9.866640759400514
+          ],
+          "median_paired_gain_percent": 10.5674568990886
+        }
+      ]
+    },
+    {
+      "source": "results/target-mtp-ab-hc-256.json",
+      "runtime": {
+        "batch_size": 1,
+        "draft_depth": 3,
+        "ignore_eos": true,
+        "kv_cache": "fresh per run",
+        "mtp": true,
+        "prefill_chunk": 128,
+        "prefix_cache": false,
+        "rate_definition": "generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization",
+        "sampler": "greedy",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "raw",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                70.19829711319139,
+                70.37669609562509,
+                70.10733698050011,
+                69.87007888443698,
+                70.07968312533032,
+                69.68092613696076
+              ],
+              "n": 6,
+              "median": 70.0935100529152,
+              "mean": 70.05216972267411,
+              "minimum": 69.68092613696076,
+              "maximum": 70.37669609562509,
+              "standard_deviation": 0.2455401669646234
+            },
+            "false": {
+              "samples": [
+                62.310668971241995,
+                62.06271077934063,
+                62.23935363821057,
+                62.3063152907603,
+                62.021003037634046,
+                61.37245353563204
+              ],
+              "n": 6,
+              "median": 62.1510322087756,
+              "mean": 62.052084208803265,
+              "minimum": 61.37245353563204,
+              "maximum": 62.310668971241995,
+              "standard_deviation": 0.3548369137242868
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            12.658551532466689,
+            13.39610405649896,
+            12.641492692911193,
+            12.139641958250014,
+            12.993469458735296,
+            13.537787920609912
+          ],
+          "median_paired_gain_percent": 12.826010495600993
+        }
+      ]
+    },
+    {
+      "source": "results/target-workloads-ab-hc-256.json",
+      "runtime": {
+        "ab_hc": true,
+        "ab_qmv": false,
+        "ab_shortlist": false,
+        "ab_stream_x": false,
+        "batch": 1,
+        "chat": true,
+        "depth": 3,
+        "greedy": true,
+        "ignore_eos": true,
+        "prefix_cache": false,
+        "reasoning_effort": "xhigh",
+        "thinking": true,
+        "timing": "(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "Write a short Rust function that computes Fibonacci numbers.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                50.275950893211416,
+                50.83933204206494,
+                50.60043325376798,
+                50.936828990237665
+              ],
+              "n": 4,
+              "median": 50.719882647916464,
+              "mean": 50.663136294820504,
+              "minimum": 50.275950893211416,
+              "maximum": 50.936828990237665,
+              "standard_deviation": 0.2942769893870742
+            },
+            "false": {
+              "samples": [
+                46.49460708997664,
+                45.77545094877701,
+                46.763742334697795,
+                46.22447687004526
+              ],
+              "n": 4,
+              "median": 46.359541980010945,
+              "mean": 46.31456931087418,
+              "minimum": 45.77545094877701,
+              "maximum": 46.763742334697795,
+              "standard_deviation": 0.4214796410582794
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            8.132865379240851,
+            11.06243846500703,
+            8.204413777687414,
+            10.19449529616232
+          ],
+          "median_paired_gain_percent": 9.199454536924867
+        },
+        {
+          "workload": "Explique en français comment fonctionne le cache KV d'un modèle de langage et donne un exemple concret.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                45.066551366987795,
+                43.7804470410734,
+                44.57427990196193,
+                44.65589122182986
+              ],
+              "n": 4,
+              "median": 44.615085561895896,
+              "mean": 44.51929238296324,
+              "minimum": 43.7804470410734,
+              "maximum": 45.066551366987795,
+              "standard_deviation": 0.5376081921663898
+            },
+            "false": {
+              "samples": [
+                40.55054466935819,
+                40.308870810378245,
+                40.660079720464346,
+                40.79831203348498
+              ],
+              "n": 4,
+              "median": 40.605312194911264,
+              "mean": 40.57945180842144,
+              "minimum": 40.308870810378245,
+              "maximum": 40.79831203348498,
+              "standard_deviation": 0.2069221733777676
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            11.136734991976827,
+            8.61243731442196,
+            9.62664168001508,
+            9.455242131534236
+          ],
+          "median_paired_gain_percent": 9.540941905774659
+        },
+        {
+          "workload": "Write a SQL query that returns each customer's three most recent orders. Explain how the window function works.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                45.33049933498495,
+                45.54456497729224,
+                45.328299208685856,
+                45.28274244718817
+              ],
+              "n": 4,
+              "median": 45.3293992718354,
+              "mean": 45.3715264920378,
+              "minimum": 45.28274244718817,
+              "maximum": 45.54456497729224,
+              "standard_deviation": 0.11744040991192159
+            },
+            "false": {
+              "samples": [
+                41.28878517410877,
+                41.04687698673927,
+                41.58531963200335,
+                41.18127546176086
+              ],
+              "n": 4,
+              "median": 41.235030317934815,
+              "mean": 41.275564313653064,
+              "minimum": 41.04687698673927,
+              "maximum": 41.58531963200335,
+              "standard_deviation": 0.22899157879683438
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            9.78889096357005,
+            10.9574426137365,
+            9.000723355753593,
+            9.959543359058287
+          ],
+          "median_paired_gain_percent": 9.874217161314169
+        },
+        {
+          "workload": "A train leaves Paris at 9:00 at 80 km/h. A second train leaves at 9:45 at 120 km/h on the same route. When does it catch the first train? Explain carefully.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                56.1244190331661,
+                56.12974460991956,
+                55.88302827500433,
+                56.69387972893656
+              ],
+              "n": 4,
+              "median": 56.12708182154283,
+              "mean": 56.20776791175663,
+              "minimum": 55.88302827500433,
+              "maximum": 56.69387972893656,
+              "standard_deviation": 0.3438968845801728
+            },
+            "false": {
+              "samples": [
+                52.05787944391652,
+                51.16222346935837,
+                51.695496570697536,
+                51.26477487250023
+              ],
+              "n": 4,
+              "median": 51.480135721598884,
+              "mean": 51.54509358911817,
+              "minimum": 51.16222346935837,
+              "maximum": 52.05787944391652,
+              "standard_deviation": 0.4126089760053074
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            7.811573642046987,
+            9.709353510674323,
+            8.10038007581575,
+            10.590322243565797
+          ],
+          "median_paired_gain_percent": 8.904866793245036
+        }
+      ]
+    },
+    {
+      "source": "results/batch-ab-qmv-target-256.json",
+      "runtime": {
+        "ab_qmv": true,
+        "caches": "fresh per mode/run, independent per row",
+        "greedy": true,
+        "ignore_eos": true,
+        "mtp": false,
+        "output_tokens_per_row": 256,
+        "prefix_cache": false,
+        "timing": "aggregate B*(generated-1)/decode, graph+argmax+eval, no unused final forward; prefill separate",
+        "warmup_tokens_per_row": 256
+      },
+      "groups": [
+        {
+          "workload": "2",
+          "metric": "aggregate batch tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                56.574940872691755,
+                56.46573491745554,
+                56.24041095617276,
+                54.96273387835202
+              ],
+              "n": 4,
+              "median": 56.35307293681415,
+              "mean": 56.06095515616802,
+              "minimum": 54.96273387835202,
+              "maximum": 56.574940872691755,
+              "standard_deviation": 0.7452789927585401
+            },
+            "false": {
+              "samples": [
+                51.945198954230946,
+                52.03225002890358,
+                51.324915374151125,
+                50.666855504487685
+              ],
+              "n": 4,
+              "median": 51.63505716419104,
+              "mean": 51.49230496544334,
+              "minimum": 50.666855504487685,
+              "maximum": 52.03225002890358,
+              "standard_deviation": 0.634045141531734
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            8.912742682033215,
+            8.520648032881883,
+            9.57721127485236,
+            8.478675716285245
+          ],
+          "median_paired_gain_percent": 8.71669535745755,
+          "per_conversation_candidate_median": 28.176536468407075
+        },
+        {
+          "workload": "4",
+          "metric": "aggregate batch tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                80.31085787070081,
+                81.84491052992132,
+                81.9977601995065,
+                82.63395097185867
+              ],
+              "n": 4,
+              "median": 81.92133536471391,
+              "mean": 81.69686989299683,
+              "minimum": 80.31085787070081,
+              "maximum": 82.63395097185867,
+              "standard_deviation": 0.9851567186734719
+            },
+            "false": {
+              "samples": [
+                69.6767292643484,
+                69.63789311134707,
+                70.19668213123225,
+                70.56000295269538
+              ],
+              "n": 4,
+              "median": 69.93670569779033,
+              "mean": 70.01782686490577,
+              "minimum": 69.63789311134707,
+              "maximum": 70.56000295269538,
+              "standard_deviation": 0.44220709577556183
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            15.262094990147013,
+            17.52927446994399,
+            16.81144707980957,
+            17.111603619486605
+          ],
+          "median_paired_gain_percent": 16.961525349648088,
+          "per_conversation_candidate_median": 20.480333841178478
+        },
+        {
+          "workload": "8",
+          "metric": "aggregate batch tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                91.87469849392373,
+                93.83676145238947,
+                94.28034336114273,
+                94.54930115147029
+              ],
+              "n": 4,
+              "median": 94.0585524067661,
+              "mean": 93.63527611473155,
+              "minimum": 91.87469849392373,
+              "maximum": 94.54930115147029,
+              "standard_deviation": 1.2099288436871258
+            },
+            "false": {
+              "samples": [
+                85.43609579251591,
+                85.65195007841169,
+                86.36257259226359,
+                86.712377975175
+              ],
+              "n": 4,
+              "median": 86.00726133533763,
+              "mean": 86.04074910959154,
+              "minimum": 85.43609579251591,
+              "maximum": 86.712377975175,
+              "standard_deviation": 0.5976135896438558
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            7.536162135784097,
+            9.555896119685347,
+            9.16805802701206,
+            9.037836764826036
+          ],
+          "median_paired_gain_percent": 9.102947395919049,
+          "per_conversation_candidate_median": 11.757319050845762
+        }
+      ]
+    },
+    {
+      "source": "results/batch-ab-hc-qmv-target-256.json",
+      "runtime": {
+        "ab_hc": true,
+        "ab_qmv": false,
+        "ab_stream_x": false,
+        "caches": "fresh per mode/run, independent per row",
+        "greedy": true,
+        "ignore_eos": true,
+        "mtp": false,
+        "output_tokens_per_row": 256,
+        "prefix_cache": false,
+        "timing": "aggregate B*(generated-1)/decode, graph+argmax+eval, no unused final forward; prefill separate",
+        "warmup_tokens_per_row": 256
+      },
+      "groups": [
+        {
+          "workload": "2",
+          "metric": "aggregate batch tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                64.60837134802492,
+                64.37472790246214,
+                64.29991160353262,
+                64.15457613497799
+              ],
+              "n": 4,
+              "median": 64.33731975299739,
+              "mean": 64.35939674724942,
+              "minimum": 64.15457613497799,
+              "maximum": 64.60837134802492,
+              "standard_deviation": 0.1894847062304571
+            },
+            "false": {
+              "samples": [
+                56.309174576645056,
+                56.24457767118389,
+                56.15095008737555,
+                56.11518790500264
+              ],
+              "n": 4,
+              "median": 56.19776387927972,
+              "mean": 56.204972560051786,
+              "minimum": 56.11518790500264,
+              "maximum": 56.309174576645056,
+              "standard_deviation": 0.08832956644717734
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            14.738622673439195,
+            14.45499382857598,
+            14.512597744965339,
+            14.326581679785555
+          ],
+          "median_paired_gain_percent": 14.48379578677066,
+          "per_conversation_candidate_median": 32.168659876498694
+        },
+        {
+          "workload": "4",
+          "metric": "aggregate batch tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                89.13755970277758,
+                89.29731711354083,
+                89.29377324415786,
+                89.40736165710855
+              ],
+              "n": 4,
+              "median": 89.29554517884935,
+              "mean": 89.28400292939621,
+              "minimum": 89.13755970277758,
+              "maximum": 89.40736165710855,
+              "standard_deviation": 0.11095903279328198
+            },
+            "false": {
+              "samples": [
+                82.64335472056092,
+                83.01750142205621,
+                83.22894866028422,
+                83.4352469790075
+              ],
+              "n": 4,
+              "median": 83.12322504117022,
+              "mean": 83.08126294547722,
+              "minimum": 82.64335472056092,
+              "maximum": 83.4352469790075,
+              "standard_deviation": 0.33810496973116333
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            7.858109105293809,
+            7.564447958459253,
+            7.286917210294774,
+            7.157783903490622
+          ],
+          "median_paired_gain_percent": 7.425682584377014,
+          "per_conversation_candidate_median": 22.323886294712338
+        },
+        {
+          "workload": "8",
+          "metric": "aggregate batch tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                98.18327058383798,
+                98.96739770139729,
+                99.08391476526955,
+                99.30825935252831
+              ],
+              "n": 4,
+              "median": 99.02565623333342,
+              "mean": 98.88571060075829,
+              "minimum": 98.18327058383798,
+              "maximum": 99.30825935252831,
+              "standard_deviation": 0.4891922247385038
+            },
+            "false": {
+              "samples": [
+                93.35437170199727,
+                93.72194497321931,
+                93.8573464630479,
+                94.06047810267657
+              ],
+              "n": 4,
+              "median": 93.78964571813361,
+              "mean": 93.74853531023527,
+              "minimum": 93.35437170199727,
+              "maximum": 94.06047810267657,
+              "standard_deviation": 0.2973326805753195
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            5.172654256894749,
+            5.596824446693716,
+            5.568629946595993,
+            5.579156470077962
+          ],
+          "median_paired_gain_percent": 5.573893208336978,
+          "per_conversation_candidate_median": 12.378207029166678
+        }
+      ]
+    },
+    {
+      "source": "results/target-mtp-ab-shortlist32k-256.json",
+      "runtime": {
+        "batch_size": 1,
+        "draft_depth": 3,
+        "ignore_eos": true,
+        "kv_cache": "fresh per run",
+        "mtp": true,
+        "prefill_chunk": 128,
+        "prefix_cache": false,
+        "rate_definition": "generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization",
+        "sampler": "greedy",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "raw",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                65.64301532735448,
+                65.4722264568774,
+                65.33190243964258,
+                64.95631248065865,
+                65.26739277079652,
+                65.09732544766457
+              ],
+              "n": 6,
+              "median": 65.29964760521955,
+              "mean": 65.29469582049903,
+              "minimum": 64.95631248065865,
+              "maximum": 65.64301532735448,
+              "standard_deviation": 0.24836736641290824
+            },
+            "false": {
+              "samples": [
+                62.71116216264239,
+                62.287783886770114,
+                62.29058669644418,
+                62.34702948492442,
+                62.392787246987695,
+                61.90006308657806
+              ],
+              "n": 6,
+              "median": 62.3188080906843,
+              "mean": 62.321568760724475,
+              "minimum": 61.90006308657806,
+              "maximum": 62.71116216264239,
+              "standard_deviation": 0.2597197256402327
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            4.675169560896153,
+            5.112467279131527,
+            4.882464437234146,
+            4.185095933664584,
+            4.607272171428134,
+            5.165200488753285
+          ],
+          "median_paired_gain_percent": 4.77881699906515
+        }
+      ]
+    },
+    {
+      "source": "results/target-workloads-ab-shortlist32k-256.json",
+      "runtime": {
+        "ab_qmv": false,
+        "ab_shortlist": true,
+        "batch": 1,
+        "chat": true,
+        "depth": 3,
+        "greedy": true,
+        "ignore_eos": true,
+        "prefix_cache": false,
+        "reasoning_effort": "xhigh",
+        "thinking": true,
+        "timing": "(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "Write a short Rust function that computes Fibonacci numbers.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                55.03784657231083,
+                54.70574775749379,
+                54.83962367114721,
+                54.53630925551494
+              ],
+              "n": 4,
+              "median": 54.7726857143205,
+              "mean": 54.77988181411669,
+              "minimum": 54.53630925551494,
+              "maximum": 55.03784657231083,
+              "standard_deviation": 0.21208359641643662
+            },
+            "false": {
+              "samples": [
+                52.26205993930613,
+                52.137050863093066,
+                52.287781388681964,
+                51.75581431607172
+              ],
+              "n": 4,
+              "median": 52.199555401199596,
+              "mean": 52.11067662678822,
+              "minimum": 51.75581431607172,
+              "maximum": 52.287781388681964,
+              "standard_deviation": 0.24556456306645105
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            5.3112843929771,
+            4.926816634001563,
+            4.880379726758899,
+            5.372333478249969
+          ],
+          "median_paired_gain_percent": 5.119050513489332
+        },
+        {
+          "workload": "Explique en français comment fonctionne le cache KV d'un modèle de langage et donne un exemple concret.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                43.597663832006404,
+                42.18258047593737,
+                42.21928630850514,
+                41.47605358811977
+              ],
+              "n": 4,
+              "median": 42.20093339222126,
+              "mean": 42.36889605114217,
+              "minimum": 41.47605358811977,
+              "maximum": 43.597663832006404,
+              "standard_deviation": 0.8877188916396407
+            },
+            "false": {
+              "samples": [
+                45.13847854606836,
+                44.83394463452766,
+                43.96864653543804,
+                43.42413186365741
+              ],
+              "n": 4,
+              "median": 44.40129558498285,
+              "mean": 44.34130039492287,
+              "minimum": 43.42413186365741,
+              "maximum": 45.13847854606836,
+              "standard_deviation": 0.7870324781972923
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            -3.4135282439557657,
+            -5.913742768349706,
+            -3.978653801687848,
+            -4.486165161929301
+          ],
+          "median_paired_gain_percent": -4.232409481808574
+        },
+        {
+          "workload": "Write a SQL query that returns each customer's three most recent orders. Explain how the window function works.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                43.84888174103892,
+                44.21938990767858,
+                44.34325808357675,
+                44.742168322873354
+              ],
+              "n": 4,
+              "median": 44.281323995627666,
+              "mean": 44.2884245137919,
+              "minimum": 43.84888174103892,
+              "maximum": 44.742168322873354,
+              "standard_deviation": 0.36826339784439305
+            },
+            "false": {
+              "samples": [
+                43.73566745731034,
+                43.30313328948537,
+                43.72407866114494,
+                43.88686170961668
+              ],
+              "n": 4,
+              "median": 43.72987305922764,
+              "mean": 43.662435279389335,
+              "minimum": 43.30313328948537,
+              "maximum": 43.88686170961668,
+              "standard_deviation": 0.2507508730000472
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            0.25886030855499786,
+            2.115912980402479,
+            1.416106276887752,
+            1.9488898953767153
+          ],
+          "median_paired_gain_percent": 1.6824980861322336
+        },
+        {
+          "workload": "A train leaves Paris at 9:00 at 80 km/h. A second train leaves at 9:45 at 120 km/h on the same route. When does it catch the first train? Explain carefully.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                61.28257643817575,
+                60.94873577956018,
+                61.0245440567823,
+                60.548228003857915
+              ],
+              "n": 4,
+              "median": 60.986639918171235,
+              "mean": 60.951021069594034,
+              "minimum": 60.548228003857915,
+              "maximum": 61.28257643817575,
+              "standard_deviation": 0.3041830964162237
+            },
+            "false": {
+              "samples": [
+                55.33649366399687,
+                55.40698325094416,
+                55.469581740206884,
+                55.713566939045016
+              ],
+              "n": 4,
+              "median": 55.43828249557552,
+              "mean": 55.48165639854823,
+              "minimum": 55.33649366399687,
+              "maximum": 55.713566939045016,
+              "standard_deviation": 0.1638867440674607
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            10.745319011868526,
+            10.001902654610939,
+            10.014429787107847,
+            8.677708734934164
+          ],
+          "median_paired_gain_percent": 10.008166220859394
+        }
+      ]
+    },
+    {
+      "source": "results/target-mtp-ab-shortlist-refresh8-hc-256.json",
+      "runtime": {
+        "batch_size": 1,
+        "draft_depth": 3,
+        "ignore_eos": true,
+        "kv_cache": "fresh per run",
+        "mtp": true,
+        "prefill_chunk": 128,
+        "prefix_cache": false,
+        "rate_definition": "generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization",
+        "sampler": "greedy",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "raw",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                73.65961081909383,
+                73.38789195474801,
+                73.66897938804128,
+                73.55911751559417
+              ],
+              "n": 4,
+              "median": 73.609364167344,
+              "mean": 73.56889991936933,
+              "minimum": 73.38789195474801,
+              "maximum": 73.66897938804128,
+              "standard_deviation": 0.1305168521155533
+            },
+            "false": {
+              "samples": [
+                70.80701426778693,
+                70.52657700710513,
+                70.607235725683,
+                70.11389498795532
+              ],
+              "n": 4,
+              "median": 70.56690636639406,
+              "mean": 70.5136804971326,
+              "minimum": 70.11389498795532,
+              "maximum": 70.80701426778693,
+              "standard_deviation": 0.2914286963181049
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            4.028692045280424,
+            4.057073331879724,
+            4.33630297361236,
+            4.913751444318848
+          ],
+          "median_paired_gain_percent": 4.196688152746042
+        }
+      ]
+    },
+    {
+      "source": "results/target-workloads-ab-shortlist-refresh8-hc-256.json",
+      "runtime": {
+        "ab_gemv": false,
+        "ab_hc": false,
+        "ab_qmv": false,
+        "ab_shortlist": true,
+        "ab_stream_x": false,
+        "batch": 1,
+        "chat": true,
+        "depth": 3,
+        "greedy": true,
+        "ignore_eos": true,
+        "prefix_cache": false,
+        "reasoning_effort": "xhigh",
+        "thinking": true,
+        "timing": "(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "Write a short Rust function that computes Fibonacci numbers.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                62.357195526702654,
+                62.05445194007038,
+                62.62962644129498,
+                62.49710555684515
+              ],
+              "n": 4,
+              "median": 62.4271505417739,
+              "mean": 62.38459486622829,
+              "minimum": 62.05445194007038,
+              "maximum": 62.62962644129498,
+              "standard_deviation": 0.24660643664301418
+            },
+            "false": {
+              "samples": [
+                58.68202529514152,
+                58.679589016111336,
+                58.724575345945524,
+                58.47073351511807
+              ],
+              "n": 4,
+              "median": 58.680807155626425,
+              "mean": 58.639230793079115,
+              "minimum": 58.47073351511807,
+              "maximum": 58.724575345945524,
+              "standard_deviation": 0.11421497414574093
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            6.262855129959899,
+            5.751340424406215,
+            6.649773237771184,
+            6.886132257407085
+          ],
+          "median_paired_gain_percent": 6.456314183865541
+        },
+        {
+          "workload": "Explique en français comment fonctionne le cache KV d'un modèle de langage et donne un exemple concret.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                52.58113443024281,
+                52.11381865058861,
+                51.976031025413405,
+                51.88694989699385
+              ],
+              "n": 4,
+              "median": 52.04492483800101,
+              "mean": 52.13948350080967,
+              "minimum": 51.88694989699385,
+              "maximum": 52.58113443024281,
+              "standard_deviation": 0.3088711493894076
+            },
+            "false": {
+              "samples": [
+                51.645428412499534,
+                51.45899623577443,
+                51.175969851734436,
+                50.91577342701021
+              ],
+              "n": 4,
+              "median": 51.317483043754436,
+              "mean": 51.299041981754655,
+              "minimum": 50.91577342701021,
+              "maximum": 51.645428412499534,
+              "standard_deviation": 0.32021370834012797
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            1.8117886645641956,
+            1.2725129961997705,
+            1.5633532222190993,
+            1.9074176912501573
+          ],
+          "median_paired_gain_percent": 1.6875709433916475
+        },
+        {
+          "workload": "Write a SQL query that returns each customer's three most recent orders. Explain how the window function works.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                55.223333760275395,
+                55.44536644210904,
+                55.104624544498044,
+                54.961413989064674
+              ],
+              "n": 4,
+              "median": 55.163979152386716,
+              "mean": 55.18368468398679,
+              "minimum": 54.961413989064674,
+              "maximum": 55.44536644210904,
+              "standard_deviation": 0.20469828143036287
+            },
+            "false": {
+              "samples": [
+                52.27889424019386,
+                52.146518116914585,
+                51.77574082700499,
+                51.606488483797065
+              ],
+              "n": 4,
+              "median": 51.96112947195979,
+              "mean": 51.951910416977626,
+              "minimum": 51.606488483797065,
+              "maximum": 52.27889424019386,
+              "standard_deviation": 0.3136572512967938
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            5.63217635505715,
+            6.326114272478001,
+            6.429427496973239,
+            6.500976144348503
+          ],
+          "median_paired_gain_percent": 6.37777088472562
+        },
+        {
+          "workload": "A train leaves Paris at 9:00 at 80 km/h. A second train leaves at 9:45 at 120 km/h on the same route. When does it catch the first train? Explain carefully.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                71.6897621326664,
+                70.88674206305647,
+                70.82793596917051,
+                71.01558858812766
+              ],
+              "n": 4,
+              "median": 70.95116532559206,
+              "mean": 71.10500718825526,
+              "minimum": 70.82793596917051,
+              "maximum": 71.6897621326664,
+              "standard_deviation": 0.3976355770405901
+            },
+            "false": {
+              "samples": [
+                64.08623310025551,
+                64.31725474319563,
+                64.56117213290194,
+                64.30349770980331
+              ],
+              "n": 4,
+              "median": 64.31037622649947,
+              "mean": 64.3170394215391,
+              "minimum": 64.08623310025551,
+              "maximum": 64.56117213290194,
+              "standard_deviation": 0.19412690267106866
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            11.864527940838787,
+            10.214191115729875,
+            9.706707033397976,
+            10.438142740874667
+          ],
+          "median_paired_gain_percent": 10.326166928302271
+        }
+      ]
+    },
+    {
+      "source": "results/target-mtp-ab-gemv-256.json",
+      "runtime": {
+        "batch_size": 1,
+        "draft_depth": 3,
+        "ignore_eos": true,
+        "kv_cache": "fresh per run",
+        "mtp": true,
+        "prefill_chunk": 128,
+        "prefix_cache": false,
+        "rate_definition": "generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization",
+        "sampler": "greedy",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "raw",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                71.28473484775436,
+                70.93044976832972,
+                70.92164719457172,
+                70.79589754431588
+              ],
+              "n": 4,
+              "median": 70.92604848145072,
+              "mean": 70.98318233874292,
+              "minimum": 70.79589754431588,
+              "maximum": 71.28473484775436,
+              "standard_deviation": 0.21021957398969793
+            },
+            "false": {
+              "samples": [
+                70.60773753235928,
+                70.27139963407168,
+                70.10763092032134,
+                70.21800095636752
+              ],
+              "n": 4,
+              "median": 70.2447002952196,
+              "mean": 70.30119226077996,
+              "minimum": 70.10763092032134,
+              "maximum": 70.60773753235928,
+              "standard_deviation": 0.21544093528064623
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            0.9588146271997777,
+            0.9378639641304254,
+            1.161095109854049,
+            0.823003475002726
+          ],
+          "median_paired_gain_percent": 0.9483392956651016
+        }
+      ]
+    },
+    {
+      "source": "results/batch-ab-gemv-hc-qmv-target-256.json",
+      "runtime": {
+        "ab_gemv": true,
+        "ab_hc": false,
+        "ab_qmv": false,
+        "ab_stream_x": false,
+        "caches": "fresh per mode/run, independent per row",
+        "greedy": true,
+        "ignore_eos": true,
+        "mtp": false,
+        "output_tokens_per_row": 256,
+        "prefix_cache": false,
+        "timing": "aggregate B*(generated-1)/decode, graph+argmax+eval, no unused final forward; prefill separate",
+        "warmup_tokens_per_row": 256
+      },
+      "groups": [
+        {
+          "workload": "2",
+          "metric": "aggregate batch tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                66.64220651155085,
+                66.52131180042001,
+                66.37705518448989,
+                66.14982468350875
+              ],
+              "n": 4,
+              "median": 66.44918349245495,
+              "mean": 66.42259954499238,
+              "minimum": 66.14982468350875,
+              "maximum": 66.64220651155085,
+              "standard_deviation": 0.21170084471852854
+            },
+            "false": {
+              "samples": [
+                66.11646995752216,
+                65.92945399189608,
+                65.75022209931899,
+                66.01706379007665
+              ],
+              "n": 4,
+              "median": 65.97325889098636,
+              "mean": 65.95330245970347,
+              "minimum": 65.75022209931899,
+              "maximum": 66.11646995752216,
+              "standard_deviation": 0.15545580485143146
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            0.7951673075808019,
+            0.8977138026907916,
+            0.9533550840695737,
+            0.20110087575881952
+          ],
+          "median_paired_gain_percent": 0.8464405551357967,
+          "per_conversation_candidate_median": 33.224591746227475
+        },
+        {
+          "workload": "4",
+          "metric": "aggregate batch tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                94.91040105622592,
+                93.62953910067657,
+                93.85190148764164,
+                93.88798643152911
+              ],
+              "n": 4,
+              "median": 93.86994395958538,
+              "mean": 94.06995701901832,
+              "minimum": 93.62953910067657,
+              "maximum": 94.91040105622592,
+              "standard_deviation": 0.5718320359305485
+            },
+            "false": {
+              "samples": [
+                93.22457427785551,
+                93.32436056936203,
+                93.6548187024405,
+                93.79103788932649
+              ],
+              "n": 4,
+              "median": 93.48958963590127,
+              "mean": 93.49869785974613,
+              "minimum": 93.22457427785551,
+              "maximum": 93.79103788932649,
+              "standard_deviation": 0.2679388234813175
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            1.808350203183351,
+            0.3270084353674374,
+            0.21043528558559732,
+            0.10336653094404902
+          ],
+          "median_paired_gain_percent": 0.26872186047651736,
+          "per_conversation_candidate_median": 23.467485989896346
+        },
+        {
+          "workload": "8",
+          "metric": "aggregate batch tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                107.5363565225303,
+                107.74663204987309,
+                107.92255461229155,
+                107.57000866426327
+              ],
+              "n": 4,
+              "median": 107.65832035706818,
+              "mean": 107.69388796223956,
+              "minimum": 107.5363565225303,
+              "maximum": 107.92255461229155,
+              "standard_deviation": 0.17816903078281512
+            },
+            "false": {
+              "samples": [
+                105.56036483403211,
+                106.53738529042369,
+                106.95018718389518,
+                106.55862666615138
+              ],
+              "n": 4,
+              "median": 106.54800597828753,
+              "mean": 106.40164099362559,
+              "minimum": 105.56036483403211,
+              "maximum": 106.95018718389518,
+              "standard_deviation": 0.5920921986344173
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            1.8719068389020377,
+            1.1350445255934982,
+            0.909177864947952,
+            0.9491319752839456
+          ],
+          "median_paired_gain_percent": 1.0420882504387219,
+          "per_conversation_candidate_median": 13.457290044633522
+        }
+      ]
+    }
+  ]
+}

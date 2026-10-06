@@ -1,0 +1,64 @@
+{
+  "method": "all saved timed samples; median of within-cycle candidate/reference gains; no outlier removal",
+  "reports": [
+    {
+      "source": "results/target-mtp-ab-gemv-256.json",
+      "runtime": {
+        "batch_size": 1,
+        "draft_depth": 3,
+        "ignore_eos": true,
+        "kv_cache": "fresh per run",
+        "mtp": true,
+        "prefill_chunk": 128,
+        "prefix_cache": false,
+        "rate_definition": "generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization",
+        "sampler": "greedy",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "raw",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                71.28473484775436,
+                70.93044976832972,
+                70.92164719457172,
+                70.79589754431588
+              ],
+              "n": 4,
+              "median": 70.92604848145072,
+              "mean": 70.98318233874292,
+              "minimum": 70.79589754431588,
+              "maximum": 71.28473484775436,
+              "standard_deviation": 0.21021957398969793
+            },
+            "false": {
+              "samples": [
+                70.60773753235928,
+                70.27139963407168,
+                70.10763092032134,
+                70.21800095636752
+              ],
+              "n": 4,
+              "median": 70.2447002952196,
+              "mean": 70.30119226077996,
+              "minimum": 70.10763092032134,
+              "maximum": 70.60773753235928,
+              "standard_deviation": 0.21544093528064623
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            0.9588146271997777,
+            0.9378639641304254,
+            1.161095109854049,
+            0.823003475002726
+          ],
+          "median_paired_gain_percent": 0.9483392956651016
+        }
+      ]
+    }
+  ]
+}

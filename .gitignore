@@ -1,6 +1,7 @@
 /target/
 /research/upstream/
 /.venv/
+/.venv-mtplx/
 /.unlazy/
 .DS_Store
 *.gputrace
@@ -10,3 +11,4 @@
 *.trace
 
 /results/metal-*.xml
+__pycache__/

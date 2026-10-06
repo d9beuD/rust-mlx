@@ -35,6 +35,21 @@ struct Args {
     reasoning_effort: String,
     #[arg(long)]
     ignore_eos: bool,
+    /// Compare MTP with shared-weight verifier projections disabled/enabled.
+    #[arg(long)]
+    ab_qmv: bool,
+    #[arg(long, conflicts_with_all = ["ab_qmv", "ab_hc", "ab_stream_x"])]
+    ab_shortlist: bool,
+    #[arg(long, conflicts_with_all = ["ab_qmv", "ab_stream_x"])]
+    ab_hc: bool,
+    #[arg(long, conflicts_with = "ab_qmv")]
+    ab_stream_x: bool,
+    #[arg(long, conflicts_with_all = ["ab_qmv", "ab_shortlist", "ab_hc", "ab_stream_x"])]
+    ab_gemv: bool,
+    #[arg(long, default_value_t = 32768)]
+    draft_vocab_limit: usize,
+    #[arg(long, default_value_t = 0)]
+    draft_vocab_refresh_rounds: usize,
 }
 fn main() -> Result<()> {
     let a = Args::parse();
@@ -45,10 +60,17 @@ fn main() -> Result<()> {
     let w = Weights::load(&a.model)?;
     let m = HybridModel::load(&w, &a.model)?;
     let draft = Mtp::load(&w, &m.config)?;
+    draft
+        .draft_vocab_refresh_rounds
+        .set(a.draft_vocab_refresh_rounds);
     mlx_rs::transforms::eval(w.tensors.values())?;
     let tokenizer = tokenizers::Tokenizer::from_file(a.model.join("tokenizer.json"))
         .map_err(|e| anyhow::anyhow!("{e}"))?;
     let prompts: Vec<String> = serde_json::from_slice(&std::fs::read(&a.prompts)?)?;
+    ensure!(
+        !prompts.is_empty(),
+        "benchmark requires at least one prompt"
+    );
     let mut records = Vec::new();
     for prompt in prompts {
         let ids = chat::encode_prompt(
@@ -61,11 +83,34 @@ fn main() -> Result<()> {
         )?;
         let mut expected = None;
         for cycle in 0..=a.runs {
-            for mtp in if cycle % 2 == 0 {
+            for candidate in if cycle % 2 == 0 {
                 [false, true]
             } else {
                 [true, false]
             } {
+                let mtp = a.ab_qmv
+                    || a.ab_shortlist
+                    || a.ab_hc
+                    || a.ab_stream_x
+                    || a.ab_gemv
+                    || candidate;
+                if a.ab_qmv {
+                    rust_mlx::qmv_kernel::set_enabled(candidate);
+                }
+                if a.ab_shortlist {
+                    draft
+                        .draft_vocab_limit
+                        .set(if candidate { a.draft_vocab_limit } else { 0 });
+                }
+                if a.ab_hc {
+                    rust_mlx::hc_kernel::set_enabled(candidate);
+                }
+                if a.ab_stream_x {
+                    rust_mlx::qmv_kernel::set_stream_x(candidate);
+                }
+                if a.ab_gemv {
+                    rust_mlx::gemv_kernel::set_enabled(candidate);
+                }
                 let options = Options {
                     max_tokens: if cycle == 0 {
                         a.warmup_tokens.min(a.max_tokens)
@@ -76,32 +121,37 @@ fn main() -> Result<()> {
                     chunk: 128,
                     eos: if a.ignore_eos { &[] } else { &[248044, 248046] },
                 };
+                let gemv_start = rust_mlx::gemv_kernel::launches();
                 let g = if mtp {
                     speculative::generate(&m, &draft, &ids, &options, |_| Ok(()))?
                 } else {
                     speculative::generate_plain(&m, &ids, &options, |_| Ok(()))?
                 };
+                let gemv_launches = rust_mlx::gemv_kernel::launches().wrapping_sub(gemv_start);
+                if a.ab_gemv && candidate && g.tokens.len() > 1 {
+                    ensure!(gemv_launches > 0, "GEMV candidate was not engaged");
+                }
                 let tps = if g.decode_seconds > 0. {
                     g.tokens.len().saturating_sub(1) as f64 / g.decode_seconds
                 } else {
                     0.
                 };
                 eprintln!(
-                    "prompt={} cycle={cycle} mtp={mtp} output={} tps={tps:.2}",
+                    "prompt={} cycle={cycle} mtp={mtp} candidate={candidate} output={} tps={tps:.2}",
                     ids.len(),
                     g.tokens.len()
                 );
                 if cycle > 0 {
                     if let Some(e) = &expected {
-                        ensure!(&g.tokens == e, "plain/MTP trajectory mismatch");
+                        ensure!(&g.tokens == e, "benchmark trajectory mismatch");
                     } else {
                         expected = Some(g.tokens.clone());
                     }
-                    records.push(json!({"prompt":prompt,"prompt_ids":ids,"cycle":cycle,"mtp":mtp,"tokens_per_second":tps,"text":tokenizer.decode(&g.tokens,true).ok(),"generation":g,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
+                    records.push(json!({"prompt":prompt,"prompt_ids":ids,"cycle":cycle,"mtp":mtp,"candidate":candidate,"draft_vocab_limit":draft.draft_vocab_limit.get(),"draft_vocab_refresh_rounds":draft.draft_vocab_refresh_rounds.get(),"qmv":rust_mlx::qmv_kernel::enabled(),"hc_projection":rust_mlx::hc_kernel::enabled(),"shared_gemv":rust_mlx::gemv_kernel::enabled(),"gemv_narrow":rust_mlx::gemv_kernel::narrow(),"gemv_launches":gemv_launches,"qmv_stream_x":rust_mlx::qmv_kernel::stream_x(),"tokens_per_second":tps,"text":tokenizer.decode(&g.tokens,true).ok(),"generation":g,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
                     std::fs::write(
                         &a.output,
                         serde_json::to_vec_pretty(
-                            &json!({"environment":environment,"model":a.model,"quantization":w.config["quantization"],"runtime":{"chat":a.chat,"thinking":!a.no_thinking,"reasoning_effort":a.reasoning_effort,"ignore_eos":a.ignore_eos,"batch":1,"prefix_cache":false,"greedy":true,"warmup_tokens":a.warmup_tokens,"depth":a.depth,"timing":"(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode"},"records":records}),
+                            &json!({"environment":environment,"model":a.model,"quantization":w.config["quantization"],"runtime":{"chat":a.chat,"thinking":!a.no_thinking,"reasoning_effort":a.reasoning_effort,"ignore_eos":a.ignore_eos,"batch":1,"prefix_cache":false,"greedy":true,"ab_qmv":a.ab_qmv,"ab_shortlist":a.ab_shortlist,"ab_hc":a.ab_hc,"ab_gemv":a.ab_gemv,"ab_stream_x":a.ab_stream_x,"warmup_tokens":a.warmup_tokens,"depth":a.depth,"timing":"(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode"},"records":records}),
                         )?,
                     )?;
                 }

@@ -21,12 +21,21 @@ struct Args {
     steps: usize,
     #[arg(long, default_value = "results/batch-parity.json")]
     output: PathBuf,
+    #[arg(long)]
+    prompt_ids: Option<PathBuf>,
 }
 fn error(a: &Array, b: &Array) -> Result<f32> {
     let a = a.as_dtype(Dtype::Float32)?.contiguous()?;
     let b = b.as_dtype(Dtype::Float32)?.contiguous()?;
     mlx_rs::transforms::eval([&a, &b])?;
     ensure!(a.shape() == b.shape(), "shape mismatch");
+    ensure!(
+        a.as_slice::<f32>()
+            .iter()
+            .chain(b.as_slice::<f32>())
+            .all(|v| v.is_finite()),
+        "non-finite parity input"
+    );
     Ok(a.as_slice::<f32>()
         .iter()
         .zip(b.as_slice::<f32>())
@@ -71,23 +80,40 @@ fn cache_error(a: &HybridCache, b: &HybridCache) -> Result<f32> {
 }
 fn main() -> Result<()> {
     let a = Args::parse();
+    ensure!(a.steps > 0, "parity requires at least one decode step");
     let w = Weights::load(&a.model)?;
     let m = HybridModel::load(&w, &a.model)?;
     mlx_rs::transforms::eval(w.tensors.values())?;
     let environment = BenchmarkEnvironment::capture()?;
+    let base_prompt: Vec<u32> = if let Some(path) = &a.prompt_ids {
+        let value: serde_json::Value = serde_json::from_slice(&std::fs::read(path)?)?;
+        serde_json::from_value(if value.is_array() {
+            value
+        } else {
+            value["prompt"].clone()
+        })?
+    } else if m.config.vocab_size > 1000 {
+        vec![7734, 264, 2716, 32671, 709, 421, 55288, 76938, 4947, 13]
+    } else {
+        vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    };
+    ensure!(!base_prompt.is_empty(), "empty parity prompt");
     let mut records = Vec::new();
     for batch in [2, 4, 8] {
         let mut reference = Vec::new();
         let mut next = Vec::new();
         for row in 0..batch {
             let mut cache = m.make_cache();
-            let mut prompt = if m.config.vocab_size > 1000 {
-                vec![7734, 264, 2716, 32671, 709, 421, 55288, 76938, 4947, 13]
-            } else {
-                vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-            };
-            *prompt.last_mut().unwrap() += row as u32;
-            let (l, _) = m.forward(&prompt, &mut cache)?;
+            let mut prompt = base_prompt.clone();
+            *prompt.last_mut().unwrap() =
+                (*prompt.last().unwrap() + row as u32) % m.config.vocab_size as u32;
+            let mut tail = None;
+            for chunk in prompt.chunks(128) {
+                let (l, _) = m.forward(chunk, &mut cache)?;
+                l.eval()?;
+                tail = Some(l);
+            }
+            let l = tail.expect("validated nonempty prompt");
             next.push(indexing::argmax(l.index((0, -1, ..)), false)?.item_exact::<u32>());
             reference.push(cache);
         }
@@ -125,7 +151,7 @@ fn main() -> Result<()> {
         std::fs::write(
             &a.output,
             serde_json::to_vec_pretty(
-                &serde_json::json!({"environment":environment,"model":a.model,"quantization":w.config["quantization"],"note":"teacher-forced greedy B1 versus equal-offset batched decode, synchronized diagnostic includes error checks between rounds; not a serving-throughput benchmark","records":records}),
+                &serde_json::json!({"environment":environment,"model":a.model,"quantization":w.config["quantization"],"base_prompt_ids":base_prompt,"prefill_chunk":128,"note":"teacher-forced greedy B1 versus equal-offset batched decode, synchronized diagnostic includes error checks between rounds; not a serving-throughput benchmark","records":records}),
             )?,
         )?;
     }

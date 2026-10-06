@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "code_sha256": "e4f3b820ae13ac677b0a828028cb5faed67107588647dd36701d6405e2134cac",
+  "binary_sha256": "c9a9d7f3f54e39f9cdbb13a62a13e0dc79b93711f3040702d92277434f313e71",
+  "runtime": {
+    "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "listen": "127.0.0.1:8080",
+    "kernel_environment_overrides": {},
+    "verify_qmv": true,
+    "batch_qmv": true,
+    "hc_projection": true,
+    "rows_gemv": false,
+    "draft_vocabulary": "full",
+    "prefix_entries": 4,
+    "prefix_token_budget": 8192
+  },
+  "server_modes": [
+    "default FIFO MTP depth3",
+    "--no-mtp --batch-size8"
+  ],
+  "reports": {
+    "server-smoke.json": "1c56f23a12af62cd46be3487dbef61f09dbff17af7207ae6eb4faa6e4849e1fd",
+    "server-batch-smoke.json": "1314e3ac652740c2880eb4f8c2ddd8b82d7bea2fa2de4258c2ef075374da7160",
+    "server-utf8-batch1.json": "458697670a799505557567daa9aebaad3f49cdbe6903e5391bae087344ac30fc",
+    "server-utf8-batch8.json": "3a7f1375cb234477c8334017a6996e4de8e442dc1cc586d9a02596250bbe59ca"
+  },
+  "scripts": {
+    "scripts/server_utf8_smoke.py": "f29c5e38abfc5217ff284278feee14c23035967a7b5c16a161345d029391cb54",
+    "scripts/server_batch_smoke.py": "2cb6df6c97e1405a8fde45a8961098a6fef9e941d4796d0f45721591bf52535a",
+    "scripts/server_smoke.py": "7aa9db0595b05cf945914552a7b951f5144bb570b9d646696b57f54fbbb43f82"
+  },
+  "partial_codepoint_cases": {
+    "1": 2,
+    "8": 2
+  },
+  "timing": "HTTP correctness qualification, not offline kernel timing; mixed four-prompt128-token cached batch workload differs from offline256-token reports",
+  "captured_unix_seconds": 1791253553.0704792,
+  "concurrent_cancellation_survivors": 3
+}

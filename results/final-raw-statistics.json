@@ -1,0 +1,69 @@
+{
+  "method": "all saved timed samples; median of within-cycle candidate/reference gains; no outlier removal",
+  "reports": [
+    {
+      "source": "results/final-raw-plain-mtp-256.json",
+      "runtime": {
+        "ab_gemv": false,
+        "ab_hc": false,
+        "ab_qmv": false,
+        "ab_shortlist": false,
+        "ab_stream_x": false,
+        "batch": 1,
+        "chat": false,
+        "depth": 3,
+        "greedy": true,
+        "ignore_eos": true,
+        "prefix_cache": false,
+        "reasoning_effort": "xhigh",
+        "thinking": true,
+        "timing": "(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "Write a short Rust function that computes Fibonacci numbers.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                70.7275342741644,
+                70.22915130092426,
+                70.5019708195572,
+                70.11033350890949
+              ],
+              "n": 4,
+              "median": 70.36556106024074,
+              "mean": 70.39224747588884,
+              "minimum": 70.11033350890949,
+              "maximum": 70.7275342741644,
+              "standard_deviation": 0.27720768165748405
+            },
+            "false": {
+              "samples": [
+                46.44545778124253,
+                46.40411973955278,
+                46.26991700008659,
+                46.35685106077549
+              ],
+              "n": 4,
+              "median": 46.38048540016413,
+              "mean": 46.36908639541435,
+              "minimum": 46.26991700008659,
+              "maximum": 46.44545778124253,
+              "standard_deviation": 0.07537505369425745
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            52.280842202675906,
+            51.342492207785796,
+            52.37107691251155,
+            51.240500389019815
+          ],
+          "median_paired_gain_percent": 51.81166720523085
+        }
+      ]
+    }
+  ]
+}

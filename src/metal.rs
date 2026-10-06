@@ -2,7 +2,82 @@
 use anyhow::{Result, ensure};
 use mlx_rs::{Array, Dtype, Stream, ops};
 use mlx_sys as sys;
+use std::sync::atomic::{AtomicBool, Ordering};
 use std::{ffi::CString, marker::PhantomData, rc::Rc};
+
+static CAPTURE_ACTIVE: AtomicBool = AtomicBool::new(false);
+/// Lazy views have provisional strides: only an available array has its final layout.
+pub(crate) fn is_evaluated_row_contiguous(array: &Array) -> Result<bool> {
+    let mut available = false;
+    // SAFETY: the borrowed Array handle stays live and the bool out-pointer is
+    // initialized stack storage. This query neither evaluates nor reads GPU data.
+    check(
+        unsafe { sys::_mlx_array_is_available(&mut available, array.as_ptr()) },
+        "query available",
+    )?;
+    if !available {
+        return Ok(false);
+    }
+    let mut contiguous = false;
+    // SAFETY: same live borrowed handle and valid bool storage; availability
+    // above ensures layout flags describe the evaluated buffer, not a lazy view.
+    check(
+        unsafe { sys::_mlx_array_is_row_contiguous(&mut contiguous, array.as_ptr()) },
+        "query row contiguous",
+    )?;
+    Ok(contiguous)
+}
+/// Process-exclusive capture, stopped on this owning thread even after errors.
+pub struct Capture {
+    active: bool,
+    _thread_bound: PhantomData<Rc<()>>,
+}
+impl Capture {
+    pub fn start(path: &std::path::Path) -> Result<Self> {
+        ensure!(!path.exists(), "capture output already exists");
+        let path = CString::new(
+            path.to_str()
+                .ok_or_else(|| anyhow::anyhow!("capture path must be UTF-8"))?,
+        )?;
+        let _ = ops::zeros_dtype(&[1], Dtype::Float32)?;
+        ensure!(
+            CAPTURE_ACTIVE
+                .compare_exchange(false, true, Ordering::AcqRel, Ordering::Acquire)
+                .is_ok(),
+            "capture already active"
+        );
+        // SAFETY: the CString remains live for the synchronous call; MLX copies
+        // its path. The atomic reservation excludes any second capture owner.
+        let status = unsafe { sys::mlx_metal_start_capture(path.as_ptr()) };
+        if status != 0 {
+            CAPTURE_ACTIVE.store(false, Ordering::Release);
+            check(status, "start capture")?;
+        }
+        Ok(Self {
+            active: true,
+            _thread_bound: PhantomData,
+        })
+    }
+    pub fn finish(mut self) -> Result<()> {
+        self.stop()
+    }
+    fn stop(&mut self) -> Result<()> {
+        if self.active {
+            // SAFETY: this thread owns the sole active process capture. MLX's
+            // synchronous stop consumes no borrowed pointers or array handles.
+            let status = unsafe { sys::mlx_metal_stop_capture() };
+            self.active = false;
+            CAPTURE_ACTIVE.store(false, Ordering::Release);
+            check(status, "stop capture")?;
+        }
+        Ok(())
+    }
+}
+impl Drop for Capture {
+    fn drop(&mut self) {
+        let _ = self.stop();
+    }
+}
 
 fn check(status: i32, operation: &str) -> Result<()> {
     ensure!(status == 0, "MLX C API {operation} returned {status}");

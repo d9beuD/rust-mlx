@@ -77,6 +77,15 @@ impl HyperConnection {
     }
     pub fn forward_reference(&self, x: &Array) -> Result<(Array, Option<Array>)> {
         let xn = grouped_norm(x, &self.scale, self.hc, self.eps)?;
+        if crate::hc_kernel::enabled()
+            && self.hc == 4
+            && let Some(i) = &self.inject
+            && let Some((down, inj)) = crate::hc_kernel::project(&self.down, i, &xn)?
+        {
+            let lo = crate::compiled::activate(&down, self.hc)?;
+            let mixed = crate::compiled::mix(&self.up.forward(&lo)?, &xn, self.hc)?;
+            return Ok((mixed, Some(crate::compiled::injection(&inj, self.hc)?)));
+        }
         let lo = crate::compiled::activate(&self.down.forward(&xn)?, self.hc)?;
         let mixed = crate::compiled::mix(&self.up.forward(&lo)?, &xn, self.hc)?;
         let inject = self
@@ -137,6 +146,15 @@ impl MoE {
         )?)
     }
     pub fn forward(&self, x: &Array) -> Result<Array> {
+        ensure!(
+            self.gate.weight.ndim() == 3
+                && self.up.weight.ndim() == 3
+                && self.down.weight.ndim() == 3
+                && self.gate.weight.shape()[0] == self.router.weight.shape()[0]
+                && self.up.weight.shape()[0] == self.router.weight.shape()[0]
+                && self.down.weight.shape()[0] == self.router.weight.shape()[0],
+            "expert/router count mismatch"
+        );
         let gates = ops::softmax_axis(&self.router.forward(x)?, -1, true)?;
         let ids = ops::argpartition_axis(&gates, -self.top_k, -1)?.index((.., .., -self.top_k..));
         let scores = gates.take_along_axis(&ids, -1)?;

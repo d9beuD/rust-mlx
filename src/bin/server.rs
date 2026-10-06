@@ -1,4 +1,6 @@
 //! Local OpenAI-style text API. MLX stays entirely in one owning OS thread.
+#[path = "server/batch.rs"]
+mod batch;
 use anyhow::{Context, Result, ensure};
 use axum::{
     Json, Router,
@@ -15,7 +17,7 @@ use rust_mlx::{
     chat::ChatTemplate,
     hybrid::HybridModel,
     mtp::Mtp,
-    speculative::{self, Options},
+    speculative::{self, Options, PrefixCache},
     weights::Weights,
 };
 use serde::Deserialize;
@@ -45,6 +47,13 @@ struct Args {
     max_context: usize,
     #[arg(long, default_value_t = 8)]
     queue_capacity: usize,
+    #[arg(long, default_value_t = 4)]
+    prefix_cache_entries: usize,
+    #[arg(long, default_value_t = 8192)]
+    prefix_cache_tokens: usize,
+    /// Cooperative plain decode batching; requires --no-mtp.
+    #[arg(long, default_value_t = 1)]
+    batch_size: usize,
 }
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -64,6 +73,7 @@ struct Request {
     #[serde(default = "effort")]
     reasoning_effort: String,
     mtp: Option<bool>,
+    prefix_cache: Option<bool>,
 }
 fn thinking() -> bool {
     true
@@ -82,6 +92,7 @@ struct App {
     jobs: mpsc::Sender<Job>,
     model: String,
     counter: Arc<AtomicU64>,
+    batch_size: usize,
 }
 fn failure(status: StatusCode, message: impl ToString) -> Response {
     (
@@ -90,8 +101,10 @@ fn failure(status: StatusCode, message: impl ToString) -> Response {
     )
         .into_response()
 }
-async fn health() -> Json<Value> {
-    Json(json!({"status":"ready","scheduler":"one MLX worker; bounded FIFO","batch_size":1}))
+async fn health(State(app): State<App>) -> Json<Value> {
+    Json(
+        json!({"status":"ready","scheduler":if app.batch_size>1{"cooperative plain decode; equal-offset groups"}else{"one MLX worker; bounded FIFO"},"batch_size":app.batch_size}),
+    )
 }
 async fn models(State(app): State<App>) -> Json<Value> {
     Json(json!({"object":"list","data":[{"id":app.model,"object":"model","owned_by":"local"}]}))
@@ -191,7 +204,7 @@ async fn dispatch(app: App, request: Request, chat: bool) -> Response {
 }
 fn run_job(
     job: &Job,
-    model: &HybridModel,
+    prefixes: &mut PrefixCache<'_>,
     draft: Option<&Mtp>,
     tokenizer: &tokenizers::Tokenizer,
     template: &ChatTemplate,
@@ -259,23 +272,49 @@ fn run_job(
         chunk: 128,
         eos: &[248044, 248046],
     };
-    let generation = if enabled {
-        speculative::generate(model, draft.unwrap(), &ids, &options, emit)?
+    let (prepared, prefix_hit) = if r.prefix_cache.unwrap_or(true) {
+        prefixes.get_or_prepare(&ids, options.chunk)?
     } else {
-        speculative::generate_plain(model, &ids, &options, emit)?
+        (prefixes.prepare_uncached(&ids, options.chunk)?, false)
     };
+    let mut generation = if enabled {
+        speculative::generate_prepared(&prepared, draft.unwrap(), &options, emit)?
+    } else {
+        speculative::generate_plain_prepared(&prepared, &options, emit)?
+    };
+    if !prefix_hit {
+        generation.prefill_seconds += prepared.prefill_seconds;
+    }
     let reason = if generation.tokens.len() == max {
         "length"
     } else {
         "stop"
     };
     if r.stream {
+        let complete = tokenizer
+            .decode(&generation.tokens, true)
+            .map_err(|e| anyhow::anyhow!("{e}"))?;
+        let suffix = complete
+            .strip_prefix(&output)
+            .context("stream decoder changed emitted prefix")?;
+        if !suffix.is_empty() {
+            let choice = if job.chat {
+                json!({"index":0,"delta":{"content":suffix},"finish_reason":null})
+            } else {
+                json!({"index":0,"text":suffix,"finish_reason":null})
+            };
+            job.events.blocking_send(base(choice).to_string())?;
+        }
         let choice = if job.chat {
             json!({"index":0,"delta":{},"finish_reason":reason})
         } else {
             json!({"index":0,"text":"","finish_reason":reason})
         };
-        job.events.blocking_send(base(choice).to_string())?;
+        let mut final_event = base(choice);
+        final_event["rust_mlx"] = serde_json::to_value(&generation)?;
+        final_event["rust_mlx"]["prefix_cache_hit"] = json!(prefix_hit);
+        final_event["usage"] = json!({"prompt_tokens":ids.len(),"completion_tokens":generation.tokens.len(),"total_tokens":ids.len()+generation.tokens.len(),"prompt_tokens_details":{"cached_tokens":if prefix_hit{ids.len()}else{0}}});
+        job.events.blocking_send(final_event.to_string())?;
         job.events.blocking_send("[DONE]".into())?;
     } else {
         // Full decode also preserves a final incomplete byte sequence as the tokenizer specifies.
@@ -298,14 +337,18 @@ fn run_job(
         );
         response["usage"] = json!({"prompt_tokens":ids.len(),"completion_tokens":generation.tokens.len(),"total_tokens":ids.len()+generation.tokens.len()});
         response["rust_mlx"] = serde_json::to_value(&generation)?;
+        response["rust_mlx"]["prefix_cache_hit"] = json!(prefix_hit);
+        response["usage"]["prompt_tokens_details"] =
+            json!({"cached_tokens":if prefix_hit {ids.len()} else {0}});
         job.events.blocking_send(response.to_string())?;
     }
     eprintln!(
-        "{} prompt={} output={} MTP={} prefill={:.3}s decode={:.3}s",
+        "{} prompt={} output={} MTP={} prefix_hit={} prefill={:.3}s decode={:.3}s",
         job.id,
         ids.len(),
         generation.tokens.len(),
         enabled,
+        prefix_hit,
         generation.prefill_seconds,
         generation.decode_seconds
     );
@@ -343,13 +386,26 @@ fn worker(
             return Err(e);
         }
     };
+    let mut prefixes =
+        PrefixCache::new(&model, args.prefix_cache_entries, args.prefix_cache_tokens);
+    if args.batch_size > 1 {
+        return batch::serve(
+            &args,
+            &model,
+            &tokenizer,
+            &template,
+            &mut prefixes,
+            &model_id,
+            jobs,
+        );
+    }
     while let Some(job) = jobs.blocking_recv() {
         if job.events.is_closed() {
             continue;
         }
         if let Err(e) = run_job(
             &job,
-            &model,
+            &mut prefixes,
             draft.as_ref(),
             &tokenizer,
             &template,
@@ -378,6 +434,11 @@ async fn main() -> Result<()> {
         "invalid server limits"
     );
     let listen = args.listen;
+    ensure!(
+        (1..=8).contains(&args.batch_size) && (args.batch_size == 1 || args.no_mtp),
+        "batch_size must be1–8; batching requires --no-mtp"
+    );
+    let batch_size = args.batch_size;
     let model_id = args
         .model
         .file_name()
@@ -398,6 +459,7 @@ async fn main() -> Result<()> {
         jobs: tx,
         model: model_id,
         counter: Arc::new(AtomicU64::new(1)),
+        batch_size,
     };
     let router = Router::new()
         .route("/health", get(health))

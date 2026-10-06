@@ -1,0 +1,195 @@
+{
+  "method": "all saved timed samples; median of within-cycle candidate/reference gains; no outlier removal",
+  "reports": [
+    {
+      "source": "results/target-workloads-ab-shortlist-refresh8-hc-256.json",
+      "runtime": {
+        "ab_gemv": false,
+        "ab_hc": false,
+        "ab_qmv": false,
+        "ab_shortlist": true,
+        "ab_stream_x": false,
+        "batch": 1,
+        "chat": true,
+        "depth": 3,
+        "greedy": true,
+        "ignore_eos": true,
+        "prefix_cache": false,
+        "reasoning_effort": "xhigh",
+        "thinking": true,
+        "timing": "(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "Write a short Rust function that computes Fibonacci numbers.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                62.357195526702654,
+                62.05445194007038,
+                62.62962644129498,
+                62.49710555684515
+              ],
+              "n": 4,
+              "median": 62.4271505417739,
+              "mean": 62.38459486622829,
+              "minimum": 62.05445194007038,
+              "maximum": 62.62962644129498,
+              "standard_deviation": 0.24660643664301418
+            },
+            "false": {
+              "samples": [
+                58.68202529514152,
+                58.679589016111336,
+                58.724575345945524,
+                58.47073351511807
+              ],
+              "n": 4,
+              "median": 58.680807155626425,
+              "mean": 58.639230793079115,
+              "minimum": 58.47073351511807,
+              "maximum": 58.724575345945524,
+              "standard_deviation": 0.11421497414574093
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            6.262855129959899,
+            5.751340424406215,
+            6.649773237771184,
+            6.886132257407085
+          ],
+          "median_paired_gain_percent": 6.456314183865541
+        },
+        {
+          "workload": "Explique en français comment fonctionne le cache KV d'un modèle de langage et donne un exemple concret.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                52.58113443024281,
+                52.11381865058861,
+                51.976031025413405,
+                51.88694989699385
+              ],
+              "n": 4,
+              "median": 52.04492483800101,
+              "mean": 52.13948350080967,
+              "minimum": 51.88694989699385,
+              "maximum": 52.58113443024281,
+              "standard_deviation": 0.3088711493894076
+            },
+            "false": {
+              "samples": [
+                51.645428412499534,
+                51.45899623577443,
+                51.175969851734436,
+                50.91577342701021
+              ],
+              "n": 4,
+              "median": 51.317483043754436,
+              "mean": 51.299041981754655,
+              "minimum": 50.91577342701021,
+              "maximum": 51.645428412499534,
+              "standard_deviation": 0.32021370834012797
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            1.8117886645641956,
+            1.2725129961997705,
+            1.5633532222190993,
+            1.9074176912501573
+          ],
+          "median_paired_gain_percent": 1.6875709433916475
+        },
+        {
+          "workload": "Write a SQL query that returns each customer's three most recent orders. Explain how the window function works.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                55.223333760275395,
+                55.44536644210904,
+                55.104624544498044,
+                54.961413989064674
+              ],
+              "n": 4,
+              "median": 55.163979152386716,
+              "mean": 55.18368468398679,
+              "minimum": 54.961413989064674,
+              "maximum": 55.44536644210904,
+              "standard_deviation": 0.20469828143036287
+            },
+            "false": {
+              "samples": [
+                52.27889424019386,
+                52.146518116914585,
+                51.77574082700499,
+                51.606488483797065
+              ],
+              "n": 4,
+              "median": 51.96112947195979,
+              "mean": 51.951910416977626,
+              "minimum": 51.606488483797065,
+              "maximum": 52.27889424019386,
+              "standard_deviation": 0.3136572512967938
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            5.63217635505715,
+            6.326114272478001,
+            6.429427496973239,
+            6.500976144348503
+          ],
+          "median_paired_gain_percent": 6.37777088472562
+        },
+        {
+          "workload": "A train leaves Paris at 9:00 at 80 km/h. A second train leaves at 9:45 at 120 km/h on the same route. When does it catch the first train? Explain carefully.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                71.6897621326664,
+                70.88674206305647,
+                70.82793596917051,
+                71.01558858812766
+              ],
+              "n": 4,
+              "median": 70.95116532559206,
+              "mean": 71.10500718825526,
+              "minimum": 70.82793596917051,
+              "maximum": 71.6897621326664,
+              "standard_deviation": 0.3976355770405901
+            },
+            "false": {
+              "samples": [
+                64.08623310025551,
+                64.31725474319563,
+                64.56117213290194,
+                64.30349770980331
+              ],
+              "n": 4,
+              "median": 64.31037622649947,
+              "mean": 64.3170394215391,
+              "minimum": 64.08623310025551,
+              "maximum": 64.56117213290194,
+              "standard_deviation": 0.19412690267106866
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            11.864527940838787,
+            10.214191115729875,
+            9.706707033397976,
+            10.438142740874667
+          ],
+          "median_paired_gain_percent": 10.326166928302271
+        }
+      ]
+    }
+  ]
+}

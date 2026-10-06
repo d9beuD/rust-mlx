@@ -1,0 +1,18 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "Recopie exactement ce texte, sans aucun commentaire : 🐱"
+    }
+  ],
+  "partial_caps": [
+    1,
+    2
+  ],
+  "text": "🐱",
+  "tokens": [
+    9008,
+    238,
+    109
+  ]
+}

@@ -8,6 +8,9 @@ use crate::{
 use anyhow::{Context, Result, ensure};
 use mlx_rs::Array;
 pub struct Mtp {
+    /// Draft-only low-ID shortlist size; zero retains the complete vocabulary.
+    pub draft_vocab_limit: std::cell::Cell<usize>,
+    pub draft_vocab_refresh_rounds: std::cell::Cell<usize>,
     pub embedding_norm: Array,
     pub hidden_norm: Array,
     pub fc_embedding: Linear,
@@ -25,6 +28,8 @@ impl Mtp {
     pub fn load(w: &Weights, c: &HybridConfig) -> Result<Self> {
         let p = "mtp.layers.0";
         Ok(Self {
+            draft_vocab_limit: std::cell::Cell::new(0),
+            draft_vocab_refresh_rounds: std::cell::Cell::new(0),
             embedding_norm: w.tensor("mtp.pre_fc_norm_embedding.weight")?,
             hidden_norm: w.tensor("mtp.pre_fc_norm_hidden.weight")?,
             fc_embedding: w.linear("mtp.fc_embedding")?,

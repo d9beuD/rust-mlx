@@ -1,0 +1,23 @@
+{
+  "log": "results/gemv-portable.log",
+  "sha256": "84b51b3cb4014608be75d9c50216381787e05cf5078d3d16cf6b80d0284043df",
+  "passed": true,
+  "dtypes": [
+    "BF16",
+    "F32"
+  ],
+  "rows": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "tiles": [
+    1,
+    4
+  ],
+  "native_comparison": "per-row singleton GEMV, error0; lazy and evaluated transpose fallback"
+}
