@@ -1,0 +1,22 @@
+{
+  "repository": "https://github.com/d9beuD/rust-mlx",
+  "branch": "main",
+  "implementation_commit": "e76a705b964a24918579c6a29f8fdcc498d580b2",
+  "evidence_commit": "26c8201b1e550b8414ab7dbf5764afe26c4cdd9f",
+  "observed_remote_commit": "26c8201b1e550b8414ab7dbf5764afe26c4cdd9f",
+  "push_exit_code": 0,
+  "verification_command": [
+    "gh",
+    "api",
+    "repos/d9beuD/rust-mlx/commits/main",
+    "--jq",
+    ".sha"
+  ],
+  "source_sha256": "86cf87809f7a00dabadd266dbe7e357daad1565f8a8f6a568606939e71dc6be2",
+  "final_summary_sha256": "99b3f7d149f4a5a33376db1a7f3c8a89a2e3afb69ae230ac630864d27482dfe2",
+  "verified_unix_seconds": 1791295688.3729029,
+  "closure": "following documentation-only commit; core and benchmark binaries unchanged",
+  "default_promoted": false,
+  "solo100_demonstrated": false,
+  "user_agents_unpublished": true
+}
