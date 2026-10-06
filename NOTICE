@@ -1,6 +1,7 @@
 Rust-MLX
 
 The Qwen3 graph and GatedDeltaNet recurrence are expressed in Rust with reference to mlx-lm, Copyright Apple Inc., under the MIT license (third-party/mlx-lm-MIT).
+The experimental expert-major gather/inverse permutation follows MLX-LM SwitchGLU, Copyright Apple Inc., MIT (third-party/mlx-lm-MIT).
 The native GDN, text MRoPE, indexed QSA, shared-weight verifier QMV and experimental fused MoE Metal kernels adapt MLX 0.32.2, mlx-lm and mlx-vlm 0.7.6, Copyright Apple Inc. and mlx-vlm contributors, under MIT (third-party/MLX-MIT, third-party/mlx-lm-MIT and third-party/mlx-vlm-MIT).
 The experimental shared unquantized GEMV ports Apple MLX0.32.2 singleton GEMV arithmetic (Copyright 2023–2024 Apple Inc., MIT; third-party/MLX-MIT), preserving its explicit shuffle-down reduction.
 The Qwen4Exp grouped norm, hyper-connection, QSA, PLE and checkpoint contracts are expressed in Rust with reference to oMLX, under Apache License 2.0 (third-party/omlx-APACHE-2.0).

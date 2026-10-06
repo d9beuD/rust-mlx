@@ -1,0 +1,98 @@
+{
+  "code_sha256": "f5488154d5217934b228100697c3b457820c1538618665899844b51406660c03",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "instrumentation": [
+    "MTL_SHADER_VALIDATION=1",
+    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING=1",
+    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR=1",
+    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT=1"
+  ],
+  "timing": "diagnostic only, never throughput statistics",
+  "cases": [
+    {
+      "log": "results/gpu-draft-private-metal-final.log",
+      "sha256": "6d981f74ee012a528320e1c859a602cc602b47e799bdd1467223863c8091d636",
+      "passed": true,
+      "success_marker": "GPU_DRAFT_CHAIN_EXACT depth=7",
+      "code_sha256": "f5488154d5217934b228100697c3b457820c1538618665899844b51406660c03",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "captured_unix_seconds": 1791264587.057065,
+      "tests_passed": 1,
+      "contains_metal_validation_enabled": true
+    },
+    {
+      "log": "results/sorted-moe-target-metal-final.log",
+      "sha256": "b2368932a6c6481cbd50ac1ab8baa1f1aae47c83b1cb04205916872f9cb02347",
+      "passed": true,
+      "success_marker": "SORTED_MOE_TARGET_EXACT 8",
+      "code_sha256": "f5488154d5217934b228100697c3b457820c1538618665899844b51406660c03",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "captured_unix_seconds": 1791264587.0572128,
+      "tests_passed": 1,
+      "contains_metal_validation_enabled": true
+    },
+    {
+      "log": "results/sorted-moe-verify-metal-final.log",
+      "sha256": "a8acfc0771f8efd95b45e395a1d6b1ee2028b9f0207508818b70b8d6604995a6",
+      "passed": true,
+      "success_marker": "VERIFY_PARITY_PASSED",
+      "code_sha256": "f5488154d5217934b228100697c3b457820c1538618665899844b51406660c03",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "captured_unix_seconds": 1791264587.057357,
+      "tests_passed": 0,
+      "contains_metal_validation_enabled": true
+    },
+    {
+      "log": "results/sorted-moe-rollback-metal-final.log",
+      "sha256": "3d86e9b027fc4e400e2cede76c2d8569105622e74dad2ea1539d19022f2312cf",
+      "passed": true,
+      "success_marker": "ROLLBACK_PARITY_PASSED",
+      "code_sha256": "f5488154d5217934b228100697c3b457820c1538618665899844b51406660c03",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "captured_unix_seconds": 1791264587.057504,
+      "tests_passed": 0,
+      "contains_metal_validation_enabled": true
+    }
+  ],
+  "quality": {
+    "log": "results/quality-round2-initial-final.log",
+    "sha256": "dc857cdf5e43c9d1f9f0a13bc137a7945e9e47c1a9bb61179c7a70ba3f2604be",
+    "passed": true,
+    "success_marker": "QUALITY_CHECKS_PASSED",
+    "code_sha256": "f5488154d5217934b228100697c3b457820c1538618665899844b51406660c03",
+    "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+    "captured_unix_seconds": 1791264587.0564532,
+    "contains_metal_validation_enabled": false,
+    "release_tests_passed": 19,
+    "checks": [
+      "cargo fmt --check",
+      "cargo clippy --workspace --all-targets --all-features -- -D warnings",
+      "cargo test --workspace --release"
+    ]
+  },
+  "portable_metal": {
+    "log": "results/metal-round2-initial.log",
+    "sha256": "7441d3dae7a8144f0295012c120a4e1be2a361bdf34fe16e333fc3999d267786",
+    "passed": true,
+    "success_marker": "METAL_VALIDATION_PASSED",
+    "code_sha256": "f5488154d5217934b228100697c3b457820c1538618665899844b51406660c03",
+    "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+    "captured_unix_seconds": 1791264587.0568619,
+    "contains_metal_validation_enabled": true,
+    "validation_tests_passed": 18,
+    "instrumentation": [
+      "MTL_SHADER_VALIDATION=1",
+      "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING=1",
+      "MTL_SHADER_VALIDATION_REPORT_TO_STDERR=1",
+      "MTL_SHADER_VALIDATION_ABORT_ON_FAULT=1"
+    ],
+    "timing": "diagnostic instrumentation; excluded from throughput"
+  },
+  "remaining_experiments": [
+    "adaptive MTP and vocabulary",
+    "greedy head",
+    "block-growing KV"
+  ],
+  "scope": "initial round-two experiments; final five-direction integration gate remains pending"
+}

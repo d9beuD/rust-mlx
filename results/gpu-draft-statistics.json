@@ -1,0 +1,14 @@
+{
+  "source": "results/gpu-draft-raw-ab-256.json",
+  "native_median": 70.29374718315225,
+  "gpu_median": 71.01897776890877,
+  "paired_percent": [
+    0.8679877189401441,
+    0.9808692404671637,
+    0.8763103263966121,
+    2.4184008415532476
+  ],
+  "median_paired_gain_percent": 0.9285897834318879,
+  "all_draft_ids_acceptance_target_ids_exact": true,
+  "default_promoted": false
+}

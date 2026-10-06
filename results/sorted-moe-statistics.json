@@ -1,0 +1,15 @@
+{
+  "source": "results/sorted-moe-raw-ab-256.json",
+  "native_median": 70.23655473059972,
+  "candidate_median": 69.34159660772691,
+  "paired_gain_percent": [
+    -1.1619513315194618,
+    -1.1029201527514743,
+    -0.7274253891659699,
+    -1.6973133506847926
+  ],
+  "median_paired_gain_percent": -1.132435742135468,
+  "exact_target_and_draft_ids_and_acceptance": true,
+  "candidate_calls_per_run": 3744,
+  "default_promoted": false
+}

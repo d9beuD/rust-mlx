@@ -8,6 +8,10 @@ use crate::{
 use anyhow::{Context, Result, ensure};
 use mlx_rs::Array;
 pub struct Mtp {
+    /// Experimental lazy draft chain; target verification still consumes CPU IDs.
+    pub gpu_draft: std::cell::Cell<bool>,
+    /// CLI diagnostics only; serving does not retain private proposal IDs.
+    pub record_drafts: std::cell::Cell<bool>,
     /// Draft-only low-ID shortlist size; zero retains the complete vocabulary.
     pub draft_vocab_limit: std::cell::Cell<usize>,
     pub draft_vocab_refresh_rounds: std::cell::Cell<usize>,
@@ -28,6 +32,8 @@ impl Mtp {
     pub fn load(w: &Weights, c: &HybridConfig) -> Result<Self> {
         let p = "mtp.layers.0";
         Ok(Self {
+            gpu_draft: std::cell::Cell::new(false),
+            record_drafts: std::cell::Cell::new(false),
             draft_vocab_limit: std::cell::Cell::new(0),
             draft_vocab_refresh_rounds: std::cell::Cell::new(0),
             embedding_norm: w.tensor("mtp.pre_fc_norm_embedding.weight")?,

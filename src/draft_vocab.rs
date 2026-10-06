@@ -7,6 +7,11 @@ pub(crate) struct DraftVocabulary<'a> {
     selected: Option<(Linear, Vec<u32>)>,
 }
 
+pub(crate) enum DraftToken {
+    Cpu(u32),
+    Gpu(Array),
+}
+
 impl<'a> DraftVocabulary<'a> {
     pub(crate) fn new(
         full: &'a Linear,
@@ -75,6 +80,20 @@ impl<'a> DraftVocabulary<'a> {
             Ok(local)
         }
     }
+
+    pub(crate) fn greedy_token(&self, x: &Array, gpu: bool) -> Result<DraftToken> {
+        if !gpu {
+            return Ok(DraftToken::Cpu(self.greedy(x)?));
+        }
+        let head = self.selected.as_ref().map(|(l, _)| l).unwrap_or(self.full);
+        let local = indexing::argmax(head.forward(x)?, false)?;
+        let token = if let Some((_, rows)) = &self.selected {
+            Array::from_slice(rows, &[rows.len() as i32]).take(&local)?
+        } else {
+            local
+        };
+        Ok(DraftToken::Gpu(token.reshape(&[1, 1])?))
+    }
 }
 
 #[cfg(test)]
@@ -135,6 +154,11 @@ mod tests {
                 .unwrap()
                 .item_exact::<u32>();
             assert_eq!(shortlist.greedy(&x).unwrap(), rows[local as usize]);
+            let DraftToken::Gpu(token) = shortlist.greedy_token(&x, true).unwrap() else {
+                panic!("GPU drafting must return a tensor");
+            };
+            assert_eq!(token.shape(), &[1, 1]);
+            assert_eq!(token.item_exact::<u32>(), rows[local as usize]);
             assert!(
                 DraftVocabulary::new(&full, 0, &[], &[], &[])
                     .unwrap()

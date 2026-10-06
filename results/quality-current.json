@@ -1,16 +1,16 @@
 {
-  "log": "results/quality-current.log",
-  "sha256": "83514ba308271597367358e380a70f74f901893d076cfea106d41573deac5919",
-  "success_marker": "QUALITY_CHECKS_PASSED",
+  "log": "results/quality-round2-initial-final.log",
+  "sha256": "dc857cdf5e43c9d1f9f0a13bc137a7945e9e47c1a9bb61179c7a70ba3f2604be",
   "passed": true,
-  "release_tests_passed": 18,
+  "success_marker": "QUALITY_CHECKS_PASSED",
+  "code_sha256": "f5488154d5217934b228100697c3b457820c1538618665899844b51406660c03",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "captured_unix_seconds": 1791264587.0564532,
+  "contains_metal_validation_enabled": false,
+  "release_tests_passed": 19,
   "checks": [
     "cargo fmt --check",
     "cargo clippy --workspace --all-targets --all-features -- -D warnings",
     "cargo test --workspace --release"
-  ],
-  "code_sha256": "bb420a4ab6d9ef30b356731146f270c5d8a1c8280dff9b8bb71b72c1c596b65b",
-  "contains_metal_validation_enabled": false,
-  "captured_unix_seconds": 1791256456.680255,
-  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock"
+  ]
 }

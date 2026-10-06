@@ -1,5 +1,6 @@
 //! Greedy MTP with target verification and exact prefix cache commit.
 use crate::{
+    draft_vocab::DraftToken,
     hybrid::{HybridCache, HybridModel},
     mtp::Mtp,
     qsa::QsaCache,
@@ -123,6 +124,8 @@ pub struct Generation {
     pub synchronize_draft_seconds: f64,
     pub acceptance: Vec<usize>,
     pub draft_lengths: Vec<usize>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub draft_tokens: Vec<Vec<u32>>,
     pub round_seconds: Vec<f64>,
 }
 fn greedy(x: &Array) -> Result<u32> {
@@ -169,6 +172,7 @@ pub fn generate_plain_prepared(
         synchronize_draft_seconds: 0.,
         acceptance: Vec::new(),
         draft_lengths: Vec::new(),
+        draft_tokens: Vec::new(),
         round_seconds: Vec::new(),
     };
     if options.eos.contains(&token) {
@@ -240,6 +244,7 @@ pub fn generate_prepared(
         synchronize_draft_seconds: 0.,
         acceptance: Vec::new(),
         draft_lengths: Vec::new(),
+        draft_tokens: Vec::new(),
         round_seconds: Vec::new(),
     };
     if eos.contains(&bonus) {
@@ -278,28 +283,53 @@ pub fn generate_prepared(
     let start = Instant::now();
     let (mixed, wide) = draft.forward(&emb, h, &mut dc, 0)?;
     let mut dh = wide.index((.., -1.., ..));
-    let mut seed = draft_head.greedy(&mixed.index((.., -1.., ..)))?;
+    let gpu_draft = draft.gpu_draft.get();
+    let mut seed = draft_head.greedy_token(&mixed.index((.., -1.., ..)), gpu_draft)?;
     result.synchronize_draft_seconds += start.elapsed().as_secs_f64();
     while result.tokens.len() < max_tokens {
         let round = Instant::now();
         let k = depth.min(max_tokens - result.tokens.len());
         let start = Instant::now();
-        let mut drafted = vec![seed];
         let mut snapshots = vec![dc.clone()];
         let mut hh = dh.clone();
-        for _ in 1..k {
-            let token = *drafted.last().unwrap();
-            let emb = m
-                .embedding
-                .embedding(&Array::from_slice(&[token], &[1, 1]))?;
-            let pos = dc.kv.offset;
-            let (x, h) = draft.forward(&emb, &hh, &mut dc, pos)?;
-            let token = draft_head.greedy(&x)?;
-            hh = h;
-            drafted.push(token);
-            snapshots.push(dc.clone());
-        }
+        let drafted = match seed {
+            DraftToken::Cpu(token) => {
+                let mut ids = vec![token];
+                for _ in 1..k {
+                    let token = *ids.last().unwrap();
+                    let emb = m
+                        .embedding
+                        .embedding(&Array::from_slice(&[token], &[1, 1]))?;
+                    let pos = dc.kv.offset;
+                    let (x, h) = draft.forward(&emb, &hh, &mut dc, pos)?;
+                    ids.push(draft_head.greedy(&x)?);
+                    hh = h;
+                    snapshots.push(dc.clone());
+                }
+                ids
+            }
+            DraftToken::Gpu(token) => {
+                let mut ids = vec![token];
+                for _ in 1..k {
+                    let emb = m.embedding.embedding(ids.last().unwrap())?;
+                    let pos = dc.kv.offset;
+                    let (x, h) = draft.forward(&emb, &hh, &mut dc, pos)?;
+                    let DraftToken::Gpu(token) = draft_head.greedy_token(&x, true)? else {
+                        unreachable!("GPU draft token requested");
+                    };
+                    ids.push(token);
+                    hh = h;
+                    snapshots.push(dc.clone());
+                }
+                let ids = ops::concatenate(&ids, 1)?.contiguous()?;
+                ids.eval()?;
+                ids.as_slice::<u32>().to_vec()
+            }
+        };
         result.draft_seconds += start.elapsed().as_secs_f64();
+        if draft.record_drafts.get() {
+            result.draft_tokens.push(drafted.clone());
+        }
         let mut verify = vec![bonus];
         verify.extend_from_slice(&drafted);
         let original = cache.clone();
@@ -375,7 +405,7 @@ pub fn generate_prepared(
         let pos = dc.kv.offset;
         let (x, wide) = draft.forward(&emb, &sync_hidden, &mut dc, pos)?;
         dh = wide.index((.., -1.., ..));
-        seed = draft_head.greedy(&x.index((.., -1.., ..)))?;
+        seed = draft_head.greedy_token(&x.index((.., -1.., ..)), gpu_draft)?;
         result.synchronize_draft_seconds += start.elapsed().as_secs_f64();
         result.round_seconds.push(round.elapsed().as_secs_f64());
     }

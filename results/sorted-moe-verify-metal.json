@@ -1,0 +1,212 @@
+[
+  {
+    "candidate_seconds": 0.164884041,
+    "depth": 2,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 6.485844708,
+    "state_error": 0.0,
+    "tokens": [
+      271,
+      248068
+    ]
+  },
+  {
+    "candidate_seconds": 0.204422875,
+    "depth": 3,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.324075375,
+    "state_error": 0.0,
+    "tokens": [
+      198,
+      760,
+      1156
+    ]
+  },
+  {
+    "candidate_seconds": 0.258747333,
+    "depth": 4,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.428844833,
+    "state_error": 0.0,
+    "tokens": [
+      6587,
+      264,
+      2716,
+      32671
+    ]
+  },
+  {
+    "candidate_seconds": 0.271520625,
+    "depth": 5,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.539679291,
+    "state_error": 0.0,
+    "tokens": [
+      709,
+      310,
+      12204,
+      76938,
+      4947
+    ]
+  },
+  {
+    "candidate_seconds": 0.307502041,
+    "depth": 6,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.656205333,
+    "state_error": 0.0,
+    "tokens": [
+      13,
+      6558,
+      728,
+      1683,
+      883,
+      279
+    ]
+  },
+  {
+    "candidate_seconds": 0.348022667,
+    "depth": 7,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.767576,
+    "state_error": 0.0,
+    "tokens": [
+      1786,
+      5313,
+      25,
+      271,
+      3670,
+      25,
+      198
+    ]
+  },
+  {
+    "candidate_seconds": 0.387552292,
+    "depth": 8,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.879147125,
+    "state_error": 0.0,
+    "tokens": [
+      16,
+      13,
+      82930,
+      318,
+      3267,
+      520,
+      8,
+      471
+    ]
+  },
+  {
+    "candidate_seconds": 0.157787958,
+    "depth": 2,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.219695542,
+    "state_error": 0.0,
+    "tokens": [
+      4145,
+      694
+    ]
+  },
+  {
+    "candidate_seconds": 0.204259916,
+    "depth": 3,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.327785084,
+    "state_error": 0.0,
+    "tokens": [
+      496,
+      7,
+      17
+    ]
+  },
+  {
+    "candidate_seconds": 0.259138708,
+    "depth": 4,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.441708333,
+    "state_error": 0.0,
+    "tokens": [
+      83193,
+      681,
+      524,
+      14542
+    ]
+  },
+  {
+    "candidate_seconds": 0.271492542,
+    "depth": 5,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.546197792,
+    "state_error": 0.0,
+    "tokens": [
+      198,
+      17,
+      13,
+      13310,
+      1340
+    ]
+  },
+  {
+    "candidate_seconds": 0.308070666,
+    "depth": 6,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.65240275,
+    "state_error": 0.0,
+    "tokens": [
+      471,
+      496,
+      1393,
+      681,
+      4145,
+      11
+    ]
+  },
+  {
+    "candidate_seconds": 0.348278584,
+    "depth": 7,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.762977875,
+    "state_error": 0.0,
+    "tokens": [
+      10727,
+      198,
+      18,
+      13,
+      82930,
+      440,
+      20781
+    ]
+  },
+  {
+    "candidate_seconds": 0.388862625,
+    "depth": 8,
+    "hidden_error": 0.0,
+    "logit_error": 0.0,
+    "reference_seconds": 0.876008167,
+    "state_error": 0.0,
+    "tokens": [
+      1954,
+      471,
+      777,
+      6150,
+      198,
+      19,
+      13,
+      11747
+    ]
+  }
+]

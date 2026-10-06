@@ -106,6 +106,8 @@ impl HyperConnection {
 }
 pub struct MoE {
     pub fused_mode: std::cell::Cell<bool>,
+    /// Experimental expert-major ordering for decode-equivalent verifier rows.
+    pub sorted_mode: std::cell::Cell<bool>,
     pub router: Linear,
     pub gate: Linear,
     pub up: Linear,
@@ -114,10 +116,17 @@ pub struct MoE {
     pub shared_gate: Linear,
     pub top_k: i32,
 }
+thread_local! {
+    static SORTED_MOE_CALLS: std::cell::Cell<u64> = const { std::cell::Cell::new(0) };
+}
+pub fn sorted_moe_calls() -> u64 {
+    SORTED_MOE_CALLS.with(std::cell::Cell::get)
+}
 impl MoE {
     pub fn load(w: &Weights, p: &str, c: &HybridConfig) -> Result<Self> {
         Ok(Self {
             fused_mode: std::cell::Cell::new(std::env::var_os("RUST_MLX_FUSED_MOE").is_some()),
+            sorted_mode: std::cell::Cell::new(false),
             router: w.linear(&format!("{p}.gate"))?,
             gate: w.linear(&format!("{p}.switch_mlp.gate_proj"))?,
             up: w.linear(&format!("{p}.switch_mlp.up_proj"))?,
@@ -128,6 +137,9 @@ impl MoE {
         })
     }
     fn gather(l: &Linear, x: &Array, ids: &Array) -> Result<Array> {
+        Self::gather_sorted(l, x, ids, false)
+    }
+    fn gather_sorted(l: &Linear, x: &Array, ids: &Array, sorted: bool) -> Result<Array> {
         let q = l
             .quant
             .as_ref()
@@ -142,8 +154,35 @@ impl MoE {
             true,
             q.group_size,
             q.bits,
-            false,
+            sorted,
         )?)
+    }
+    fn sorted_experts(&self, x: &Array, ids: &Array) -> Result<Array> {
+        // Expert-major gather/restore follows MLX-LM SwitchGLU; see NOTICE.
+        let flat = ids.reshape(&[-1])?;
+        let order = ops::argsort(&flat)?;
+        let inverse = ops::argsort(&order)?;
+        let sorted_ids = flat.take(&order)?;
+        let rows = order.floor_divide(Array::from_slice(&[self.top_k as u32], &[]))?;
+        let grouped = x
+            .reshape(&[-1, x.shape()[2]])?
+            .take_axis(&rows, 0)?
+            .expand_dims(-2)?;
+        let gate = Self::gather_sorted(&self.gate, &grouped, &sorted_ids, true)?;
+        let up = Self::gather_sorted(&self.up, &grouped, &sorted_ids, true)?;
+        let down = Self::gather_sorted(
+            &self.down,
+            &crate::compiled::swiglu(&gate, &up)?,
+            &sorted_ids,
+            true,
+        )?;
+        Ok(down.take_axis(&inverse, 0)?.reshape(&[
+            x.shape()[0],
+            x.shape()[1],
+            self.top_k,
+            1,
+            x.shape()[2],
+        ])?)
     }
     pub fn forward(&self, x: &Array) -> Result<Array> {
         ensure!(
@@ -159,22 +198,27 @@ impl MoE {
         let ids = ops::argpartition_axis(&gates, -self.top_k, -1)?.index((.., .., -self.top_k..));
         let scores = gates.take_along_axis(&ids, -1)?;
         let scores = scores.divide(&scores.sum_axis(-1, true)?)?;
-        let xe = x.expand_dims(-2)?.expand_dims(-2)?;
-        let fused = if self.fused_mode.get() {
-            crate::moe_kernel::gate_up(&self.up, &self.gate, x, &ids)?
+        let y = if self.sorted_mode.get() && crate::verification::rows() && x.shape()[1] > 1 {
+            SORTED_MOE_CALLS.with(|calls| calls.set(calls.get().wrapping_add(1)));
+            self.sorted_experts(x, &ids)?
         } else {
-            None
+            let xe = x.expand_dims(-2)?.expand_dims(-2)?;
+            let fused = if self.fused_mode.get() {
+                crate::moe_kernel::gate_up(&self.up, &self.gate, x, &ids)?
+            } else {
+                None
+            };
+            let (gate, up) = if let Some(pair) = fused {
+                pair
+            } else {
+                (
+                    Self::gather(&self.gate, &xe, &ids)?,
+                    Self::gather(&self.up, &xe, &ids)?,
+                )
+            };
+            Self::gather(&self.down, &crate::compiled::swiglu(&gate, &up)?, &ids)?
         };
-        let (gate, up) = if let Some(pair) = fused {
-            pair
-        } else {
-            (
-                Self::gather(&self.gate, &xe, &ids)?,
-                Self::gather(&self.up, &xe, &ids)?,
-            )
-        };
-        let y = Self::gather(&self.down, &crate::compiled::swiglu(&gate, &up)?, &ids)?
-            .squeeze_axes(&[-2])?;
+        let y = y.squeeze_axes(&[-2])?;
         let y = y.multiply(&scores.expand_dims(-1)?)?.sum_axis(-2, false)?;
         Ok(y.add(
             &self

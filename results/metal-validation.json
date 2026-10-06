@@ -1,18 +1,18 @@
 {
-  "log": "results/metal-validation.log",
-  "sha256": "e29ca8dddf6d0523b0b0e617fa52b238060ef57480864465b835e832308a3f1a",
+  "log": "results/metal-round2-initial.log",
+  "sha256": "7441d3dae7a8144f0295012c120a4e1be2a361bdf34fe16e333fc3999d267786",
   "passed": true,
   "success_marker": "METAL_VALIDATION_PASSED",
+  "code_sha256": "f5488154d5217934b228100697c3b457820c1538618665899844b51406660c03",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "captured_unix_seconds": 1791264587.0568619,
   "contains_metal_validation_enabled": true,
-  "validation_tests_passed": 17,
-  "code_sha256": "bb420a4ab6d9ef30b356731146f270c5d8a1c8280dff9b8bb71b72c1c596b65b",
+  "validation_tests_passed": 18,
   "instrumentation": [
     "MTL_SHADER_VALIDATION=1",
     "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING=1",
     "MTL_SHADER_VALIDATION_REPORT_TO_STDERR=1",
     "MTL_SHADER_VALIDATION_ABORT_ON_FAULT=1"
   ],
-  "timing": "diagnostic instrumentation; excluded from throughput",
-  "captured_unix_seconds": 1791256610.231916,
-  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock"
+  "timing": "diagnostic instrumentation; excluded from throughput"
 }

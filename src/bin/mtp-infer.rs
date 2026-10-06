@@ -11,8 +11,10 @@ use std::{
 #[derive(Parser)]
 struct Args {
     /// Alternate a kernel candidate in the same process.
-    #[arg(long,value_parser=["packed","moe","qmv","shortlist","hc","stream-x","gemv","gdn"])]
+    #[arg(long,value_parser=["packed","moe","qmv","shortlist","hc","stream-x","gemv","gdn","gpu-draft","sorted-moe"])]
     ab_kernel: Option<String>,
+    #[arg(long)]
+    gpu_draft: bool,
     #[arg(long)]
     draft_vocab_limit: Option<usize>,
     #[arg(long, default_value_t = 0)]
@@ -62,6 +64,8 @@ fn main() -> Result<()> {
     let w = Weights::load(&a.model)?;
     let m = HybridModel::load(&w, &a.model)?;
     let draft = Mtp::load(&w, &m.config)?;
+    draft.gpu_draft.set(a.gpu_draft);
+    draft.record_drafts.set(true);
     draft
         .draft_vocab_refresh_rounds
         .set(a.draft_vocab_refresh_rounds);
@@ -132,6 +136,9 @@ fn main() -> Result<()> {
                 if kernel == "gdn" {
                     rust_mlx::gdn_compiled::set_enabled(candidate);
                 }
+                if kernel == "gpu-draft" {
+                    draft.gpu_draft.set(candidate);
+                }
                 if kernel == "shortlist" {
                     draft.draft_vocab_limit.set(if candidate {
                         a.draft_vocab_limit.unwrap_or(32768)
@@ -140,6 +147,9 @@ fn main() -> Result<()> {
                     });
                 }
                 for layer in &m.layers {
+                    if kernel == "sorted-moe" {
+                        layer.moe.sorted_mode.set(candidate);
+                    }
                     if kernel == "moe" {
                         layer.moe.fused_mode.set(candidate);
                     } else if kernel == "packed"
@@ -160,6 +170,7 @@ fn main() -> Result<()> {
                 let mut emitted = String::new();
                 let gemv_start = rust_mlx::gemv_kernel::launches();
                 let gdn_start = rust_mlx::gdn_compiled::calls();
+                let sorted_start = rust_mlx::hybrid::sorted_moe_calls();
                 let g = speculative::generate(
                     &m,
                     &draft,
@@ -185,6 +196,10 @@ fn main() -> Result<()> {
                 )?;
                 let gemv_launches = rust_mlx::gemv_kernel::launches().wrapping_sub(gemv_start);
                 let gdn_calls = rust_mlx::gdn_compiled::calls().wrapping_sub(gdn_start);
+                let sorted_calls = rust_mlx::hybrid::sorted_moe_calls().wrapping_sub(sorted_start);
+                if a.ab_kernel.as_deref() == Some("sorted-moe") && candidate && g.tokens.len() > 1 {
+                    ensure!(sorted_calls > 0, "sorted MoE candidate was not engaged");
+                }
                 if a.ab_kernel.as_deref() == Some("gemv") && candidate && g.tokens.len() > 1 {
                     ensure!(gemv_launches > 0, "GEMV candidate was not engaged");
                 }
@@ -222,7 +237,7 @@ fn main() -> Result<()> {
                             "MTP trajectory differs from baseline"
                         );
                     }
-                    records.push(json!({"run":run,"kernel_candidate":a.ab_kernel,"candidate_enabled":candidate,"draft_vocab_limit":draft.draft_vocab_limit.get(),"draft_vocab_refresh_rounds":draft.draft_vocab_refresh_rounds.get(),"qmv":rust_mlx::qmv_kernel::enabled(),"hc_projection":rust_mlx::hc_kernel::enabled(),"shared_gemv":rust_mlx::gemv_kernel::enabled(),"gemv_narrow":rust_mlx::gemv_kernel::narrow(),"gemv_launches":gemv_launches,"compiled_gdn":rust_mlx::gdn_compiled::enabled(),"compiled_gdn_calls":gdn_calls,"draft_depth":depth,"decode_tokens_per_second":tps,"text":t.decode(&g.tokens,true).ok(),"generation":g,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
+                    records.push(json!({"run":run,"kernel_candidate":a.ab_kernel,"candidate_enabled":candidate,"sorted_moe_calls":sorted_calls,"gpu_draft":draft.gpu_draft.get(),"draft_vocab_limit":draft.draft_vocab_limit.get(),"draft_vocab_refresh_rounds":draft.draft_vocab_refresh_rounds.get(),"qmv":rust_mlx::qmv_kernel::enabled(),"hc_projection":rust_mlx::hc_kernel::enabled(),"shared_gemv":rust_mlx::gemv_kernel::enabled(),"gemv_narrow":rust_mlx::gemv_kernel::narrow(),"gemv_launches":gemv_launches,"compiled_gdn":rust_mlx::gdn_compiled::enabled(),"compiled_gdn_calls":gdn_calls,"draft_depth":depth,"decode_tokens_per_second":tps,"text":t.decode(&g.tokens,true).ok(),"generation":g,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
                 }
             }
         }

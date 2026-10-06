@@ -2,6 +2,8 @@ use anyhow::{Result, ensure};
 use clap::Parser;
 #[derive(Parser)]
 struct Args {
+    #[arg(long)]
+    sorted_moe: bool,
     #[arg(
         long,
         default_value = "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp"
@@ -39,6 +41,9 @@ fn main() -> Result<()> {
     let path = args.model.as_path();
     let w = Weights::load(path)?;
     let m = HybridModel::load(&w, path)?;
+    for layer in &m.layers {
+        layer.moe.sorted_mode.set(args.sorted_moe);
+    }
     let mut cache = m.make_cache();
     m.forward(
         &[7734, 264, 2716, 32671, 709, 421, 55288, 76938, 4947, 13],
@@ -101,7 +106,7 @@ fn main() -> Result<()> {
         }
         println!("keep={keep} logits={le} state={state}");
         ensure!(le == 0. && state == 0., "rollback is not exact");
-        reports.push(serde_json::json!({"keep":keep,"logit_error":le,"state_error":state}));
+        reports.push(serde_json::json!({"sorted_moe":args.sorted_moe,"keep":keep,"logit_error":le,"state_error":state}));
     }
     std::fs::write(&args.output, serde_json::to_vec_pretty(&reports)?)?;
     println!("ROLLBACK_PARITY_PASSED");
