@@ -1,0 +1,101 @@
+{
+  "code_sha256": "bb420a4ab6d9ef30b356731146f270c5d8a1c8280dff9b8bb71b72c1c596b65b",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "guard": "32 zero filter rows behind unchanged evaluated logical depthwise weight prefix; no checkpoint modification",
+  "qmv": "T5\u20138 assembled from at most4-position exact blocks and native singleton tail",
+  "issues": [
+    {
+      "scope": "native MLX0.32.2 grouped convolution",
+      "f32_weight_length_bytes": 8192,
+      "bf16_weight_length_bytes": 81920,
+      "production_guarded": true
+    },
+    {
+      "scope": "custom large8-bit QMV T6/T8",
+      "root_cause": "not established; invalid device addresses under GPU validation",
+      "production_bounded_to_four_positions": true
+    }
+  ],
+  "reports": [
+    {
+      "log": "results/metal-validation-native-f32-rejected.log",
+      "sha256": "cec8378bda094968acdb86a78f1168694d18af624dcd4de54a82bc2009bd8e2a",
+      "passed": false,
+      "contains_metal_validation_enabled": true
+    },
+    {
+      "log": "results/metal-native-f32-reference.log",
+      "sha256": "d7b2fc9e84f2ca3db07c24191e7ade671dfbaa12eaa1b2132ffe05b0881a87d8",
+      "passed": false,
+      "contains_metal_validation_enabled": true
+    },
+    {
+      "log": "results/metal-target-reference.log",
+      "sha256": "d6f725fe678815bcac3520df273efdd8e9284ac92993437ed59fde834199b1c4",
+      "passed": false,
+      "contains_metal_validation_enabled": true
+    },
+    {
+      "log": "results/metal-native-f32-guarded.log",
+      "sha256": "5a197d901ed66a9813a9602cf961580c9da184f7536c7c4ffc595ea084ce89c5",
+      "passed": true,
+      "contains_metal_validation_enabled": true
+    },
+    {
+      "log": "results/metal-target-guarded.log",
+      "sha256": "f4c807f1f0bc1c5b3f5888799070cfff1da27a207578b408c9717ec5318c4345",
+      "passed": true,
+      "contains_metal_validation_enabled": true
+    },
+    {
+      "log": "results/compiled-gdn-target-metal.log",
+      "sha256": "38f885522fd69c4bcfe6104b0d0bbb6eecf1975b245daccf529764c9b2403ae6",
+      "passed": false,
+      "contains_metal_validation_enabled": true
+    },
+    {
+      "log": "results/metal-verify-guarded.log",
+      "sha256": "d23855b8b4074f9916d2dc9095b2fd5e106b9dfc7b5c58bb6b8c3ed66c42722c",
+      "passed": false,
+      "contains_metal_validation_enabled": true
+    },
+    {
+      "log": "results/metal-verify-bounded.log",
+      "sha256": "a4d3c8bfd501684cc246d78312a3188646292e7ec494167c858158e35e0fbb7a",
+      "passed": true,
+      "contains_metal_validation_enabled": true
+    },
+    {
+      "log": "results/compiled-gdn-target-metal-bounded.log",
+      "sha256": "65241a4cd9511bac4ff2b04d51513eef88be5f45497a56e340bfd1bf5c5a86ba",
+      "passed": true,
+      "contains_metal_validation_enabled": true
+    },
+    {
+      "log": "results/metal-batch-bounded.log",
+      "sha256": "5ef49b17aa393336eb6decf2f2a3af2c1e70ec369ccce72a0089d463a01a5bc4",
+      "passed": true,
+      "contains_metal_validation_enabled": true
+    },
+    {
+      "log": "results/metal-rollback-bounded.log",
+      "sha256": "cffbf5407cf169ca9496a6a1bbabce363feca29c73bf8047576f88869ebf4ca3",
+      "passed": true,
+      "contains_metal_validation_enabled": true
+    }
+  ],
+  "timing": "all instrumentation is diagnostic and excluded from throughput",
+  "captured_unix_seconds": 1791256610.285335,
+  "long_batch_parity": {
+    "report": "results/batch-parity-bounded-long.json",
+    "sha256": "4123bb4ba70e7e3dd39aa5546f482d08c6533c000b41cfb71d106818272c0ed1",
+    "prompt_tokens": 2096,
+    "steps": 8,
+    "batches": [
+      2,
+      4,
+      8
+    ],
+    "all_errors_zero": true
+  }
+}

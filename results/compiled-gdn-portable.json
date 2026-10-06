@@ -1,16 +1,10 @@
 {
   "log": "results/quality-current.log",
   "sha256": "83514ba308271597367358e380a70f74f901893d076cfea106d41573deac5919",
-  "success_marker": "QUALITY_CHECKS_PASSED",
   "passed": true,
-  "release_tests_passed": 18,
-  "checks": [
-    "cargo fmt --check",
-    "cargo clippy --workspace --all-targets --all-features -- -D warnings",
-    "cargo test --workspace --release"
-  ],
+  "scope": "portable BF16 mixed-scale/dynamic weights and F32 fallback",
+  "native_comparison": "zero numerical error, no tolerance widening",
+  "compiled_engagement_checked": true,
   "code_sha256": "bb420a4ab6d9ef30b356731146f270c5d8a1c8280dff9b8bb71b72c1c596b65b",
-  "contains_metal_validation_enabled": false,
-  "captured_unix_seconds": 1791256456.680255,
   "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock"
 }

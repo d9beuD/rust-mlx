@@ -1,0 +1,64 @@
+{
+  "method": "all saved timed samples; median of within-cycle candidate/reference gains; no outlier removal",
+  "reports": [
+    {
+      "source": "results/target-mtp-ab-compiled-gdn-256.json",
+      "runtime": {
+        "batch_size": 1,
+        "draft_depth": 3,
+        "ignore_eos": true,
+        "kv_cache": "fresh per run",
+        "mtp": true,
+        "prefill_chunk": 128,
+        "prefix_cache": false,
+        "rate_definition": "generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization",
+        "sampler": "greedy",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "raw",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                72.0353134123631,
+                71.35480730720752,
+                71.48206452096952,
+                71.47272219116705
+              ],
+              "n": 4,
+              "median": 71.47739335606829,
+              "mean": 71.58622685792679,
+              "minimum": 71.35480730720752,
+              "maximum": 72.0353134123631,
+              "standard_deviation": 0.30494089244049694
+            },
+            "false": {
+              "samples": [
+                70.83500500009855,
+                70.3744657584872,
+                70.25617237854762,
+                70.13756301924674
+              ],
+              "n": 4,
+              "median": 70.31531906851741,
+              "mean": 70.40080153909503,
+              "minimum": 70.13756301924674,
+              "maximum": 70.83500500009855,
+              "standard_deviation": 0.305198477115152
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            1.6945130620981574,
+            1.3930358662823439,
+            1.7448888843768273,
+            1.9036292600498772
+          ],
+          "median_paired_gain_percent": 1.7197009732374924
+        }
+      ]
+    }
+  ]
+}

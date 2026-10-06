@@ -219,7 +219,7 @@ impl Gdn {
             a: w.linear(&format!("{p}.in_proj_a"))?,
             b: w.linear(&format!("{p}.in_proj_b"))?,
             out: w.linear(&format!("{p}.out_proj"))?,
-            conv: w.tensor(&format!("{p}.conv1d.weight"))?,
+            conv: crate::conv_weights::guarded(&w.tensor(&format!("{p}.conv1d.weight"))?)?,
             decode_conv: w
                 .tensor(&format!("{p}.conv1d.weight"))?
                 .index((.., .., 0))
@@ -237,6 +237,14 @@ impl Gdn {
         })
     }
     pub fn forward(&self, x: &Array, cache: &mut GdnCache) -> Result<Array> {
+        if crate::gdn_compiled::enabled()
+            && let Some(y) = crate::gdn_compiled::forward(self, x, cache)?
+        {
+            return Ok(y);
+        }
+        self.forward_reference(x, cache)
+    }
+    pub(crate) fn forward_reference(&self, x: &Array, cache: &mut GdnCache) -> Result<Array> {
         let (batch, t) = (x.shape()[0], x.shape()[1]);
         let kd = self.hk * self.dk;
         let vd = self.hv * self.dv;

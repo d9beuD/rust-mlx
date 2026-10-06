@@ -1,8 +1,10 @@
 pub mod batching;
 pub mod chat;
 pub mod compiled;
+pub mod conv_weights;
 pub mod dense;
 pub mod environment;
+pub mod gdn_compiled;
 pub mod gemv_kernel;
 pub mod hc_kernel;
 pub mod hybrid;

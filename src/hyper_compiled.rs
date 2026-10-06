@@ -11,14 +11,14 @@ use mlx_rs::{
 };
 use std::{cell::RefCell, collections::HashMap};
 #[derive(Clone, Copy, Hash, Eq, PartialEq)]
-struct LinearMeta {
+pub(crate) struct LinearMeta {
     quant: Option<(i32, i32)>,
     scales: bool,
     biases: bool,
     bias: bool,
 }
 impl LinearMeta {
-    fn from(l: &Linear) -> Self {
+    pub(crate) fn from(l: &Linear) -> Self {
         Self {
             quant: l.quant.as_ref().map(|q| (q.group_size, q.bits)),
             scales: l.scales.is_some(),
@@ -26,7 +26,7 @@ impl LinearMeta {
             bias: l.bias.is_some(),
         }
     }
-    fn read(self, args: &[Array], i: &mut usize) -> Linear {
+    pub(crate) fn read(self, args: &[Array], i: &mut usize) -> Linear {
         fn take(args: &[Array], i: &mut usize) -> Array {
             let a = args[*i].clone();
             *i += 1;
@@ -63,7 +63,7 @@ struct Plan {
 }
 type Graph = Box<dyn FnMut(&[Array]) -> MlxResult<Vec<Array>>>;
 thread_local! {static GRAPHS:RefCell<HashMap<Plan,Graph>>=RefCell::new(HashMap::new());}
-fn append(l: &Linear, args: &mut Vec<Array>) {
+pub(crate) fn append(l: &Linear, args: &mut Vec<Array>) {
     args.push(l.weight.clone());
     for a in [&l.scales, &l.biases, &l.bias].into_iter().flatten() {
         args.push(a.clone());

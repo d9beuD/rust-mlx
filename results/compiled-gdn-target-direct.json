@@ -1,0 +1,11 @@
+{
+  "log": "results/compiled-gdn-target-metal-bounded.log",
+  "sha256": "65241a4cd9511bac4ff2b04d51513eef88be5f45497a56e340bfd1bf5c5a86ba",
+  "passed": true,
+  "scope": "actual target BF16 native/compiled:16 plain steps plus T2/4/8 verifier logits/hidden/complete caches error0",
+  "native_comparison": "zero numerical error, no tolerance widening",
+  "compiled_engagement_checked": true,
+  "code_sha256": "bb420a4ab6d9ef30b356731146f270c5d8a1c8280dff9b8bb71b72c1c596b65b",
+  "instrumented": true,
+  "contains_metal_validation_enabled": true
+}

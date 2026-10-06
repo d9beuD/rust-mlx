@@ -45,7 +45,7 @@ impl Ple {
             norm_key: w.tensor(&format!("{p}.norm_key.weight"))?,
             norm_query: w.tensor(&format!("{p}.norm_query.weight"))?,
             norm_conv: w.tensor(&format!("{p}.norm_conv.weight"))?,
-            conv: w.tensor(&format!("{p}.conv1d.weight"))?,
+            conv: crate::conv_weights::guarded(&w.tensor(&format!("{p}.conv1d.weight"))?)?,
             table_scale: w
                 .tensors
                 .get(&format!("{ep}.ngram_embedding.weight_scale"))

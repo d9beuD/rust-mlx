@@ -3,8 +3,8 @@ use crate::{
     metal::{Kernel, Launch, Template},
     weights::Linear,
 };
-use anyhow::{Result, ensure};
-use mlx_rs::{Array, Dtype};
+use anyhow::{Context, Result, ensure};
+use mlx_rs::{Array, Dtype, ops, ops::indexing::IndexOp};
 use std::{cell::RefCell, collections::HashMap};
 thread_local! {static KERNELS:RefCell<HashMap<(i32,i32,bool),Kernel>>=RefCell::new(HashMap::new());static ENABLED:std::cell::Cell<bool>=std::cell::Cell::new(default_enabled());}
 thread_local! {static STREAM_X:std::cell::Cell<bool>=std::cell::Cell::new(env_enabled("RUST_MLX_QMV_STREAM_X",false));}
@@ -87,6 +87,23 @@ fn project_unfiltered(l: &Linear, x: &Array) -> Result<Option<Array>> {
             && sc.shape() == bs.shape(),
         "malformed verifier projection"
     );
+    // Large actual-model T6/T8 shaders report invalid device addresses under
+    // GPU validation, although their numerical outputs pass. Bound the live
+    // thread arrays to four independent positions; their arithmetic/reduction
+    // order stays identical. Keep a native singleton tail for odd lengths.
+    if t > 4 {
+        let mut blocks = Vec::new();
+        for start in (0..t).step_by(4) {
+            let end = (start + 4).min(t);
+            let block = x.index((.., start..end, ..));
+            blocks.push(if end - start == 1 {
+                l.forward(&block)?
+            } else {
+                project_unfiltered(l, &block)?.context("unchanged eligible QMV geometry")?
+            });
+        }
+        return Ok(Some(ops::concatenate(&blocks, 1)?));
+    }
     let x = x.contiguous()?;
     let key = (q.bits, q.group_size, stream_x());
     KERNELS.with(|kernels| -> Result<_> {

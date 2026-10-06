@@ -134,4 +134,3 @@
       }
       return scale * accum + sum * bias;
     }
-

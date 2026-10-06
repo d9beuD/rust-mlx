@@ -1569,6 +1569,277 @@
           "per_conversation_candidate_median": 13.457290044633522
         }
       ]
+    },
+    {
+      "source": "results/target-mtp-ab-compiled-gdn-256.json",
+      "runtime": {
+        "batch_size": 1,
+        "draft_depth": 3,
+        "ignore_eos": true,
+        "kv_cache": "fresh per run",
+        "mtp": true,
+        "prefill_chunk": 128,
+        "prefix_cache": false,
+        "rate_definition": "generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization",
+        "sampler": "greedy",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "raw",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                72.0353134123631,
+                71.35480730720752,
+                71.48206452096952,
+                71.47272219116705
+              ],
+              "n": 4,
+              "median": 71.47739335606829,
+              "mean": 71.58622685792679,
+              "minimum": 71.35480730720752,
+              "maximum": 72.0353134123631,
+              "standard_deviation": 0.30494089244049694
+            },
+            "false": {
+              "samples": [
+                70.83500500009855,
+                70.3744657584872,
+                70.25617237854762,
+                70.13756301924674
+              ],
+              "n": 4,
+              "median": 70.31531906851741,
+              "mean": 70.40080153909503,
+              "minimum": 70.13756301924674,
+              "maximum": 70.83500500009855,
+              "standard_deviation": 0.305198477115152
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            1.6945130620981574,
+            1.3930358662823439,
+            1.7448888843768273,
+            1.9036292600498772
+          ],
+          "median_paired_gain_percent": 1.7197009732374924
+        }
+      ]
+    },
+    {
+      "source": "results/final-raw-bounded-plain-mtp-256.json",
+      "runtime": {
+        "ab_gemv": false,
+        "ab_hc": false,
+        "ab_qmv": false,
+        "ab_shortlist": false,
+        "ab_stream_x": false,
+        "batch": 1,
+        "chat": false,
+        "depth": 3,
+        "greedy": true,
+        "ignore_eos": true,
+        "prefix_cache": false,
+        "reasoning_effort": "xhigh",
+        "thinking": true,
+        "timing": "(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "Write a short Rust function that computes Fibonacci numbers.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                70.92888374078458,
+                70.60480992227436,
+                70.51939470023243,
+                70.43208079084455
+              ],
+              "n": 4,
+              "median": 70.5621023112534,
+              "mean": 70.62129228853398,
+              "minimum": 70.43208079084455,
+              "maximum": 70.92888374078458,
+              "standard_deviation": 0.21684731898634899
+            },
+            "false": {
+              "samples": [
+                46.6468833039404,
+                46.7045680341436,
+                46.23682870839255,
+                46.38134174090934
+              ],
+              "n": 4,
+              "median": 46.51411252242487,
+              "mean": 46.492405446846476,
+              "minimum": 46.23682870839255,
+              "maximum": 46.7045680341436,
+              "standard_deviation": 0.22100602389691837
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            52.05492568201875,
+            51.173242563036595,
+            52.517801653278816,
+            51.85434087759893
+          ],
+          "median_paired_gain_percent": 51.95463327980884
+        }
+      ]
+    },
+    {
+      "source": "results/final-batch-ab-qmv-bounded-256.json",
+      "runtime": {
+        "ab_gemv": false,
+        "ab_hc": false,
+        "ab_qmv": true,
+        "ab_stream_x": false,
+        "caches": "fresh per mode/run, independent per row",
+        "greedy": true,
+        "ignore_eos": true,
+        "mtp": false,
+        "output_tokens_per_row": 256,
+        "prefix_cache": false,
+        "timing": "aggregate B*(generated-1)/decode, graph+argmax+eval, no unused final forward; prefill separate",
+        "warmup_tokens_per_row": 256
+      },
+      "groups": [
+        {
+          "workload": "2",
+          "metric": "aggregate batch tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                66.44299695697588,
+                66.28406680173237,
+                66.27900200554919,
+                66.2626241831689
+              ],
+              "n": 4,
+              "median": 66.28153440364078,
+              "mean": 66.31717248685658,
+              "minimum": 66.2626241831689,
+              "maximum": 66.44299695697588,
+              "standard_deviation": 0.08438065881623763
+            },
+            "false": {
+              "samples": [
+                60.99288523973374,
+                60.52107249295731,
+                60.67649382962442,
+                60.74153926427849
+              ],
+              "n": 4,
+              "median": 60.70901654695145,
+              "mean": 60.73299770664849,
+              "minimum": 60.52107249295731,
+              "maximum": 60.99288523973374,
+              "standard_deviation": 0.19640050269511908
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            8.935651585951977,
+            9.522293758831978,
+            9.233407902006064,
+            9.08947153095494
+          ],
+          "median_paired_gain_percent": 9.161439716480501,
+          "per_conversation_candidate_median": 33.14076720182039
+        },
+        {
+          "workload": "4",
+          "metric": "aggregate batch tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                93.72802531801415,
+                93.23608926590683,
+                93.36061095458399,
+                92.74409102505201
+              ],
+              "n": 4,
+              "median": 93.29835011024541,
+              "mean": 93.26720414088925,
+              "minimum": 92.74409102505201,
+              "maximum": 93.72802531801415,
+              "standard_deviation": 0.40648757977642735
+            },
+            "false": {
+              "samples": [
+                81.24172318832227,
+                81.50618393710288,
+                81.33789595070947,
+                80.9259817924164
+              ],
+              "n": 4,
+              "median": 81.28980956951587,
+              "mean": 81.25294621713775,
+              "minimum": 80.9259817924164,
+              "maximum": 81.50618393710288,
+              "standard_deviation": 0.24384249797509405
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            15.369322116356422,
+            14.391429904086483,
+            14.7811974521203,
+            14.603603157945377
+          ],
+          "median_paired_gain_percent": 14.692400305032837,
+          "per_conversation_candidate_median": 23.324587527561352
+        },
+        {
+          "workload": "8",
+          "metric": "aggregate batch tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                104.83115827665996,
+                105.24947944863752,
+                105.28589967079658,
+                105.32607319629994
+              ],
+              "n": 4,
+              "median": 105.26768955971704,
+              "mean": 105.1731526480985,
+              "minimum": 104.83115827665996,
+              "maximum": 105.32607319629994,
+              "standard_deviation": 0.23013221979670354
+            },
+            "false": {
+              "samples": [
+                96.51858394113479,
+                96.58890463332436,
+                96.68358822985846,
+                96.58439906003683
+              ],
+              "n": 4,
+              "median": 96.5866518466806,
+              "mean": 96.5938689660886,
+              "minimum": 96.51858394113479,
+              "maximum": 96.68358822985846,
+              "standard_deviation": 0.06790116590585701
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            8.61240809396342,
+            8.9664282333368,
+            8.897385376809485,
+            9.05081381810875
+          ],
+          "median_paired_gain_percent": 8.931906805073142,
+          "per_conversation_candidate_median": 13.15846119496463
+        }
+      ]
     }
   ]
 }
