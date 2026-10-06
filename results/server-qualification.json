@@ -1,43 +1,87 @@
 {
   "passed": true,
-  "code_sha256": "bb420a4ab6d9ef30b356731146f270c5d8a1c8280dff9b8bb71b72c1c596b65b",
-  "binary_sha256": "722ba25c54cb7dcf87b90db13eb8e4eb35c9efb347068f16cc8668d505a75e9d",
-  "runtime": {
-    "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
-    "listen": "127.0.0.1:8080",
-    "kernel_environment_overrides": {},
-    "verify_qmv": true,
-    "batch_qmv": true,
-    "hc_projection": true,
-    "rows_gemv": false,
-    "draft_vocabulary": "full",
-    "prefix_entries": 4,
-    "prefix_token_budget": 8192,
-    "compiled_gdn": false,
-    "conv_allocation_guard": true,
-    "qmv_max_shader_positions": 4
-  },
+  "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "binary_sha256": "f35f2969f6a0bece64e2c75e91e2b56acde94d5106db849c29e3494ec085fa3a",
+  "runtime": "no kernel overrides; exact greedy; default FIFO MTP/plain and optional independent plain batch8",
   "server_modes": [
-    "default FIFO MTP depth3",
+    "default FIFO",
     "--no-mtp --batch-size8"
   ],
   "reports": {
-    "server-smoke.json": "46e61915231760cf077816fbb541344b72f6eb2d5729f154c4b7721812c6522f",
-    "server-batch-smoke.json": "a73c8ff274ed5a27f6a8a1519ec3cbefe7472e71388e71b697925f14b2dccb7e",
-    "server-utf8-batch1.json": "458697670a799505557567daa9aebaad3f49cdbe6903e5391bae087344ac30fc",
-    "server-utf8-batch8.json": "3a7f1375cb234477c8334017a6996e4de8e442dc1cc586d9a02596250bbe59ca"
+    "server-smoke": {
+      "sha256": "9587b654ea25af343a6ef37777ec317e834002b91790807a4aedcf7281a74962",
+      "mtime": 1791267841.780999
+    },
+    "server-batch-smoke": {
+      "sha256": "937d111273680cd718dbd41061847ebd9f3a13377133a45a5a2c099507eae6a5",
+      "mtime": 1791267910.7095344
+    },
+    "server-utf8-batch1": {
+      "sha256": "458697670a799505557567daa9aebaad3f49cdbe6903e5391bae087344ac30fc",
+      "mtime": 1791267851.5927744
+    },
+    "server-utf8-batch8": {
+      "sha256": "3a7f1375cb234477c8334017a6996e4de8e442dc1cc586d9a02596250bbe59ca",
+      "mtime": 1791267920.4206991
+    }
   },
   "scripts": {
-    "scripts/server_utf8_smoke.py": "f29c5e38abfc5217ff284278feee14c23035967a7b5c16a161345d029391cb54",
-    "scripts/server_batch_smoke.py": "2cb6df6c97e1405a8fde45a8961098a6fef9e941d4796d0f45721591bf52535a",
-    "scripts/server_smoke.py": "7aa9db0595b05cf945914552a7b951f5144bb570b9d646696b57f54fbbb43f82"
+    "server_smoke": "7aa9db0595b05cf945914552a7b951f5144bb570b9d646696b57f54fbbb43f82",
+    "server_batch_smoke": "2cb6df6c97e1405a8fde45a8961098a6fef9e941d4796d0f45721591bf52535a",
+    "server_utf8_smoke": "f29c5e38abfc5217ff284278feee14c23035967a7b5c16a161345d029391cb54"
   },
-  "partial_codepoint_cases": {
-    "1": 2,
-    "8": 2
-  },
-  "timing": "HTTP correctness qualification, not offline kernel timing; mixed four-prompt128-token cached batch workload differs from offline256-token reports",
-  "captured_unix_seconds": 1791257827.9126642,
+  "partial_codepoint_cases": [
+    2,
+    2
+  ],
   "concurrent_cancellation_survivors": 3,
-  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock"
+  "timing": "HTTP/prefix timings excluded from raw inference speed",
+  "captured_unix_seconds": 1791268038.21451,
+  "success_logs": [
+    {
+      "log": "results/server-round2-smoke.log",
+      "sha256": "a581bf9bb96555a02a967f9ad607a1b0f16ce29aa50b6aafbe404098f1fa637d",
+      "passed": true,
+      "exit_code": 0,
+      "success_marker": "SERVER_SMOKE_PASSED",
+      "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "contains_metal_validation_enabled": false,
+      "captured_unix_seconds": 1791268038.214701
+    },
+    {
+      "log": "results/server-round2-batch.log",
+      "sha256": "944f61d45ae75e36191ed4996bd01611bb855ae8d87624502bb7a2e696931cf6",
+      "passed": true,
+      "exit_code": 0,
+      "success_marker": "SERVER_BATCH_SMOKE_PASSED",
+      "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "contains_metal_validation_enabled": false,
+      "captured_unix_seconds": 1791268038.214876
+    },
+    {
+      "log": "results/server-round2-utf8-default.log",
+      "sha256": "3d35b0336814d0c418020a657cace03b279a9a3f2b2105f7d0acea98dbb848d6",
+      "passed": true,
+      "exit_code": 0,
+      "success_marker": "SERVER_UTF8_SMOKE_PASSED",
+      "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "contains_metal_validation_enabled": false,
+      "captured_unix_seconds": 1791268038.215042
+    },
+    {
+      "log": "results/server-round2-utf8-batch.log",
+      "sha256": "3d35b0336814d0c418020a657cace03b279a9a3f2b2105f7d0acea98dbb848d6",
+      "passed": true,
+      "exit_code": 0,
+      "success_marker": "SERVER_UTF8_SMOKE_PASSED",
+      "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "contains_metal_validation_enabled": false,
+      "captured_unix_seconds": 1791268038.2152069
+    }
+  ]
 }

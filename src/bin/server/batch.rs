@@ -171,6 +171,7 @@ impl<'a> Row<'a> {
             acceptance: Vec::new(),
             draft_lengths: Vec::new(),
             draft_tokens: Vec::new(),
+            draft_vocab_sizes: Vec::new(),
             round_seconds: Vec::new(),
         };
         let mut metrics = serde_json::to_value(&generation)?;

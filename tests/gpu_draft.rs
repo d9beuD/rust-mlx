@@ -58,6 +58,7 @@ fn gpu_token_chains_preserve_private_logits_hidden_and_caches() -> Result<()> {
     let initial_logits = head.forward(&initial_mixed.index((.., -1.., ..)))?;
     initial_logits.eval()?;
     for depth in 1..=7 {
+        rust_mlx::kv_blocks::set_enabled(false);
         let mut baseline_cache = initial_cache.clone();
         let mut hidden = initial_hidden.index((.., -1.., ..));
         let mut logits = initial_logits.clone();
@@ -78,6 +79,7 @@ fn gpu_token_chains_preserve_private_logits_hidden_and_caches() -> Result<()> {
             hidden = wide.clone();
             baseline.push((mixed, wide, logits.clone(), baseline_cache.clone()));
         }
+        rust_mlx::kv_blocks::set_enabled(std::env::var_os("RUST_MLX_TEST_KV_BLOCKS").is_some());
         let mut gpu_cache = initial_cache.clone();
         let mut hidden = initial_hidden.index((.., -1.., ..));
         let mut logits = initial_logits.clone();
@@ -104,6 +106,7 @@ fn gpu_token_chains_preserve_private_logits_hidden_and_caches() -> Result<()> {
             cache_exact(c, gc)?;
         }
         println!("GPU_DRAFT_CHAIN_EXACT depth={depth}");
+        rust_mlx::kv_blocks::set_enabled(false);
     }
     Ok(())
 }

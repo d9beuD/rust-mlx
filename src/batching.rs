@@ -146,6 +146,7 @@ impl HybridModel {
                         d.verified_conv = None;
                     }
                     (LayerCache::Full(d), LayerCache::Full(s)) => {
+                        d.kv.reset_storage();
                         d.kv.keys = split(&s.kv.keys, row);
                         d.kv.values = split(&s.kv.values, row);
                         d.kv.offset = offset + 1;

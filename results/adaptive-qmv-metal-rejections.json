@@ -1,0 +1,16 @@
+{
+  "status": "rejected",
+  "reason": "invalid QMV8 T4 device loads in mixed policy/baseline sequence",
+  "logs": [
+    {
+      "path": "results/adaptive-target-metal-rejected.log",
+      "sha256": "24d3803d8906177fe1ad01528b53208fd20f989a6b46431ced7a17aad6cf72ee"
+    },
+    {
+      "path": "results/adaptive-target-metal-retry.log",
+      "sha256": "6b18d101cb846eb7b86d9ade930e37c26a11d3b577b9c5625c601bbc086c3409"
+    }
+  ],
+  "timing": "instrumented, excluded from throughput",
+  "root_cause": "not established; numerical trajectories do not override shader faults"
+}

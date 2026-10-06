@@ -3,6 +3,8 @@ use clap::Parser;
 #[derive(Parser)]
 struct Args {
     #[arg(long)]
+    kv_blocks: bool,
+    #[arg(long)]
     sorted_moe: bool,
     #[arg(
         long,
@@ -38,6 +40,7 @@ fn error(a: &Array, b: &Array) -> Result<f32> {
 }
 fn main() -> Result<()> {
     let args = Args::parse();
+    rust_mlx::kv_blocks::set_enabled(args.kv_blocks);
     let path = args.model.as_path();
     let w = Weights::load(path)?;
     let m = HybridModel::load(&w, path)?;

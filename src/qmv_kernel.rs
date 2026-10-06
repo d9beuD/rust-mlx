@@ -6,8 +6,19 @@ use crate::{
 use anyhow::{Context, Result, ensure};
 use mlx_rs::{Array, Dtype, ops, ops::indexing::IndexOp};
 use std::{cell::RefCell, collections::HashMap};
-thread_local! {static KERNELS:RefCell<HashMap<(i32,i32,bool),Kernel>>=RefCell::new(HashMap::new());static ENABLED:std::cell::Cell<bool>=std::cell::Cell::new(default_enabled());}
+thread_local! {static KERNELS:RefCell<HashMap<(i32,i32,bool,bool),Kernel>>=RefCell::new(HashMap::new());static ENABLED:std::cell::Cell<bool>=std::cell::Cell::new(default_enabled());}
 thread_local! {static STREAM_X:std::cell::Cell<bool>=std::cell::Cell::new(env_enabled("RUST_MLX_QMV_STREAM_X",false));}
+thread_local! { static ADDRESS32: std::cell::Cell<bool> = std::cell::Cell::new(env_enabled("RUST_MLX_QMV_ADDRESS32", false)); }
+thread_local! { static ADDRESS32_CALLS: std::cell::Cell<u64> = const { std::cell::Cell::new(0) }; }
+pub fn address32_calls() -> u64 {
+    ADDRESS32_CALLS.with(std::cell::Cell::get)
+}
+pub fn address32() -> bool {
+    ADDRESS32.with(std::cell::Cell::get)
+}
+pub fn set_address32(value: bool) {
+    ADDRESS32.with(|v| v.set(value));
+}
 pub fn stream_x() -> bool {
     STREAM_X.with(std::cell::Cell::get)
 }
@@ -77,7 +88,15 @@ fn project_unfiltered(l: &Linear, x: &Array) -> Result<Option<Array>> {
     }
     let (b, t, k) = (x.shape()[0], x.shape()[1], x.shape()[2]);
     let n = l.weight.shape()[0];
-    if b <= 0 || k <= 0 || n <= 0 || k % 512 != 0 || n % 8 != 0 {
+    if b <= 0
+        || k <= 0
+        || n <= 0
+        || k % 512 != 0
+        || n % 8 != 0
+        || l.weight.size() as i64 * 4 > i32::MAX as i64
+        || x.size() as i64 > i32::MAX as i64
+        || b as i64 * t as i64 * n as i64 > i32::MAX as i64
+    {
         return Ok(None);
     }
     ensure!(
@@ -105,17 +124,25 @@ fn project_unfiltered(l: &Linear, x: &Array) -> Result<Option<Array>> {
         return Ok(Some(ops::concatenate(&blocks, 1)?));
     }
     let x = x.contiguous()?;
-    let key = (q.bits, q.group_size, stream_x());
+    let use32 = address32()
+        && l.weight.size() as i64 * 4 <= i32::MAX as i64
+        && k as i64 * 8 <= i32::MAX as i64;
+    let key = (q.bits, q.group_size, stream_x(), use32);
     KERNELS.with(|kernels| -> Result<_> {
         let mut kernels = kernels.borrow_mut();
         if let std::collections::hash_map::Entry::Vacant(e) = kernels.entry(key) {
-            let header = include_str!("../kernels/verify_qmv.h")
+            let mut header = include_str!("../kernels/verify_qmv.h")
                 .replace("__BITS__", &q.bits.to_string())
                 .replace("__GS__", &q.group_size.to_string());
+            header.push_str(if use32 {
+                "\n#define OFFSET(k) uint(k)\n"
+            } else {
+                "\n#define OFFSET(k) size_t(k)\n"
+            });
             e.insert(Kernel::with_header(
                 &format!(
-                    "rust_mlx_verify_qmv{}_g{}_stream{}",
-                    q.bits, q.group_size, key.2
+                    "rust_mlx_verify_qmv{}_g{}_stream{}_address32{}",
+                    q.bits, q.group_size, key.2, key.3
                 ),
                 &["x", "w", "scales", "biases"],
                 &["y"],
@@ -126,6 +153,9 @@ fn project_unfiltered(l: &Linear, x: &Array) -> Result<Option<Array>> {
                 },
                 &header,
             )?);
+        }
+        if use32 {
+            ADDRESS32_CALLS.with(|v| v.set(v.get().wrapping_add(1)));
         }
         let shape = [b, t, n];
         let mut y = kernels[&key]
@@ -160,6 +190,13 @@ mod tests {
         mlx_rs::transforms::eval([&a, &b]).unwrap();
         assert_eq!(a.shape(), b.shape());
         assert_eq!(a.as_slice::<f32>(), b.as_slice::<f32>());
+    }
+    #[test]
+    fn bounded_address32_matches_singleton_quantized_projection() {
+        set_address32(true);
+        set_stream_x(false);
+        singleton_cases();
+        set_address32(false);
     }
     #[test]
     fn shared_weights_match_singleton_quantized_projection() {

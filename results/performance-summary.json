@@ -98,7 +98,7 @@
               "mean": 61.8945460333097,
               "minimum": 59.596040509181556,
               "maximum": 62.77644779691213,
-              "standard_deviation": 1.1579713941959773
+              "standard_deviation": 1.157971394195977
             },
             "false": {
               "samples": [
@@ -302,7 +302,7 @@
               "mean": 47.42188805881622,
               "minimum": 39.08339651749354,
               "maximum": 50.8657601723292,
-              "standard_deviation": 5.603921572500579
+              "standard_deviation": 5.60392157250058
             }
           },
           "identical_output_trajectories": true,
@@ -960,7 +960,7 @@
               "mean": 54.77988181411669,
               "minimum": 54.53630925551494,
               "maximum": 55.03784657231083,
-              "standard_deviation": 0.21208359641643662
+              "standard_deviation": 0.21208359641643665
             },
             "false": {
               "samples": [
@@ -1223,7 +1223,7 @@
               "mean": 58.639230793079115,
               "minimum": 58.47073351511807,
               "maximum": 58.724575345945524,
-              "standard_deviation": 0.11421497414574093
+              "standard_deviation": 0.11421497414574094
             }
           },
           "identical_output_trajectories": true,
@@ -1498,7 +1498,7 @@
               "mean": 94.06995701901832,
               "minimum": 93.62953910067657,
               "maximum": 94.91040105622592,
-              "standard_deviation": 0.5718320359305485
+              "standard_deviation": 0.5718320359305487
             },
             "false": {
               "samples": [
@@ -1838,6 +1838,1228 @@
           ],
           "median_paired_gain_percent": 8.931906805073142,
           "per_conversation_candidate_median": 13.15846119496463
+        }
+      ]
+    },
+    {
+      "source": "results/gpu-draft-raw-ab-256.json",
+      "runtime": {
+        "batch_size": 1,
+        "draft_depth": 3,
+        "ignore_eos": true,
+        "kv_cache": "fresh per run",
+        "mtp": true,
+        "prefill_chunk": 128,
+        "prefix_cache": false,
+        "rate_definition": "generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization",
+        "sampler": "greedy",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "raw",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                70.8650241130625,
+                71.08934961978773,
+                70.94860591802983,
+                71.17979026571098
+              ],
+              "n": 4,
+              "median": 71.01897776890877,
+              "mean": 71.02069247914775,
+              "minimum": 70.8650241130625,
+              "maximum": 71.17979026571098,
+              "standard_deviation": 0.14077762741718353
+            },
+            "false": {
+              "samples": [
+                70.25521745365013,
+                70.39882915891886,
+                70.33227691265438,
+                69.49902525409465
+              ],
+              "n": 4,
+              "median": 70.29374718315225,
+              "mean": 70.12133719482951,
+              "minimum": 69.49902525409465,
+              "maximum": 70.39882915891886,
+              "standard_deviation": 0.4190041487357325
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            0.8679877189401441,
+            0.9808692404671637,
+            0.8763103263966121,
+            2.4184008415532476
+          ],
+          "median_paired_gain_percent": 0.9285897834318879
+        }
+      ]
+    },
+    {
+      "source": "results/sorted-moe-raw-ab-256.json",
+      "runtime": {
+        "batch_size": 1,
+        "draft_depth": 3,
+        "ignore_eos": true,
+        "kv_cache": "fresh per run",
+        "mtp": true,
+        "prefill_chunk": 128,
+        "prefix_cache": false,
+        "rate_definition": "generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization",
+        "sampler": "greedy",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "raw",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                69.61797828955319,
+                69.31390591653168,
+                69.36928729892215,
+                69.19152652075599
+              ],
+              "n": 4,
+              "median": 69.34159660772691,
+              "mean": 69.37317450644075,
+              "minimum": 69.19152652075599,
+              "maximum": 69.61797828955319,
+              "standard_deviation": 0.17930677535218656
+            },
+            "false": {
+              "samples": [
+                70.43641515330155,
+                70.08690855543001,
+                69.87759466384544,
+                70.38620090576943
+              ],
+              "n": 4,
+              "median": 70.23655473059972,
+              "mean": 70.19677981958661,
+              "minimum": 69.87759466384544,
+              "maximum": 70.43641515330155,
+              "standard_deviation": 0.26284107960783215
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            -1.1619513315194618,
+            -1.1029201527514743,
+            -0.7274253891659699,
+            -1.6973133506847926
+          ],
+          "median_paired_gain_percent": -1.132435742135468
+        }
+      ]
+    },
+    {
+      "source": "results/adaptive-depth-remat-raw-ab-256.json",
+      "runtime": {
+        "batch_size": 1,
+        "draft_depth": 3,
+        "ignore_eos": true,
+        "kv_cache": "fresh per run",
+        "mtp": true,
+        "prefill_chunk": 128,
+        "prefix_cache": false,
+        "rate_definition": "generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization",
+        "sampler": "greedy",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "raw",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                60.49021208091814,
+                60.39742451795988,
+                59.94920891435332,
+                62.01818545973048
+              ],
+              "n": 4,
+              "median": 60.44381829943901,
+              "mean": 60.71375774324046,
+              "minimum": 59.94920891435332,
+              "maximum": 62.01818545973048,
+              "standard_deviation": 0.901130022408829
+            },
+            "false": {
+              "samples": [
+                59.92921830530923,
+                60.67929940275804,
+                60.51497949962873,
+                59.34960109964728
+              ],
+              "n": 4,
+              "median": 60.22209890246898,
+              "mean": 60.118274576835816,
+              "minimum": 59.34960109964728,
+              "maximum": 60.67929940275804,
+              "standard_deviation": 0.6051789926420786
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            0.9360939312622607,
+            -0.464532200556933,
+            -0.934926509028855,
+            4.496381290925067
+          ],
+          "median_paired_gain_percent": 0.23578086535266385
+        }
+      ]
+    },
+    {
+      "source": "results/adaptive-depth-chat-ab-256.json",
+      "runtime": {
+        "ab_adaptive": false,
+        "ab_adaptive_depth": true,
+        "ab_adaptive_vocab": false,
+        "ab_gemv": false,
+        "ab_greedy_head": false,
+        "ab_hc": false,
+        "ab_kv_blocks": false,
+        "ab_qmv": false,
+        "ab_shortlist": false,
+        "ab_stream_x": false,
+        "batch": 1,
+        "chat": true,
+        "depth": 3,
+        "greedy": true,
+        "ignore_eos": true,
+        "prefix_cache": false,
+        "reasoning_effort": "xhigh",
+        "thinking": false,
+        "timing": "(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "Write a short Rust function that computes Fibonacci numbers.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                67.83187341988693,
+                64.79215755724927,
+                64.91581707295535,
+                64.02720644658937
+              ],
+              "n": 4,
+              "median": 64.8539873151023,
+              "mean": 65.39176362417024,
+              "minimum": 64.02720644658937,
+              "maximum": 67.83187341988693,
+              "standard_deviation": 1.6735396281675754
+            },
+            "false": {
+              "samples": [
+                58.9702232357646,
+                56.95535544144752,
+                60.038733218827666,
+                60.25475889279753
+              ],
+              "n": 4,
+              "median": 59.50447822729613,
+              "mean": 59.05476769720933,
+              "minimum": 56.95535544144752,
+              "maximum": 60.25475889279753,
+              "standard_deviation": 1.5080723460571233
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            15.027330231892133,
+            13.759552644453787,
+            8.123229110034359,
+            6.260829224300113
+          ],
+          "median_paired_gain_percent": 10.941390877244073
+        },
+        {
+          "workload": "Explique en français comment fonctionne le cache KV d'un modèle de langage et donne un exemple concret.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                54.64960880925976,
+                52.59362135468733,
+                52.930558303888304,
+                54.93285454862616
+              ],
+              "n": 4,
+              "median": 53.79008355657403,
+              "mean": 53.77666075411539,
+              "minimum": 52.59362135468733,
+              "maximum": 54.93285454862616,
+              "standard_deviation": 1.1852276819701404
+            },
+            "false": {
+              "samples": [
+                51.31665799779394,
+                51.880656853069866,
+                51.8506514170173,
+                53.6516345640379
+              ],
+              "n": 4,
+              "median": 51.865654135043584,
+              "mean": 52.17490020797975,
+              "minimum": 51.31665799779394,
+              "maximum": 53.6516345640379,
+              "standard_deviation": 1.0180112114733533
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            6.494871142249958,
+            1.3742395429507281,
+            2.08272578522819,
+            2.3880353226871653
+          ],
+          "median_paired_gain_percent": 2.2353805539576777
+        },
+        {
+          "workload": "Write a SQL query that returns each customer's three most recent orders. Explain how the window function works.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                58.10508272948815,
+                59.01466795616817,
+                58.63737379431761,
+                59.323634368732904
+              ],
+              "n": 4,
+              "median": 58.82602087524289,
+              "mean": 58.77018971217671,
+              "minimum": 58.10508272948815,
+              "maximum": 59.323634368732904,
+              "standard_deviation": 0.5247469123662002
+            },
+            "false": {
+              "samples": [
+                60.77502334652264,
+                61.29668572406747,
+                61.99288403230185,
+                62.80533579049744
+              ],
+              "n": 4,
+              "median": 61.644784878184666,
+              "mean": 61.717482223347346,
+              "minimum": 60.77502334652264,
+              "maximum": 62.80533579049744,
+              "standard_deviation": 0.8802594254439011
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            -4.3931544078744444,
+            -3.7229056366473223,
+            -5.412734526491503,
+            -5.543639529893762
+          ],
+          "median_paired_gain_percent": -4.902944467182974
+        },
+        {
+          "workload": "A train leaves Paris at 9:00 at 80 km/h. A second train leaves at 9:45 at 120 km/h on the same route. When does it catch the first train? Explain carefully.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                66.48206522959683,
+                66.50871715736787,
+                65.92524180422778,
+                66.0696282550263
+              ],
+              "n": 4,
+              "median": 66.27584674231156,
+              "mean": 66.24641311155469,
+              "minimum": 65.92524180422778,
+              "maximum": 66.50871715736787,
+              "standard_deviation": 0.293677389514155
+            },
+            "false": {
+              "samples": [
+                66.42895015620483,
+                65.87774195514093,
+                66.53363996790264,
+                66.44667459948239
+              ],
+              "n": 4,
+              "median": 66.43781237784361,
+              "mean": 66.3217516696827,
+              "minimum": 65.87774195514093,
+              "maximum": 66.53363996790264,
+              "standard_deviation": 0.29952102398795527
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            0.0799577191376688,
+            0.9577972521532363,
+            -0.9144218833786466,
+            -0.5674420077886433
+          ],
+          "median_paired_gain_percent": -0.24374214432548724
+        }
+      ]
+    },
+    {
+      "source": "results/adaptive-vocab-remat-raw-ab-256.json",
+      "runtime": {
+        "batch_size": 1,
+        "draft_depth": 3,
+        "ignore_eos": true,
+        "kv_cache": "fresh per run",
+        "mtp": true,
+        "prefill_chunk": 128,
+        "prefix_cache": false,
+        "rate_definition": "generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization",
+        "sampler": "greedy",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "raw",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                68.18323411423636,
+                63.613775076534544,
+                64.32065485993783,
+                63.12556520728037
+              ],
+              "n": 4,
+              "median": 63.96721496823619,
+              "mean": 64.81080731449728,
+              "minimum": 63.12556520728037,
+              "maximum": 68.18323411423636,
+              "standard_deviation": 2.301190929856971
+            },
+            "false": {
+              "samples": [
+                62.80065170142455,
+                63.198228777790405,
+                62.82521093179612,
+                62.745719465487674
+              ],
+              "n": 4,
+              "median": 62.81293131661033,
+              "mean": 62.89245271912469,
+              "minimum": 62.745719465487674,
+              "maximum": 63.198228777790405,
+              "standard_deviation": 0.20654178801553733
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            8.570902159427284,
+            0.657528394039697,
+            2.380324563916214,
+            0.605373155377742
+          ],
+          "median_paired_gain_percent": 1.5189264789779555
+        }
+      ]
+    },
+    {
+      "source": "results/adaptive-vocab-chat-ab-256.json",
+      "runtime": {
+        "ab_adaptive": false,
+        "ab_adaptive_depth": false,
+        "ab_adaptive_vocab": true,
+        "ab_gemv": false,
+        "ab_greedy_head": false,
+        "ab_hc": false,
+        "ab_kv_blocks": false,
+        "ab_qmv": false,
+        "ab_shortlist": false,
+        "ab_stream_x": false,
+        "batch": 1,
+        "chat": true,
+        "depth": 3,
+        "greedy": true,
+        "ignore_eos": true,
+        "prefix_cache": false,
+        "reasoning_effort": "xhigh",
+        "thinking": false,
+        "timing": "(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "Write a short Rust function that computes Fibonacci numbers.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                70.22455634229286,
+                65.17334304203159,
+                65.9319278643576,
+                65.3137994502167
+              ],
+              "n": 4,
+              "median": 65.62286365728716,
+              "mean": 66.66090667472469,
+              "minimum": 65.17334304203159,
+              "maximum": 70.22455634229286,
+              "standard_deviation": 2.3985101274718863
+            },
+            "false": {
+              "samples": [
+                62.04042504414878,
+                61.057613035824325,
+                62.055788407355195,
+                61.52410653719561
+              ],
+              "n": 4,
+              "median": 61.7822657906722,
+              "mean": 61.669483256130974,
+              "minimum": 61.057613035824325,
+              "maximum": 62.055788407355195,
+              "standard_deviation": 0.4769168470033106
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            13.191610618915227,
+            6.740731911338305,
+            6.246217406115484,
+            6.159687846470341
+          ],
+          "median_paired_gain_percent": 6.493474658726894
+        },
+        {
+          "workload": "Explique en français comment fonctionne le cache KV d'un modèle de langage et donne un exemple concret.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                55.179839753417525,
+                54.558568044474924,
+                54.35517895714525,
+                55.80837519162274
+              ],
+              "n": 4,
+              "median": 54.869203898946225,
+              "mean": 54.97549048666511,
+              "minimum": 54.35517895714525,
+              "maximum": 55.80837519162274,
+              "standard_deviation": 0.6567765401392119
+            },
+            "false": {
+              "samples": [
+                54.719396387119666,
+                54.72919978532204,
+                54.73177478292957,
+                54.61118655545402
+              ],
+              "n": 4,
+              "median": 54.724298086220855,
+              "mean": 54.697889377706325,
+              "minimum": 54.61118655545402,
+              "maximum": 54.73177478292957,
+              "standard_deviation": 0.05804737476873563
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            0.8414628024044468,
+            -0.3117745947618933,
+            -0.6880753041134335,
+            2.192204036718848
+          ],
+          "median_paired_gain_percent": 0.26484410382127677
+        },
+        {
+          "workload": "Write a SQL query that returns each customer's three most recent orders. Explain how the window function works.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                57.87322754576679,
+                60.409397457288996,
+                60.486788780993436,
+                61.06041405676897
+              ],
+              "n": 4,
+              "median": 60.44809311914122,
+              "mean": 59.957456960204546,
+              "minimum": 57.87322754576679,
+              "maximum": 61.06041405676897,
+              "standard_deviation": 1.4195033166890927
+            },
+            "false": {
+              "samples": [
+                63.085355031602724,
+                63.72588107632465,
+                63.066801922879286,
+                63.27860929057753
+              ],
+              "n": 4,
+              "median": 63.181982161090126,
+              "mean": 63.289161830346046,
+              "minimum": 63.066801922879286,
+              "maximum": 63.72588107632465,
+              "standard_deviation": 0.30649426072185615
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            -8.262024495582077,
+            -5.20429621846027,
+            -4.090921155381877,
+            -3.505442453108487
+          ],
+          "median_paired_gain_percent": -4.647608686921073
+        },
+        {
+          "workload": "A train leaves Paris at 9:00 at 80 km/h. A second train leaves at 9:45 at 120 km/h on the same route. When does it catch the first train? Explain carefully.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                70.15576023154703,
+                70.18521593064219,
+                70.59224692693596,
+                69.39487633816029
+              ],
+              "n": 4,
+              "median": 70.17048808109462,
+              "mean": 70.08202485682136,
+              "minimum": 69.39487633816029,
+              "maximum": 70.59224692693596,
+              "standard_deviation": 0.4995280942157181
+            },
+            "false": {
+              "samples": [
+                65.90947449988279,
+                67.40026272072633,
+                67.28767917076247,
+                65.90812374673183
+              ],
+              "n": 4,
+              "median": 66.59857683532263,
+              "mean": 66.62638503452585,
+              "minimum": 65.90812374673183,
+              "maximum": 67.40026272072633,
+              "standard_deviation": 0.8298707931651512
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            6.442602924518526,
+            4.1319619501415605,
+            4.911103781402781,
+            5.2903229423237
+          ],
+          "median_paired_gain_percent": 5.1007133618632405
+        }
+      ]
+    },
+    {
+      "source": "results/adaptive-remat-raw-ab-256.json",
+      "runtime": {
+        "batch_size": 1,
+        "draft_depth": 3,
+        "ignore_eos": true,
+        "kv_cache": "fresh per run",
+        "mtp": true,
+        "prefill_chunk": 128,
+        "prefix_cache": false,
+        "rate_definition": "generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization",
+        "sampler": "greedy",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "raw",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                70.22563772796654,
+                65.18797960498193,
+                65.78215394304995,
+                64.68373738528337
+              ],
+              "n": 4,
+              "median": 65.48506677401593,
+              "mean": 66.46987716532044,
+              "minimum": 64.68373738528337,
+              "maximum": 70.22563772796654,
+              "standard_deviation": 2.543767370352524
+            },
+            "false": {
+              "samples": [
+                64.35436457993436,
+                63.00864617615198,
+                64.20570129722536,
+                63.98619170154182
+              ],
+              "n": 4,
+              "median": 64.09594649938359,
+              "mean": 63.88872593871338,
+              "minimum": 63.00864617615198,
+              "maximum": 64.35436457993436,
+              "standard_deviation": 0.6058967693966191
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            9.123348799038332,
+            3.4587847241428493,
+            2.455315671308944,
+            1.0901503358649478
+          ],
+          "median_paired_gain_percent": 2.9570501977258967
+        }
+      ]
+    },
+    {
+      "source": "results/adaptive-chat-ab-256.json",
+      "runtime": {
+        "ab_adaptive": true,
+        "ab_adaptive_depth": false,
+        "ab_adaptive_vocab": false,
+        "ab_gemv": false,
+        "ab_greedy_head": false,
+        "ab_hc": false,
+        "ab_kv_blocks": false,
+        "ab_qmv": false,
+        "ab_shortlist": false,
+        "ab_stream_x": false,
+        "batch": 1,
+        "chat": true,
+        "depth": 3,
+        "greedy": true,
+        "ignore_eos": true,
+        "prefix_cache": false,
+        "reasoning_effort": "xhigh",
+        "thinking": false,
+        "timing": "(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "Write a short Rust function that computes Fibonacci numbers.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                77.86445781880131,
+                72.78645768210563,
+                72.89615185819662,
+                71.97084588717858
+              ],
+              "n": 4,
+              "median": 72.84130477015113,
+              "mean": 73.87947831157054,
+              "minimum": 71.97084588717858,
+              "maximum": 77.86445781880131,
+              "standard_deviation": 2.688528991526179
+            },
+            "false": {
+              "samples": [
+                63.22552387343205,
+                62.15180391748929,
+                62.77040054682698,
+                62.63460683612521
+              ],
+              "n": 4,
+              "median": 62.702503691476096,
+              "mean": 62.69558379346838,
+              "minimum": 62.15180391748929,
+              "maximum": 63.22552387343205,
+              "standard_deviation": 0.44190827773105873
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            23.153519415156133,
+            17.110772486563008,
+            16.131411020415243,
+            14.905879549113088
+          ],
+          "median_paired_gain_percent": 16.621091753489125
+        },
+        {
+          "workload": "Explique en français comment fonctionne le cache KV d'un modèle de langage et donne un exemple concret.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                55.44792587656036,
+                55.355960534456365,
+                55.536890502023816,
+                55.09927444249055
+              ],
+              "n": 4,
+              "median": 55.40194320550836,
+              "mean": 55.360012838882774,
+              "minimum": 55.09927444249055,
+              "maximum": 55.536890502023816,
+              "standard_deviation": 0.18886974562406
+            },
+            "false": {
+              "samples": [
+                54.523766040978835,
+                55.18222645406182,
+                54.57275746527752,
+                54.95771480576932
+              ],
+              "n": 4,
+              "median": 54.76523613552342,
+              "mean": 54.80911619152187,
+              "minimum": 54.523766040978835,
+              "maximum": 55.18222645406182,
+              "standard_deviation": 0.3154800427156883
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            1.6949669890501395,
+            0.3148370255396937,
+            1.7666929096623596,
+            0.25757919014923747
+          ],
+          "median_paired_gain_percent": 1.0049020072949166
+        },
+        {
+          "workload": "Write a SQL query that returns each customer's three most recent orders. Explain how the window function works.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                63.91187013674623,
+                64.03880165940346,
+                64.12755700381845,
+                64.4253752351763
+              ],
+              "n": 4,
+              "median": 64.08317933161095,
+              "mean": 64.12590100878612,
+              "minimum": 63.91187013674623,
+              "maximum": 64.4253752351763,
+              "standard_deviation": 0.21839037329255478
+            },
+            "false": {
+              "samples": [
+                63.53202163377452,
+                64.12610897552182,
+                63.81087290865091,
+                63.00196713858555
+              ],
+              "n": 4,
+              "median": 63.67144727121271,
+              "mean": 63.617742664133196,
+              "minimum": 63.00196713858555,
+              "maximum": 64.12610897552182,
+              "standard_deviation": 0.47688684570226825
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            0.5978851187222078,
+            -0.13614940546553544,
+            0.49628547727422756,
+            2.259307385529219
+          ],
+          "median_paired_gain_percent": 0.5470852979982177
+        },
+        {
+          "workload": "A train leaves Paris at 9:00 at 80 km/h. A second train leaves at 9:45 at 120 km/h on the same route. When does it catch the first train? Explain carefully.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                71.74745570860742,
+                71.27607739899767,
+                72.15993527374921,
+                70.66630731306748
+              ],
+              "n": 4,
+              "median": 71.51176655380254,
+              "mean": 71.46244392360545,
+              "minimum": 70.66630731306748,
+              "maximum": 72.15993527374921,
+              "standard_deviation": 0.6419480470278599
+            },
+            "false": {
+              "samples": [
+                67.66675625647898,
+                68.19982776868986,
+                68.63747281670086,
+                67.16743648336787
+              ],
+              "n": 4,
+              "median": 67.93329201258442,
+              "mean": 67.9178733313094,
+              "minimum": 67.16743648336787,
+              "maximum": 68.63747281670086,
+              "standard_deviation": 0.6386279491101751
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            6.030582338927659,
+            4.510641347572575,
+            5.131981572886901,
+            5.209177263399067
+          ],
+          "median_paired_gain_percent": 5.170579418142984
+        }
+      ]
+    },
+    {
+      "source": "results/greedy-head-raw-ab-256.json",
+      "runtime": {
+        "batch_size": 1,
+        "draft_depth": 3,
+        "ignore_eos": true,
+        "kv_cache": "fresh per run",
+        "mtp": true,
+        "prefill_chunk": 128,
+        "prefix_cache": false,
+        "rate_definition": "generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization",
+        "sampler": "greedy",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "raw",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                60.820960117558414,
+                60.89510127753008,
+                60.49255589661855,
+                58.27640115735589
+              ],
+              "n": 4,
+              "median": 60.656758007088484,
+              "mean": 60.12125461226573,
+              "minimum": 58.27640115735589,
+              "maximum": 60.89510127753008,
+              "standard_deviation": 1.242279540378958
+            },
+            "false": {
+              "samples": [
+                60.4298988979496,
+                59.95044802066546,
+                60.048652944557915,
+                59.11778985406057
+              ],
+              "n": 4,
+              "median": 59.99955048261169,
+              "mean": 59.886697429308384,
+              "minimum": 59.11778985406057,
+              "maximum": 60.4298988979496,
+              "standard_deviation": 0.5527447939225861
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            0.6471320103798472,
+            1.5757234316897684,
+            0.739238817680854,
+            -1.4232411238338738
+          ],
+          "median_paired_gain_percent": 0.6931854140303506
+        }
+      ]
+    },
+    {
+      "source": "results/qmv-remat-address-raw-ab-256.json",
+      "runtime": {
+        "batch_size": 1,
+        "draft_depth": 3,
+        "ignore_eos": true,
+        "kv_cache": "fresh per run",
+        "mtp": true,
+        "prefill_chunk": 128,
+        "prefix_cache": false,
+        "rate_definition": "generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization",
+        "sampler": "greedy",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "raw",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                68.26041270997192,
+                68.11824797434255,
+                68.17114137805824,
+                67.92263385595028
+              ],
+              "n": 4,
+              "median": 68.1446946762004,
+              "mean": 68.11810897958074,
+              "minimum": 67.92263385595028,
+              "maximum": 68.26041270997192,
+              "standard_deviation": 0.14291411202701187
+            },
+            "false": {
+              "samples": [
+                68.42482005697842,
+                68.23895157244498,
+                67.97851577983127,
+                68.5508694674933
+              ],
+              "n": 4,
+              "median": 68.3318858147117,
+              "mean": 68.29828921918698,
+              "minimum": 67.97851577983127,
+              "maximum": 68.5508694674933,
+              "standard_deviation": 0.24871861181191934
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            -0.2402744309295879,
+            -0.1768837230365139,
+            0.28336246535720644,
+            -0.9164517042937415
+          ],
+          "median_paired_gain_percent": -0.2085790769830509
+        }
+      ]
+    },
+    {
+      "source": "results/kv-blocks-context-ab-256.json",
+      "runtime": {
+        "ab_adaptive": false,
+        "ab_adaptive_depth": false,
+        "ab_adaptive_vocab": false,
+        "ab_gemv": false,
+        "ab_greedy_head": false,
+        "ab_hc": false,
+        "ab_kv_blocks": true,
+        "ab_qmv": false,
+        "ab_shortlist": false,
+        "ab_stream_x": false,
+        "batch": 1,
+        "chat": false,
+        "depth": 3,
+        "greedy": true,
+        "ignore_eos": true,
+        "prefix_cache": false,
+        "reasoning_effort": "xhigh",
+        "thinking": true,
+        "timing": "(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode",
+        "warmup_tokens": 256,
+        "qmv_address32": true,
+        "qmv_address_note": "Both reference and block-storage modes used RUST_MLX_QMV_ADDRESS32=1; current default is address64. Separate complete raw/address instrumentation comparisons show exact IDs and near parity."
+      },
+      "groups": [
+        {
+          "workload": "Write a short Rust function that computes Fibonacci numbers.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                68.55292120909681,
+                68.16959078094601,
+                68.22584574296809,
+                68.20273869718056
+              ],
+              "n": 4,
+              "median": 68.21429222007433,
+              "mean": 68.28777410754788,
+              "minimum": 68.16959078094601,
+              "maximum": 68.55292120909681,
+              "standard_deviation": 0.1782661189554795
+            },
+            "false": {
+              "samples": [
+                68.39497642921361,
+                68.3868133048399,
+                67.94911893870857,
+                68.09062180856502
+              ],
+              "n": 4,
+              "median": 68.23871755670245,
+              "mean": 68.20538262033178,
+              "minimum": 67.94911893870857,
+              "maximum": 68.39497642921361,
+              "standard_deviation": 0.22188887915941044
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            0.23093038133679133,
+            -0.3176380260995759,
+            0.4072559123380781,
+            0.16465834154189007
+          ],
+          "median_paired_gain_percent": 0.1977943614393407
+        },
+        {
+          "workload": "Row alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\n\nSummarize the records briefly.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                50.282871548951675,
+                50.04279026529376,
+                50.46222907101312,
+                50.41122088538859
+              ],
+              "n": 4,
+              "median": 50.34704621717013,
+              "mean": 50.299777942661784,
+              "minimum": 50.04279026529376,
+              "maximum": 50.46222907101312,
+              "standard_deviation": 0.18720611729100833
+            },
+            "false": {
+              "samples": [
+                50.72140422695323,
+                50.64842313007873,
+                50.58124796435271,
+                50.77726214766814
+              ],
+              "n": 4,
+              "median": 50.68491367851598,
+              "mean": 50.6820843672632,
+              "minimum": 50.58124796435271,
+              "maximum": 50.77726214766814,
+              "standard_deviation": 0.08545158529750405
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            -0.864590964475942,
+            -1.195758579155648,
+            -0.23530240579171524,
+            -0.7208763269178409
+          ],
+          "median_paired_gain_percent": -0.7927336456968914
+        },
+        {
+          "workload": "Row alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\nRow alpha beta gamma remains stable. A key identifies each record; a value contains its payload. We preserve the full ordered history for reproducibility.\n\nSummarize the records briefly.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                48.173825517132315,
+                48.06572488673297,
+                48.23008131922701,
+                48.063607944207575
+              ],
+              "n": 4,
+              "median": 48.11977520193264,
+              "mean": 48.13330991682497,
+              "minimum": 48.063607944207575,
+              "maximum": 48.23008131922701,
+              "standard_deviation": 0.08252740851865417
+            },
+            "false": {
+              "samples": [
+                48.03991268981359,
+                48.16937296333658,
+                48.15587623394117,
+                47.70119782915597
+              ],
+              "n": 4,
+              "median": 48.09789446187738,
+              "mean": 48.01658992906183,
+              "minimum": 47.70119782915597,
+              "maximum": 48.16937296333658,
+              "standard_deviation": 0.2181432695433971
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            0.2787532695643691,
+            -0.2151742284096092,
+            0.1540935210593064,
+            0.7597505545869021
+          ],
+          "median_paired_gain_percent": 0.21642339531183774
+        }
+      ]
+    },
+    {
+      "source": "results/round2-final-default-raw-256.json",
+      "runtime": {
+        "ab_adaptive": false,
+        "ab_adaptive_depth": false,
+        "ab_adaptive_vocab": false,
+        "ab_gemv": false,
+        "ab_greedy_head": false,
+        "ab_hc": false,
+        "ab_kv_blocks": false,
+        "ab_qmv": false,
+        "ab_shortlist": false,
+        "ab_stream_x": false,
+        "batch": 1,
+        "chat": false,
+        "depth": 3,
+        "greedy": true,
+        "ignore_eos": true,
+        "prefix_cache": false,
+        "reasoning_effort": "xhigh",
+        "thinking": true,
+        "timing": "(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode",
+        "warmup_tokens": 256
+      },
+      "groups": [
+        {
+          "workload": "Write a short Rust function that computes Fibonacci numbers.",
+          "metric": "single-conversation tok/s",
+          "statistics": {
+            "true": {
+              "samples": [
+                68.68756636752596,
+                68.1969695244188,
+                68.44395486886138,
+                68.40786212171011
+              ],
+              "n": 4,
+              "median": 68.42590849528574,
+              "mean": 68.43408822062906,
+              "minimum": 68.1969695244188,
+              "maximum": 68.68756636752596,
+              "standard_deviation": 0.2010485895321368
+            },
+            "false": {
+              "samples": [
+                45.30402196134033,
+                45.27504824844266,
+                45.244621700846466,
+                45.292728567239635
+              ],
+              "n": 4,
+              "median": 45.28388840784115,
+              "mean": 45.279105119467275,
+              "minimum": 45.244621700846466,
+              "maximum": 45.30402196134033,
+              "standard_deviation": 0.025897308099630204
+            }
+          },
+          "identical_output_trajectories": true,
+          "paired_gain_percent": [
+            51.61472071097728,
+            50.62815427648848,
+            51.27533902572312,
+            51.03497688410346
+          ],
+          "median_paired_gain_percent": 51.15515795491329
         }
       ]
     }

@@ -13,6 +13,11 @@ pub(crate) enum DraftToken {
 }
 
 impl<'a> DraftVocabulary<'a> {
+    pub(crate) fn size(&self) -> usize {
+        self.selected
+            .as_ref()
+            .map_or(self.full.weight.shape()[0] as usize, |(_, rows)| rows.len())
+    }
     pub(crate) fn new(
         full: &'a Linear,
         limit: usize,
@@ -71,7 +76,11 @@ impl<'a> DraftVocabulary<'a> {
     }
     pub(crate) fn greedy(&self, x: &Array) -> Result<u32> {
         let head = self.selected.as_ref().map(|(l, _)| l).unwrap_or(self.full);
-        let local = indexing::argmax(head.forward(x)?, false)?.item_exact::<u32>();
+        let local = if crate::greedy_head::enabled() {
+            crate::greedy_head::greedy(head, x)?.item_exact::<u32>()
+        } else {
+            indexing::argmax(head.forward(x)?, false)?.item_exact::<u32>()
+        };
         if let Some((_, rows)) = &self.selected {
             rows.get(local as usize)
                 .copied()
@@ -86,7 +95,11 @@ impl<'a> DraftVocabulary<'a> {
             return Ok(DraftToken::Cpu(self.greedy(x)?));
         }
         let head = self.selected.as_ref().map(|(l, _)| l).unwrap_or(self.full);
-        let local = indexing::argmax(head.forward(x)?, false)?;
+        let local = if crate::greedy_head::enabled() {
+            crate::greedy_head::greedy(head, x)?
+        } else {
+            indexing::argmax(head.forward(x)?, false)?
+        };
         let token = if let Some((_, rows)) = &self.selected {
             Array::from_slice(rows, &[rows.len() as i32]).take(&local)?
         } else {

@@ -514,6 +514,15 @@ impl HybridModel {
         }
     }
     pub fn forward(&self, tokens: &[u32], cache: &mut HybridCache) -> Result<(Array, Array)> {
+        let (mixed, hidden) = self.forward_hidden(tokens, cache)?;
+        Ok((self.head.forward(&mixed)?, hidden))
+    }
+    /// Complete target body and caches, before the vocabulary projection.
+    pub fn forward_hidden(
+        &self,
+        tokens: &[u32],
+        cache: &mut HybridCache,
+    ) -> Result<(Array, Array)> {
         ensure!(!tokens.is_empty(), "empty input");
         ensure!(
             tokens.iter().all(|&t| t < self.config.vocab_size as u32),
@@ -564,7 +573,7 @@ impl HybridModel {
         }
         cache.offset += t;
         let mixed = self.mixer.forward(&h)?.0;
-        Ok((self.head.forward(&mixed)?, h))
+        Ok((mixed, h))
     }
 }
 
@@ -615,9 +624,7 @@ impl HybridCache {
                     l.verified_conv = None;
                 }
                 LayerCache::Full(l) => {
-                    l.kv.keys = l.kv.keys.as_ref().map(|v| v.index((.., .., ..end, ..)));
-                    l.kv.values = l.kv.values.as_ref().map(|v| v.index((.., .., ..end, ..)));
-                    l.kv.offset = end;
+                    l.kv.trim(end)?;
                     l.raw_keys = l.raw_keys.as_ref().map(|v| v.index((.., ..end, ..)));
                     l.blocks = l
                         .blocks

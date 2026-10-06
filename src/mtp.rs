@@ -12,6 +12,9 @@ pub struct Mtp {
     pub gpu_draft: std::cell::Cell<bool>,
     /// CLI diagnostics only; serving does not retain private proposal IDs.
     pub record_drafts: std::cell::Cell<bool>,
+    pub adaptive_depth: std::cell::Cell<bool>,
+    pub adaptive_depth_costs: std::cell::Cell<[f64; 3]>,
+    pub adaptive_vocab: std::cell::Cell<bool>,
     /// Draft-only low-ID shortlist size; zero retains the complete vocabulary.
     pub draft_vocab_limit: std::cell::Cell<usize>,
     pub draft_vocab_refresh_rounds: std::cell::Cell<usize>,
@@ -34,6 +37,9 @@ impl Mtp {
         Ok(Self {
             gpu_draft: std::cell::Cell::new(false),
             record_drafts: std::cell::Cell::new(false),
+            adaptive_depth: std::cell::Cell::new(false),
+            adaptive_depth_costs: std::cell::Cell::new(crate::draft_policy::TARGET_ROUND_COSTS),
+            adaptive_vocab: std::cell::Cell::new(false),
             draft_vocab_limit: std::cell::Cell::new(0),
             draft_vocab_refresh_rounds: std::cell::Cell::new(0),
             embedding_norm: w.tensor("mtp.pre_fc_norm_embedding.weight")?,

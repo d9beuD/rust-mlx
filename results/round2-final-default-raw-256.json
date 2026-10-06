@@ -1,0 +1,8629 @@
+{
+  "environment": {
+    "captured_unix_seconds": 1791267921,
+    "hardware": {
+      "chip": "Apple M5 Max",
+      "gpu": "Apple M5 Max",
+      "gpu_cores": "40",
+      "memory": "128 GB",
+      "model": "Mac17,6"
+    },
+    "revision": {
+      "commit": "3c53b9afed0dcac79cc3374f62ff17fc2f197bf7",
+      "dirty": true
+    },
+    "software": {
+      "macos": "27.0.1",
+      "macos_build": "26A434",
+      "mlx": "0.32.2",
+      "mlx_rs": "0.32.0",
+      "mlx_sys": "0.6.0",
+      "package_version": "0.1.0",
+      "rust": "rustc 1.98.1 (48a229cea 2026-09-01)",
+      "xcode": "Xcode 27.0\nBuild version 27A266a"
+    },
+    "workload": {
+      "binary_sha256": "3781b8bc5b8b9f57ef5c0a91aa10546a5193f26e4d6186f0c3a640e921e0c22e  /Users/d9beud/Documents/Repositories/d9beud/rust-mlx/target/release/workload-bench",
+      "process_cpu_names": [
+        " 27.1 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer",
+        "  7.2 /usr/libexec/syspolicyd",
+        " 15.6 /System/Library/ExtensionKit/Extensions/WallpaperMacintoshExtension.appex/Contents/MacOS/WallpaperMacintoshExtension",
+        " 21.3 /System/Library/ExtensionKit/Extensions/Storage.appex/Contents/MacOS/Storage",
+        " 83.4 /System/Library/PrivateFrameworks/StorageManagement.framework/PlugIns/StorageManagementService",
+        "109.5 /System/Library/PrivateFrameworks/StorageManagement.framework/PlugIns/ApplicationsStorageExtension.appex/Contents/MacOS/ApplicationsStorageExtension"
+      ],
+      "swap": "vm.swapusage: total = 2048.00M  used = 990.12M  free = 1057.88M  (encrypted)",
+      "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    }
+  },
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "quantization": {
+    "bits": 4,
+    "group_size": 64,
+    "language_model.lm_head": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.embed_tokens": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.key_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.0": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.1": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.10": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.100": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.101": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.102": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.103": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.104": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.105": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.106": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.107": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.108": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.109": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.11": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.110": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.111": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.112": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.113": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.114": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.115": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.116": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.117": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.118": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.119": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.12": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.120": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.121": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.122": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.123": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.124": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.125": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.126": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.127": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.13": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.14": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.15": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.16": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.17": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.18": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.19": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.2": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.20": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.21": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.22": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.23": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.24": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.25": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.26": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.27": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.28": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.29": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.3": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.30": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.31": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.32": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.33": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.34": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.35": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.36": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.37": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.38": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.39": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.4": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.40": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.41": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.42": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.43": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.44": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.45": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.46": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.47": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.48": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.49": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.5": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.50": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.51": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.52": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.53": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.54": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.55": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.56": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.57": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.58": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.59": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.6": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.60": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.61": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.62": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.63": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.64": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.65": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.66": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.67": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.68": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.69": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.7": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.70": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.71": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.72": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.73": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.74": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.75": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.76": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.77": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.78": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.79": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.8": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.80": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.81": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.82": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.83": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.84": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.85": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.86": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.87": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.88": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.89": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.9": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.90": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.91": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.92": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.93": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.94": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.95": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.96": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.97": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.98": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.99": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.value_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.indexer.index_qk_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.k_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.q_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.v_proj": {
+      "bits": 6,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.indexer.index_qk_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.k_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.v_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.self_attn.indexer.index_qk_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.attn_hyper_connection.block_inject_weight": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_a": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_b": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_qkv": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_z": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp_hyper_connection.block_inject_weight": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.indexer.index_qk_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.k_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.q_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.v_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mode": "affine",
+    "mtp.layers.0.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.indexer.index_qk_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.k_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.q_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.v_proj": {
+      "bits": 6,
+      "group_size": 128,
+      "mode": "affine"
+    }
+  },
+  "records": [
+    {
+      "adaptive_depth": false,
+      "adaptive_depth_costs": [
+        0.031545832,
+        0.038575983,
+        0.046995903
+      ],
+      "adaptive_vocab": false,
+      "candidate": true,
+      "cycle": 1,
+      "draft_vocab_limit": 0,
+      "draft_vocab_refresh_rounds": 0,
+      "gemv_launches": 0,
+      "gemv_narrow": false,
+      "generation": {
+        "acceptance": [
+          0,
+          3,
+          3,
+          3,
+          3,
+          3,
+          2,
+          0,
+          3,
+          0,
+          3,
+          3,
+          2,
+          0,
+          0,
+          3,
+          2,
+          3,
+          3,
+          0,
+          3,
+          3,
+          1,
+          0,
+          0,
+          0,
+          0,
+          3,
+          1,
+          3,
+          3,
+          2,
+          0,
+          2,
+          3,
+          3,
+          0,
+          1,
+          0,
+          3,
+          3,
+          3,
+          0,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "decode_seconds": 3.712462291,
+        "draft_lengths": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "draft_seconds": 0.37244242,
+        "draft_tokens": [
+          [
+            9764,
+            579,
+            1151
+          ],
+          [
+            198,
+            760,
+            1156
+          ],
+          [
+            264,
+            2716,
+            32671
+          ],
+          [
+            310,
+            12204,
+            76938
+          ],
+          [
+            13,
+            6558,
+            728
+          ],
+          [
+            883,
+            279,
+            1786
+          ],
+          [
+            25,
+            271,
+            16
+          ],
+          [
+            364,
+            264,
+            4145
+          ],
+          [
+            198,
+            16,
+            13
+          ],
+          [
+            5313,
+            471,
+            496
+          ],
+          [
+            3267,
+            520,
+            8
+          ],
+          [
+            4145,
+            694,
+            496
+          ],
+          [
+            17,
+            83193,
+            8
+          ],
+          [
+            1546,
+            6103,
+            198
+          ],
+          [
+            2172,
+            364,
+            6618
+          ],
+          [
+            198,
+            17,
+            13
+          ],
+          [
+            1340,
+            471,
+            4145
+          ],
+          [
+            1393,
+            681,
+            4145
+          ],
+          [
+            10727,
+            198,
+            18
+          ],
+          [
+            54312,
+            1452,
+            29812
+          ],
+          [
+            440,
+            20781,
+            1954
+          ],
+          [
+            777,
+            6150,
+            198
+          ],
+          [
+            13,
+            2985,
+            20781
+          ],
+          [
+            1510,
+            1771,
+            476
+          ],
+          [
+            471,
+            777,
+            6150
+          ],
+          [
+            271,
+            2381,
+            264
+          ],
+          [
+            1546,
+            32671,
+            291
+          ],
+          [
+            13099,
+            32671,
+            271
+          ],
+          [
+            781,
+            1018,
+            328
+          ],
+          [
+            364,
+            328,
+            8412
+          ],
+          [
+            353,
+            3172,
+            708
+          ],
+          [
+            279,
+            83876,
+            2243
+          ],
+          [
+            2394,
+            424,
+            579
+          ],
+          [
+            424,
+            579,
+            279
+          ],
+          [
+            11,
+            10727,
+            11
+          ],
+          [
+            32680,
+            13,
+            353
+          ],
+          [
+            1048,
+            884,
+            264
+          ],
+          [
+            264,
+            9522,
+            3847
+          ],
+          [
+            3010,
+            440,
+            264
+          ],
+          [
+            709,
+            310,
+            19264
+          ],
+          [
+            13,
+            271,
+            9764
+          ],
+          [
+            3165,
+            264,
+            4101
+          ],
+          [
+            16866,
+            3010,
+            25
+          ],
+          [
+            13099,
+            32671,
+            709
+          ],
+          [
+            271,
+            71093,
+            34602
+          ],
+          [
+            8556,
+            15336,
+            1393
+          ],
+          [
+            560,
+            21,
+            19
+          ],
+          [
+            1411,
+            560,
+            21
+          ],
+          [
+            313,
+            198,
+            262
+          ],
+          [
+            318,
+            6767,
+            264
+          ],
+          [
+            5041,
+            292,
+            8
+          ],
+          [
+            318,
+            15,
+            11
+          ],
+          [
+            16,
+            1174,
+            198
+          ],
+          [
+            364,
+            696,
+            303
+          ],
+          [
+            15,
+            486,
+            77
+          ],
+          [
+            198,
+            285,
+            264
+          ],
+          [
+            1727,
+            283,
+            318
+          ],
+          [
+            478,
+            292,
+            26
+          ],
+          [
+            285,
+            264,
+            283
+          ],
+          [
+            26,
+            198,
+            285
+          ],
+          [
+            283,
+            264,
+            26
+          ],
+          [
+            26,
+            198,
+            262
+          ],
+          [
+            198,
+            262,
+            264
+          ],
+          [
+            92,
+            198,
+            71093
+          ],
+          [
+            1919,
+            369,
+            4101
+          ],
+          [
+            2716,
+            11,
+            321
+          ],
+          [
+            13,
+            353,
+            3172
+          ],
+          [
+            424,
+            440,
+            264
+          ],
+          [
+            15673,
+            321,
+            264
+          ],
+          [
+            3010,
+            13,
+            198
+          ],
+          [
+            271,
+            71093,
+            34602
+          ],
+          [
+            8556,
+            15336,
+            1393
+          ],
+          [
+            560,
+            21,
+            19
+          ],
+          [
+            1411,
+            560,
+            21
+          ],
+          [
+            313,
+            198,
+            262
+          ],
+          [
+            318,
+            6767,
+            264
+          ],
+          [
+            5041,
+            292,
+            8
+          ],
+          [
+            318,
+            15,
+            11
+          ]
+        ],
+        "draft_vocab_sizes": [
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320
+        ],
+        "prefill_seconds": 0.057904000000000004,
+        "round_seconds": [
+          0.045827417,
+          0.046121959,
+          0.047163708,
+          0.046625041,
+          0.0466765,
+          0.046759583,
+          0.047429917,
+          0.0472255,
+          0.047138291,
+          0.046998209,
+          0.047290833,
+          0.04716275,
+          0.046791292,
+          0.047269417,
+          0.047047625,
+          0.047985666,
+          0.047146459,
+          0.047676166,
+          0.047955292,
+          0.0471035,
+          0.047219292,
+          0.047669916,
+          0.047723167,
+          0.0474375,
+          0.047901292,
+          0.048470958,
+          0.047777708,
+          0.048236958,
+          0.047230625,
+          0.047892041,
+          0.047356708,
+          0.047990084,
+          0.047583541,
+          0.04701625,
+          0.047760333,
+          0.048143,
+          0.04742325,
+          0.046779375,
+          0.0468865,
+          0.04707975,
+          0.047767,
+          0.048168167,
+          0.047862375,
+          0.046294334,
+          0.0460995,
+          0.045628958,
+          0.047488458,
+          0.047597292,
+          0.047946042,
+          0.047581292,
+          0.047707583,
+          0.047226958,
+          0.0474575,
+          0.047380875,
+          0.047135125,
+          0.047389,
+          0.047170125,
+          0.047212208,
+          0.048247042,
+          0.047865709,
+          0.0481365,
+          0.047834083,
+          0.048125875,
+          0.047525708,
+          0.04801475,
+          0.047625125,
+          0.048073125,
+          0.0475345,
+          0.047966625,
+          0.048215042,
+          0.047167209,
+          0.048500833,
+          0.048375917,
+          0.048521083,
+          0.048332458,
+          0.047909875,
+          0.048216833,
+          0.045930333
+        ],
+        "synchronize_draft_seconds": 0.16881867200000003,
+        "tokens": [
+          271,
+          248068,
+          198,
+          760,
+          1156,
+          6587,
+          264,
+          2716,
+          32671,
+          709,
+          310,
+          12204,
+          76938,
+          4947,
+          13,
+          6558,
+          728,
+          1683,
+          883,
+          279,
+          1786,
+          5313,
+          25,
+          271,
+          3670,
+          25,
+          198,
+          16,
+          13,
+          82930,
+          318,
+          3267,
+          520,
+          8,
+          471,
+          4145,
+          694,
+          496,
+          7,
+          17,
+          83193,
+          681,
+          524,
+          14542,
+          198,
+          17,
+          13,
+          13310,
+          1340,
+          471,
+          496,
+          1393,
+          681,
+          4145,
+          11,
+          10727,
+          198,
+          18,
+          13,
+          82930,
+          440,
+          20781,
+          1954,
+          471,
+          777,
+          6150,
+          198,
+          19,
+          13,
+          11747,
+          14650,
+          5215,
+          471,
+          39318,
+          13099,
+          32671,
+          271,
+          12189,
+          781,
+          4439,
+          364,
+          328,
+          8412,
+          1288,
+          353,
+          3172,
+          708,
+          440,
+          279,
+          83876,
+          5313,
+          430,
+          424,
+          579,
+          61446,
+          11,
+          10727,
+          11,
+          321,
+          32680,
+          13,
+          353,
+          3172,
+          2830,
+          264,
+          2526,
+          1822,
+          709,
+          310,
+          19264,
+          10121,
+          13,
+          271,
+          9764,
+          728,
+          3165,
+          264,
+          4101,
+          11,
+          39318,
+          13099,
+          32671,
+          709,
+          25,
+          271,
+          71093,
+          34602,
+          198,
+          8556,
+          15336,
+          1393,
+          25,
+          560,
+          21,
+          19,
+          8,
+          1411,
+          560,
+          21,
+          19,
+          313,
+          198,
+          262,
+          1042,
+          318,
+          6767,
+          264,
+          11,
+          5041,
+          292,
+          8,
+          283,
+          318,
+          15,
+          11,
+          220,
+          16,
+          1174,
+          198,
+          262,
+          364,
+          696,
+          303,
+          220,
+          15,
+          486,
+          77,
+          313,
+          198,
+          285,
+          1042,
+          1727,
+          283,
+          264,
+          478,
+          292,
+          26,
+          198,
+          285,
+          264,
+          283,
+          292,
+          26,
+          198,
+          285,
+          292,
+          283,
+          1727,
+          26,
+          198,
+          262,
+          333,
+          198,
+          262,
+          264,
+          198,
+          92,
+          198,
+          71093,
+          271,
+          1919,
+          369,
+          4101,
+          11,
+          2716,
+          11,
+          321,
+          10727,
+          13,
+          353,
+          3172,
+          2945,
+          424,
+          440,
+          264,
+          9522,
+          15673,
+          321,
+          264,
+          10121,
+          3010,
+          13,
+          198,
+          248069,
+          271,
+          71093,
+          34602,
+          198,
+          8556,
+          15336,
+          1393,
+          25,
+          560,
+          21,
+          19,
+          8,
+          1411,
+          560,
+          21,
+          19,
+          313,
+          198,
+          262,
+          1042,
+          318,
+          6767,
+          264,
+          11,
+          5041,
+          292,
+          8,
+          283,
+          318,
+          15,
+          11,
+          220
+        ],
+        "verify_seconds": 3.1567300819999993
+      },
+      "greedy_head": false,
+      "greedy_head_calls": 0,
+      "hc_projection": true,
+      "kv_block_calls": 0,
+      "kv_blocks": false,
+      "mtp": true,
+      "peak_memory_bytes": 74615171014,
+      "prompt": "Write a short Rust function that computes Fibonacci numbers.",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "qmv": true,
+      "qmv_stream_x": false,
+      "shared_gemv": false,
+      "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization - more complex\n4. Using iterator pattern - idiomatic Rust\n\nSince they asked for \"short,\" I'll go with the iterative approach as it's concise, efficient, and readable. I'll include a small main function to demonstrate usage.\n\nLet me write a clean, idiomatic Rust function:\n\n```rust\nfn fib(n: u64) -> u64 {\n    let (mut a, mut b) = (0, 1);\n    for _ in 0..n {\n        let next = a + b;\n        a = b;\n        b = next;\n    }\n    a\n}\n```\n\nThis is clean, short, and efficient. I'll present it with a brief explanation and a usage example.\n</think>\n\n```rust\nfn fib(n: u64) -> u64 {\n    let (mut a, mut b) = (0, ",
+      "tokens_per_second": 68.68756636752596
+    },
+    {
+      "adaptive_depth": false,
+      "adaptive_depth_costs": [
+        0.031545832,
+        0.038575983,
+        0.046995903
+      ],
+      "adaptive_vocab": false,
+      "candidate": false,
+      "cycle": 1,
+      "draft_vocab_limit": 0,
+      "draft_vocab_refresh_rounds": 0,
+      "gemv_launches": 0,
+      "gemv_narrow": false,
+      "generation": {
+        "acceptance": [],
+        "decode_seconds": 5.628639334,
+        "draft_lengths": [],
+        "draft_seconds": 0.0,
+        "prefill_seconds": 0.057918374,
+        "round_seconds": [],
+        "synchronize_draft_seconds": 0.0,
+        "tokens": [
+          271,
+          248068,
+          198,
+          760,
+          1156,
+          6587,
+          264,
+          2716,
+          32671,
+          709,
+          310,
+          12204,
+          76938,
+          4947,
+          13,
+          6558,
+          728,
+          1683,
+          883,
+          279,
+          1786,
+          5313,
+          25,
+          271,
+          3670,
+          25,
+          198,
+          16,
+          13,
+          82930,
+          318,
+          3267,
+          520,
+          8,
+          471,
+          4145,
+          694,
+          496,
+          7,
+          17,
+          83193,
+          681,
+          524,
+          14542,
+          198,
+          17,
+          13,
+          13310,
+          1340,
+          471,
+          496,
+          1393,
+          681,
+          4145,
+          11,
+          10727,
+          198,
+          18,
+          13,
+          82930,
+          440,
+          20781,
+          1954,
+          471,
+          777,
+          6150,
+          198,
+          19,
+          13,
+          11747,
+          14650,
+          5215,
+          471,
+          39318,
+          13099,
+          32671,
+          271,
+          12189,
+          781,
+          4439,
+          364,
+          328,
+          8412,
+          1288,
+          353,
+          3172,
+          708,
+          440,
+          279,
+          83876,
+          5313,
+          430,
+          424,
+          579,
+          61446,
+          11,
+          10727,
+          11,
+          321,
+          32680,
+          13,
+          353,
+          3172,
+          2830,
+          264,
+          2526,
+          1822,
+          709,
+          310,
+          19264,
+          10121,
+          13,
+          271,
+          9764,
+          728,
+          3165,
+          264,
+          4101,
+          11,
+          39318,
+          13099,
+          32671,
+          709,
+          25,
+          271,
+          71093,
+          34602,
+          198,
+          8556,
+          15336,
+          1393,
+          25,
+          560,
+          21,
+          19,
+          8,
+          1411,
+          560,
+          21,
+          19,
+          313,
+          198,
+          262,
+          1042,
+          318,
+          6767,
+          264,
+          11,
+          5041,
+          292,
+          8,
+          283,
+          318,
+          15,
+          11,
+          220,
+          16,
+          1174,
+          198,
+          262,
+          364,
+          696,
+          303,
+          220,
+          15,
+          486,
+          77,
+          313,
+          198,
+          285,
+          1042,
+          1727,
+          283,
+          264,
+          478,
+          292,
+          26,
+          198,
+          285,
+          264,
+          283,
+          292,
+          26,
+          198,
+          285,
+          292,
+          283,
+          1727,
+          26,
+          198,
+          262,
+          333,
+          198,
+          262,
+          264,
+          198,
+          92,
+          198,
+          71093,
+          271,
+          1919,
+          369,
+          4101,
+          11,
+          2716,
+          11,
+          321,
+          10727,
+          13,
+          353,
+          3172,
+          2945,
+          424,
+          440,
+          264,
+          9522,
+          15673,
+          321,
+          264,
+          10121,
+          3010,
+          13,
+          198,
+          248069,
+          271,
+          71093,
+          34602,
+          198,
+          8556,
+          15336,
+          1393,
+          25,
+          560,
+          21,
+          19,
+          8,
+          1411,
+          560,
+          21,
+          19,
+          313,
+          198,
+          262,
+          1042,
+          318,
+          6767,
+          264,
+          11,
+          5041,
+          292,
+          8,
+          283,
+          318,
+          15,
+          11,
+          220
+        ],
+        "verify_seconds": 0.0
+      },
+      "greedy_head": false,
+      "greedy_head_calls": 0,
+      "hc_projection": true,
+      "kv_block_calls": 0,
+      "kv_blocks": false,
+      "mtp": false,
+      "peak_memory_bytes": 74615171014,
+      "prompt": "Write a short Rust function that computes Fibonacci numbers.",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "qmv": true,
+      "qmv_stream_x": false,
+      "shared_gemv": false,
+      "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization - more complex\n4. Using iterator pattern - idiomatic Rust\n\nSince they asked for \"short,\" I'll go with the iterative approach as it's concise, efficient, and readable. I'll include a small main function to demonstrate usage.\n\nLet me write a clean, idiomatic Rust function:\n\n```rust\nfn fib(n: u64) -> u64 {\n    let (mut a, mut b) = (0, 1);\n    for _ in 0..n {\n        let next = a + b;\n        a = b;\n        b = next;\n    }\n    a\n}\n```\n\nThis is clean, short, and efficient. I'll present it with a brief explanation and a usage example.\n</think>\n\n```rust\nfn fib(n: u64) -> u64 {\n    let (mut a, mut b) = (0, ",
+      "tokens_per_second": 45.30402196134033
+    },
+    {
+      "adaptive_depth": false,
+      "adaptive_depth_costs": [
+        0.031545832,
+        0.038575983,
+        0.046995903
+      ],
+      "adaptive_vocab": false,
+      "candidate": false,
+      "cycle": 2,
+      "draft_vocab_limit": 0,
+      "draft_vocab_refresh_rounds": 0,
+      "gemv_launches": 0,
+      "gemv_narrow": false,
+      "generation": {
+        "acceptance": [],
+        "decode_seconds": 5.6322413749999996,
+        "draft_lengths": [],
+        "draft_seconds": 0.0,
+        "prefill_seconds": 0.057038626,
+        "round_seconds": [],
+        "synchronize_draft_seconds": 0.0,
+        "tokens": [
+          271,
+          248068,
+          198,
+          760,
+          1156,
+          6587,
+          264,
+          2716,
+          32671,
+          709,
+          310,
+          12204,
+          76938,
+          4947,
+          13,
+          6558,
+          728,
+          1683,
+          883,
+          279,
+          1786,
+          5313,
+          25,
+          271,
+          3670,
+          25,
+          198,
+          16,
+          13,
+          82930,
+          318,
+          3267,
+          520,
+          8,
+          471,
+          4145,
+          694,
+          496,
+          7,
+          17,
+          83193,
+          681,
+          524,
+          14542,
+          198,
+          17,
+          13,
+          13310,
+          1340,
+          471,
+          496,
+          1393,
+          681,
+          4145,
+          11,
+          10727,
+          198,
+          18,
+          13,
+          82930,
+          440,
+          20781,
+          1954,
+          471,
+          777,
+          6150,
+          198,
+          19,
+          13,
+          11747,
+          14650,
+          5215,
+          471,
+          39318,
+          13099,
+          32671,
+          271,
+          12189,
+          781,
+          4439,
+          364,
+          328,
+          8412,
+          1288,
+          353,
+          3172,
+          708,
+          440,
+          279,
+          83876,
+          5313,
+          430,
+          424,
+          579,
+          61446,
+          11,
+          10727,
+          11,
+          321,
+          32680,
+          13,
+          353,
+          3172,
+          2830,
+          264,
+          2526,
+          1822,
+          709,
+          310,
+          19264,
+          10121,
+          13,
+          271,
+          9764,
+          728,
+          3165,
+          264,
+          4101,
+          11,
+          39318,
+          13099,
+          32671,
+          709,
+          25,
+          271,
+          71093,
+          34602,
+          198,
+          8556,
+          15336,
+          1393,
+          25,
+          560,
+          21,
+          19,
+          8,
+          1411,
+          560,
+          21,
+          19,
+          313,
+          198,
+          262,
+          1042,
+          318,
+          6767,
+          264,
+          11,
+          5041,
+          292,
+          8,
+          283,
+          318,
+          15,
+          11,
+          220,
+          16,
+          1174,
+          198,
+          262,
+          364,
+          696,
+          303,
+          220,
+          15,
+          486,
+          77,
+          313,
+          198,
+          285,
+          1042,
+          1727,
+          283,
+          264,
+          478,
+          292,
+          26,
+          198,
+          285,
+          264,
+          283,
+          292,
+          26,
+          198,
+          285,
+          292,
+          283,
+          1727,
+          26,
+          198,
+          262,
+          333,
+          198,
+          262,
+          264,
+          198,
+          92,
+          198,
+          71093,
+          271,
+          1919,
+          369,
+          4101,
+          11,
+          2716,
+          11,
+          321,
+          10727,
+          13,
+          353,
+          3172,
+          2945,
+          424,
+          440,
+          264,
+          9522,
+          15673,
+          321,
+          264,
+          10121,
+          3010,
+          13,
+          198,
+          248069,
+          271,
+          71093,
+          34602,
+          198,
+          8556,
+          15336,
+          1393,
+          25,
+          560,
+          21,
+          19,
+          8,
+          1411,
+          560,
+          21,
+          19,
+          313,
+          198,
+          262,
+          1042,
+          318,
+          6767,
+          264,
+          11,
+          5041,
+          292,
+          8,
+          283,
+          318,
+          15,
+          11,
+          220
+        ],
+        "verify_seconds": 0.0
+      },
+      "greedy_head": false,
+      "greedy_head_calls": 0,
+      "hc_projection": true,
+      "kv_block_calls": 0,
+      "kv_blocks": false,
+      "mtp": false,
+      "peak_memory_bytes": 74615171014,
+      "prompt": "Write a short Rust function that computes Fibonacci numbers.",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "qmv": true,
+      "qmv_stream_x": false,
+      "shared_gemv": false,
+      "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization - more complex\n4. Using iterator pattern - idiomatic Rust\n\nSince they asked for \"short,\" I'll go with the iterative approach as it's concise, efficient, and readable. I'll include a small main function to demonstrate usage.\n\nLet me write a clean, idiomatic Rust function:\n\n```rust\nfn fib(n: u64) -> u64 {\n    let (mut a, mut b) = (0, 1);\n    for _ in 0..n {\n        let next = a + b;\n        a = b;\n        b = next;\n    }\n    a\n}\n```\n\nThis is clean, short, and efficient. I'll present it with a brief explanation and a usage example.\n</think>\n\n```rust\nfn fib(n: u64) -> u64 {\n    let (mut a, mut b) = (0, ",
+      "tokens_per_second": 45.27504824844266
+    },
+    {
+      "adaptive_depth": false,
+      "adaptive_depth_costs": [
+        0.031545832,
+        0.038575983,
+        0.046995903
+      ],
+      "adaptive_vocab": false,
+      "candidate": true,
+      "cycle": 2,
+      "draft_vocab_limit": 0,
+      "draft_vocab_refresh_rounds": 0,
+      "gemv_launches": 0,
+      "gemv_narrow": false,
+      "generation": {
+        "acceptance": [
+          0,
+          3,
+          3,
+          3,
+          3,
+          3,
+          2,
+          0,
+          3,
+          0,
+          3,
+          3,
+          2,
+          0,
+          0,
+          3,
+          2,
+          3,
+          3,
+          0,
+          3,
+          3,
+          1,
+          0,
+          0,
+          0,
+          0,
+          3,
+          1,
+          3,
+          3,
+          2,
+          0,
+          2,
+          3,
+          3,
+          0,
+          1,
+          0,
+          3,
+          3,
+          3,
+          0,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "decode_seconds": 3.739169083,
+        "draft_lengths": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "draft_seconds": 0.368156538,
+        "draft_tokens": [
+          [
+            9764,
+            579,
+            1151
+          ],
+          [
+            198,
+            760,
+            1156
+          ],
+          [
+            264,
+            2716,
+            32671
+          ],
+          [
+            310,
+            12204,
+            76938
+          ],
+          [
+            13,
+            6558,
+            728
+          ],
+          [
+            883,
+            279,
+            1786
+          ],
+          [
+            25,
+            271,
+            16
+          ],
+          [
+            364,
+            264,
+            4145
+          ],
+          [
+            198,
+            16,
+            13
+          ],
+          [
+            5313,
+            471,
+            496
+          ],
+          [
+            3267,
+            520,
+            8
+          ],
+          [
+            4145,
+            694,
+            496
+          ],
+          [
+            17,
+            83193,
+            8
+          ],
+          [
+            1546,
+            6103,
+            198
+          ],
+          [
+            2172,
+            364,
+            6618
+          ],
+          [
+            198,
+            17,
+            13
+          ],
+          [
+            1340,
+            471,
+            4145
+          ],
+          [
+            1393,
+            681,
+            4145
+          ],
+          [
+            10727,
+            198,
+            18
+          ],
+          [
+            54312,
+            1452,
+            29812
+          ],
+          [
+            440,
+            20781,
+            1954
+          ],
+          [
+            777,
+            6150,
+            198
+          ],
+          [
+            13,
+            2985,
+            20781
+          ],
+          [
+            1510,
+            1771,
+            476
+          ],
+          [
+            471,
+            777,
+            6150
+          ],
+          [
+            271,
+            2381,
+            264
+          ],
+          [
+            1546,
+            32671,
+            291
+          ],
+          [
+            13099,
+            32671,
+            271
+          ],
+          [
+            781,
+            1018,
+            328
+          ],
+          [
+            364,
+            328,
+            8412
+          ],
+          [
+            353,
+            3172,
+            708
+          ],
+          [
+            279,
+            83876,
+            2243
+          ],
+          [
+            2394,
+            424,
+            579
+          ],
+          [
+            424,
+            579,
+            279
+          ],
+          [
+            11,
+            10727,
+            11
+          ],
+          [
+            32680,
+            13,
+            353
+          ],
+          [
+            1048,
+            884,
+            264
+          ],
+          [
+            264,
+            9522,
+            3847
+          ],
+          [
+            3010,
+            440,
+            264
+          ],
+          [
+            709,
+            310,
+            19264
+          ],
+          [
+            13,
+            271,
+            9764
+          ],
+          [
+            3165,
+            264,
+            4101
+          ],
+          [
+            16866,
+            3010,
+            25
+          ],
+          [
+            13099,
+            32671,
+            709
+          ],
+          [
+            271,
+            71093,
+            34602
+          ],
+          [
+            8556,
+            15336,
+            1393
+          ],
+          [
+            560,
+            21,
+            19
+          ],
+          [
+            1411,
+            560,
+            21
+          ],
+          [
+            313,
+            198,
+            262
+          ],
+          [
+            318,
+            6767,
+            264
+          ],
+          [
+            5041,
+            292,
+            8
+          ],
+          [
+            318,
+            15,
+            11
+          ],
+          [
+            16,
+            1174,
+            198
+          ],
+          [
+            364,
+            696,
+            303
+          ],
+          [
+            15,
+            486,
+            77
+          ],
+          [
+            198,
+            285,
+            264
+          ],
+          [
+            1727,
+            283,
+            318
+          ],
+          [
+            478,
+            292,
+            26
+          ],
+          [
+            285,
+            264,
+            283
+          ],
+          [
+            26,
+            198,
+            285
+          ],
+          [
+            283,
+            264,
+            26
+          ],
+          [
+            26,
+            198,
+            262
+          ],
+          [
+            198,
+            262,
+            264
+          ],
+          [
+            92,
+            198,
+            71093
+          ],
+          [
+            1919,
+            369,
+            4101
+          ],
+          [
+            2716,
+            11,
+            321
+          ],
+          [
+            13,
+            353,
+            3172
+          ],
+          [
+            424,
+            440,
+            264
+          ],
+          [
+            15673,
+            321,
+            264
+          ],
+          [
+            3010,
+            13,
+            198
+          ],
+          [
+            271,
+            71093,
+            34602
+          ],
+          [
+            8556,
+            15336,
+            1393
+          ],
+          [
+            560,
+            21,
+            19
+          ],
+          [
+            1411,
+            560,
+            21
+          ],
+          [
+            313,
+            198,
+            262
+          ],
+          [
+            318,
+            6767,
+            264
+          ],
+          [
+            5041,
+            292,
+            8
+          ],
+          [
+            318,
+            15,
+            11
+          ]
+        ],
+        "draft_vocab_sizes": [
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320
+        ],
+        "prefill_seconds": 0.056567083,
+        "round_seconds": [
+          0.046024459,
+          0.046294625,
+          0.046485667,
+          0.046518542,
+          0.046644083,
+          0.046021875,
+          0.046140625,
+          0.046431625,
+          0.045917708,
+          0.046390875,
+          0.046105458,
+          0.04644925,
+          0.048785541,
+          0.047904584,
+          0.047597042,
+          0.048814083,
+          0.049250875,
+          0.047943125,
+          0.048124583,
+          0.0472585,
+          0.048595958,
+          0.048066042,
+          0.047734375,
+          0.048149125,
+          0.049115,
+          0.048373959,
+          0.04795725,
+          0.048163208,
+          0.048044417,
+          0.04829,
+          0.0475065,
+          0.047939708,
+          0.047599791,
+          0.047241833,
+          0.047549209,
+          0.048851625,
+          0.047244708,
+          0.04661025,
+          0.047183458,
+          0.046421708,
+          0.0475465,
+          0.047841291,
+          0.048829125,
+          0.04635,
+          0.046107625,
+          0.046027834,
+          0.045527666,
+          0.047817542,
+          0.048154625,
+          0.0472405,
+          0.047607334,
+          0.047298083,
+          0.04847075,
+          0.04682,
+          0.047643667,
+          0.047443667,
+          0.047353458,
+          0.047585417,
+          0.049115459,
+          0.049387625,
+          0.048532542,
+          0.04852025,
+          0.048859583,
+          0.048250459,
+          0.048964584,
+          0.048581208,
+          0.048564584,
+          0.047923875,
+          0.047952958,
+          0.049470458,
+          0.048904292,
+          0.048274041,
+          0.048567833,
+          0.049162375,
+          0.0486385,
+          0.048327458,
+          0.049170834,
+          0.046750834
+        ],
+        "synchronize_draft_seconds": 0.176978042,
+        "tokens": [
+          271,
+          248068,
+          198,
+          760,
+          1156,
+          6587,
+          264,
+          2716,
+          32671,
+          709,
+          310,
+          12204,
+          76938,
+          4947,
+          13,
+          6558,
+          728,
+          1683,
+          883,
+          279,
+          1786,
+          5313,
+          25,
+          271,
+          3670,
+          25,
+          198,
+          16,
+          13,
+          82930,
+          318,
+          3267,
+          520,
+          8,
+          471,
+          4145,
+          694,
+          496,
+          7,
+          17,
+          83193,
+          681,
+          524,
+          14542,
+          198,
+          17,
+          13,
+          13310,
+          1340,
+          471,
+          496,
+          1393,
+          681,
+          4145,
+          11,
+          10727,
+          198,
+          18,
+          13,
+          82930,
+          440,
+          20781,
+          1954,
+          471,
+          777,
+          6150,
+          198,
+          19,
+          13,
+          11747,
+          14650,
+          5215,
+          471,
+          39318,
+          13099,
+          32671,
+          271,
+          12189,
+          781,
+          4439,
+          364,
+          328,
+          8412,
+          1288,
+          353,
+          3172,
+          708,
+          440,
+          279,
+          83876,
+          5313,
+          430,
+          424,
+          579,
+          61446,
+          11,
+          10727,
+          11,
+          321,
+          32680,
+          13,
+          353,
+          3172,
+          2830,
+          264,
+          2526,
+          1822,
+          709,
+          310,
+          19264,
+          10121,
+          13,
+          271,
+          9764,
+          728,
+          3165,
+          264,
+          4101,
+          11,
+          39318,
+          13099,
+          32671,
+          709,
+          25,
+          271,
+          71093,
+          34602,
+          198,
+          8556,
+          15336,
+          1393,
+          25,
+          560,
+          21,
+          19,
+          8,
+          1411,
+          560,
+          21,
+          19,
+          313,
+          198,
+          262,
+          1042,
+          318,
+          6767,
+          264,
+          11,
+          5041,
+          292,
+          8,
+          283,
+          318,
+          15,
+          11,
+          220,
+          16,
+          1174,
+          198,
+          262,
+          364,
+          696,
+          303,
+          220,
+          15,
+          486,
+          77,
+          313,
+          198,
+          285,
+          1042,
+          1727,
+          283,
+          264,
+          478,
+          292,
+          26,
+          198,
+          285,
+          264,
+          283,
+          292,
+          26,
+          198,
+          285,
+          292,
+          283,
+          1727,
+          26,
+          198,
+          262,
+          333,
+          198,
+          262,
+          264,
+          198,
+          92,
+          198,
+          71093,
+          271,
+          1919,
+          369,
+          4101,
+          11,
+          2716,
+          11,
+          321,
+          10727,
+          13,
+          353,
+          3172,
+          2945,
+          424,
+          440,
+          264,
+          9522,
+          15673,
+          321,
+          264,
+          10121,
+          3010,
+          13,
+          198,
+          248069,
+          271,
+          71093,
+          34602,
+          198,
+          8556,
+          15336,
+          1393,
+          25,
+          560,
+          21,
+          19,
+          8,
+          1411,
+          560,
+          21,
+          19,
+          313,
+          198,
+          262,
+          1042,
+          318,
+          6767,
+          264,
+          11,
+          5041,
+          292,
+          8,
+          283,
+          318,
+          15,
+          11,
+          220
+        ],
+        "verify_seconds": 3.1792857950000006
+      },
+      "greedy_head": false,
+      "greedy_head_calls": 0,
+      "hc_projection": true,
+      "kv_block_calls": 0,
+      "kv_blocks": false,
+      "mtp": true,
+      "peak_memory_bytes": 74615171014,
+      "prompt": "Write a short Rust function that computes Fibonacci numbers.",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "qmv": true,
+      "qmv_stream_x": false,
+      "shared_gemv": false,
+      "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization - more complex\n4. Using iterator pattern - idiomatic Rust\n\nSince they asked for \"short,\" I'll go with the iterative approach as it's concise, efficient, and readable. I'll include a small main function to demonstrate usage.\n\nLet me write a clean, idiomatic Rust function:\n\n```rust\nfn fib(n: u64) -> u64 {\n    let (mut a, mut b) = (0, 1);\n    for _ in 0..n {\n        let next = a + b;\n        a = b;\n        b = next;\n    }\n    a\n}\n```\n\nThis is clean, short, and efficient. I'll present it with a brief explanation and a usage example.\n</think>\n\n```rust\nfn fib(n: u64) -> u64 {\n    let (mut a, mut b) = (0, ",
+      "tokens_per_second": 68.1969695244188
+    },
+    {
+      "adaptive_depth": false,
+      "adaptive_depth_costs": [
+        0.031545832,
+        0.038575983,
+        0.046995903
+      ],
+      "adaptive_vocab": false,
+      "candidate": true,
+      "cycle": 3,
+      "draft_vocab_limit": 0,
+      "draft_vocab_refresh_rounds": 0,
+      "gemv_launches": 0,
+      "gemv_narrow": false,
+      "generation": {
+        "acceptance": [
+          0,
+          3,
+          3,
+          3,
+          3,
+          3,
+          2,
+          0,
+          3,
+          0,
+          3,
+          3,
+          2,
+          0,
+          0,
+          3,
+          2,
+          3,
+          3,
+          0,
+          3,
+          3,
+          1,
+          0,
+          0,
+          0,
+          0,
+          3,
+          1,
+          3,
+          3,
+          2,
+          0,
+          2,
+          3,
+          3,
+          0,
+          1,
+          0,
+          3,
+          3,
+          3,
+          0,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "decode_seconds": 3.725676,
+        "draft_lengths": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "draft_seconds": 0.37156734,
+        "draft_tokens": [
+          [
+            9764,
+            579,
+            1151
+          ],
+          [
+            198,
+            760,
+            1156
+          ],
+          [
+            264,
+            2716,
+            32671
+          ],
+          [
+            310,
+            12204,
+            76938
+          ],
+          [
+            13,
+            6558,
+            728
+          ],
+          [
+            883,
+            279,
+            1786
+          ],
+          [
+            25,
+            271,
+            16
+          ],
+          [
+            364,
+            264,
+            4145
+          ],
+          [
+            198,
+            16,
+            13
+          ],
+          [
+            5313,
+            471,
+            496
+          ],
+          [
+            3267,
+            520,
+            8
+          ],
+          [
+            4145,
+            694,
+            496
+          ],
+          [
+            17,
+            83193,
+            8
+          ],
+          [
+            1546,
+            6103,
+            198
+          ],
+          [
+            2172,
+            364,
+            6618
+          ],
+          [
+            198,
+            17,
+            13
+          ],
+          [
+            1340,
+            471,
+            4145
+          ],
+          [
+            1393,
+            681,
+            4145
+          ],
+          [
+            10727,
+            198,
+            18
+          ],
+          [
+            54312,
+            1452,
+            29812
+          ],
+          [
+            440,
+            20781,
+            1954
+          ],
+          [
+            777,
+            6150,
+            198
+          ],
+          [
+            13,
+            2985,
+            20781
+          ],
+          [
+            1510,
+            1771,
+            476
+          ],
+          [
+            471,
+            777,
+            6150
+          ],
+          [
+            271,
+            2381,
+            264
+          ],
+          [
+            1546,
+            32671,
+            291
+          ],
+          [
+            13099,
+            32671,
+            271
+          ],
+          [
+            781,
+            1018,
+            328
+          ],
+          [
+            364,
+            328,
+            8412
+          ],
+          [
+            353,
+            3172,
+            708
+          ],
+          [
+            279,
+            83876,
+            2243
+          ],
+          [
+            2394,
+            424,
+            579
+          ],
+          [
+            424,
+            579,
+            279
+          ],
+          [
+            11,
+            10727,
+            11
+          ],
+          [
+            32680,
+            13,
+            353
+          ],
+          [
+            1048,
+            884,
+            264
+          ],
+          [
+            264,
+            9522,
+            3847
+          ],
+          [
+            3010,
+            440,
+            264
+          ],
+          [
+            709,
+            310,
+            19264
+          ],
+          [
+            13,
+            271,
+            9764
+          ],
+          [
+            3165,
+            264,
+            4101
+          ],
+          [
+            16866,
+            3010,
+            25
+          ],
+          [
+            13099,
+            32671,
+            709
+          ],
+          [
+            271,
+            71093,
+            34602
+          ],
+          [
+            8556,
+            15336,
+            1393
+          ],
+          [
+            560,
+            21,
+            19
+          ],
+          [
+            1411,
+            560,
+            21
+          ],
+          [
+            313,
+            198,
+            262
+          ],
+          [
+            318,
+            6767,
+            264
+          ],
+          [
+            5041,
+            292,
+            8
+          ],
+          [
+            318,
+            15,
+            11
+          ],
+          [
+            16,
+            1174,
+            198
+          ],
+          [
+            364,
+            696,
+            303
+          ],
+          [
+            15,
+            486,
+            77
+          ],
+          [
+            198,
+            285,
+            264
+          ],
+          [
+            1727,
+            283,
+            318
+          ],
+          [
+            478,
+            292,
+            26
+          ],
+          [
+            285,
+            264,
+            283
+          ],
+          [
+            26,
+            198,
+            285
+          ],
+          [
+            283,
+            264,
+            26
+          ],
+          [
+            26,
+            198,
+            262
+          ],
+          [
+            198,
+            262,
+            264
+          ],
+          [
+            92,
+            198,
+            71093
+          ],
+          [
+            1919,
+            369,
+            4101
+          ],
+          [
+            2716,
+            11,
+            321
+          ],
+          [
+            13,
+            353,
+            3172
+          ],
+          [
+            424,
+            440,
+            264
+          ],
+          [
+            15673,
+            321,
+            264
+          ],
+          [
+            3010,
+            13,
+            198
+          ],
+          [
+            271,
+            71093,
+            34602
+          ],
+          [
+            8556,
+            15336,
+            1393
+          ],
+          [
+            560,
+            21,
+            19
+          ],
+          [
+            1411,
+            560,
+            21
+          ],
+          [
+            313,
+            198,
+            262
+          ],
+          [
+            318,
+            6767,
+            264
+          ],
+          [
+            5041,
+            292,
+            8
+          ],
+          [
+            318,
+            15,
+            11
+          ]
+        ],
+        "draft_vocab_sizes": [
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320
+        ],
+        "prefill_seconds": 0.058062209000000004,
+        "round_seconds": [
+          0.045403833,
+          0.046567083,
+          0.04716575,
+          0.04698925,
+          0.047207917,
+          0.04647475,
+          0.047521042,
+          0.047060917,
+          0.047545334,
+          0.04760975,
+          0.047292167,
+          0.04731075,
+          0.047590042,
+          0.047536583,
+          0.0471105,
+          0.048017541,
+          0.047538791,
+          0.048244958,
+          0.04809675,
+          0.046816625,
+          0.048640542,
+          0.047761166,
+          0.047779666,
+          0.048191875,
+          0.048887,
+          0.048695584,
+          0.047786666,
+          0.048040333,
+          0.047616333,
+          0.047569375,
+          0.048040375,
+          0.048209208,
+          0.047639916,
+          0.047252292,
+          0.047452583,
+          0.048987375,
+          0.047269334,
+          0.047115125,
+          0.046807042,
+          0.047797833,
+          0.047516625,
+          0.047251625,
+          0.047757625,
+          0.046263042,
+          0.046630541,
+          0.047239,
+          0.046261,
+          0.047327084,
+          0.047301541,
+          0.046858,
+          0.047881375,
+          0.047125666,
+          0.04818275,
+          0.04711,
+          0.047283292,
+          0.047595709,
+          0.047161209,
+          0.0477365,
+          0.047807041,
+          0.048356291,
+          0.04801625,
+          0.048362375,
+          0.047809583,
+          0.047761917,
+          0.047952375,
+          0.047906125,
+          0.048288,
+          0.047658667,
+          0.048436417,
+          0.049061167,
+          0.047887791,
+          0.047831917,
+          0.048695708,
+          0.049035833,
+          0.048223,
+          0.047832875,
+          0.048787083,
+          0.046193958
+        ],
+        "synchronize_draft_seconds": 0.169897373,
+        "tokens": [
+          271,
+          248068,
+          198,
+          760,
+          1156,
+          6587,
+          264,
+          2716,
+          32671,
+          709,
+          310,
+          12204,
+          76938,
+          4947,
+          13,
+          6558,
+          728,
+          1683,
+          883,
+          279,
+          1786,
+          5313,
+          25,
+          271,
+          3670,
+          25,
+          198,
+          16,
+          13,
+          82930,
+          318,
+          3267,
+          520,
+          8,
+          471,
+          4145,
+          694,
+          496,
+          7,
+          17,
+          83193,
+          681,
+          524,
+          14542,
+          198,
+          17,
+          13,
+          13310,
+          1340,
+          471,
+          496,
+          1393,
+          681,
+          4145,
+          11,
+          10727,
+          198,
+          18,
+          13,
+          82930,
+          440,
+          20781,
+          1954,
+          471,
+          777,
+          6150,
+          198,
+          19,
+          13,
+          11747,
+          14650,
+          5215,
+          471,
+          39318,
+          13099,
+          32671,
+          271,
+          12189,
+          781,
+          4439,
+          364,
+          328,
+          8412,
+          1288,
+          353,
+          3172,
+          708,
+          440,
+          279,
+          83876,
+          5313,
+          430,
+          424,
+          579,
+          61446,
+          11,
+          10727,
+          11,
+          321,
+          32680,
+          13,
+          353,
+          3172,
+          2830,
+          264,
+          2526,
+          1822,
+          709,
+          310,
+          19264,
+          10121,
+          13,
+          271,
+          9764,
+          728,
+          3165,
+          264,
+          4101,
+          11,
+          39318,
+          13099,
+          32671,
+          709,
+          25,
+          271,
+          71093,
+          34602,
+          198,
+          8556,
+          15336,
+          1393,
+          25,
+          560,
+          21,
+          19,
+          8,
+          1411,
+          560,
+          21,
+          19,
+          313,
+          198,
+          262,
+          1042,
+          318,
+          6767,
+          264,
+          11,
+          5041,
+          292,
+          8,
+          283,
+          318,
+          15,
+          11,
+          220,
+          16,
+          1174,
+          198,
+          262,
+          364,
+          696,
+          303,
+          220,
+          15,
+          486,
+          77,
+          313,
+          198,
+          285,
+          1042,
+          1727,
+          283,
+          264,
+          478,
+          292,
+          26,
+          198,
+          285,
+          264,
+          283,
+          292,
+          26,
+          198,
+          285,
+          292,
+          283,
+          1727,
+          26,
+          198,
+          262,
+          333,
+          198,
+          262,
+          264,
+          198,
+          92,
+          198,
+          71093,
+          271,
+          1919,
+          369,
+          4101,
+          11,
+          2716,
+          11,
+          321,
+          10727,
+          13,
+          353,
+          3172,
+          2945,
+          424,
+          440,
+          264,
+          9522,
+          15673,
+          321,
+          264,
+          10121,
+          3010,
+          13,
+          198,
+          248069,
+          271,
+          71093,
+          34602,
+          198,
+          8556,
+          15336,
+          1393,
+          25,
+          560,
+          21,
+          19,
+          8,
+          1411,
+          560,
+          21,
+          19,
+          313,
+          198,
+          262,
+          1042,
+          318,
+          6767,
+          264,
+          11,
+          5041,
+          292,
+          8,
+          283,
+          318,
+          15,
+          11,
+          220
+        ],
+        "verify_seconds": 3.169452539000001
+      },
+      "greedy_head": false,
+      "greedy_head_calls": 0,
+      "hc_projection": true,
+      "kv_block_calls": 0,
+      "kv_blocks": false,
+      "mtp": true,
+      "peak_memory_bytes": 74615698886,
+      "prompt": "Write a short Rust function that computes Fibonacci numbers.",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "qmv": true,
+      "qmv_stream_x": false,
+      "shared_gemv": false,
+      "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization - more complex\n4. Using iterator pattern - idiomatic Rust\n\nSince they asked for \"short,\" I'll go with the iterative approach as it's concise, efficient, and readable. I'll include a small main function to demonstrate usage.\n\nLet me write a clean, idiomatic Rust function:\n\n```rust\nfn fib(n: u64) -> u64 {\n    let (mut a, mut b) = (0, 1);\n    for _ in 0..n {\n        let next = a + b;\n        a = b;\n        b = next;\n    }\n    a\n}\n```\n\nThis is clean, short, and efficient. I'll present it with a brief explanation and a usage example.\n</think>\n\n```rust\nfn fib(n: u64) -> u64 {\n    let (mut a, mut b) = (0, ",
+      "tokens_per_second": 68.44395486886138
+    },
+    {
+      "adaptive_depth": false,
+      "adaptive_depth_costs": [
+        0.031545832,
+        0.038575983,
+        0.046995903
+      ],
+      "adaptive_vocab": false,
+      "candidate": false,
+      "cycle": 3,
+      "draft_vocab_limit": 0,
+      "draft_vocab_refresh_rounds": 0,
+      "gemv_launches": 0,
+      "gemv_narrow": false,
+      "generation": {
+        "acceptance": [],
+        "decode_seconds": 5.636029,
+        "draft_lengths": [],
+        "draft_seconds": 0.0,
+        "prefill_seconds": 0.057751623999999994,
+        "round_seconds": [],
+        "synchronize_draft_seconds": 0.0,
+        "tokens": [
+          271,
+          248068,
+          198,
+          760,
+          1156,
+          6587,
+          264,
+          2716,
+          32671,
+          709,
+          310,
+          12204,
+          76938,
+          4947,
+          13,
+          6558,
+          728,
+          1683,
+          883,
+          279,
+          1786,
+          5313,
+          25,
+          271,
+          3670,
+          25,
+          198,
+          16,
+          13,
+          82930,
+          318,
+          3267,
+          520,
+          8,
+          471,
+          4145,
+          694,
+          496,
+          7,
+          17,
+          83193,
+          681,
+          524,
+          14542,
+          198,
+          17,
+          13,
+          13310,
+          1340,
+          471,
+          496,
+          1393,
+          681,
+          4145,
+          11,
+          10727,
+          198,
+          18,
+          13,
+          82930,
+          440,
+          20781,
+          1954,
+          471,
+          777,
+          6150,
+          198,
+          19,
+          13,
+          11747,
+          14650,
+          5215,
+          471,
+          39318,
+          13099,
+          32671,
+          271,
+          12189,
+          781,
+          4439,
+          364,
+          328,
+          8412,
+          1288,
+          353,
+          3172,
+          708,
+          440,
+          279,
+          83876,
+          5313,
+          430,
+          424,
+          579,
+          61446,
+          11,
+          10727,
+          11,
+          321,
+          32680,
+          13,
+          353,
+          3172,
+          2830,
+          264,
+          2526,
+          1822,
+          709,
+          310,
+          19264,
+          10121,
+          13,
+          271,
+          9764,
+          728,
+          3165,
+          264,
+          4101,
+          11,
+          39318,
+          13099,
+          32671,
+          709,
+          25,
+          271,
+          71093,
+          34602,
+          198,
+          8556,
+          15336,
+          1393,
+          25,
+          560,
+          21,
+          19,
+          8,
+          1411,
+          560,
+          21,
+          19,
+          313,
+          198,
+          262,
+          1042,
+          318,
+          6767,
+          264,
+          11,
+          5041,
+          292,
+          8,
+          283,
+          318,
+          15,
+          11,
+          220,
+          16,
+          1174,
+          198,
+          262,
+          364,
+          696,
+          303,
+          220,
+          15,
+          486,
+          77,
+          313,
+          198,
+          285,
+          1042,
+          1727,
+          283,
+          264,
+          478,
+          292,
+          26,
+          198,
+          285,
+          264,
+          283,
+          292,
+          26,
+          198,
+          285,
+          292,
+          283,
+          1727,
+          26,
+          198,
+          262,
+          333,
+          198,
+          262,
+          264,
+          198,
+          92,
+          198,
+          71093,
+          271,
+          1919,
+          369,
+          4101,
+          11,
+          2716,
+          11,
+          321,
+          10727,
+          13,
+          353,
+          3172,
+          2945,
+          424,
+          440,
+          264,
+          9522,
+          15673,
+          321,
+          264,
+          10121,
+          3010,
+          13,
+          198,
+          248069,
+          271,
+          71093,
+          34602,
+          198,
+          8556,
+          15336,
+          1393,
+          25,
+          560,
+          21,
+          19,
+          8,
+          1411,
+          560,
+          21,
+          19,
+          313,
+          198,
+          262,
+          1042,
+          318,
+          6767,
+          264,
+          11,
+          5041,
+          292,
+          8,
+          283,
+          318,
+          15,
+          11,
+          220
+        ],
+        "verify_seconds": 0.0
+      },
+      "greedy_head": false,
+      "greedy_head_calls": 0,
+      "hc_projection": true,
+      "kv_block_calls": 0,
+      "kv_blocks": false,
+      "mtp": false,
+      "peak_memory_bytes": 74615698886,
+      "prompt": "Write a short Rust function that computes Fibonacci numbers.",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "qmv": true,
+      "qmv_stream_x": false,
+      "shared_gemv": false,
+      "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization - more complex\n4. Using iterator pattern - idiomatic Rust\n\nSince they asked for \"short,\" I'll go with the iterative approach as it's concise, efficient, and readable. I'll include a small main function to demonstrate usage.\n\nLet me write a clean, idiomatic Rust function:\n\n```rust\nfn fib(n: u64) -> u64 {\n    let (mut a, mut b) = (0, 1);\n    for _ in 0..n {\n        let next = a + b;\n        a = b;\n        b = next;\n    }\n    a\n}\n```\n\nThis is clean, short, and efficient. I'll present it with a brief explanation and a usage example.\n</think>\n\n```rust\nfn fib(n: u64) -> u64 {\n    let (mut a, mut b) = (0, ",
+      "tokens_per_second": 45.244621700846466
+    },
+    {
+      "adaptive_depth": false,
+      "adaptive_depth_costs": [
+        0.031545832,
+        0.038575983,
+        0.046995903
+      ],
+      "adaptive_vocab": false,
+      "candidate": false,
+      "cycle": 4,
+      "draft_vocab_limit": 0,
+      "draft_vocab_refresh_rounds": 0,
+      "gemv_launches": 0,
+      "gemv_narrow": false,
+      "generation": {
+        "acceptance": [],
+        "decode_seconds": 5.630042792,
+        "draft_lengths": [],
+        "draft_seconds": 0.0,
+        "prefill_seconds": 0.056610583000000006,
+        "round_seconds": [],
+        "synchronize_draft_seconds": 0.0,
+        "tokens": [
+          271,
+          248068,
+          198,
+          760,
+          1156,
+          6587,
+          264,
+          2716,
+          32671,
+          709,
+          310,
+          12204,
+          76938,
+          4947,
+          13,
+          6558,
+          728,
+          1683,
+          883,
+          279,
+          1786,
+          5313,
+          25,
+          271,
+          3670,
+          25,
+          198,
+          16,
+          13,
+          82930,
+          318,
+          3267,
+          520,
+          8,
+          471,
+          4145,
+          694,
+          496,
+          7,
+          17,
+          83193,
+          681,
+          524,
+          14542,
+          198,
+          17,
+          13,
+          13310,
+          1340,
+          471,
+          496,
+          1393,
+          681,
+          4145,
+          11,
+          10727,
+          198,
+          18,
+          13,
+          82930,
+          440,
+          20781,
+          1954,
+          471,
+          777,
+          6150,
+          198,
+          19,
+          13,
+          11747,
+          14650,
+          5215,
+          471,
+          39318,
+          13099,
+          32671,
+          271,
+          12189,
+          781,
+          4439,
+          364,
+          328,
+          8412,
+          1288,
+          353,
+          3172,
+          708,
+          440,
+          279,
+          83876,
+          5313,
+          430,
+          424,
+          579,
+          61446,
+          11,
+          10727,
+          11,
+          321,
+          32680,
+          13,
+          353,
+          3172,
+          2830,
+          264,
+          2526,
+          1822,
+          709,
+          310,
+          19264,
+          10121,
+          13,
+          271,
+          9764,
+          728,
+          3165,
+          264,
+          4101,
+          11,
+          39318,
+          13099,
+          32671,
+          709,
+          25,
+          271,
+          71093,
+          34602,
+          198,
+          8556,
+          15336,
+          1393,
+          25,
+          560,
+          21,
+          19,
+          8,
+          1411,
+          560,
+          21,
+          19,
+          313,
+          198,
+          262,
+          1042,
+          318,
+          6767,
+          264,
+          11,
+          5041,
+          292,
+          8,
+          283,
+          318,
+          15,
+          11,
+          220,
+          16,
+          1174,
+          198,
+          262,
+          364,
+          696,
+          303,
+          220,
+          15,
+          486,
+          77,
+          313,
+          198,
+          285,
+          1042,
+          1727,
+          283,
+          264,
+          478,
+          292,
+          26,
+          198,
+          285,
+          264,
+          283,
+          292,
+          26,
+          198,
+          285,
+          292,
+          283,
+          1727,
+          26,
+          198,
+          262,
+          333,
+          198,
+          262,
+          264,
+          198,
+          92,
+          198,
+          71093,
+          271,
+          1919,
+          369,
+          4101,
+          11,
+          2716,
+          11,
+          321,
+          10727,
+          13,
+          353,
+          3172,
+          2945,
+          424,
+          440,
+          264,
+          9522,
+          15673,
+          321,
+          264,
+          10121,
+          3010,
+          13,
+          198,
+          248069,
+          271,
+          71093,
+          34602,
+          198,
+          8556,
+          15336,
+          1393,
+          25,
+          560,
+          21,
+          19,
+          8,
+          1411,
+          560,
+          21,
+          19,
+          313,
+          198,
+          262,
+          1042,
+          318,
+          6767,
+          264,
+          11,
+          5041,
+          292,
+          8,
+          283,
+          318,
+          15,
+          11,
+          220
+        ],
+        "verify_seconds": 0.0
+      },
+      "greedy_head": false,
+      "greedy_head_calls": 0,
+      "hc_projection": true,
+      "kv_block_calls": 0,
+      "kv_blocks": false,
+      "mtp": false,
+      "peak_memory_bytes": 74615698886,
+      "prompt": "Write a short Rust function that computes Fibonacci numbers.",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "qmv": true,
+      "qmv_stream_x": false,
+      "shared_gemv": false,
+      "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization - more complex\n4. Using iterator pattern - idiomatic Rust\n\nSince they asked for \"short,\" I'll go with the iterative approach as it's concise, efficient, and readable. I'll include a small main function to demonstrate usage.\n\nLet me write a clean, idiomatic Rust function:\n\n```rust\nfn fib(n: u64) -> u64 {\n    let (mut a, mut b) = (0, 1);\n    for _ in 0..n {\n        let next = a + b;\n        a = b;\n        b = next;\n    }\n    a\n}\n```\n\nThis is clean, short, and efficient. I'll present it with a brief explanation and a usage example.\n</think>\n\n```rust\nfn fib(n: u64) -> u64 {\n    let (mut a, mut b) = (0, ",
+      "tokens_per_second": 45.292728567239635
+    },
+    {
+      "adaptive_depth": false,
+      "adaptive_depth_costs": [
+        0.031545832,
+        0.038575983,
+        0.046995903
+      ],
+      "adaptive_vocab": false,
+      "candidate": true,
+      "cycle": 4,
+      "draft_vocab_limit": 0,
+      "draft_vocab_refresh_rounds": 0,
+      "gemv_launches": 0,
+      "gemv_narrow": false,
+      "generation": {
+        "acceptance": [
+          0,
+          3,
+          3,
+          3,
+          3,
+          3,
+          2,
+          0,
+          3,
+          0,
+          3,
+          3,
+          2,
+          0,
+          0,
+          3,
+          2,
+          3,
+          3,
+          0,
+          3,
+          3,
+          1,
+          0,
+          0,
+          0,
+          0,
+          3,
+          1,
+          3,
+          3,
+          2,
+          0,
+          2,
+          3,
+          3,
+          0,
+          1,
+          0,
+          3,
+          3,
+          3,
+          0,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          3,
+          3,
+          3,
+          1,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "decode_seconds": 3.727641708,
+        "draft_lengths": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "draft_seconds": 0.3694127919999998,
+        "draft_tokens": [
+          [
+            9764,
+            579,
+            1151
+          ],
+          [
+            198,
+            760,
+            1156
+          ],
+          [
+            264,
+            2716,
+            32671
+          ],
+          [
+            310,
+            12204,
+            76938
+          ],
+          [
+            13,
+            6558,
+            728
+          ],
+          [
+            883,
+            279,
+            1786
+          ],
+          [
+            25,
+            271,
+            16
+          ],
+          [
+            364,
+            264,
+            4145
+          ],
+          [
+            198,
+            16,
+            13
+          ],
+          [
+            5313,
+            471,
+            496
+          ],
+          [
+            3267,
+            520,
+            8
+          ],
+          [
+            4145,
+            694,
+            496
+          ],
+          [
+            17,
+            83193,
+            8
+          ],
+          [
+            1546,
+            6103,
+            198
+          ],
+          [
+            2172,
+            364,
+            6618
+          ],
+          [
+            198,
+            17,
+            13
+          ],
+          [
+            1340,
+            471,
+            4145
+          ],
+          [
+            1393,
+            681,
+            4145
+          ],
+          [
+            10727,
+            198,
+            18
+          ],
+          [
+            54312,
+            1452,
+            29812
+          ],
+          [
+            440,
+            20781,
+            1954
+          ],
+          [
+            777,
+            6150,
+            198
+          ],
+          [
+            13,
+            2985,
+            20781
+          ],
+          [
+            1510,
+            1771,
+            476
+          ],
+          [
+            471,
+            777,
+            6150
+          ],
+          [
+            271,
+            2381,
+            264
+          ],
+          [
+            1546,
+            32671,
+            291
+          ],
+          [
+            13099,
+            32671,
+            271
+          ],
+          [
+            781,
+            1018,
+            328
+          ],
+          [
+            364,
+            328,
+            8412
+          ],
+          [
+            353,
+            3172,
+            708
+          ],
+          [
+            279,
+            83876,
+            2243
+          ],
+          [
+            2394,
+            424,
+            579
+          ],
+          [
+            424,
+            579,
+            279
+          ],
+          [
+            11,
+            10727,
+            11
+          ],
+          [
+            32680,
+            13,
+            353
+          ],
+          [
+            1048,
+            884,
+            264
+          ],
+          [
+            264,
+            9522,
+            3847
+          ],
+          [
+            3010,
+            440,
+            264
+          ],
+          [
+            709,
+            310,
+            19264
+          ],
+          [
+            13,
+            271,
+            9764
+          ],
+          [
+            3165,
+            264,
+            4101
+          ],
+          [
+            16866,
+            3010,
+            25
+          ],
+          [
+            13099,
+            32671,
+            709
+          ],
+          [
+            271,
+            71093,
+            34602
+          ],
+          [
+            8556,
+            15336,
+            1393
+          ],
+          [
+            560,
+            21,
+            19
+          ],
+          [
+            1411,
+            560,
+            21
+          ],
+          [
+            313,
+            198,
+            262
+          ],
+          [
+            318,
+            6767,
+            264
+          ],
+          [
+            5041,
+            292,
+            8
+          ],
+          [
+            318,
+            15,
+            11
+          ],
+          [
+            16,
+            1174,
+            198
+          ],
+          [
+            364,
+            696,
+            303
+          ],
+          [
+            15,
+            486,
+            77
+          ],
+          [
+            198,
+            285,
+            264
+          ],
+          [
+            1727,
+            283,
+            318
+          ],
+          [
+            478,
+            292,
+            26
+          ],
+          [
+            285,
+            264,
+            283
+          ],
+          [
+            26,
+            198,
+            285
+          ],
+          [
+            283,
+            264,
+            26
+          ],
+          [
+            26,
+            198,
+            262
+          ],
+          [
+            198,
+            262,
+            264
+          ],
+          [
+            92,
+            198,
+            71093
+          ],
+          [
+            1919,
+            369,
+            4101
+          ],
+          [
+            2716,
+            11,
+            321
+          ],
+          [
+            13,
+            353,
+            3172
+          ],
+          [
+            424,
+            440,
+            264
+          ],
+          [
+            15673,
+            321,
+            264
+          ],
+          [
+            3010,
+            13,
+            198
+          ],
+          [
+            271,
+            71093,
+            34602
+          ],
+          [
+            8556,
+            15336,
+            1393
+          ],
+          [
+            560,
+            21,
+            19
+          ],
+          [
+            1411,
+            560,
+            21
+          ],
+          [
+            313,
+            198,
+            262
+          ],
+          [
+            318,
+            6767,
+            264
+          ],
+          [
+            5041,
+            292,
+            8
+          ],
+          [
+            318,
+            15,
+            11
+          ]
+        ],
+        "draft_vocab_sizes": [
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320
+        ],
+        "prefill_seconds": 0.056731167,
+        "round_seconds": [
+          0.045892333,
+          0.046340625,
+          0.046483584,
+          0.046393,
+          0.046336291,
+          0.045761166,
+          0.045879792,
+          0.045893667,
+          0.046227916,
+          0.046364042,
+          0.045702084,
+          0.049734459,
+          0.045981292,
+          0.047587833,
+          0.047706417,
+          0.048131125,
+          0.047270667,
+          0.047979459,
+          0.048337708,
+          0.047230583,
+          0.048371375,
+          0.047899125,
+          0.048175959,
+          0.048886666,
+          0.048561208,
+          0.048475833,
+          0.04798,
+          0.048672291,
+          0.047634209,
+          0.047525417,
+          0.04786475,
+          0.047984542,
+          0.047512625,
+          0.047353709,
+          0.04800475,
+          0.049009541,
+          0.047455542,
+          0.047001125,
+          0.046800042,
+          0.047223166,
+          0.0486975,
+          0.047820333,
+          0.048498666,
+          0.045960375,
+          0.046110917,
+          0.045909583,
+          0.046079083,
+          0.047640541,
+          0.048463,
+          0.04724,
+          0.048231833,
+          0.048329875,
+          0.047739417,
+          0.047200709,
+          0.047177792,
+          0.047433917,
+          0.047082208,
+          0.047445625,
+          0.047731208,
+          0.048127375,
+          0.048094292,
+          0.048301917,
+          0.048231208,
+          0.048023375,
+          0.048081625,
+          0.047860667,
+          0.048443416,
+          0.047535792,
+          0.048033083,
+          0.04816325,
+          0.047891916,
+          0.047920375,
+          0.048607625,
+          0.049059208,
+          0.048833375,
+          0.047404167,
+          0.049103708,
+          0.045953583
+        ],
+        "synchronize_draft_seconds": 0.176595962,
+        "tokens": [
+          271,
+          248068,
+          198,
+          760,
+          1156,
+          6587,
+          264,
+          2716,
+          32671,
+          709,
+          310,
+          12204,
+          76938,
+          4947,
+          13,
+          6558,
+          728,
+          1683,
+          883,
+          279,
+          1786,
+          5313,
+          25,
+          271,
+          3670,
+          25,
+          198,
+          16,
+          13,
+          82930,
+          318,
+          3267,
+          520,
+          8,
+          471,
+          4145,
+          694,
+          496,
+          7,
+          17,
+          83193,
+          681,
+          524,
+          14542,
+          198,
+          17,
+          13,
+          13310,
+          1340,
+          471,
+          496,
+          1393,
+          681,
+          4145,
+          11,
+          10727,
+          198,
+          18,
+          13,
+          82930,
+          440,
+          20781,
+          1954,
+          471,
+          777,
+          6150,
+          198,
+          19,
+          13,
+          11747,
+          14650,
+          5215,
+          471,
+          39318,
+          13099,
+          32671,
+          271,
+          12189,
+          781,
+          4439,
+          364,
+          328,
+          8412,
+          1288,
+          353,
+          3172,
+          708,
+          440,
+          279,
+          83876,
+          5313,
+          430,
+          424,
+          579,
+          61446,
+          11,
+          10727,
+          11,
+          321,
+          32680,
+          13,
+          353,
+          3172,
+          2830,
+          264,
+          2526,
+          1822,
+          709,
+          310,
+          19264,
+          10121,
+          13,
+          271,
+          9764,
+          728,
+          3165,
+          264,
+          4101,
+          11,
+          39318,
+          13099,
+          32671,
+          709,
+          25,
+          271,
+          71093,
+          34602,
+          198,
+          8556,
+          15336,
+          1393,
+          25,
+          560,
+          21,
+          19,
+          8,
+          1411,
+          560,
+          21,
+          19,
+          313,
+          198,
+          262,
+          1042,
+          318,
+          6767,
+          264,
+          11,
+          5041,
+          292,
+          8,
+          283,
+          318,
+          15,
+          11,
+          220,
+          16,
+          1174,
+          198,
+          262,
+          364,
+          696,
+          303,
+          220,
+          15,
+          486,
+          77,
+          313,
+          198,
+          285,
+          1042,
+          1727,
+          283,
+          264,
+          478,
+          292,
+          26,
+          198,
+          285,
+          264,
+          283,
+          292,
+          26,
+          198,
+          285,
+          292,
+          283,
+          1727,
+          26,
+          198,
+          262,
+          333,
+          198,
+          262,
+          264,
+          198,
+          92,
+          198,
+          71093,
+          271,
+          1919,
+          369,
+          4101,
+          11,
+          2716,
+          11,
+          321,
+          10727,
+          13,
+          353,
+          3172,
+          2945,
+          424,
+          440,
+          264,
+          9522,
+          15673,
+          321,
+          264,
+          10121,
+          3010,
+          13,
+          198,
+          248069,
+          271,
+          71093,
+          34602,
+          198,
+          8556,
+          15336,
+          1393,
+          25,
+          560,
+          21,
+          19,
+          8,
+          1411,
+          560,
+          21,
+          19,
+          313,
+          198,
+          262,
+          1042,
+          318,
+          6767,
+          264,
+          11,
+          5041,
+          292,
+          8,
+          283,
+          318,
+          15,
+          11,
+          220
+        ],
+        "verify_seconds": 3.1668568710000002
+      },
+      "greedy_head": false,
+      "greedy_head_calls": 0,
+      "hc_projection": true,
+      "kv_block_calls": 0,
+      "kv_blocks": false,
+      "mtp": true,
+      "peak_memory_bytes": 74615698886,
+      "prompt": "Write a short Rust function that computes Fibonacci numbers.",
+      "prompt_ids": [
+        7734,
+        264,
+        2716,
+        32671,
+        709,
+        421,
+        55288,
+        76938,
+        4947,
+        13
+      ],
+      "qmv": true,
+      "qmv_stream_x": false,
+      "shared_gemv": false,
+      "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization - more complex\n4. Using iterator pattern - idiomatic Rust\n\nSince they asked for \"short,\" I'll go with the iterative approach as it's concise, efficient, and readable. I'll include a small main function to demonstrate usage.\n\nLet me write a clean, idiomatic Rust function:\n\n```rust\nfn fib(n: u64) -> u64 {\n    let (mut a, mut b) = (0, 1);\n    for _ in 0..n {\n        let next = a + b;\n        a = b;\n        b = next;\n    }\n    a\n}\n```\n\nThis is clean, short, and efficient. I'll present it with a brief explanation and a usage example.\n</think>\n\n```rust\nfn fib(n: u64) -> u64 {\n    let (mut a, mut b) = (0, ",
+      "tokens_per_second": 68.40786212171011
+    }
+  ],
+  "runtime": {
+    "ab_adaptive": false,
+    "ab_adaptive_depth": false,
+    "ab_adaptive_vocab": false,
+    "ab_gemv": false,
+    "ab_greedy_head": false,
+    "ab_hc": false,
+    "ab_kv_blocks": false,
+    "ab_qmv": false,
+    "ab_shortlist": false,
+    "ab_stream_x": false,
+    "batch": 1,
+    "chat": false,
+    "depth": 3,
+    "greedy": true,
+    "ignore_eos": true,
+    "prefix_cache": false,
+    "reasoning_effort": "xhigh",
+    "thinking": true,
+    "timing": "(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode",
+    "warmup_tokens": 256
+  }
+}

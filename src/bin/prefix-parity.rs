@@ -14,6 +14,8 @@ use std::{path::PathBuf, time::Instant};
 #[derive(Parser)]
 struct Args {
     #[arg(long)]
+    kv_blocks: bool,
+    #[arg(long)]
     model: PathBuf,
     #[arg(long)]
     prompt_ids: Option<PathBuf>,
@@ -44,6 +46,7 @@ fn main() -> Result<()> {
         eos: &[],
     };
     let expected = speculative::generate_plain(&m, &prompt, &options, |_| Ok(()))?;
+    rust_mlx::kv_blocks::set_enabled(a.kv_blocks);
     let mut cache = PrefixCache::new(&m, 2, prompt.len() * 2);
     let mut reports = Vec::new();
     for cycle in 0..3 {
@@ -110,7 +113,7 @@ fn main() -> Result<()> {
     std::fs::write(
         a.output,
         serde_json::to_vec_pretty(
-            &json!({"environment":BenchmarkEnvironment::capture()?,"model":a.model,"quantization":w.config["quantization"],"prompt_ids":prompt,"runtime":{"greedy":true,"depth":3,"batch":1,"ignore_eos":true,"prefix_cache":"exact complete prompt; model-scoped LRU"},"records":reports,"alternate_exact":true,"lru_eviction":true,"clear":true,"disabled_cache":true,"token_bound":true}),
+            &json!({"kv_blocks":a.kv_blocks,"environment":BenchmarkEnvironment::capture()?,"model":a.model,"quantization":w.config["quantization"],"prompt_ids":prompt,"runtime":{"greedy":true,"depth":3,"batch":1,"ignore_eos":true,"prefix_cache":"exact complete prompt; model-scoped LRU"},"records":reports,"alternate_exact":true,"lru_eviction":true,"clear":true,"disabled_cache":true,"token_bound":true}),
         )?,
     )?;
     println!("PREFIX_PARITY_PASSED");

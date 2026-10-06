@@ -14,8 +14,10 @@ pub mod ple;
 pub mod qsa;
 pub mod weights;
 
+pub mod draft_policy;
 mod draft_vocab;
 pub mod gdn_kernel;
+pub mod greedy_head;
 pub mod hyper_compiled;
 pub mod moe_kernel;
 pub mod mtp;
@@ -24,3 +26,5 @@ pub mod qsa_kernel;
 pub mod rope;
 pub mod speculative;
 pub mod verification;
+
+pub mod kv_blocks;

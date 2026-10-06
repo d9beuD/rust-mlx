@@ -27,12 +27,13 @@
       }
     }
 
-    const device uint8_t* ws = ws_base;
-    const device T* sc = scales_base;
-    const device T* bs = biases_base;
-    const device T* xk = x_base;
-
     for (int k = 0; k < K_SIZE; k += BLOCK_SIZE) {
+      // Recompute pointer offsets from the original buffers each iteration.
+      // Avoid loop-carried device pointers under shader instrumentation.
+      const device uint8_t* ws = ws_base + OFFSET(k) * BYTES_PER_PACK / PACK_FACTOR;
+      const device T* sc = scales_base + OFFSET(k) / GS;
+      const device T* bs = biases_base + OFFSET(k) / GS;
+      const device T* xk = x_base + OFFSET(k);
       float sums[VERIFY_T];
       for (int t = 0; t < VERIFY_T; ++t) {
         sums[t] = load_vector_exact<T>(xk + t * K_SIZE, x_thread[t]);
@@ -50,10 +51,6 @@
         }
       }
 
-      ws += BLOCK_SIZE * BYTES_PER_PACK / PACK_FACTOR;
-      sc += BLOCK_SIZE / GS;
-      bs += BLOCK_SIZE / GS;
-      xk += BLOCK_SIZE;
     }
 
     for (int row = 0; row < RESULTS_PER_SIMDGROUP; ++row) {

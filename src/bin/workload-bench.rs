@@ -46,6 +46,16 @@ struct Args {
     ab_stream_x: bool,
     #[arg(long, conflicts_with_all = ["ab_qmv", "ab_shortlist", "ab_hc", "ab_stream_x"])]
     ab_gemv: bool,
+    #[arg(long, conflicts_with_all = ["ab_qmv", "ab_shortlist", "ab_hc", "ab_stream_x", "ab_gemv"])]
+    ab_adaptive_depth: bool,
+    #[arg(long, conflicts_with_all = ["ab_qmv", "ab_shortlist", "ab_hc", "ab_stream_x", "ab_gemv", "ab_adaptive_depth"])]
+    ab_adaptive_vocab: bool,
+    #[arg(long, conflicts_with_all = ["ab_qmv", "ab_shortlist", "ab_hc", "ab_stream_x", "ab_gemv", "ab_adaptive_depth", "ab_adaptive_vocab"])]
+    ab_adaptive: bool,
+    #[arg(long, conflicts_with_all = ["ab_qmv", "ab_shortlist", "ab_hc", "ab_stream_x", "ab_gemv", "ab_adaptive_depth", "ab_adaptive_vocab", "ab_adaptive"])]
+    ab_greedy_head: bool,
+    #[arg(long, conflicts_with_all = ["ab_qmv", "ab_shortlist", "ab_hc", "ab_stream_x", "ab_gemv", "ab_adaptive_depth", "ab_adaptive_vocab", "ab_adaptive", "ab_greedy_head"])]
+    ab_kv_blocks: bool,
     #[arg(long, default_value_t = 32768)]
     draft_vocab_limit: usize,
     #[arg(long, default_value_t = 0)]
@@ -60,6 +70,7 @@ fn main() -> Result<()> {
     let w = Weights::load(&a.model)?;
     let m = HybridModel::load(&w, &a.model)?;
     let draft = Mtp::load(&w, &m.config)?;
+    draft.record_drafts.set(true);
     draft
         .draft_vocab_refresh_rounds
         .set(a.draft_vocab_refresh_rounds);
@@ -93,7 +104,18 @@ fn main() -> Result<()> {
                     || a.ab_hc
                     || a.ab_stream_x
                     || a.ab_gemv
+                    || a.ab_adaptive_depth
+                    || a.ab_adaptive_vocab
+                    || a.ab_adaptive
+                    || a.ab_greedy_head
+                    || a.ab_kv_blocks
                     || candidate;
+                if a.ab_kv_blocks {
+                    rust_mlx::kv_blocks::set_enabled(candidate);
+                }
+                if a.ab_greedy_head {
+                    rust_mlx::greedy_head::set_enabled(candidate);
+                }
                 if a.ab_qmv {
                     rust_mlx::qmv_kernel::set_enabled(candidate);
                 }
@@ -111,6 +133,15 @@ fn main() -> Result<()> {
                 if a.ab_gemv {
                     rust_mlx::gemv_kernel::set_enabled(candidate);
                 }
+                if a.ab_adaptive_depth || a.ab_adaptive {
+                    draft.adaptive_depth.set(candidate);
+                }
+                if a.ab_adaptive_vocab || a.ab_adaptive {
+                    draft.adaptive_vocab.set(candidate);
+                    draft
+                        .draft_vocab_limit
+                        .set(if candidate { a.draft_vocab_limit } else { 0 });
+                }
                 let options = Options {
                     max_tokens: if cycle == 0 {
                         a.warmup_tokens.min(a.max_tokens)
@@ -121,12 +152,22 @@ fn main() -> Result<()> {
                     chunk: 128,
                     eos: if a.ignore_eos { &[] } else { &[248044, 248046] },
                 };
+                let kv_start = rust_mlx::kv_blocks::calls();
+                let head_start = rust_mlx::greedy_head::calls();
                 let gemv_start = rust_mlx::gemv_kernel::launches();
                 let g = if mtp {
                     speculative::generate(&m, &draft, &ids, &options, |_| Ok(()))?
                 } else {
                     speculative::generate_plain(&m, &ids, &options, |_| Ok(()))?
                 };
+                let kv_calls = rust_mlx::kv_blocks::calls().wrapping_sub(kv_start);
+                if a.ab_kv_blocks && candidate && g.tokens.len() > 1 {
+                    ensure!(kv_calls > 0, "KV block candidate was not engaged");
+                }
+                let head_calls = rust_mlx::greedy_head::calls().wrapping_sub(head_start);
+                if a.ab_greedy_head && candidate && g.tokens.len() > 1 {
+                    ensure!(head_calls > 0, "greedy head candidate was not engaged");
+                }
                 let gemv_launches = rust_mlx::gemv_kernel::launches().wrapping_sub(gemv_start);
                 if a.ab_gemv && candidate && g.tokens.len() > 1 {
                     ensure!(gemv_launches > 0, "GEMV candidate was not engaged");
@@ -147,11 +188,11 @@ fn main() -> Result<()> {
                     } else {
                         expected = Some(g.tokens.clone());
                     }
-                    records.push(json!({"prompt":prompt,"prompt_ids":ids,"cycle":cycle,"mtp":mtp,"candidate":candidate,"draft_vocab_limit":draft.draft_vocab_limit.get(),"draft_vocab_refresh_rounds":draft.draft_vocab_refresh_rounds.get(),"qmv":rust_mlx::qmv_kernel::enabled(),"hc_projection":rust_mlx::hc_kernel::enabled(),"shared_gemv":rust_mlx::gemv_kernel::enabled(),"gemv_narrow":rust_mlx::gemv_kernel::narrow(),"gemv_launches":gemv_launches,"qmv_stream_x":rust_mlx::qmv_kernel::stream_x(),"tokens_per_second":tps,"text":tokenizer.decode(&g.tokens,true).ok(),"generation":g,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
+                    records.push(json!({"prompt":prompt,"prompt_ids":ids,"cycle":cycle,"mtp":mtp,"candidate":candidate,"kv_blocks":rust_mlx::kv_blocks::enabled(),"kv_block_calls":kv_calls,"greedy_head":rust_mlx::greedy_head::enabled(),"greedy_head_calls":head_calls,"adaptive_depth":draft.adaptive_depth.get(),"adaptive_depth_costs":draft.adaptive_depth_costs.get(),"adaptive_vocab":draft.adaptive_vocab.get(),"draft_vocab_limit":draft.draft_vocab_limit.get(),"draft_vocab_refresh_rounds":draft.draft_vocab_refresh_rounds.get(),"qmv":rust_mlx::qmv_kernel::enabled(),"hc_projection":rust_mlx::hc_kernel::enabled(),"shared_gemv":rust_mlx::gemv_kernel::enabled(),"gemv_narrow":rust_mlx::gemv_kernel::narrow(),"gemv_launches":gemv_launches,"qmv_stream_x":rust_mlx::qmv_kernel::stream_x(),"tokens_per_second":tps,"text":tokenizer.decode(&g.tokens,true).ok(),"generation":g,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
                     std::fs::write(
                         &a.output,
                         serde_json::to_vec_pretty(
-                            &json!({"environment":environment,"model":a.model,"quantization":w.config["quantization"],"runtime":{"chat":a.chat,"thinking":!a.no_thinking,"reasoning_effort":a.reasoning_effort,"ignore_eos":a.ignore_eos,"batch":1,"prefix_cache":false,"greedy":true,"ab_qmv":a.ab_qmv,"ab_shortlist":a.ab_shortlist,"ab_hc":a.ab_hc,"ab_gemv":a.ab_gemv,"ab_stream_x":a.ab_stream_x,"warmup_tokens":a.warmup_tokens,"depth":a.depth,"timing":"(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode"},"records":records}),
+                            &json!({"environment":environment,"model":a.model,"quantization":w.config["quantization"],"runtime":{"chat":a.chat,"thinking":!a.no_thinking,"reasoning_effort":a.reasoning_effort,"ignore_eos":a.ignore_eos,"batch":1,"prefix_cache":false,"greedy":true,"ab_kv_blocks":a.ab_kv_blocks,"ab_greedy_head":a.ab_greedy_head,"ab_adaptive_depth":a.ab_adaptive_depth,"ab_adaptive_vocab":a.ab_adaptive_vocab,"ab_adaptive":a.ab_adaptive,"ab_qmv":a.ab_qmv,"ab_shortlist":a.ab_shortlist,"ab_hc":a.ab_hc,"ab_gemv":a.ab_gemv,"ab_stream_x":a.ab_stream_x,"warmup_tokens":a.warmup_tokens,"depth":a.depth,"timing":"(generated-1)/decode including all draft/verify/prime/sync; fresh caches, alternating modes, full requested warmup each mode"},"records":records}),
                         )?,
                     )?;
                 }

@@ -11,10 +11,24 @@ use std::{
 #[derive(Parser)]
 struct Args {
     /// Alternate a kernel candidate in the same process.
-    #[arg(long,value_parser=["packed","moe","qmv","shortlist","hc","stream-x","gemv","gdn","gpu-draft","sorted-moe"])]
+    #[arg(long,value_parser=["packed","moe","qmv","shortlist","hc","stream-x","gemv","gdn","gpu-draft","sorted-moe","adaptive-depth","adaptive-vocab","adaptive","greedy-head","kv-blocks","qmv-address"])]
     ab_kernel: Option<String>,
     #[arg(long)]
     gpu_draft: bool,
+    #[arg(long)]
+    greedy_head: bool,
+    #[arg(long)]
+    adaptive_depth: bool,
+    #[arg(long)]
+    adaptive_vocab: bool,
+    /// Target calibration, seconds per full round at depths1/2/3.
+    #[arg(
+        long,
+        value_delimiter = ',',
+        num_args = 3,
+        default_value = "0.031545832,0.038575983,0.046995903"
+    )]
+    adaptive_depth_costs: Vec<f64>,
     #[arg(long)]
     draft_vocab_limit: Option<usize>,
     #[arg(long, default_value_t = 0)]
@@ -65,7 +79,13 @@ fn main() -> Result<()> {
     let m = HybridModel::load(&w, &a.model)?;
     let draft = Mtp::load(&w, &m.config)?;
     draft.gpu_draft.set(a.gpu_draft);
+    rust_mlx::greedy_head::set_enabled(a.greedy_head);
     draft.record_drafts.set(true);
+    draft.adaptive_depth.set(a.adaptive_depth);
+    draft.adaptive_vocab.set(a.adaptive_vocab);
+    draft
+        .adaptive_depth_costs
+        .set(a.adaptive_depth_costs.as_slice().try_into()?);
     draft
         .draft_vocab_refresh_rounds
         .set(a.draft_vocab_refresh_rounds);
@@ -121,6 +141,15 @@ fn main() -> Result<()> {
         };
         for candidate in modes {
             if let Some(kernel) = &a.ab_kernel {
+                if kernel == "qmv-address" {
+                    rust_mlx::qmv_kernel::set_address32(candidate);
+                }
+                if kernel == "kv-blocks" {
+                    rust_mlx::kv_blocks::set_enabled(candidate);
+                }
+                if kernel == "greedy-head" {
+                    rust_mlx::greedy_head::set_enabled(candidate);
+                }
                 if kernel == "qmv" {
                     rust_mlx::qmv_kernel::set_enabled(candidate);
                 }
@@ -138,6 +167,17 @@ fn main() -> Result<()> {
                 }
                 if kernel == "gpu-draft" {
                     draft.gpu_draft.set(candidate);
+                }
+                if kernel == "adaptive-depth" || kernel == "adaptive" {
+                    draft.adaptive_depth.set(candidate);
+                }
+                if kernel == "adaptive-vocab" || kernel == "adaptive" {
+                    draft.adaptive_vocab.set(candidate);
+                    draft.draft_vocab_limit.set(if candidate {
+                        a.draft_vocab_limit.unwrap_or(32768)
+                    } else {
+                        0
+                    });
                 }
                 if kernel == "shortlist" {
                     draft.draft_vocab_limit.set(if candidate {
@@ -170,6 +210,9 @@ fn main() -> Result<()> {
                 let mut emitted = String::new();
                 let gemv_start = rust_mlx::gemv_kernel::launches();
                 let gdn_start = rust_mlx::gdn_compiled::calls();
+                let address_start = rust_mlx::qmv_kernel::address32_calls();
+                let kv_start = rust_mlx::kv_blocks::calls();
+                let head_start = rust_mlx::greedy_head::calls();
                 let sorted_start = rust_mlx::hybrid::sorted_moe_calls();
                 let g = speculative::generate(
                     &m,
@@ -196,6 +239,21 @@ fn main() -> Result<()> {
                 )?;
                 let gemv_launches = rust_mlx::gemv_kernel::launches().wrapping_sub(gemv_start);
                 let gdn_calls = rust_mlx::gdn_compiled::calls().wrapping_sub(gdn_start);
+                let address_calls =
+                    rust_mlx::qmv_kernel::address32_calls().wrapping_sub(address_start);
+                if a.ab_kernel.as_deref() == Some("qmv-address") && candidate && g.tokens.len() > 1
+                {
+                    ensure!(address_calls > 0, "QMV address candidate was not engaged");
+                }
+                let kv_calls = rust_mlx::kv_blocks::calls().wrapping_sub(kv_start);
+                if a.ab_kernel.as_deref() == Some("kv-blocks") && candidate && g.tokens.len() > 1 {
+                    ensure!(kv_calls > 0, "KV block candidate was not engaged");
+                }
+                let head_calls = rust_mlx::greedy_head::calls().wrapping_sub(head_start);
+                if a.ab_kernel.as_deref() == Some("greedy-head") && candidate && g.tokens.len() > 1
+                {
+                    ensure!(head_calls > 0, "greedy head candidate was not engaged");
+                }
                 let sorted_calls = rust_mlx::hybrid::sorted_moe_calls().wrapping_sub(sorted_start);
                 if a.ab_kernel.as_deref() == Some("sorted-moe") && candidate && g.tokens.len() > 1 {
                     ensure!(sorted_calls > 0, "sorted MoE candidate was not engaged");
@@ -237,7 +295,7 @@ fn main() -> Result<()> {
                             "MTP trajectory differs from baseline"
                         );
                     }
-                    records.push(json!({"run":run,"kernel_candidate":a.ab_kernel,"candidate_enabled":candidate,"sorted_moe_calls":sorted_calls,"gpu_draft":draft.gpu_draft.get(),"draft_vocab_limit":draft.draft_vocab_limit.get(),"draft_vocab_refresh_rounds":draft.draft_vocab_refresh_rounds.get(),"qmv":rust_mlx::qmv_kernel::enabled(),"hc_projection":rust_mlx::hc_kernel::enabled(),"shared_gemv":rust_mlx::gemv_kernel::enabled(),"gemv_narrow":rust_mlx::gemv_kernel::narrow(),"gemv_launches":gemv_launches,"compiled_gdn":rust_mlx::gdn_compiled::enabled(),"compiled_gdn_calls":gdn_calls,"draft_depth":depth,"decode_tokens_per_second":tps,"text":t.decode(&g.tokens,true).ok(),"generation":g,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
+                    records.push(json!({"run":run,"kernel_candidate":a.ab_kernel,"candidate_enabled":candidate,"adaptive_depth":draft.adaptive_depth.get(),"adaptive_depth_costs":draft.adaptive_depth_costs.get(),"adaptive_vocab":draft.adaptive_vocab.get(),"kv_blocks":rust_mlx::kv_blocks::enabled(),"kv_block_calls":kv_calls,"greedy_head":rust_mlx::greedy_head::enabled(),"greedy_head_calls":head_calls,"sorted_moe_calls":sorted_calls,"gpu_draft":draft.gpu_draft.get(),"draft_vocab_limit":draft.draft_vocab_limit.get(),"draft_vocab_refresh_rounds":draft.draft_vocab_refresh_rounds.get(),"qmv_address32_calls":address_calls,"qmv_address32":rust_mlx::qmv_kernel::address32(),"qmv":rust_mlx::qmv_kernel::enabled(),"hc_projection":rust_mlx::hc_kernel::enabled(),"shared_gemv":rust_mlx::gemv_kernel::enabled(),"gemv_narrow":rust_mlx::gemv_kernel::narrow(),"gemv_launches":gemv_launches,"compiled_gdn":rust_mlx::gdn_compiled::enabled(),"compiled_gdn_calls":gdn_calls,"draft_depth":depth,"decode_tokens_per_second":tps,"text":t.decode(&g.tokens,true).ok(),"generation":g,"peak_memory_bytes":mlx_rs::memory::peak_memory()?}));
                 }
             }
         }

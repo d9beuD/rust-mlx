@@ -2,7 +2,10 @@ use crate::weights::{Linear, Weights};
 use anyhow::{Result, ensure};
 use mlx_rs::{
     Array, fast,
-    ops::{self, indexing::IndexOp},
+    ops::{
+        self,
+        indexing::{IndexOp, TryIndexMutOp},
+    },
 };
 use serde::Deserialize;
 
@@ -27,10 +30,69 @@ pub struct KvCache {
     pub values: Option<Array>,
     pub offset: i32,
     pub rope_offset: Option<i32>,
+    backing: Option<(Array, Array)>,
 }
 impl KvCache {
+    pub(crate) fn reset_storage(&mut self) {
+        self.backing = None;
+    }
+    pub fn trim(&mut self, end: i32) -> Result<()> {
+        ensure!((0..=self.offset).contains(&end), "invalid KV trim");
+        self.keys = self.keys.as_ref().map(|k| k.index((.., .., ..end, ..)));
+        self.values = self.values.as_ref().map(|v| v.index((.., .., ..end, ..)));
+        self.offset = end;
+        Ok(())
+    }
     pub fn update(&mut self, k: Array, v: Array) -> Result<(Array, Array)> {
+        ensure!(
+            k.ndim() == 4 && v.shape() == k.shape() && v.dtype() == k.dtype(),
+            "incompatible KV update"
+        );
         let t = k.shape()[2];
+        let compatible = |old: &Option<Array>, new: &Array| {
+            old.as_ref().is_none_or(|a| {
+                a.dtype() == new.dtype()
+                    && a.shape()[0] == new.shape()[0]
+                    && a.shape()[1] == new.shape()[1]
+                    && a.shape()[3] == new.shape()[3]
+            })
+        };
+        if crate::kv_blocks::enabled()
+            && k.shape()[0] == 1
+            && compatible(&self.keys, &k)
+            && compatible(&self.values, &v)
+        {
+            let end = self.offset + t;
+            let old = self.backing.take();
+            let (mut kb, mut vb) =
+                if let Some((kb, vb)) = old.filter(|(kb, _)| kb.shape()[2] >= end) {
+                    (kb, vb)
+                } else {
+                    let capacity = ((end + crate::kv_blocks::BLOCK - 1) / crate::kv_blocks::BLOCK)
+                        * crate::kv_blocks::BLOCK;
+                    let mut shape = k.shape().to_vec();
+                    shape[2] = capacity;
+                    let mut kb = ops::zeros_dtype(&shape, k.dtype())?;
+                    let mut vb = ops::zeros_dtype(&shape, v.dtype())?;
+                    if let (Some(keys), Some(values)) = (&self.keys, &self.values) {
+                        kb.try_index_mut((.., .., ..self.offset, ..), keys)?;
+                        vb.try_index_mut((.., .., ..self.offset, ..), values)?;
+                    }
+                    (kb, vb)
+                };
+            // Functional slice updates: aliases in prompt/verification snapshots remain immutable.
+            kb.try_index_mut((.., .., self.offset..end, ..), &k)?;
+            vb.try_index_mut((.., .., self.offset..end, ..), &v)?;
+            let keys = kb.index((.., .., ..end, ..));
+            let values = vb.index((.., .., ..end, ..));
+            self.backing = Some((kb, vb));
+            self.keys = Some(keys.clone());
+            self.values = Some(values.clone());
+            self.offset = end;
+            crate::kv_blocks::record();
+            return Ok((keys, values));
+        }
+        self.reset_storage();
         let k = if let Some(old) = &self.keys {
             ops::concatenate(&[old, &k], 2)?
         } else {

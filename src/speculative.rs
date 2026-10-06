@@ -1,5 +1,6 @@
 //! Greedy MTP with target verification and exact prefix cache commit.
 use crate::{
+    draft_policy::{DepthPolicy, VocabularyPolicy},
     draft_vocab::DraftToken,
     hybrid::{HybridCache, HybridModel},
     mtp::Mtp,
@@ -126,6 +127,8 @@ pub struct Generation {
     pub draft_lengths: Vec<usize>,
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub draft_tokens: Vec<Vec<u32>>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub draft_vocab_sizes: Vec<usize>,
     pub round_seconds: Vec<f64>,
 }
 fn greedy(x: &Array) -> Result<u32> {
@@ -173,6 +176,7 @@ pub fn generate_plain_prepared(
         acceptance: Vec::new(),
         draft_lengths: Vec::new(),
         draft_tokens: Vec::new(),
+        draft_vocab_sizes: Vec::new(),
         round_seconds: Vec::new(),
     };
     if options.eos.contains(&token) {
@@ -182,8 +186,13 @@ pub fn generate_plain_prepared(
     result.tokens.push(token);
     let decode = Instant::now();
     while result.tokens.len() < options.max_tokens {
-        let (l, _) = m.forward(&[token], &mut cache)?;
-        token = greedy(&l.index((0, -1, ..)))?;
+        token = if crate::greedy_head::enabled() {
+            let (mixed, _) = m.forward_hidden(&[token], &mut cache)?;
+            crate::greedy_head::greedy(&m.head, &mixed)?.item_exact::<u32>()
+        } else {
+            let (l, _) = m.forward(&[token], &mut cache)?;
+            greedy(&l.index((0, -1, ..)))?
+        };
         if options.eos.contains(&token) {
             break;
         }
@@ -245,6 +254,7 @@ pub fn generate_prepared(
         acceptance: Vec::new(),
         draft_lengths: Vec::new(),
         draft_tokens: Vec::new(),
+        draft_vocab_sizes: Vec::new(),
         round_seconds: Vec::new(),
     };
     if eos.contains(&bonus) {
@@ -273,6 +283,14 @@ pub fn generate_prepared(
         eos,
         &ranked,
     )?;
+    let full_head = crate::draft_vocab::DraftVocabulary::new(&m.head, 0, prompt, eos, &[])?;
+    let costs = draft.adaptive_depth_costs.get();
+    ensure!(
+        costs.iter().all(|c| c.is_finite() && *c > 0.0),
+        "invalid depth calibration"
+    );
+    let mut depth_policy = DepthPolicy::new(depth, draft.adaptive_depth.get(), costs);
+    let mut vocab_policy = VocabularyPolicy::default();
     let h = &prepared.hidden;
     let mut shifted = prompt[1..].to_vec();
     shifted.push(bonus);
@@ -288,7 +306,12 @@ pub fn generate_prepared(
     result.synchronize_draft_seconds += start.elapsed().as_secs_f64();
     while result.tokens.len() < max_tokens {
         let round = Instant::now();
-        let k = depth.min(max_tokens - result.tokens.len());
+        let k = depth_policy.choose().min(max_tokens - result.tokens.len());
+        let active_head = if vocab_policy.use_full() {
+            &full_head
+        } else {
+            &draft_head
+        };
         let start = Instant::now();
         let mut snapshots = vec![dc.clone()];
         let mut hh = dh.clone();
@@ -302,7 +325,7 @@ pub fn generate_prepared(
                         .embedding(&Array::from_slice(&[token], &[1, 1]))?;
                     let pos = dc.kv.offset;
                     let (x, h) = draft.forward(&emb, &hh, &mut dc, pos)?;
-                    ids.push(draft_head.greedy(&x)?);
+                    ids.push(active_head.greedy(&x)?);
                     hh = h;
                     snapshots.push(dc.clone());
                 }
@@ -314,7 +337,7 @@ pub fn generate_prepared(
                     let emb = m.embedding.embedding(ids.last().unwrap())?;
                     let pos = dc.kv.offset;
                     let (x, h) = draft.forward(&emb, &hh, &mut dc, pos)?;
-                    let DraftToken::Gpu(token) = draft_head.greedy_token(&x, true)? else {
+                    let DraftToken::Gpu(token) = active_head.greedy_token(&x, true)? else {
                         unreachable!("GPU draft token requested");
                     };
                     ids.push(token);
@@ -329,13 +352,22 @@ pub fn generate_prepared(
         result.draft_seconds += start.elapsed().as_secs_f64();
         if draft.record_drafts.get() {
             result.draft_tokens.push(drafted.clone());
+            result.draft_vocab_sizes.push(active_head.size());
         }
         let mut verify = vec![bonus];
         verify.extend_from_slice(&drafted);
         let original = cache.clone();
         let start = Instant::now();
-        let (l, h) = verification::with_mode(|| m.forward(&verify, &mut cache))?;
-        let sampled = indexing::argmax_axis(&l, -1, false)?.contiguous()?;
+        let (mut l, mixed, h, sampled) = if crate::greedy_head::enabled() {
+            let (mixed, hidden) =
+                verification::with_mode(|| m.forward_hidden(&verify, &mut cache))?;
+            let sampled = crate::greedy_head::greedy(&m.head, &mixed)?.contiguous()?;
+            (None, Some(mixed), hidden, sampled)
+        } else {
+            let (l, hidden) = verification::with_mode(|| m.forward(&verify, &mut cache))?;
+            let sampled = indexing::argmax_axis(&l, -1, false)?.contiguous()?;
+            (Some(l), None, hidden, sampled)
+        };
         sampled.eval()?;
         let predicted = sampled.as_slice::<u32>();
         let accepted = drafted
@@ -347,6 +379,7 @@ pub fn generate_prepared(
         result.verify_seconds += start.elapsed().as_secs_f64();
         result.acceptance.push(accepted);
         result.draft_lengths.push(k);
+        depth_policy.observe(k, accepted);
         let mut ending = false;
         let mut emitted = 0;
         for &token in drafted[..accepted].iter().chain(std::iter::once(&next)) {
@@ -375,20 +408,38 @@ pub fn generate_prepared(
         bonus = next;
         let start = Instant::now();
         let refresh = draft.draft_vocab_refresh_rounds.get();
+        let adaptive_refresh =
+            draft.adaptive_vocab.get() && vocab_policy.observe(accepted, result.acceptance.len());
         if limit > 0
             && limit < m.config.vocab_size as usize
-            && refresh > 0
-            && result.acceptance.len().is_multiple_of(refresh)
+            && (adaptive_refresh
+                || (refresh > 0 && result.acceptance.len().is_multiple_of(refresh)))
         {
             let count = 4096.min(m.config.vocab_size);
-            let ids = ops::argpartition_axis(l.index((0, accepted as i32, ..)), -count, -1)?
-                .index(-count..)
-                .contiguous()?;
+            if l.is_none() {
+                l = Some(
+                    m.head
+                        .forward_rows(mixed.as_ref().expect("greedy target retains mixed"))?,
+                );
+            }
+            let ids = ops::argpartition_axis(
+                l.as_ref()
+                    .expect("full ranking logits")
+                    .index((0, accepted as i32, ..)),
+                -count,
+                -1,
+            )?
+            .index(-count..)
+            .contiguous()?;
             ids.eval()?;
+            let mut context = prompt.clone();
+            if draft.adaptive_vocab.get() {
+                context.extend_from_slice(&result.tokens[result.tokens.len().saturating_sub(32)..]);
+            }
             draft_head = crate::draft_vocab::DraftVocabulary::new(
                 &m.head,
                 limit,
-                prompt,
+                &context,
                 eos,
                 ids.as_slice::<u32>(),
             )?;
@@ -405,7 +456,12 @@ pub fn generate_prepared(
         let pos = dc.kv.offset;
         let (x, wide) = draft.forward(&emb, &sync_hidden, &mut dc, pos)?;
         dh = wide.index((.., -1.., ..));
-        seed = draft_head.greedy_token(&x.index((.., -1.., ..)), gpu_draft)?;
+        let active_head = if vocab_policy.use_full() {
+            &full_head
+        } else {
+            &draft_head
+        };
+        seed = active_head.greedy_token(&x.index((.., -1.., ..)), gpu_draft)?;
         result.synchronize_draft_seconds += start.elapsed().as_secs_f64();
         result.round_seconds.push(round.elapsed().as_secs_f64());
     }

@@ -9,7 +9,7 @@ Scope: native Rust inference, verified against an independent MLX oracle, measur
 - [x] G2: Rust formatting, strict Clippy and release tests pass
   CHECK: scripts/check.sh
   EXPECT: QUALITY_CHECKS_PASSED
-  EVIDENCE: results/quality-current.json; format, strict workspace/all-target/all-feature Clippy,19 release tests pass; code SHA verifies no subsequent core change; stable32e74c1 evidence archived separately
+  EVIDENCE: results/quality-current.json; format, strict workspace/all-target/all-feature Clippy,25 release tests pass; code SHA verifies no subsequent core change; stable32e74c1 evidence archived separately
 - [x] G3: numerical kernel tests pass against native MLX
   EVIDENCE: tests/native_kernels.rs; real BF16 GDN output/state and QSA prefill match the independent oracle exactly
 - [x] G4: dense model autoregressive trajectory matches MLX oracle
@@ -25,7 +25,7 @@ Scope: native Rust inference, verified against an independent MLX oracle, measur
 - [x] G9: usable CLI, streaming server, benchmarks and known limitations documented
   EVIDENCE: README.md, docs/performance.md, results/server-qualification.json; default binaries, FIFO/batch/prefix/SSE/Unicode/real cancellation; reproducible raw reports and native fallbacks
 - [x] G10: 100 tokens per second aspiration evaluated honestly on the requested model
-  EVIDENCE: final-raw-bounded-plain-mtp-256.json median46.51 plain/70.56 MTP; final-batch-ab-qmv-bounded-256.json QMV-on median105.27 aggregate B8,13.16 per conversation;100 single-conversation not reached
+  EVIDENCE: round2-final-default-raw-256.json latest45.28 plain/68.43 MTP; previous stable final-raw-bounded-plain-mtp-256.json46.51/70.56; final-batch-ab-qmv-bounded-256.json QMV-on median105.27 aggregate B8,13.16 per conversation;100 single-conversation not reached
 - [x] G11: exact prefix reuse preserves repeated plain/MTP continuations and bounded eviction
   EVIDENCE: results/prefix-parity-target.json, results/prefix-parity-long.json; complete prompt keys, model-scoped LRU, disabled/oversize/clear/access order checked
 - [x] G12: optional continuous plain batching passes real concurrent HTTP trajectories and cancellation
@@ -35,7 +35,7 @@ Scope: native Rust inference, verified against an independent MLX oracle, measur
 - [x] G14: instrumented Metal validation passes outside performance measurements
   CHECK: scripts/validate-metal.sh
   EXPECT: METAL_VALIDATION_PASSED
-  EVIDENCE: results/metal-validation.json,18 passing instrumented kernel tests and actual validation marker; round2-initial-validation.json adds actual private chains and full-model expert verifier/rollback; stable32e74c1 evidence archived separately; component capture is results/head-component.json and ignored GPU trace
+  EVIDENCE: results/metal-validation.json,24 passing portable instrumented tests and actual validation marker; round2-final-validation.json adds actual head/private chains, sparse cache/verifier/all-prefix rollback and independent batch/HTTP checks; stable32e74c1 evidence archived separately; component capture is results/head-component.json and ignored GPU trace
 
 - [x] G15: compiled GDN attention experiment evaluated without loosening exactness
   EVIDENCE: compiled-gdn-target-direct.json, compiled-gdn-portable.json, compiled-gdn-statistics.json; BF16 exact logits/complete caches, F32 rejection retained with native fallback; four full256-token pairs gain1.72%, below5%, experiment off by default
@@ -58,11 +58,19 @@ Scope: native Rust inference, verified against an independent MLX oracle, measur
   CHECK: .venv/bin/python scripts/verify_round2.py gpu
   EXPECT: ROUND2_GPU_EXPLORATION_VERIFIED
   EVIDENCE: gpu-draft-target-metal.json64 tokens/draft IDs/acceptance exact with abort-on-fault; gpu-draft-private-metal.log depths1–7 logits/hidden/private cache exact; gpu-draft-raw-ab-256.json four alternating full256-token pairs; gpu-draft-statistics.json median paired gain0.9286%, below5%, default remains scalar
-- [ ] G21: cost-aware depth and vocabulary policies are experimentally evaluated
-  EVIDENCE: pending; exact target output, recorded chosen depths/acceptance, raw and four chat workloads with complete costs
-- [ ] G22: greedy output-head specialization is experimentally evaluated
-  EVIDENCE: pending; actual BF16 head shapes, exact tie/rounding/IDs, microbenchmark and full decoding A/B
-- [ ] G23: block-growing KV caches are experimentally evaluated in long-context solo decoding
-  EVIDENCE: pending; exact complete-cache rollback, sparse threshold, multiple context lengths, full decode wall A/B
+- [x] G21: cost-aware depth and vocabulary policies are experimentally evaluated
+  CHECK: .venv/bin/python scripts/verify_round2.py adaptive
+  EXPECT: ROUND2_ADAPTIVE_EXPLORATION_VERIFIED
+  EVIDENCE: adaptive-{depth,vocab}/adaptive remat raw reports and four-chat suites: four256-token alternating pairs per prompt, exact IDs, complete cost; combined raw2.957050%, variable chat gains, default off; real depth/full-head fallback transitions instrumented in adaptive-qmv-remat-metal.json; negative-control pair oracle passes
+- [x] G22: greedy output-head specialization is experimentally evaluated
+  CHECK: .venv/bin/python scripts/verify_round2.py head
+  EXPECT: ROUND2_HEAD_EXPLORATION_VERIFIED
+  EVIDENCE: greedy-head-final-actual-metal.log actual248320x2560 BF16 headT1–4 block/ID comparisons and reduction Inf/NaN/zero ties;100 component pairs; four256-token full A/B pairs, exact proposal/target IDs, paired0.693185%, default off; negative-control pair oracle passes
+- [x] G23: block-growing KV caches are experimentally evaluated in long-context solo decoding
+  CHECK: .venv/bin/python scripts/verify_round2.py kv
+  EXPECT: ROUND2_KV_EXPLORATION_VERIFIED
+  EVIDENCE: actual context2096 native/block prefill/logits/hidden/all caches,16 transitions,T2–8/every rollback prefix, private/prefix/batch instrumentation exact; boundary components100 pairs; complete four-pair raw contexts10/2107/4117 gains0.197794/-0.792734/0.216423%, native concatenation remains default; pair oracle negative control passes
 - [ ] G24: final research outcomes, production defaults and public code pass refreshed quality gates
-  EVIDENCE: pending; scripts/check.sh, instrumented actual checkpoint, appropriate HTTP smoke tests, exact repeated timings, research log and published final commit
+  CHECK: .venv/bin/python scripts/verify_round2.py final
+  EXPECT: ROUND2_FINAL_INTEGRATION_PUBLICATION_VERIFIED
+  EVIDENCE: round2-final-validation.json source483b3cd,25 release/24 portable instrumented tests, expanded actual head/private/sparse/rollback/batch checks, HTTP/SSE/prefix/cancellation/Unicode; latest raw45.28/68.43; final public current HEAD verification pending

@@ -1,0 +1,277 @@
+{
+  "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "quality": {
+    "log": "results/round2-quality-current.log",
+    "sha256": "1000738529bb8df7d76f0664492b895bb7dddb3fb46d4947b0d987d33c742d87",
+    "passed": true,
+    "exit_code": 0,
+    "success_marker": "QUALITY_CHECKS_PASSED",
+    "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+    "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+    "contains_metal_validation_enabled": false,
+    "captured_unix_seconds": 1791268038.1977248,
+    "release_tests_passed": 25,
+    "checks": [
+      "cargo fmt --check",
+      "cargo clippy --workspace --all-targets --all-features -- -D warnings",
+      "cargo test --workspace --release"
+    ]
+  },
+  "portable_metal": {
+    "log": "results/round2-portable-metal.log",
+    "sha256": "c3041e89bbe6097b1075a7d560bece5263d202903f0e61f472084a3c0e4f31d7",
+    "passed": true,
+    "exit_code": 0,
+    "success_marker": "METAL_VALIDATION_PASSED",
+    "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+    "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+    "contains_metal_validation_enabled": true,
+    "captured_unix_seconds": 1791268038.1979861,
+    "validation_tests_passed": 24,
+    "instrumentation": [
+      "MTL_SHADER_VALIDATION=1",
+      "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING=1",
+      "MTL_SHADER_VALIDATION_REPORT_TO_STDERR=1",
+      "MTL_SHADER_VALIDATION_ABORT_ON_FAULT=1"
+    ],
+    "timing": "diagnostic only; excluded from throughput"
+  },
+  "actual_target_cases": [
+    {
+      "log": "results/greedy-head-final-actual-metal.log",
+      "sha256": "a63ac5c1a0df45239b2f3727ae20e9cb4239b39056e86eb27e90dabd8013cf2f",
+      "passed": true,
+      "exit_code": 0,
+      "success_marker": "GREEDY_HEAD_ACTUAL_BLOCKS_IDS_EXACT T=4",
+      "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "contains_metal_validation_enabled": true,
+      "captured_unix_seconds": 1791268038.198167,
+      "tests_passed": 3
+    },
+    {
+      "log": "results/kv-blocks-target-metal.log",
+      "sha256": "aa86dd49b8417ba927b921b87d7281c443a6fdc21340246048dca28be8d9efa4",
+      "passed": true,
+      "exit_code": 0,
+      "success_marker": "KV_BLOCK_TARGET_LOGITS_HIDDEN_CACHES_ROLLBACK_EXACT",
+      "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "contains_metal_validation_enabled": true,
+      "captured_unix_seconds": 1791268038.1983209,
+      "tests_passed": 0
+    },
+    {
+      "log": "results/kv-blocks-long-target-metal.log",
+      "sha256": "ec845fcc9ef065fe6ba40a7c1c97aa995fd764cc4ef2d110b744c48423023af2",
+      "passed": true,
+      "exit_code": 0,
+      "success_marker": "KV_BLOCK_TARGET_LOGITS_HIDDEN_CACHES_ROLLBACK_EXACT",
+      "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "contains_metal_validation_enabled": true,
+      "captured_unix_seconds": 1791268038.198482,
+      "tests_passed": 0
+    },
+    {
+      "log": "results/qmv-remat32-verify-metal.log",
+      "sha256": "cda2be2e01a39e94c0153d1bd5854e0841d211aff73964fa6969918459ccdfb5",
+      "passed": true,
+      "exit_code": 0,
+      "success_marker": "VERIFY_PARITY_PASSED",
+      "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "contains_metal_validation_enabled": true,
+      "captured_unix_seconds": 1791268038.1986718,
+      "tests_passed": 0
+    },
+    {
+      "log": "results/qmv-remat32-kv-batch-metal.log",
+      "sha256": "7c8ff9257cbe30e647872c77466fc5c1ad3a4d42d2bd2293ae999a00702aa39c",
+      "passed": true,
+      "exit_code": 0,
+      "success_marker": "BATCH_PARITY_PASSED",
+      "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "contains_metal_validation_enabled": true,
+      "captured_unix_seconds": 1791268038.198845,
+      "tests_passed": 0
+    },
+    {
+      "log": "results/kv-blocks-private-target-metal.log",
+      "sha256": "c7b8219631b41c0e00472e4424349e371d8d507c33a5fbdaf243220adefc36f5",
+      "passed": true,
+      "exit_code": 0,
+      "success_marker": "GPU_DRAFT_CHAIN_EXACT depth=7",
+      "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "contains_metal_validation_enabled": true,
+      "captured_unix_seconds": 1791268038.1990259,
+      "tests_passed": 1
+    },
+    {
+      "log": "results/kv-blocks-prefix-metal.log",
+      "sha256": "123b986cfae819dd4c6b22b8919607b27693227630edfd02de50b47378a7df0f",
+      "passed": true,
+      "exit_code": 0,
+      "success_marker": "PREFIX_PARITY_PASSED",
+      "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "contains_metal_validation_enabled": true,
+      "captured_unix_seconds": 1791268038.199184,
+      "tests_passed": 0
+    },
+    {
+      "log": "results/qmv-remat-address-target-metal.log",
+      "sha256": "f1fbab06a4165373e5fb556f2f298124a99bc0dcfbb709fb8b339e0a5bb1b2b1",
+      "passed": true,
+      "exit_code": 0,
+      "success_marker": "run 1: 256 output",
+      "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "contains_metal_validation_enabled": true,
+      "captured_unix_seconds": 1791268038.201288,
+      "report": "results/qmv-remat-address-target-metal.json",
+      "report_sha256": "b81ce4a2d11e9cc9934c10ef761bbdb2a5149913be98f63d2e8bb4eb4e37c92d"
+    },
+    {
+      "log": "results/greedy-head-target-metal.log",
+      "sha256": "ba12040ba10a5ae9fcf81b48ce0f7ced5fbe9ab73d8f37b6d18213553f1b40b4",
+      "passed": true,
+      "exit_code": 0,
+      "success_marker": "run 1: 256 output",
+      "contains_metal_validation_enabled": true,
+      "captured_unix_seconds": 1791268038.2026439,
+      "report": "results/greedy-head-target-metal.json",
+      "report_sha256": "a91deea9e234995efe3f3b697632342fe00f20b50a01060b9774433482b2e132",
+      "measured_binary_sha256": "629d30d33cc2030b7b229390b23bb3b3bf4c1ef11d9a3492f942a0f2ad34bff1",
+      "measured_revision": {
+        "commit": "3c53b9afed0dcac79cc3374f62ff17fc2f197bf7",
+        "dirty": true
+      },
+      "scope": "Earlier experimental full-generation cohort; current greedy kernel BF16 shape/tie tests are separately qualified in greedy-head-final-actual-metal.log."
+    }
+  ],
+  "server": {
+    "passed": true,
+    "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+    "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+    "binary_sha256": "f35f2969f6a0bece64e2c75e91e2b56acde94d5106db849c29e3494ec085fa3a",
+    "runtime": "no kernel overrides; exact greedy; default FIFO MTP/plain and optional independent plain batch8",
+    "server_modes": [
+      "default FIFO",
+      "--no-mtp --batch-size8"
+    ],
+    "reports": {
+      "server-smoke": {
+        "sha256": "9587b654ea25af343a6ef37777ec317e834002b91790807a4aedcf7281a74962",
+        "mtime": 1791267841.780999
+      },
+      "server-batch-smoke": {
+        "sha256": "937d111273680cd718dbd41061847ebd9f3a13377133a45a5a2c099507eae6a5",
+        "mtime": 1791267910.7095344
+      },
+      "server-utf8-batch1": {
+        "sha256": "458697670a799505557567daa9aebaad3f49cdbe6903e5391bae087344ac30fc",
+        "mtime": 1791267851.5927744
+      },
+      "server-utf8-batch8": {
+        "sha256": "3a7f1375cb234477c8334017a6996e4de8e442dc1cc586d9a02596250bbe59ca",
+        "mtime": 1791267920.4206991
+      }
+    },
+    "scripts": {
+      "server_smoke": "7aa9db0595b05cf945914552a7b951f5144bb570b9d646696b57f54fbbb43f82",
+      "server_batch_smoke": "2cb6df6c97e1405a8fde45a8961098a6fef9e941d4796d0f45721591bf52535a",
+      "server_utf8_smoke": "f29c5e38abfc5217ff284278feee14c23035967a7b5c16a161345d029391cb54"
+    },
+    "partial_codepoint_cases": [
+      2,
+      2
+    ],
+    "concurrent_cancellation_survivors": 3,
+    "timing": "HTTP/prefix timings excluded from raw inference speed",
+    "captured_unix_seconds": 1791268038.21451,
+    "success_logs": [
+      {
+        "log": "results/server-round2-smoke.log",
+        "sha256": "a581bf9bb96555a02a967f9ad607a1b0f16ce29aa50b6aafbe404098f1fa637d",
+        "passed": true,
+        "exit_code": 0,
+        "success_marker": "SERVER_SMOKE_PASSED",
+        "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "contains_metal_validation_enabled": false,
+        "captured_unix_seconds": 1791268038.214701
+      },
+      {
+        "log": "results/server-round2-batch.log",
+        "sha256": "944f61d45ae75e36191ed4996bd01611bb855ae8d87624502bb7a2e696931cf6",
+        "passed": true,
+        "exit_code": 0,
+        "success_marker": "SERVER_BATCH_SMOKE_PASSED",
+        "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "contains_metal_validation_enabled": false,
+        "captured_unix_seconds": 1791268038.214876
+      },
+      {
+        "log": "results/server-round2-utf8-default.log",
+        "sha256": "3d35b0336814d0c418020a657cace03b279a9a3f2b2105f7d0acea98dbb848d6",
+        "passed": true,
+        "exit_code": 0,
+        "success_marker": "SERVER_UTF8_SMOKE_PASSED",
+        "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "contains_metal_validation_enabled": false,
+        "captured_unix_seconds": 1791268038.215042
+      },
+      {
+        "log": "results/server-round2-utf8-batch.log",
+        "sha256": "3d35b0336814d0c418020a657cace03b279a9a3f2b2105f7d0acea98dbb848d6",
+        "passed": true,
+        "exit_code": 0,
+        "success_marker": "SERVER_UTF8_SMOKE_PASSED",
+        "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "contains_metal_validation_enabled": false,
+        "captured_unix_seconds": 1791268038.2152069
+      }
+    ]
+  },
+  "lab": {
+    "log": "results/round2-final-lab-jobs.log",
+    "sha256": "b22ed7389762089dc8591f3c664c1a09af864d8270d145f64412e806be0d6589",
+    "passed": true,
+    "exit_code": 0,
+    "success_marker": "ROUND2_FINAL_LAB_PASSED",
+    "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+    "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+    "contains_metal_validation_enabled": false,
+    "captured_unix_seconds": 1791268038.215528
+  },
+  "serving": {
+    "log": "results/round2-serving-jobs.log",
+    "sha256": "bcc7f37bbe3e492a32764e35332451ed428b8bcbe1356fdd285a912f8edaacfd",
+    "passed": true,
+    "exit_code": 0,
+    "success_marker": "ROUND2_SERVING_DEFAULT_PASSED",
+    "code_sha256": "483b3cd75ddfb1d9962e375c1cdcf3df63b95283f1908bf970fbf3078dd4a4f9",
+    "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+    "contains_metal_validation_enabled": false,
+    "captured_unix_seconds": 1791268038.2156959
+  },
+  "remaining_experiments": [],
+  "default_promotions": [],
+  "retained_safety_change": "recompute bounded QMV offsets from original buffers; address64 default, address32 off; original loop-carried-pointer failures preserved, root cause unknown",
+  "timing": "Instrumented logs excluded from all throughput reports",
+  "final_default_report": "results/round2-final-default-raw-256.json",
+  "final_default_report_sha256": "3a1dfda181e664def0b6a540919da06ca59e17c6c99e24df91d08168c067ba2a",
+  "binary_sha256": {
+    "mtp-infer": "f86c129ca4d8863b4427207bd109cfedcfb2de74bd2d68078a369e2b63088e92",
+    "workload-bench": "3781b8bc5b8b9f57ef5c0a91aa10546a5193f26e4d6186f0c3a640e921e0c22e",
+    "server": "f35f2969f6a0bece64e2c75e91e2b56acde94d5106db849c29e3494ec085fa3a"
+  }
+}

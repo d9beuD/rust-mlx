@@ -8,6 +8,8 @@ struct Args {
     model: std::path::PathBuf,
     #[arg(long)]
     ab_stream_x: bool,
+    #[arg(long, conflicts_with_all=["ab_stream_x", "ab_gemv"])]
+    ab_address32: bool,
     #[arg(long, conflicts_with = "ab_stream_x")]
     ab_gemv: bool,
     #[arg(long, requires = "ab_gemv")]
@@ -27,12 +29,16 @@ fn exact(a: &Array, b: &Array) -> Result<()> {
 }
 fn main() -> Result<()> {
     let args = Args::parse();
+    let environment = BenchmarkEnvironment::capture()?;
     let path = args.model;
     let w = Weights::load(&path)?;
     let f = Array::load_safetensors("results/target-layer0-oracle.safetensors")?;
     let mut reports = Vec::new();
     let set_mode = |candidate| {
-        if args.ab_gemv {
+        if args.ab_address32 {
+            qmv_kernel::set_enabled(true);
+            qmv_kernel::set_address32(candidate);
+        } else if args.ab_gemv {
             rust_mlx::gemv_kernel::set_enabled(candidate);
             rust_mlx::gemv_kernel::set_narrow(args.gemv_narrow);
         } else {
@@ -83,6 +89,10 @@ fn main() -> Result<()> {
                 );
             }
             exact(&a, &b)?;
+            if args.ab_address32 {
+                qmv_kernel::set_enabled(false);
+                exact(&b, &l.forward_rows(&x)?)?;
+            }
             let mut samples = [Vec::new(), Vec::new()];
             for i in 0..110 {
                 for candidate in if i % 2 == 0 {
@@ -104,7 +114,7 @@ fn main() -> Result<()> {
     std::fs::write(
         args.output,
         serde_json::to_vec_pretty(
-            &serde_json::json!({"environment":BenchmarkEnvironment::capture()?,"model":path,"ab_stream_x":args.ab_stream_x,"ab_gemv":args.ab_gemv,"gemv_narrow":args.gemv_narrow,"timing":"wall graph+sync eval, ten warmup then100 alternating pairs; real BF16 layer0 input and checkpoint projections","benchmarks":reports}),
+            &serde_json::json!({"environment":environment,"model":path,"ab_address32":args.ab_address32,"ab_stream_x":args.ab_stream_x,"ab_gemv":args.ab_gemv,"gemv_narrow":args.gemv_narrow,"timing":"wall graph+sync eval, ten warmup then100 alternating pairs; real BF16 layer0 input and checkpoint projections","benchmarks":reports}),
         )?,
     )?;
     println!("QMV_BENCH_SAVED");

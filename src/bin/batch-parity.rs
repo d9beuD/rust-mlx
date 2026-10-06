@@ -15,6 +15,8 @@ use rust_mlx::{
 use std::{path::PathBuf, time::Instant};
 #[derive(Parser)]
 struct Args {
+    #[arg(long)]
+    kv_blocks: bool,
     #[arg(long, default_value = "tests/fixtures/hybrid")]
     model: PathBuf,
     #[arg(long, default_value_t = 16)]
@@ -80,6 +82,7 @@ fn cache_error(a: &HybridCache, b: &HybridCache) -> Result<f32> {
 }
 fn main() -> Result<()> {
     let a = Args::parse();
+    rust_mlx::kv_blocks::set_enabled(a.kv_blocks);
     ensure!(a.steps > 0, "parity requires at least one decode step");
     let w = Weights::load(&a.model)?;
     let m = HybridModel::load(&w, &a.model)?;
