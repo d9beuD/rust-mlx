@@ -79,7 +79,9 @@ Public JSON receipts preserve IDs, commands, repetitions, model/hardware,
 source/binary/log identities, mixed quantization, startup and cache settings.
 
 ```sh
+PATH="$PWD/.venv/bin:$PATH" cargo build --release
 .venv/bin/python scripts/prepare_mtp_trajectories.py --model "$TARGET"
+target/release/mtp-collect --model "$TARGET" --corpus .unlazy/mtp-next/prompts.json --destination .unlazy/mtp-next/trajectories --output results/mtp-next-collection.json
 .venv/bin/python scripts/run_mtp_next.py --model "$TARGET"
 .venv/bin/python scripts/run_mtp_next_long.py --model "$TARGET"
 .venv/bin/python scripts/run_mtp_next_qualification.py --model "$TARGET"
@@ -87,7 +89,7 @@ source/binary/log identities, mixed quantization, startup and cache settings.
 ```
 
 Runners preserve existing output names and fail instead of overwriting evidence;
-use a fresh checkout/output set to replay. Collection has its own earlier binary
+archive the published research reports and use an empty output set to replay. The cached source corpus from the earlier decode study must be available before preparing trajectories. Collection has its own earlier binary
 receipt. A first qualification attempt was rejected because the source changed
 during its checks; its successful numerical checks are retained separately and
 are not final qualification. Timing/final checks use frozen core
@@ -129,3 +131,5 @@ corrupted candidate token is rejected. The authoritative summary is
 
 Implementation commit:052a74343186fe0078ecbde2243d48a52c3abb4e.
 Production defaults and `results/performance-summary.json` remain unchanged.
+
+Evidence commit:5f2078e29303d1ee782ca7b255cd3a99988b19af, published on public `d9beuD/rust-mlx` main and independently verified through GitHub API. Model/adapter tensors and local logs remain unpublished.
