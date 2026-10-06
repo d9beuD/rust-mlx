@@ -1,0 +1,17 @@
+{
+  "binary_sha256": "d72e504199282ca1a53ca4159ea627ca8e8dd46b5d17cdd8ead984fba069b810",
+  "instrumented": false,
+  "command": [
+    "target/release/mtp-collect",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--corpus",
+    ".unlazy/mtp-next/prompts.json",
+    "--destination",
+    ".unlazy/mtp-next/trajectories",
+    "--output",
+    "results/mtp-next-collection.json"
+  ],
+  "working_tree_source_sha256_at_launch": "e30d58d2bc8f2adb6c93a5af60350365fe9d281a657e43cd7df3f6dfae26974e",
+  "source_binding_note": "Collector executable was built before the later MoE/HC source refactor. Working-tree launch hash is not claimed as its compiled-source hash; executable hash binds acquisition. Native target and unadapted private MTP only."
+}

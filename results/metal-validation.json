@@ -2,13 +2,13 @@
   "command": [
     "scripts/validate-metal.sh"
   ],
-  "log": "results/followup-current-portable-metal.log",
-  "sha256": "7c4036d07656262e5bf1385a428c87101d24d7128a9668808f2131dbb8d1a253",
-  "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+  "log": "results/mtp-next-current-portable-metal.log",
+  "sha256": "6d9e4820d3574300b19d2d27ce54d961f79432ef5d0a7d966083dafa132afb28",
+  "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
   "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
-  "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
-  "started_unix": 1791301855.6076438,
-  "ended_unix": 1791301859.765408,
+  "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+  "started_unix": 1791311912.046636,
+  "ended_unix": 1791311916.076848,
   "exit_code": 0,
   "passed": true,
   "success_marker": "METAL_VALIDATION_PASSED",
@@ -25,7 +25,7 @@
     "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
     "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
   },
-  "validation_tests_passed": 37,
+  "validation_tests_passed": 40,
   "timing": "diagnostic only; excluded from throughput",
   "negative_control": "existing cooperative matrix discrepancy remains rejected; native fallback retained"
 }

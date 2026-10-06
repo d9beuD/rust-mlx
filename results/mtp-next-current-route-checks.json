@@ -1,0 +1,113 @@
+{
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "source_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+  "checks": [
+    {
+      "name": "actual-components",
+      "command": [
+        "target/release/route-bench",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/mtp-next-current-route-actual-components.json"
+      ],
+      "started_unix": 1791311945.923049,
+      "ended_unix": 1791311947.457558,
+      "source_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+      "binary_sha256": "d355179fbc39b662b18f85f5fb0f89ca44f5f75831e55bb09f97ccb26842cdde",
+      "exit_code": 0,
+      "success_marker": "ACTUAL_ROUTE_TAIL_COMPONENTS_EXACT",
+      "passed": true,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "log_sha256": "35a68ccc4463eff1bcb3703224be946b90c484d670f0358b0fecb041c6fedac8",
+      "report_sha256": "049be00d0ec78b4637f6f725534920ee3d307c52efe17f15d640366f68e1fa1a",
+      "timing_qualified": false
+    },
+    {
+      "name": "verify-metal",
+      "command": [
+        "target/release/verify-parity",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/mtp-next-current-route-verify-metal.json",
+        "--route-tail"
+      ],
+      "started_unix": 1791311947.4743428,
+      "ended_unix": 1791311965.8017228,
+      "source_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+      "binary_sha256": "1fce6c6abd138931d70b501271a2a80aef037d93b8e8b09f53df4d85b725f02e",
+      "exit_code": 0,
+      "success_marker": "VERIFY_PARITY_PASSED",
+      "passed": true,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "log_sha256": "7516eadaf47c6b1999851012e2b648054a2be0c92c53e5d8e5707cbdbe4c9213",
+      "report_sha256": "435ca475d37aea768b1dbf296e0d0bae19750a5ed5f633ada596d74b488ff300",
+      "timing_qualified": false
+    },
+    {
+      "name": "rollback-metal",
+      "command": [
+        "target/release/rollback-parity",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/mtp-next-current-route-rollback-metal.json",
+        "--route-tail"
+      ],
+      "started_unix": 1791311965.8329651,
+      "ended_unix": 1791311976.057169,
+      "source_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+      "binary_sha256": "3d3c2ac0fd5d86b379ddb176fa960e36860063e8fbc0d19f8527826af71c6be9",
+      "exit_code": 0,
+      "success_marker": "ROLLBACK_PARITY_PASSED",
+      "passed": true,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "log_sha256": "ff7e68e4e376de80256acd4c615451c874d6f9751ef2d4daece9a5696521d016",
+      "report_sha256": "5bff99562a3829e80e46a06564600d2cf32932df8a33ceda5980a2824c855dbf",
+      "timing_qualified": false
+    },
+    {
+      "name": "synchronized-phases",
+      "command": [
+        "target/release/verify-profile",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--output",
+        "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/mtp-next-current-route-synchronized-phases.json",
+        "--proposals",
+        "results/followup-baseline-raw-256.json",
+        "--rounds",
+        "12"
+      ],
+      "started_unix": 1791311976.0885592,
+      "ended_unix": 1791311984.830064,
+      "source_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+      "binary_sha256": "7c6500dbce7370c1d14d2f99c5da5d90b781241319149be021ec0e9427e3a66c",
+      "exit_code": 0,
+      "success_marker": "VERIFY_PROFILE_PASSED",
+      "passed": true,
+      "validation_environment": {},
+      "log_sha256": "d5d7698a8849576aa1969b154dbbb044062f164cefc139d79782ade53207311b",
+      "report_sha256": "3c5d06f429d352a44007feb097d9d4be9607f54a829ad5b64e350f16eb9ab36b",
+      "timing_qualified": false
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

@@ -1,0 +1,26 @@
+{
+  "name": "actual-components",
+  "command": [
+    "target/release/route-bench",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--output",
+    "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/mtp-next-current-route-actual-components.json"
+  ],
+  "started_unix": 1791311945.923049,
+  "ended_unix": 1791311947.457558,
+  "source_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+  "binary_sha256": "d355179fbc39b662b18f85f5fb0f89ca44f5f75831e55bb09f97ccb26842cdde",
+  "exit_code": 0,
+  "success_marker": "ACTUAL_ROUTE_TAIL_COMPONENTS_EXACT",
+  "passed": true,
+  "validation_environment": {
+    "MTL_SHADER_VALIDATION": "1",
+    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+  },
+  "log_sha256": "35a68ccc4463eff1bcb3703224be946b90c484d670f0358b0fecb041c6fedac8",
+  "report_sha256": "049be00d0ec78b4637f6f725534920ee3d307c52efe17f15d640366f68e1fa1a",
+  "timing_qualified": false
+}

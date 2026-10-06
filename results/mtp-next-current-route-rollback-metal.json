@@ -1,0 +1,122 @@
+[
+  {
+    "down_calls": 0,
+    "down_kernel": null,
+    "epilogue_calls": 0,
+    "keep": 0,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "moe_hc_epilogue": false,
+    "native_gate_up": false,
+    "positions": 4,
+    "resident_overlay": null,
+    "route_tail": true,
+    "route_tail_calls": 96,
+    "runtime_prepare": null,
+    "runtime_prepare_calls": [
+      0,
+      0,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "down_calls": 0,
+    "down_kernel": null,
+    "epilogue_calls": 0,
+    "keep": 1,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "moe_hc_epilogue": false,
+    "native_gate_up": false,
+    "positions": 4,
+    "resident_overlay": null,
+    "route_tail": true,
+    "route_tail_calls": 192,
+    "runtime_prepare": null,
+    "runtime_prepare_calls": [
+      0,
+      0,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "down_calls": 0,
+    "down_kernel": null,
+    "epilogue_calls": 0,
+    "keep": 2,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "moe_hc_epilogue": false,
+    "native_gate_up": false,
+    "positions": 4,
+    "resident_overlay": null,
+    "route_tail": true,
+    "route_tail_calls": 288,
+    "runtime_prepare": null,
+    "runtime_prepare_calls": [
+      0,
+      0,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "down_calls": 0,
+    "down_kernel": null,
+    "epilogue_calls": 0,
+    "keep": 3,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "moe_hc_epilogue": false,
+    "native_gate_up": false,
+    "positions": 4,
+    "resident_overlay": null,
+    "route_tail": true,
+    "route_tail_calls": 384,
+    "runtime_prepare": null,
+    "runtime_prepare_calls": [
+      0,
+      0,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0
+  },
+  {
+    "down_calls": 0,
+    "down_kernel": null,
+    "epilogue_calls": 0,
+    "keep": 4,
+    "layout_calls": 0,
+    "logit_error": 0.0,
+    "matrix_calls": 0,
+    "matrix_packed": false,
+    "moe_hc_epilogue": false,
+    "native_gate_up": false,
+    "positions": 4,
+    "resident_overlay": null,
+    "route_tail": true,
+    "route_tail_calls": 480,
+    "runtime_prepare": null,
+    "runtime_prepare_calls": [
+      0,
+      0,
+      0
+    ],
+    "sorted_moe": false,
+    "state_error": 0.0
+  }
+]

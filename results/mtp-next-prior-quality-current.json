@@ -1,0 +1,23 @@
+{
+  "command": [
+    "scripts/check.sh"
+  ],
+  "log": "results/followup-current-quality.log",
+  "sha256": "adb2b41312a1b29f3162473bddc25a8a5fdaad49171a297847fdef3b3181a80d",
+  "code_sha256": "33b62bf06487eb013cc5b05658afd8bd7326df0757034be31b1d808f7b9e51a9",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "runner_sha256": "3eeee2ad469f606795e8855e3260e5692a4d765c816053c1e2a4c5c32fb3fce1",
+  "started_unix": 1791301815.112712,
+  "ended_unix": 1791301855.590846,
+  "exit_code": 0,
+  "passed": true,
+  "success_marker": "QUALITY_CHECKS_PASSED",
+  "contains_metal_validation_enabled": false,
+  "validation_environment": {},
+  "release_tests_passed": 38,
+  "checks": [
+    "cargo fmt --check",
+    "cargo clippy --workspace --all-targets --all-features -- -D warnings",
+    "cargo test --workspace --release"
+  ]
+}

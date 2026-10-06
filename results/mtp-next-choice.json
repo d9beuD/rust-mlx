@@ -1,0 +1,6 @@
+{
+  "adapter": "adapter32",
+  "depth": 2,
+  "criterion": "validation total emitted tokens after first / total decode wall, fixed depth; blind and external timing not used for selection",
+  "source_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3"
+}

@@ -1,0 +1,282 @@
+{
+  "complete": true,
+  "environment": {
+    "captured_unix_seconds": 1791307625,
+    "hardware": {
+      "chip": "Apple M5 Max",
+      "gpu": "Apple M5 Max",
+      "gpu_cores": "40",
+      "memory": "128 GB",
+      "model": "Mac17,6"
+    },
+    "revision": {
+      "commit": "77c7027fdaf561d2990f7a69f5b1f72cad224524",
+      "dirty": true
+    },
+    "software": {
+      "macos": "27.0.1",
+      "macos_build": "26A434",
+      "mlx": "0.32.2",
+      "mlx_rs": "0.32.0",
+      "mlx_sys": "0.6.0",
+      "package_version": "0.1.0",
+      "rust": "rustc 1.98.1 (48a229cea 2026-09-01)",
+      "xcode": "Xcode 27.0\nBuild version 27A266a"
+    },
+    "workload": {
+      "binary_sha256": "19963ddbf45b9ca6e2b90eb2014ce55a948f7bbd874648b2edf0e92bdb04e5d8  /Users/d9beud/Documents/Repositories/d9beud/rust-mlx/target/release/epilogue-bench",
+      "process_cpu_names": [
+        "  5.5 /usr/libexec/syspolicyd",
+        " 82.1 /System/Library/PrivateFrameworks/StorageManagement.framework/PlugIns/StorageManagementService",
+        "100.0 /System/Library/PrivateFrameworks/StorageManagement.framework/PlugIns/ApplicationsStorageExtension.appex/Contents/MacOS/ApplicationsStorageExtension",
+        " 98.8 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged",
+        "  5.7 target/release/epilogue-bench"
+      ],
+      "swap": "vm.swapusage: total = 2048.00M  used = 891.69M  free = 1156.31M  (encrypted)",
+      "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    }
+  },
+  "fixture_sha256": "dd74f12feeb1d7548cd1322658e13ca0f54fb731cae0d066f1d26adc28c5cec5",
+  "records": [
+    {
+      "dtype": "BF16",
+      "exact": true,
+      "layer": 0,
+      "pairs": [
+        {
+          "candidate_seconds": 0.000229792,
+          "native_seconds": 0.000283333
+        },
+        {
+          "candidate_seconds": 0.00022025,
+          "native_seconds": 0.000261292
+        }
+      ],
+      "rows": 1
+    },
+    {
+      "dtype": "BF16",
+      "exact": true,
+      "layer": 0,
+      "pairs": [
+        {
+          "candidate_seconds": 0.000213875,
+          "native_seconds": 0.000295084
+        },
+        {
+          "candidate_seconds": 0.000218167,
+          "native_seconds": 0.000310208
+        }
+      ],
+      "rows": 2
+    },
+    {
+      "dtype": "BF16",
+      "exact": true,
+      "layer": 0,
+      "pairs": [
+        {
+          "candidate_seconds": 0.000228,
+          "native_seconds": 0.00030775
+        },
+        {
+          "candidate_seconds": 0.000219417,
+          "native_seconds": 0.000296083
+        }
+      ],
+      "rows": 3
+    },
+    {
+      "dtype": "BF16",
+      "exact": true,
+      "layer": 0,
+      "pairs": [
+        {
+          "candidate_seconds": 0.0002095,
+          "native_seconds": 0.000285125
+        },
+        {
+          "candidate_seconds": 0.000209625,
+          "native_seconds": 0.000280583
+        }
+      ],
+      "rows": 4
+    },
+    {
+      "dtype": "BF16",
+      "exact": true,
+      "layer": 0,
+      "pairs": [
+        {
+          "candidate_seconds": 0.000271958,
+          "native_seconds": 0.000316334
+        },
+        {
+          "candidate_seconds": 0.000215083,
+          "native_seconds": 0.000316292
+        }
+      ],
+      "rows": 8
+    },
+    {
+      "dtype": "BF16",
+      "exact": true,
+      "layer": 23,
+      "pairs": [
+        {
+          "candidate_seconds": 0.00020625,
+          "native_seconds": 0.000231541
+        },
+        {
+          "candidate_seconds": 0.000196459,
+          "native_seconds": 0.000271375
+        }
+      ],
+      "rows": 1
+    },
+    {
+      "dtype": "BF16",
+      "exact": true,
+      "layer": 23,
+      "pairs": [
+        {
+          "candidate_seconds": 0.000174166,
+          "native_seconds": 0.0002845
+        },
+        {
+          "candidate_seconds": 0.00016375,
+          "native_seconds": 0.000251417
+        }
+      ],
+      "rows": 2
+    },
+    {
+      "dtype": "BF16",
+      "exact": true,
+      "layer": 23,
+      "pairs": [
+        {
+          "candidate_seconds": 0.000170791,
+          "native_seconds": 0.000259084
+        },
+        {
+          "candidate_seconds": 0.000225416,
+          "native_seconds": 0.00026
+        }
+      ],
+      "rows": 3
+    },
+    {
+      "dtype": "BF16",
+      "exact": true,
+      "layer": 23,
+      "pairs": [
+        {
+          "candidate_seconds": 0.000171042,
+          "native_seconds": 0.000270584
+        },
+        {
+          "candidate_seconds": 0.00020275,
+          "native_seconds": 0.000259083
+        }
+      ],
+      "rows": 4
+    },
+    {
+      "dtype": "BF16",
+      "exact": true,
+      "layer": 23,
+      "pairs": [
+        {
+          "candidate_seconds": 0.000177959,
+          "native_seconds": 0.000290708
+        },
+        {
+          "candidate_seconds": 0.000193708,
+          "native_seconds": 0.000291916
+        }
+      ],
+      "rows": 8
+    },
+    {
+      "dtype": "BF16",
+      "exact": true,
+      "layer": 47,
+      "pairs": [
+        {
+          "candidate_seconds": 0.00019775,
+          "native_seconds": 0.000249542
+        },
+        {
+          "candidate_seconds": 0.000146583,
+          "native_seconds": 0.00022325
+        }
+      ],
+      "rows": 1
+    },
+    {
+      "dtype": "BF16",
+      "exact": true,
+      "layer": 47,
+      "pairs": [
+        {
+          "candidate_seconds": 0.000158875,
+          "native_seconds": 0.000254625
+        },
+        {
+          "candidate_seconds": 0.000158625,
+          "native_seconds": 0.000272
+        }
+      ],
+      "rows": 2
+    },
+    {
+      "dtype": "BF16",
+      "exact": true,
+      "layer": 47,
+      "pairs": [
+        {
+          "candidate_seconds": 0.000162625,
+          "native_seconds": 0.000242167
+        },
+        {
+          "candidate_seconds": 0.000185167,
+          "native_seconds": 0.000235042
+        }
+      ],
+      "rows": 3
+    },
+    {
+      "dtype": "BF16",
+      "exact": true,
+      "layer": 47,
+      "pairs": [
+        {
+          "candidate_seconds": 0.000188167,
+          "native_seconds": 0.000268333
+        },
+        {
+          "candidate_seconds": 0.000192584,
+          "native_seconds": 0.000267542
+        }
+      ],
+      "rows": 4
+    },
+    {
+      "dtype": "BF16",
+      "exact": true,
+      "layer": 47,
+      "pairs": [
+        {
+          "candidate_seconds": 0.000193834,
+          "native_seconds": 0.000299125
+        },
+        {
+          "candidate_seconds": 0.000196833,
+          "native_seconds": 0.000304458
+        }
+      ],
+      "rows": 8
+    }
+  ]
+}

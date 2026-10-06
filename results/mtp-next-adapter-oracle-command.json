@@ -1,0 +1,24 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "scripts/check_adapter_oracle.py",
+    "--collection",
+    "results/mtp-next-collection.json",
+    "--directory",
+    ".unlazy/mtp-next/adapter-oracle-final"
+  ],
+  "passed": true,
+  "exit_code": 0,
+  "source_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+  "binary_sha256": "9da2202c88670132b4a485d32f13566e2bc54248eab43941b8c12f6b16be0c47",
+  "script_sha256": "8e241ad833ba0d6ff364768e2b3648935cc8422e5c24f2c0263e76fcb88a8547",
+  "validation_environment": {
+    "MTL_SHADER_VALIDATION": "1",
+    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+  },
+  "log_sha256": "1d85297fbb3680525378d3bdcb856d4389170d8b686c162aa2e9bef66b91b2da",
+  "started_unix": 1791312310.8655229,
+  "ended_unix": 1791312311.6768188
+}

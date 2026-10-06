@@ -1,0 +1,22 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "scripts/run_followup_down_checks.py",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--prefix",
+    "mtp-next-current-down"
+  ],
+  "log": "results/mtp-next-current-mtp-next-current-down.log",
+  "sha256": "19c48a4caa8a1e6e89faa1d525eb8627bdb6a829dbac721063efa267692e7151",
+  "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+  "started_unix": 1791312097.732068,
+  "ended_unix": 1791312185.029099,
+  "exit_code": 0,
+  "passed": true,
+  "success_marker": "FOLLOWUP_ACTUAL_DOWN_CHECKS_PASSED",
+  "contains_metal_validation_enabled": false,
+  "validation_environment": {}
+}

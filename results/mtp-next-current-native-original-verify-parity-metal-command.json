@@ -1,0 +1,25 @@
+{
+  "command": [
+    "target/release/verify-parity",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--output",
+    "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/mtp-next-current-native-original-verify-parity-metal.json"
+  ],
+  "validation_environment": {
+    "MTL_SHADER_VALIDATION": "1",
+    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+  },
+  "source_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+  "started_unix": 1791311916.124162,
+  "ended_unix": 1791311935.425399,
+  "exit_code": 0,
+  "success_marker": "VERIFY_PARITY_PASSED",
+  "passed": true,
+  "timings_are_diagnostic": true,
+  "binary_sha256": "1fce6c6abd138931d70b501271a2a80aef037d93b8e8b09f53df4d85b725f02e",
+  "output_sha256": "1425df10aeb28144f8d1fc02446ca030f5637a63860a90529fcc3d1ffe56c4ef",
+  "log_sha256": "b931f9c5e076c0ab751275a94aff69dfb682a98efa0168d7731344d3cc841fda"
+}

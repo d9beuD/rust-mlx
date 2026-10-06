@@ -1,0 +1,25 @@
+{
+  "name": "synchronized-phases",
+  "command": [
+    "target/release/verify-profile",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--output",
+    "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/mtp-next-current-route-synchronized-phases.json",
+    "--proposals",
+    "results/followup-baseline-raw-256.json",
+    "--rounds",
+    "12"
+  ],
+  "started_unix": 1791311976.0885592,
+  "ended_unix": 1791311984.830064,
+  "source_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+  "binary_sha256": "7c6500dbce7370c1d14d2f99c5da5d90b781241319149be021ec0e9427e3a66c",
+  "exit_code": 0,
+  "success_marker": "VERIFY_PROFILE_PASSED",
+  "passed": true,
+  "validation_environment": {},
+  "log_sha256": "d5d7698a8849576aa1969b154dbbb044062f164cefc139d79782ade53207311b",
+  "report_sha256": "3c5d06f429d352a44007feb097d9d4be9607f54a829ad5b64e350f16eb9ab36b",
+  "timing_qualified": false
+}

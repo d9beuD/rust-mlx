@@ -106,6 +106,40 @@ def main():
     collection=json.loads((ROOT/'results/mtp-next-collection.json').read_text());assert collection['complete'] and len(collection['records'])==192
     assert len({r['document_sha256'] for r in collection['records']})==192
     choice=json.loads((ROOT/'results/mtp-next-choice.json').read_text())
+    manifest=json.loads((ROOT/'results/mtp-next-corpus.json').read_text())
+    assert sha(ROOT/'.unlazy/mtp-next/prompts.json')==manifest['local_spec_sha256']==collection['corpus_sha256']
+    assert {split:sum(r['split']==split for r in collection['records']) for split in ['fit','validation','blind']}=={'fit':128,'validation':32,'blind':32}
+    assert not {r['document_sha256'] for r in collection['records']} & set(manifest['excluded_documents'])
+    validation=json.loads((ROOT/'results/mtp-next-validation32.json').read_text())
+    assert validation['complete'] and validation['depths']==list(range(1,8))
+    assert len(validation['records'])==256
+    for i in range(32):
+        rows=[r for r in validation['records'] if r['prompt']==i]
+        assert len(rows)==8 and all(r['generation']['tokens']==rows[0]['generation']['tokens'] for r in rows)
+    totals={}
+    for r in validation['records']:
+        if r['candidate']:
+            t=totals.setdefault(r['depth'],[0,0.])
+            t[0]+=max(0,len(r['generation']['tokens'])-1);t[1]+=r['generation']['decode_seconds']
+    assert choice['depth']==max(totals,key=lambda d:totals[d][0]/totals[d][1])
+    for r in collection['records']:
+        assert sha(ROOT/r['path'])==r['sha256']
+    for name in ['epilogue-components','epilogue-components-metal']:
+        component=json.loads((ROOT/f'results/mtp-next-{name}.json').read_text())
+        assert component['complete'] and len(component['records'])==15 and all(r['exact'] for r in component['records'])
+    adapter_metal=json.loads((ROOT/'results/mtp-next-adapter-metal.json').read_text())
+    assert {r['draft_adapter_enabled'] for r in adapter_metal['runs']}=={False,True}
+    assert len(adapter_metal['runs'])==2 and all(r['generation']['tokens']==oracle('raw',0)[:64] for r in adapter_metal['runs'])
+    adapter_oracle=json.loads((ROOT/'results/mtp-next-adapter-oracle.json').read_text())
+    assert adapter_oracle['complete'] and adapter_oracle['head_vjp']['finite_nonzero']
+    oracle_receipt=json.loads((ROOT/'results/mtp-next-adapter-oracle-command.json').read_text())
+    assert oracle_receipt['passed'] and oracle_receipt['exit_code']==0 and oracle_receipt['source_sha256']==source
+    assert sha(ROOT/'results/mtp-next-current-adapter-oracle.log')==oracle_receipt['log_sha256']
+    assert 'Metal GPU Validation Enabled' in (ROOT/'results/mtp-next-current-adapter-oracle.log').read_text()
+    assert [r['rows'] for r in adapter_oracle['records']]==[1,2,3,4,8] and all(r['error']==0 for r in adapter_oracle['records'])
+    for report in [blind,long_data]:
+        assert report['depths']==[choice['depth']] and report['native_depth']==3
+        assert all(r['depth']==(choice['depth'] if r['candidate'] else 3) for r in report['records'])
     training=json.loads((ROOT/f".unlazy/mtp-next/{choice['adapter']}/metadata.json").read_text())
     assert training['complete'] and training['collection_sha256']==sha(ROOT/'results/mtp-next-collection.json')
     def eligible(rows):
@@ -113,7 +147,8 @@ def main():
         chat=[r['paired_median_gain_percent'] for r in rows if r['suite']=='chat']
         return raw>=5 and statistics.median(chat)>=5 and min(chat)>=-2
     adapter_eligible=eligible(adapters);epilogue_eligible=eligible(eps)
-    result=dict(adapter_qualifies_confirmation=adapter_eligible,epilogue_qualifies_confirmation=epilogue_eligible,complete=True,source_sha256=source,command_receipts_sha256=sha(command_path),choice=choice,training=training,epilogue=eps,adapter=adapters,blind=groups,blind_summary=blind_summary,long_confirmation=long_result,qualification_sha256=sha(qualification_path),quantization=quant,corrupted_token_negative_control=negative,global_promotion=False,limitations='Component gains/errors are not full-model quantized quality; teacher-state agreement is not speculative acceptance. Fresh caches and B1 in timing. Natural validation chooses depth before blind/external tests.')
+    assert not adapter_eligible and not epilogue_eligible, 'revisit default decision if global gate passes'
+    result=dict(optional_adapter_scoped_gain_confirmed=blind_summary['weighted_gain_percent']>=5 and long_result['paired_median_gain_percent']>=5,adapter_qualifies_confirmation=adapter_eligible,epilogue_qualifies_confirmation=epilogue_eligible,complete=True,source_sha256=source,command_receipts_sha256=sha(command_path),choice=choice,training=training,epilogue=eps,adapter=adapters,blind=groups,blind_summary=blind_summary,long_confirmation=long_result,qualification_sha256=sha(qualification_path),quantization=quant,corrupted_token_negative_control=negative,global_promotion=False,limitations='Component gains/errors are not full-model quantized quality; teacher-state agreement is not speculative acceptance. Fresh caches and B1 in timing. Natural validation chooses depth before blind/external tests.')
     (ROOT/'results/mtp-next-summary.json').write_text(json.dumps(result,indent=2)+'\n')
     print('MTP_NEXT_EVIDENCE_INDEPENDENTLY_VERIFIED')
 

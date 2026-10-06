@@ -1,0 +1,868 @@
+{
+  "optional_adapter_scoped_gain_confirmed": true,
+  "adapter_qualifies_confirmation": false,
+  "epilogue_qualifies_confirmation": false,
+  "complete": true,
+  "source_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+  "command_receipts_sha256": "432450288be472d47c50f84a837a3420bbc0f8f285cb3539416a64e6f44da9ba",
+  "choice": {
+    "adapter": "adapter32",
+    "depth": 2,
+    "criterion": "validation total emitted tokens after first / total decode wall, fixed depth; blind and external timing not used for selection",
+    "source_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3"
+  },
+  "training": {
+    "valid_predictions": {
+      "fit": 29439,
+      "validation": 7241,
+      "blind": 7229
+    },
+    "termination_policy": "discard every sample after first EOS; acquisition raw tokens retained",
+    "checkpoint_sha256": {
+      "model-00001-of-00021.safetensors": "2dda5339ab31099d2d93a22bf7216d615b57882a0a63f03546a326cf79c9ff21",
+      "model-00002-of-00021.safetensors": "4451478cf757dc72bc7223ed9f51f0024a09c89f5cd98fd4c8c067d4160618f5",
+      "model-00003-of-00021.safetensors": "a3f43ee69264e65894845463e603f898a16290cec51e960c008fc8c159190892",
+      "model-00004-of-00021.safetensors": "0d0e8868e906b58a86d9a22a300dfa0418fd6ff5f7b423e212a2a22854e0e78e",
+      "model-00005-of-00021.safetensors": "6ad381a090afc734e8aade2f72e1bb17bdc59163d9e5ffb230a5fb8bf6e9887c",
+      "model-00006-of-00021.safetensors": "6932d98dd4043708452fdccb10e823a82bde64423ef97bd4ededf72df508945f",
+      "model-00007-of-00021.safetensors": "7d843cbd48fbb10ffa1e8995f4905cc31e3a042c5f70041c33bb0d72fa0b14e8",
+      "model-00008-of-00021.safetensors": "1044e2fe752845cc984ea412828b502d8ac6487c701a5fc2768f2a718675419f",
+      "model-00009-of-00021.safetensors": "9d7dcb3dc383b11edfeb62fa8c818e7b253ed0c0dc706e3fa2af86bcb797863c",
+      "model-00010-of-00021.safetensors": "e2fadc1b9e431db396a86e7cbe835df100316c008788c24ea0ef3088b8ab94f3",
+      "model-00011-of-00021.safetensors": "22ae3b2f6c8f72eed611effe6d44d473b35726d131db240de9e79aa288985f72",
+      "model-00012-of-00021.safetensors": "f8a8cd09a80b4e57c4874a285a8d41deef9e1e7ec7a9a21b243e723ad5b85149",
+      "model-00013-of-00021.safetensors": "d4d474d2d1034003fe56115a00b7e19bae2133a7e4c1c5de51df71a479f4395f",
+      "model-00014-of-00021.safetensors": "aa31d97dabce6f7c41033c24ae463a0b25c37c12c306f5ec08ecef7d92708181",
+      "model-00015-of-00021.safetensors": "504f4b85490563b5255f7cf77c49cebff7025619704124dcce3a780d0657be96",
+      "model-00016-of-00021.safetensors": "f2896cd1e81d9fa937b2c505a5bdbd2abd9a8fc5c9561319295aa85e355cc196",
+      "model-00017-of-00021.safetensors": "2482ab31cf292a0caa59ec7516431e2f5e1a7b93f27b3426a1b5994d3d04aa3d",
+      "model-00018-of-00021.safetensors": "2e2b5ea168dc812b19cbd2a9e0e7654a5f3ab0c09a585e00bdfaf5a0db5955ac",
+      "model-00019-of-00021.safetensors": "e16dca88d64ddbf32e05a06a77fbf767325819bbbb687710d326bad71f01c295",
+      "model-00020-of-00021.safetensors": "ca4b8aa1c6fac24d6afd50c92b8c14941addbd6093d3bb5ff3d387a0427f85fd",
+      "model-00021-of-00021.safetensors": "d0d17187afed1f44e333994cbde5a8fefdc0d89d682efba75a73bb3d5a4bded6"
+    },
+    "complete": true,
+    "kind": "mtp-residual-v1",
+    "rank": 32,
+    "hidden": 2560,
+    "hc": 4,
+    "config_sha256": "fe162c81dce6c9f9e1003b7948fc3bd52f8dc53b0ec51a25490f6fec72c1c00f",
+    "tokenizer_sha256": "0997f410c57a1f4e53b09e4be8f4a172d90edd9564368fb0847030937229b9f3",
+    "adapter_sha256": "214c1ab6612e7e0aea3acfd612b6e37f0d7bbdc086e1bade3086708a3770bfbd",
+    "collection_sha256": "95dc6e20ba91eeb631584f9e05765ca926c449c623847e9facb41be006ff517d",
+    "script_sha256": "cf2c40bc53c10b379f14ad7d65b77d659ed92d16828ce6126c528475acb2631b",
+    "head_sha256": "85559c2e434d6a0f39fab13de4ec9d4638a5da7a1abdc37b0749bdef31877fe9",
+    "baseline_validation": {
+      "predictions": 7241,
+      "nll": 0.5712190801111839,
+      "agreement": 0.8345532385029693
+    },
+    "best_epoch": 0,
+    "best_agreement": 0.8544399944759011,
+    "history": [
+      {
+        "epoch": 0,
+        "steps": 115,
+        "validation": {
+          "predictions": 7241,
+          "nll": 0.5098279488875282,
+          "agreement": 0.8544399944759011
+        },
+        "training_loss_sum": 468.7004410624504,
+        "elapsed_seconds": 12.239650416013319
+      },
+      {
+        "epoch": 1,
+        "steps": 230,
+        "validation": {
+          "predictions": 7241,
+          "nll": 0.5063472968276537,
+          "agreement": 0.8540256870597984
+        },
+        "training_loss_sum": 412.06099966168404,
+        "elapsed_seconds": 22.469430541008478
+      },
+      {
+        "epoch": 2,
+        "steps": 345,
+        "validation": {
+          "predictions": 7241,
+          "nll": 0.5092621991489823,
+          "agreement": 0.8520922524513189
+        },
+        "training_loss_sum": 372.78249511122704,
+        "elapsed_seconds": 32.735658207995584
+      },
+      {
+        "epoch": 3,
+        "steps": 460,
+        "validation": {
+          "predictions": 7241,
+          "nll": 0.5190574568026863,
+          "agreement": 0.8483634857063942
+        },
+        "training_loss_sum": 338.19754899293184,
+        "elapsed_seconds": 42.948227790999226
+      }
+    ],
+    "blind_baseline": {
+      "predictions": 7229,
+      "nll": 0.5426456363291179,
+      "agreement": 0.8407801908977729
+    },
+    "blind_trained": {
+      "predictions": 7229,
+      "nll": 0.4780329945572581,
+      "agreement": 0.8594549730253147
+    },
+    "seconds": 80.62062900001183,
+    "stop_reason": "validation patience, pilot gate, epoch cap or48h hard deadline",
+    "limitations": "teacher-state on-policy one-step agreement; natural speculative acceptance and total cost require independent Rust A/B"
+  },
+  "epilogue": [
+    {
+      "suite": "raw",
+      "prompt": 0,
+      "report_sha256": "80ce083ccb161195177edbef8e09bb4ec6952c08fd2a501855cd7ac70a739ee9",
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        -0.9413321700197153,
+        -0.9436506418115664,
+        -0.48989533368766214,
+        -1.0092284750470193
+      ],
+      "paired_median_gain_percent": -0.9424914059156408,
+      "native_median_tps": 69.52949019332934,
+      "candidate_median_tps": 68.87460967212189,
+      "native_cv": 0.002933984094462588,
+      "candidate_cv": 0.0012740956301203602
+    },
+    {
+      "suite": "chat",
+      "prompt": 0,
+      "report_sha256": "1de462925bd0a13cde4f389dc1e88fb0126467c5fbc3755fd1085c3768aa86c9",
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        -0.14586922419945747,
+        -1.3716474839502557,
+        -1.7899981746865912,
+        -2.4208265949550722
+      ],
+      "paired_median_gain_percent": -1.5808228293184234,
+      "native_median_tps": 66.89979674533697,
+      "candidate_median_tps": 65.88552605125781,
+      "native_cv": 0.005471376128515079,
+      "candidate_cv": 0.014460209567500977
+    },
+    {
+      "suite": "chat",
+      "prompt": 1,
+      "report_sha256": "0fdd9636b3d88d5cdd0b62533845879d7cd66f10155f730fb4cc45790e027306",
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        -0.07581742495631483,
+        -0.5730495069141917,
+        -1.2426844586529318,
+        -0.7006713855441049
+      ],
+      "paired_median_gain_percent": -0.6368604462291483,
+      "native_median_tps": 57.17692904115118,
+      "candidate_median_tps": 56.751484096176554,
+      "native_cv": 0.002787629491246699,
+      "candidate_cv": 0.00705768016794638
+    },
+    {
+      "suite": "chat",
+      "prompt": 2,
+      "report_sha256": "9c6cc909302b764fdce0383ea4206cc949943a43eef17fd1ebd352e17ff77486",
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        -1.311165613177212,
+        -3.109686215187424,
+        -0.5958186264678589,
+        -0.37238164663327966
+      ],
+      "paired_median_gain_percent": -0.9534921198225355,
+      "native_median_tps": 68.09036342739999,
+      "candidate_median_tps": 66.8776436524102,
+      "native_cv": 0.02638768045945298,
+      "candidate_cv": 0.017701365770169987
+    },
+    {
+      "suite": "chat",
+      "prompt": 3,
+      "report_sha256": "2e57ee0ce52b2a3d4800c13cae2cdd8950f12666c4c6f8682d98dd1f7d4fc31b",
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        -0.8803146715795518,
+        -1.1759121329058764,
+        -1.4334186681625671,
+        -0.4464309103563213
+      ],
+      "paired_median_gain_percent": -1.028113402242714,
+      "native_median_tps": 71.2710718359022,
+      "candidate_median_tps": 70.59926756303497,
+      "native_cv": 0.004515965841178476,
+      "candidate_cv": 0.003431471655593797
+    }
+  ],
+  "adapter": [
+    {
+      "suite": "raw",
+      "prompt": 0,
+      "report_sha256": "d15ed9b589259388d0c493d0dcc07c08aca5c6aec1e6d5e3570a735c37f46e2b",
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        -1.5666590234779676,
+        -0.5824971595459805,
+        -0.8462946345139666,
+        -0.20479224492488957
+      ],
+      "paired_median_gain_percent": -0.7143958970299735,
+      "native_median_tps": 69.97269900328368,
+      "candidate_median_tps": 69.35447479758889,
+      "native_cv": 0.003747519734011964,
+      "candidate_cv": 0.0060934724803395224
+    },
+    {
+      "suite": "chat",
+      "prompt": 0,
+      "report_sha256": "cbff2f1b06aec5c18865e7a54b5474a1b0c0c591d78a27903d92be2a64ceb58a",
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        5.429430768132204,
+        9.797030653793737,
+        8.545372179867062,
+        9.228582747091307
+      ],
+      "paired_median_gain_percent": 8.886977463479184,
+      "native_median_tps": 68.16713690331079,
+      "candidate_median_tps": 74.20713097814556,
+      "native_cv": 0.0007167818806082896,
+      "candidate_cv": 0.017415103398955994
+    },
+    {
+      "suite": "chat",
+      "prompt": 1,
+      "report_sha256": "cbff2f1b06aec5c18865e7a54b5474a1b0c0c591d78a27903d92be2a64ceb58a",
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        7.74483479714716,
+        5.065955753086637,
+        8.138326242713045,
+        5.632955062970679
+      ],
+      "paired_median_gain_percent": 6.68889493005892,
+      "native_median_tps": 58.06549757444257,
+      "candidate_median_tps": 61.75256681253688,
+      "native_cv": 0.011596057726411174,
+      "candidate_cv": 0.01201612406849515
+    },
+    {
+      "suite": "chat",
+      "prompt": 2,
+      "report_sha256": "cbff2f1b06aec5c18865e7a54b5474a1b0c0c591d78a27903d92be2a64ceb58a",
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        -0.7839364865263931,
+        -0.5356518573752744,
+        -2.026888936017579,
+        -0.8062533156779739
+      ],
+      "paired_median_gain_percent": -0.7950949011021835,
+      "native_median_tps": 65.96858535699911,
+      "candidate_median_tps": 65.1824210412075,
+      "native_cv": 0.005352131056597411,
+      "candidate_cv": 0.005752991584770132
+    },
+    {
+      "suite": "chat",
+      "prompt": 3,
+      "report_sha256": "cbff2f1b06aec5c18865e7a54b5474a1b0c0c591d78a27903d92be2a64ceb58a",
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        -4.189085435017104,
+        -4.0124005282714865,
+        -2.1212052884857724,
+        -2.7114042808796257
+      ],
+      "paired_median_gain_percent": -3.361902404575556,
+      "native_median_tps": 69.07255548561471,
+      "candidate_median_tps": 67.2521766641772,
+      "native_cv": 0.007582160150889975,
+      "candidate_cv": 0.009610385633322071
+    }
+  ],
+  "blind": [
+    {
+      "prompt": 0,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        7.611981219561614,
+        8.041825745780852,
+        7.687110318115331,
+        10.151111324054574
+      ],
+      "paired_median_gain_percent": 7.864468031948091,
+      "native_median_tps": 57.20677027501304,
+      "candidate_median_tps": 61.70592002904769,
+      "native_cv": 0.018032989295330263,
+      "candidate_cv": 0.00791893631183765
+    },
+    {
+      "prompt": 1,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        10.3411330651203,
+        6.574668328587685,
+        8.2884864410943,
+        6.8947970113167445
+      ],
+      "paired_median_gain_percent": 7.591641726205522,
+      "native_median_tps": 52.41147474468238,
+      "candidate_median_tps": 56.15440970428,
+      "native_cv": 0.005301055345436231,
+      "candidate_cv": 0.018166465298785718
+    },
+    {
+      "prompt": 2,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        2.643951854060478,
+        4.6858795294067335,
+        3.2598766893497277,
+        2.508123256731376
+      ],
+      "paired_median_gain_percent": 2.951914271705103,
+      "native_median_tps": 61.27738424521685,
+      "candidate_median_tps": 63.144278171731216,
+      "native_cv": 0.007083666072601405,
+      "candidate_cv": 0.003466549293848879
+    },
+    {
+      "prompt": 3,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        1.3723035826463947,
+        1.2603325620875294,
+        1.965847270705745,
+        1.4511628205325255
+      ],
+      "paired_median_gain_percent": 1.4117332015894601,
+      "native_median_tps": 67.7555061976704,
+      "candidate_median_tps": 68.6473398014992,
+      "native_cv": 0.006390332838565421,
+      "candidate_cv": 0.004934954473504182
+    },
+    {
+      "prompt": 4,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        8.139745233930329,
+        9.010013462185618,
+        8.450916799219454,
+        9.266988319110725
+      ],
+      "paired_median_gain_percent": 8.730465130702537,
+      "native_median_tps": 59.758899777091024,
+      "candidate_median_tps": 65.1398305441007,
+      "native_cv": 0.0057570153260944786,
+      "candidate_cv": 0.0030727470420832013
+    },
+    {
+      "prompt": 5,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        12.40290094517884,
+        10.827076795039936,
+        11.821214568549765,
+        10.864711218422007
+      ],
+      "paired_median_gain_percent": 11.342962893485886,
+      "native_median_tps": 54.31102254077442,
+      "candidate_median_tps": 60.635339629227886,
+      "native_cv": 0.0037961244267122585,
+      "candidate_cv": 0.007415505086502045
+    },
+    {
+      "prompt": 6,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        10.223209076985128,
+        10.682772212634939,
+        10.307764221566096,
+        10.320314687196674
+      ],
+      "paired_median_gain_percent": 10.314039454381385,
+      "native_median_tps": 54.658638156281384,
+      "candidate_median_tps": 60.394979618864284,
+      "native_cv": 0.003470390192375677,
+      "candidate_cv": 0.0029304625762692827
+    },
+    {
+      "prompt": 7,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        9.767277038170064,
+        9.66382199290683,
+        8.863509500932153,
+        9.820835637981308
+      ],
+      "paired_median_gain_percent": 9.715549515538447,
+      "native_median_tps": 56.325600296503126,
+      "candidate_median_tps": 61.64479251071448,
+      "native_cv": 0.002706571983957755,
+      "candidate_cv": 0.0035370313976789895
+    },
+    {
+      "prompt": 8,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        4.28296857765913,
+        6.422605339613741,
+        4.194245296879839,
+        5.9943927171019595
+      ],
+      "paired_median_gain_percent": 5.138680647380545,
+      "native_median_tps": 59.26418765749729,
+      "candidate_median_tps": 62.2288139220138,
+      "native_cv": 0.008353576708303358,
+      "candidate_cv": 0.0030661137605976613
+    },
+    {
+      "prompt": 9,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        7.889738321040296,
+        8.372705485099186,
+        7.330752371057914,
+        6.2510793810860665
+      ],
+      "paired_median_gain_percent": 7.610245346049105,
+      "native_median_tps": 59.02429112304663,
+      "candidate_median_tps": 63.51502548280724,
+      "native_cv": 0.00219433637247738,
+      "candidate_cv": 0.006376653465352332
+    },
+    {
+      "prompt": 10,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        6.145034728782495,
+        7.8148085707618,
+        6.250634434144131,
+        7.7556878194658285
+      ],
+      "paired_median_gain_percent": 7.003161126804979,
+      "native_median_tps": 57.76632336998915,
+      "candidate_median_tps": 61.763330967469436,
+      "native_cv": 0.004927871987201211,
+      "candidate_cv": 0.004120770837928793
+    },
+    {
+      "prompt": 11,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        3.8282780527818527,
+        2.78362447055982,
+        4.064275215545998,
+        2.0144224446142722
+      ],
+      "paired_median_gain_percent": 3.3059512616708364,
+      "native_median_tps": 61.568490192730295,
+      "candidate_median_tps": 63.57850377026409,
+      "native_cv": 0.003928128732967184,
+      "candidate_cv": 0.005990198125710564
+    },
+    {
+      "prompt": 12,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        -3.9028533187070114,
+        -3.232756489912836,
+        -2.812616618143471,
+        -3.2458604407484715
+      ],
+      "paired_median_gain_percent": -3.2393084653306534,
+      "native_median_tps": 72.67391357148868,
+      "candidate_median_tps": 70.31977576572002,
+      "native_cv": 0.003071700828346977,
+      "candidate_cv": 0.0020096694753650363
+    },
+    {
+      "prompt": 13,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        4.440916770899328,
+        2.545322244982229,
+        2.96072157761913,
+        3.64776781418652
+      ],
+      "paired_median_gain_percent": 3.304244695902825,
+      "native_median_tps": 59.684086526743656,
+      "candidate_median_tps": 61.84359494600944,
+      "native_cv": 0.005018014400474747,
+      "candidate_cv": 0.005633191274813604
+    },
+    {
+      "prompt": 14,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        10.793863774351564,
+        10.686728928947687,
+        10.402592704983071,
+        11.2641488441519
+      ],
+      "paired_median_gain_percent": 10.740296351649626,
+      "native_median_tps": 51.7452927002459,
+      "candidate_median_tps": 57.22924879592422,
+      "native_cv": 0.007805627483562005,
+      "candidate_cv": 0.00503786562592112
+    },
+    {
+      "prompt": 15,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        13.072863031550085,
+        13.110684694225828,
+        13.387216129579272,
+        12.64426636749565
+      ],
+      "paired_median_gain_percent": 13.091773862887957,
+      "native_median_tps": 55.54558301171461,
+      "candidate_median_tps": 62.83262417896604,
+      "native_cv": 0.004769353506854138,
+      "candidate_cv": 0.002192494922396279
+    },
+    {
+      "prompt": 16,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        3.369371261686527,
+        4.253609269561731,
+        4.721256598434365,
+        4.095003828482668
+      ],
+      "paired_median_gain_percent": 4.1743065490222,
+      "native_median_tps": 64.46664187643643,
+      "candidate_median_tps": 67.02175086523337,
+      "native_cv": 0.005184491718335964,
+      "candidate_cv": 0.005241066409743119
+    },
+    {
+      "prompt": 17,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        -1.4805843776879102,
+        -3.3603500989683344,
+        -4.39922691732868,
+        -2.6083232829083536
+      ],
+      "paired_median_gain_percent": -2.9843366909383438,
+      "native_median_tps": 69.71871588092226,
+      "candidate_median_tps": 67.76314955350102,
+      "native_cv": 0.0038779079884597133,
+      "candidate_cv": 0.011039530352244661
+    },
+    {
+      "prompt": 18,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        2.7536941369494583,
+        3.3348179039284886,
+        2.6177719829413304,
+        3.2055251827330045
+      ],
+      "paired_median_gain_percent": 2.9796096598412314,
+      "native_median_tps": 64.91197817902692,
+      "candidate_median_tps": 67.03471163402517,
+      "native_cv": 0.0038769301038588913,
+      "candidate_cv": 0.0028682076743864193
+    },
+    {
+      "prompt": 19,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        -0.10223375244483579,
+        -1.1581415143755325,
+        0.1539631463689295,
+        -0.6613057386337662
+      ],
+      "paired_median_gain_percent": -0.381769745539301,
+      "native_median_tps": 69.07183989985637,
+      "candidate_median_tps": 68.79410640164659,
+      "native_cv": 0.002970901745929277,
+      "candidate_cv": 0.004008502989834402
+    },
+    {
+      "prompt": 20,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        9.935174199426156,
+        10.899763210166347,
+        9.590979973546677,
+        11.160974478285656
+      ],
+      "paired_median_gain_percent": 10.417468704796251,
+      "native_median_tps": 57.78847270167005,
+      "candidate_median_tps": 63.75878066126978,
+      "native_cv": 0.004869771836383594,
+      "candidate_cv": 0.002435025840902516
+    },
+    {
+      "prompt": 21,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        2.779239791373178,
+        2.0866921389983917,
+        2.8747471412789327,
+        1.722619028736383
+      ],
+      "paired_median_gain_percent": 2.432965965185785,
+      "native_median_tps": 71.20219442450988,
+      "candidate_median_tps": 72.83259679387315,
+      "native_cv": 0.004056173774160101,
+      "candidate_cv": 0.0020085745070321905
+    },
+    {
+      "prompt": 22,
+      "predictions": 22,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        7.8766942371638615,
+        7.577880495790956,
+        8.338937013000747,
+        7.651621656684093
+      ],
+      "paired_median_gain_percent": 7.764157946923977,
+      "native_median_tps": 45.3723250962349,
+      "candidate_median_tps": 48.934136419129345,
+      "native_cv": 0.002892834516657173,
+      "candidate_cv": 0.0023909629619381077
+    },
+    {
+      "prompt": 23,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        17.872617518416,
+        16.68521293667311,
+        17.483244246913053,
+        16.81846809273546
+      ],
+      "paired_median_gain_percent": 17.15085616982426,
+      "native_median_tps": 53.11464778788526,
+      "candidate_median_tps": 62.21637038180011,
+      "native_cv": 0.0022564468766744774,
+      "candidate_cv": 0.0028368137019367835
+    },
+    {
+      "prompt": 24,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        5.009527144016146,
+        6.169571579527777,
+        5.160181088111893,
+        6.880186440149649
+      ],
+      "paired_median_gain_percent": 5.664876333819835,
+      "native_median_tps": 56.66349048047749,
+      "candidate_median_tps": 59.878016106556466,
+      "native_cv": 0.005110173792567884,
+      "candidate_cv": 0.0033023946909045586
+    },
+    {
+      "prompt": 25,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        1.8216586683396097,
+        0.45670390416279183,
+        1.345640146764726,
+        0.7467230338630282
+      ],
+      "paired_median_gain_percent": 1.0461815903138771,
+      "native_median_tps": 61.61287713703125,
+      "candidate_median_tps": 62.20016744725217,
+      "native_cv": 0.005030239983950304,
+      "candidate_cv": 0.004078029280024649
+    },
+    {
+      "prompt": 26,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        0.002871219124433999,
+        1.6427311827166058,
+        1.1750887403898957,
+        0.9145895142804505
+      ],
+      "paired_median_gain_percent": 1.0448391273351731,
+      "native_median_tps": 69.73783394779976,
+      "candidate_median_tps": 70.47241599667713,
+      "native_cv": 0.005532777480119749,
+      "candidate_cv": 0.002134954500823041
+    },
+    {
+      "prompt": 27,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        4.393710795643746,
+        2.0799197139688363,
+        3.4747811451547816,
+        2.890532490258546
+      ],
+      "paired_median_gain_percent": 3.182656817706664,
+      "native_median_tps": 63.76400384908254,
+      "candidate_median_tps": 65.75215392919557,
+      "native_cv": 0.002707641754519105,
+      "candidate_cv": 0.007350626633230839
+    },
+    {
+      "prompt": 28,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        11.028731434172157,
+        13.362009098552408,
+        11.691121028693585,
+        13.034073088622279
+      ],
+      "paired_median_gain_percent": 12.362597058657933,
+      "native_median_tps": 61.303577274393206,
+      "candidate_median_tps": 68.84184036555628,
+      "native_cv": 0.005255836446844849,
+      "candidate_cv": 0.004900194211629121
+    },
+    {
+      "prompt": 29,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        2.9609783364702436,
+        1.8130226290260065,
+        2.60846202731555,
+        1.4796333423755303
+      ],
+      "paired_median_gain_percent": 2.2107423281707783,
+      "native_median_tps": 67.29117628085963,
+      "candidate_median_tps": 68.69171059588729,
+      "native_cv": 0.0043265273975631666,
+      "candidate_cv": 0.0034615282049935163
+    },
+    {
+      "prompt": 30,
+      "predictions": 0,
+      "exact_target_ids": true,
+      "paired_gains_percent": [],
+      "paired_median_gain_percent": null,
+      "native_median_tps": null,
+      "candidate_median_tps": null,
+      "native_cv": null,
+      "candidate_cv": null
+    },
+    {
+      "prompt": 31,
+      "predictions": 256,
+      "exact_target_ids": true,
+      "paired_gains_percent": [
+        7.824590278223376,
+        6.142758578825647,
+        7.428790309529543,
+        7.067118958552698
+      ],
+      "paired_median_gain_percent": 7.24795463404112,
+      "native_median_tps": 57.876126576570016,
+      "candidate_median_tps": 61.83186963727155,
+      "native_cv": 0.0054629997829638115,
+      "candidate_cv": 0.0056491195719257144
+    }
+  ],
+  "blind_summary": {
+    "weighted_native_tps": 60.369083753118645,
+    "weighted_candidate_tps": 63.979928494737884,
+    "weighted_gain_percent": 5.981281339942002,
+    "median_prompt_gain_percent": 5.664876333819835,
+    "min_prompt_gain_percent": -3.2393084653306534,
+    "max_prompt_gain_percent": 17.15085616982426,
+    "timed_prompts": 31,
+    "prompts_at_least_five_percent": 17,
+    "all_32_exact": true
+  },
+  "long_confirmation": {
+    "predictions": 1024,
+    "exact_target_ids": true,
+    "paired_gains_percent": [
+      15.252980256438153,
+      16.210862471488884,
+      16.6669089698517,
+      16.638792077190125
+    ],
+    "paired_median_gain_percent": 16.424827274339506,
+    "native_median_tps": 32.7075491990754,
+    "candidate_median_tps": 38.01246268250319,
+    "native_cv": 0.005778246137355857,
+    "candidate_cv": 0.005476317393057272,
+    "selection": "first blind document in fixed split order, not fastest prompt",
+    "forced_length_includes_after_EOS": true,
+    "receipt_sha256": "9580c5134dd679457e5884eaaae4ea12a341efe80fbd3789c91c91cd96739700"
+  },
+  "qualification_sha256": "891d240e88ee87e16297dadd4654a75b5d231a7035060549ef35985d922d671d",
+  "quantization": [
+    {
+      "mode": "affine",
+      "cases": 15,
+      "median_component_gain_percent": 0.9455498814045282,
+      "min_gain_percent": -0.4088112224207574,
+      "max_gain_percent": 3.72291117917366,
+      "median_output_relative_l2": 0.17967773973941803,
+      "qualifies_format_port": false
+    },
+    {
+      "mode": "mxfp4",
+      "cases": 15,
+      "median_component_gain_percent": -5.672080275245872,
+      "min_gain_percent": -10.025265484577751,
+      "max_gain_percent": -1.520601214296824,
+      "median_output_relative_l2": 0.1007194072008133,
+      "qualifies_format_port": false
+    }
+  ],
+  "corrupted_token_negative_control": true,
+  "global_promotion": false,
+  "limitations": "Component gains/errors are not full-model quantized quality; teacher-state agreement is not speculative acceptance. Fresh caches and B1 in timing. Natural validation chooses depth before blind/external tests."
+}

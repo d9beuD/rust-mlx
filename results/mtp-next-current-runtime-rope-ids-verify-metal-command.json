@@ -1,0 +1,28 @@
+{
+  "name": "rope-ids-verify-metal",
+  "command": [
+    "target/release/verify-parity",
+    "--model",
+    "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+    "--output",
+    "/Users/d9beud/Documents/Repositories/d9beud/rust-mlx/results/mtp-next-current-runtime-rope-ids-verify-metal.json",
+    "--runtime-prepare",
+    "rope-ids"
+  ],
+  "started_unix": 1791312012.354188,
+  "ended_unix": 1791312030.791934,
+  "source_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+  "binary_sha256": "1fce6c6abd138931d70b501271a2a80aef037d93b8e8b09f53df4d85b725f02e",
+  "exit_code": 0,
+  "success_marker": "VERIFY_PARITY_PASSED",
+  "passed": true,
+  "validation_environment": {
+    "MTL_SHADER_VALIDATION": "1",
+    "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+    "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+    "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+  },
+  "log_sha256": "094111668953fc85ca31df77020d9cc5a95db260318e7248582add57dd5579e5",
+  "report_sha256": "e187c3f24ad6cdbeeec3a0b148055968a1ca34de3b08f6fdfa24e20cca281744",
+  "timing_qualified": false
+}

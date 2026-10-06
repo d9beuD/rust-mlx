@@ -1,0 +1,480 @@
+{
+  "passed": true,
+  "source_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+  "receipts": [
+    {
+      "command": [
+        "cargo",
+        "build",
+        "--release"
+      ],
+      "log": "results/mtp-next-current-build.log",
+      "sha256": "bc91a3ed6ff9b29145787c6d9882965f4f24899753f0d8be62d8adc772989545",
+      "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+      "started_unix": 1791311909.0650811,
+      "ended_unix": 1791311909.429974,
+      "exit_code": 0,
+      "passed": true,
+      "success_marker": null,
+      "contains_metal_validation_enabled": false,
+      "validation_environment": {}
+    },
+    {
+      "command": [
+        "scripts/check.sh"
+      ],
+      "log": "results/mtp-next-current-quality.log",
+      "sha256": "0c47069aa4710085bf537fc42d327440eeef79aaa9c3e85ee1b34c3c9f164340",
+      "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+      "started_unix": 1791311909.4405718,
+      "ended_unix": 1791311912.035003,
+      "exit_code": 0,
+      "passed": true,
+      "success_marker": "QUALITY_CHECKS_PASSED",
+      "contains_metal_validation_enabled": false,
+      "validation_environment": {},
+      "release_tests_passed": 41,
+      "checks": [
+        "cargo fmt --check",
+        "cargo clippy --workspace --all-targets --all-features -- -D warnings",
+        "cargo test --workspace --release"
+      ]
+    },
+    {
+      "command": [
+        "scripts/validate-metal.sh"
+      ],
+      "log": "results/mtp-next-current-portable-metal.log",
+      "sha256": "6d9e4820d3574300b19d2d27ce54d961f79432ef5d0a7d966083dafa132afb28",
+      "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+      "started_unix": 1791311912.046636,
+      "ended_unix": 1791311916.076848,
+      "exit_code": 0,
+      "passed": true,
+      "success_marker": "METAL_VALIDATION_PASSED",
+      "contains_metal_validation_enabled": true,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "instrumentation": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      },
+      "validation_tests_passed": 40,
+      "timing": "diagnostic only; excluded from throughput",
+      "negative_control": "existing cooperative matrix discrepancy remains rejected; native fallback retained"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/run_decode3_checks.py",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--prefix",
+        "mtp-next-current-native",
+        "--only",
+        "original"
+      ],
+      "log": "results/mtp-next-current-mtp-next-current-native.log",
+      "sha256": "d89ccac85e99a75fda2d64011836f63132f2dae4809eb24e33cf64b0d01de367",
+      "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+      "started_unix": 1791311916.0885189,
+      "ended_unix": 1791311945.865739,
+      "exit_code": 0,
+      "passed": true,
+      "success_marker": "DECODE3_ACTUAL_CHECKS_PASSED",
+      "contains_metal_validation_enabled": false,
+      "validation_environment": {}
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/run_followup_route_checks.py",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--prefix",
+        "mtp-next-current-route"
+      ],
+      "log": "results/mtp-next-current-mtp-next-current-route.log",
+      "sha256": "0082e2733c9181240d4cb38ba467379d9ee7568169b197678bc58d457cdb47c7",
+      "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+      "started_unix": 1791311945.875309,
+      "ended_unix": 1791311984.863956,
+      "exit_code": 0,
+      "passed": true,
+      "success_marker": "FOLLOWUP_ACTUAL_ROUTE_CHECKS_PASSED",
+      "contains_metal_validation_enabled": false,
+      "validation_environment": {}
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/run_followup_runtime_checks.py",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--prefix",
+        "mtp-next-current-runtime"
+      ],
+      "log": "results/mtp-next-current-mtp-next-current-runtime.log",
+      "sha256": "7def45a1037b6060e4d3a8dcc66b4b6af7cbfa38036d8217b44fe46be2b999e0",
+      "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+      "started_unix": 1791311984.873473,
+      "ended_unix": 1791312097.7213068,
+      "exit_code": 0,
+      "passed": true,
+      "success_marker": "FOLLOWUP_ACTUAL_RUNTIME_CHECKS_PASSED",
+      "contains_metal_validation_enabled": false,
+      "validation_environment": {}
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/run_followup_down_checks.py",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--prefix",
+        "mtp-next-current-down"
+      ],
+      "log": "results/mtp-next-current-mtp-next-current-down.log",
+      "sha256": "19c48a4caa8a1e6e89faa1d525eb8627bdb6a829dbac721063efa267692e7151",
+      "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+      "started_unix": 1791312097.732068,
+      "ended_unix": 1791312185.029099,
+      "exit_code": 0,
+      "passed": true,
+      "success_marker": "FOLLOWUP_ACTUAL_DOWN_CHECKS_PASSED",
+      "contains_metal_validation_enabled": false,
+      "validation_environment": {}
+    },
+    {
+      "command": [
+        "target/release/mtp-infer",
+        "--model",
+        "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+        "--draft-logit-bias",
+        ".unlazy/followup-draft-bias",
+        "--ab-kernel",
+        "draft-bias",
+        "--max-tokens",
+        "64",
+        "--warmup-tokens",
+        "64",
+        "--runs",
+        "1",
+        "--draft-depth",
+        "3",
+        "--ignore-eos",
+        "--output",
+        "results/mtp-next-current-draft-bias-metal.json"
+      ],
+      "log": "results/mtp-next-current-draft-bias-metal.log",
+      "sha256": "1663a9931b3d6be50e43cbb79584456f7257977f71b0b2ddc47e133acc27fd70",
+      "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+      "started_unix": 1791312185.038442,
+      "ended_unix": 1791312219.72041,
+      "exit_code": 0,
+      "passed": true,
+      "success_marker": null,
+      "contains_metal_validation_enabled": true,
+      "validation_environment": {
+        "MTL_SHADER_VALIDATION": "1",
+        "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+        "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+        "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+      }
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/server_smoke.py"
+      ],
+      "log": "results/mtp-next-current-fifo-server_smoke.log",
+      "sha256": "a581bf9bb96555a02a967f9ad607a1b0f16ce29aa50b6aafbe404098f1fa637d",
+      "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+      "started_unix": 1791312224.632437,
+      "ended_unix": 1791312232.194295,
+      "exit_code": 0,
+      "passed": true,
+      "success_marker": "SERVER_SMOKE_PASSED",
+      "contains_metal_validation_enabled": false,
+      "validation_environment": {}
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/server_utf8_smoke.py"
+      ],
+      "log": "results/mtp-next-current-fifo-server_utf8_smoke.log",
+      "sha256": "3d35b0336814d0c418020a657cace03b279a9a3f2b2105f7d0acea98dbb848d6",
+      "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+      "started_unix": 1791312232.218858,
+      "ended_unix": 1791312241.893204,
+      "exit_code": 0,
+      "passed": true,
+      "success_marker": "SERVER_UTF8_SMOKE_PASSED",
+      "contains_metal_validation_enabled": false,
+      "validation_environment": {}
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/server_batch_smoke.py"
+      ],
+      "log": "results/mtp-next-current-batch8-server_batch_smoke.log",
+      "sha256": "944f61d45ae75e36191ed4996bd01611bb855ae8d87624502bb7a2e696931cf6",
+      "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+      "started_unix": 1791312247.025881,
+      "ended_unix": 1791312299.2699468,
+      "exit_code": 0,
+      "passed": true,
+      "success_marker": "SERVER_BATCH_SMOKE_PASSED",
+      "contains_metal_validation_enabled": false,
+      "validation_environment": {}
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/server_utf8_smoke.py"
+      ],
+      "log": "results/mtp-next-current-batch8-server_utf8_smoke.log",
+      "sha256": "3d35b0336814d0c418020a657cace03b279a9a3f2b2105f7d0acea98dbb848d6",
+      "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+      "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+      "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+      "started_unix": 1791312299.296664,
+      "ended_unix": 1791312308.911532,
+      "exit_code": 0,
+      "passed": true,
+      "success_marker": "SERVER_UTF8_SMOKE_PASSED",
+      "contains_metal_validation_enabled": false,
+      "validation_environment": {}
+    }
+  ],
+  "quality": {
+    "command": [
+      "scripts/check.sh"
+    ],
+    "log": "results/mtp-next-current-quality.log",
+    "sha256": "0c47069aa4710085bf537fc42d327440eeef79aaa9c3e85ee1b34c3c9f164340",
+    "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+    "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+    "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+    "started_unix": 1791311909.4405718,
+    "ended_unix": 1791311912.035003,
+    "exit_code": 0,
+    "passed": true,
+    "success_marker": "QUALITY_CHECKS_PASSED",
+    "contains_metal_validation_enabled": false,
+    "validation_environment": {},
+    "release_tests_passed": 41,
+    "checks": [
+      "cargo fmt --check",
+      "cargo clippy --workspace --all-targets --all-features -- -D warnings",
+      "cargo test --workspace --release"
+    ]
+  },
+  "metal": {
+    "command": [
+      "scripts/validate-metal.sh"
+    ],
+    "log": "results/mtp-next-current-portable-metal.log",
+    "sha256": "6d9e4820d3574300b19d2d27ce54d961f79432ef5d0a7d966083dafa132afb28",
+    "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+    "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+    "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+    "started_unix": 1791311912.046636,
+    "ended_unix": 1791311916.076848,
+    "exit_code": 0,
+    "passed": true,
+    "success_marker": "METAL_VALIDATION_PASSED",
+    "contains_metal_validation_enabled": true,
+    "validation_environment": {
+      "MTL_SHADER_VALIDATION": "1",
+      "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+      "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+      "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+    },
+    "instrumentation": {
+      "MTL_SHADER_VALIDATION": "1",
+      "MTL_SHADER_VALIDATION_ENABLE_ERROR_REPORTING": "1",
+      "MTL_SHADER_VALIDATION_REPORT_TO_STDERR": "1",
+      "MTL_SHADER_VALIDATION_ABORT_ON_FAULT": "1"
+    },
+    "validation_tests_passed": 40,
+    "timing": "diagnostic only; excluded from throughput",
+    "negative_control": "existing cooperative matrix discrepancy remains rejected; native fallback retained"
+  },
+  "server": {
+    "passed": true,
+    "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+    "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+    "binary_sha256": "e93cf64c9fd304633e9aa92895a72b24114dc052669deef89ec15bf8fc843248",
+    "runtime": "actual defaults; greedy; no kernel overrides",
+    "server_modes": [
+      "default FIFO",
+      "--no-mtp --batch-size8"
+    ],
+    "reports": {
+      "server-smoke": {
+        "sha256": "0e01951a4bf39fb5d2a3c23558d36ddaad4a42b5dbc7854fa61b0600396e1f1a",
+        "mtime": 1791312232.1857028
+      },
+      "server-batch-smoke": {
+        "sha256": "9d23cb71014c7711689813240cf7c6dd5241bf03ee47f07ea31762aadab74af5",
+        "mtime": 1791312299.261222
+      },
+      "server-utf8-batch1": {
+        "sha256": "458697670a799505557567daa9aebaad3f49cdbe6903e5391bae087344ac30fc",
+        "mtime": 1791312241.884642
+      },
+      "server-utf8-batch8": {
+        "sha256": "3a7f1375cb234477c8334017a6996e4de8e442dc1cc586d9a02596250bbe59ca",
+        "mtime": 1791312308.90268
+      }
+    },
+    "scripts": {
+      "server_smoke": "7aa9db0595b05cf945914552a7b951f5144bb570b9d646696b57f54fbbb43f82",
+      "server_batch_smoke": "2cb6df6c97e1405a8fde45a8961098a6fef9e941d4796d0f45721591bf52535a",
+      "server_utf8_smoke": "f29c5e38abfc5217ff284278feee14c23035967a7b5c16a161345d029391cb54"
+    },
+    "owned_servers": [
+      {
+        "pid": 94599,
+        "command": [
+          "target/release/server",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp"
+        ],
+        "stopped": true,
+        "exit_code": -15,
+        "log": "results/mtp-next-current-server-fifo.log",
+        "log_sha256": "f7b36e5518b1a3b185558960c9dce4f6ab944b07639dfcddfae2044f0ac915b0"
+      },
+      {
+        "pid": 94638,
+        "command": [
+          "target/release/server",
+          "--model",
+          "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+          "--no-mtp",
+          "--batch-size",
+          "8"
+        ],
+        "stopped": true,
+        "exit_code": -15,
+        "log": "results/mtp-next-current-server-batch8.log",
+        "log_sha256": "d620bc9d607668c7b6a66210ea05c3248a9801f89a00dbbfca35884d7a9cb68d"
+      }
+    ],
+    "owned_servers_stopped": true,
+    "timing": "HTTP/prefix/diagnostic timings excluded from raw inference speed",
+    "partial_codepoint_cases": [
+      2,
+      2
+    ],
+    "concurrent_cancellation_survivors": 3,
+    "success_logs": [
+      {
+        "command": [
+          ".venv/bin/python",
+          "scripts/server_smoke.py"
+        ],
+        "log": "results/mtp-next-current-fifo-server_smoke.log",
+        "sha256": "a581bf9bb96555a02a967f9ad607a1b0f16ce29aa50b6aafbe404098f1fa637d",
+        "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+        "started_unix": 1791312224.632437,
+        "ended_unix": 1791312232.194295,
+        "exit_code": 0,
+        "passed": true,
+        "success_marker": "SERVER_SMOKE_PASSED",
+        "contains_metal_validation_enabled": false,
+        "validation_environment": {}
+      },
+      {
+        "command": [
+          ".venv/bin/python",
+          "scripts/server_utf8_smoke.py"
+        ],
+        "log": "results/mtp-next-current-fifo-server_utf8_smoke.log",
+        "sha256": "3d35b0336814d0c418020a657cace03b279a9a3f2b2105f7d0acea98dbb848d6",
+        "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+        "started_unix": 1791312232.218858,
+        "ended_unix": 1791312241.893204,
+        "exit_code": 0,
+        "passed": true,
+        "success_marker": "SERVER_UTF8_SMOKE_PASSED",
+        "contains_metal_validation_enabled": false,
+        "validation_environment": {}
+      },
+      {
+        "command": [
+          ".venv/bin/python",
+          "scripts/server_batch_smoke.py"
+        ],
+        "log": "results/mtp-next-current-batch8-server_batch_smoke.log",
+        "sha256": "944f61d45ae75e36191ed4996bd01611bb855ae8d87624502bb7a2e696931cf6",
+        "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+        "started_unix": 1791312247.025881,
+        "ended_unix": 1791312299.2699468,
+        "exit_code": 0,
+        "passed": true,
+        "success_marker": "SERVER_BATCH_SMOKE_PASSED",
+        "contains_metal_validation_enabled": false,
+        "validation_environment": {}
+      },
+      {
+        "command": [
+          ".venv/bin/python",
+          "scripts/server_utf8_smoke.py"
+        ],
+        "log": "results/mtp-next-current-batch8-server_utf8_smoke.log",
+        "sha256": "3d35b0336814d0c418020a657cace03b279a9a3f2b2105f7d0acea98dbb848d6",
+        "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+        "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+        "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+        "started_unix": 1791312299.296664,
+        "ended_unix": 1791312308.911532,
+        "exit_code": 0,
+        "passed": true,
+        "success_marker": "SERVER_UTF8_SMOKE_PASSED",
+        "contains_metal_validation_enabled": false,
+        "validation_environment": {}
+      }
+    ],
+    "captured_unix_seconds": 1791312309.493153
+  },
+  "bias_shader_tokens_exact": true
+}

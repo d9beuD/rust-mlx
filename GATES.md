@@ -124,3 +124,26 @@ G18–G24 describe the completed historical round-two scope (source483b3cd). Its
   EVIDENCE: followup-current-qualification.json at final source33b62bf06487: strict format/Clippy,38 release/37 portable instrumented tests, actual native/routing/preparation/down/vector verifier/rollback plus private64-token biased drafting. Actual FIFO/batch8 HTTP cancellation/SSE/prefix/64 Unicode caps per mode pass; only owned servers stopped. Native/default fallbacks stay unchanged; implementationa165645 and evidence59d2ba3 committed, failures retained/replayable.
 - [x] G40: audit and report every follow-up direction against current authoritative evidence
   EVIDENCE: docs/decode-followup-study.md and followup-final-summary.json; independent audit recomputes25 complete four-pair256-token cohorts, validates original IDs/oracle and source/binary/log binding, disjoint training/heldout contexts and current quality. Corrupted-token negative control rejects. All five research directions evaluated; no global5% promotion/100 solo claim, no summed components or DRAM ceiling inference. Exact commands, implementationa165645 and evidence59d2ba3 are in docs/research-log.md.
+
+## Generated-trajectory MTP and remaining decode axes (completed)
+
+- [x] G41: disjoint generated-trajectory collection and activation-dependent private draft training evaluated
+  CHECK: .venv/bin/python scripts/analyze_mtp_next.py
+  EXPECT: MTP_NEXT_EVIDENCE_INDEPENDENTLY_VERIFIED
+  EVIDENCE:192 disjoint documents,128 fit/32 validation/32 blind; generated target-greedy trajectories trimmed atEOS,29439/7241/7229 valid positions. Rank32 residual uses frozen fullQ8 head gradients. Four epochs/460 updates stop after three validation regressions, epoch0 retained; agreement83.455→85.444% validation and84.078→85.945% blind. Full checkpoint/config/tokenizer identity, original target/head/wide-state immutability and finite/shape corruption tests pass;48h remains a ceiling.
+- [x] G42: private adapter Rust/oracle parity, exact target IDs and depth1–7 cost evaluated
+  CHECK: .venv/bin/python scripts/analyze_mtp_next.py
+  EXPECT: MTP_NEXT_EVIDENCE_INDEPENDENTLY_VERIFIED
+  EVIDENCE: current-source nonzero Python/Rust BF16 parityT1/2/3/4/8 plus actualQ8 input gradients under Metal validation. Natural32-prompt validation evaluates all seven depths and fixes depth2/rank32 before blind/external.32 blind prompts×four alternating pairs preserve IDs, weighted60.369→63.980tok/s (+5.981%); median prompt+5.665%, variable−3.239..17.151%. Predeclared first-blind forced1024-token confirmation preserves allIDs across four pairs, paired+16.425% (32.708→38.012tok/s). External raw−0.714%, chat+8.887/+6.689/−0.795/−3.362%; optional scoped gain, no global default/100 solo claim. Rank64 condition not met.
+- [x] G43: MoE/shared/HC epilogue exactness, Metal validation and complete decode A/B evaluated
+  CHECK: .venv/bin/python scripts/analyze_mtp_next.py
+  EXPECT: MTP_NEXT_EVIDENCE_INDEPENDENTLY_VERIFIED
+  EVIDENCE: originalBF16 boundaries retained; actual verifier2–8 twice, every rollback prefix0–8 and continuation exact under Metal validation.15 selected-bank actual-activation components exact. Four alternating256-token pairs preserve target/private proposal IDs/acceptance: raw−0.942%, four chats−1.581/−0.637/−0.953/−1.028%. No5% end-to-end benefit; conditional producer/down fusion not advanced and native fallback remains default.
+- [x] G44: expert Q3/g64 and MXFP4/g32 actual-shape quality/cost screening completed
+  CHECK: .venv/bin/python scripts/analyze_mtp_next.py
+  EXPECT: MTP_NEXT_EVIDENCE_INDEPENDENTLY_VERIFIED
+  EVIDENCE:30 nativeMLX selected-bank0/23/47 down cases,T1/2/3/4/8, captured verifier activations,10 warmups/100 alternating pairs. Q3/g64 median component+0.946%, maximum3.723%; MXFP4/g32 median−5.672%, all cases slower. Output-relativeL2 medians.179678/.100719 are component proxies, not full-model quality. No qualifying format advantage; conditional Rust port/approximate overlay not advanced, original/protected weights unchanged.
+- [x] G45: final source passes required checks and every axis has reproducible evidence and explicit promotion decision
+  CHECK: PATH="$PWD/.venv/bin:$PATH" scripts/check.sh
+  EXPECT: QUALITY_CHECKS_PASSED
+  EVIDENCE: core91e3047d7915 passes strict format/Clippy,41 release/40 portable Metal tests, actual native/routing/runtime/down/verifier/rollback checks and private adapter checks. Default FIFO/plain batch8 HTTP/SSE/prefix/cancellation with3 survivors and64 Unicode caps each pass; task-owned servers stopped. Independent source/log/hash/trajectory audit and corrupted-token negative control pass. docs/mtp-next-study.md and mtp-next-summary.json give exact commands/cohorts/provenance/conditional rejection decisions; performance-summary/defaults unchanged. Implementation052a743; publication recorded separately in research-log.md.

@@ -1,0 +1,17 @@
+{
+  "command": [
+    "scripts/check.sh"
+  ],
+  "log": "results/mtp-next-current-quality.log",
+  "sha256": "0c47069aa4710085bf537fc42d327440eeef79aaa9c3e85ee1b34c3c9f164340",
+  "code_sha256": "91e3047d7915c20188acf2a42efe4aeb304c0c2838a3f9ec24719a367f21b7c3",
+  "source_hash_method": "SHA256 of sorted relative path + NUL + file bytes + NUL; all src/tests/kernels files, Cargo.toml, Cargo.lock",
+  "runner_sha256": "ce533443bba6e7f11bdd936faf87827e3ff21950280638de52241d92666f7554",
+  "started_unix": 1791311909.4405718,
+  "ended_unix": 1791311912.035003,
+  "exit_code": 0,
+  "passed": true,
+  "success_marker": "QUALITY_CHECKS_PASSED",
+  "contains_metal_validation_enabled": false,
+  "validation_environment": {}
+}

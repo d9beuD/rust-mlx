@@ -31,3 +31,21 @@ Resident quantization overlays are separate approximate targets and never modify
 Follow-up paths remain opt-in. Routing and expert-down tails use reviewed MTPLX arithmetic contracts on finite BF16/512-expert/top10 shapes. Down fusion declines unsupported banks/rows, and native gather/reduction remains the reference. Optional word packing retains original contiguous banks and owns evaluated sidecars only for predetermined layers0/23/47; both scalar and hoisted uint4 variants preserve affine codes/scales/biases. Serving loads no sidecars. Per-Kernel config reuse copies complete output/template/grid/group signatures and never caches arrays or a stream; MLX-C copies launch settings into its lazy graph. Position sharing is bounded to8 entries/2KiB and keys offsets/strides/batch/rows. Early PLE preparation uses immutable history on the one owning thread and leaves native convolution backing/state untouched. All preparation policies are off.
 
 The small distillation pilot loads a model/tokenizer/hash-bound, finite BF16 full-vocabulary bias into an independent DraftHead; source target arrays stay unchanged. Full greedy target verification and cache commit remain canonical. The artifact cannot mix with adaptive/fixed vocab policies, and activation requires the explicit research A/B mode. The tiny heldout change does not improve raw acceptance; no training artifact enters defaults. Python training/probes remain offline research tools.
+
+## Optional generated-trajectory draft corrector
+
+`draft_adapter` is a private MTP residual, loaded only by the research CLI's
+`--draft-adapter DIR`. It combines normalized F32 mixed hidden, previous wide
+hidden and embedding through two F32 low-rank projections, casts its correction
+to the mixed output dtype, then adds. MTP returns its original wide state;
+the original target and full vocabulary head remain unchanged. Artifacts verify
+all checkpoint shards, config/tokenizer identity, finite parameters and shapes.
+The owning MLX thread retains the arrays. Python trains through the frozen native
+quantized head, with no custom-kernel derivative dependency. No server default or
+approximate target checkpoint is introduced.
+
+`moe_epilogue` optionally combines shared weighting, routed/shared addition,
+HC injection and residual addition at the original BF16 boundaries. It guards
+B1/T1–8/H2560/HC4 and falls back natively. Expert capture is an inactive-by-default
+research hook; component fixtures do not change model parameters. Both controls
+remain off by default. Study and replay details: docs/mtp-next-study.md.

@@ -1,0 +1,32 @@
+{
+  "complete": true,
+  "mlx": "0.32.2",
+  "script_sha256": "8e241ad833ba0d6ff364768e2b3648935cc8422e5c24f2c0263e76fcb88a8547",
+  "collection_sha256": "e66233b23dd084f0cc41876b0041568fbb65d07b55e1f4d1ecbce596c830d1c3",
+  "records": [
+    {
+      "rows": 1,
+      "error": 0.0
+    },
+    {
+      "rows": 2,
+      "error": 0.0
+    },
+    {
+      "rows": 3,
+      "error": 0.0
+    },
+    {
+      "rows": 4,
+      "error": 0.0
+    },
+    {
+      "rows": 8,
+      "error": 0.0
+    }
+  ],
+  "head_vjp": {
+    "loss": 0.5284733772277832,
+    "finite_nonzero": true
+  }
+}

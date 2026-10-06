@@ -1,0 +1,4022 @@
+{
+  "down_layout": null,
+  "draft_adapter": ".unlazy/mtp-next/adapter32",
+  "draft_adapter_sha256": "214c1ab6612e7e0aea3acfd612b6e37f0d7bbdc086e1bade3086708a3770bfbd",
+  "draft_bias_artifact": null,
+  "environment": {
+    "captured_unix_seconds": 1791308943,
+    "hardware": {
+      "chip": "Apple M5 Max",
+      "gpu": "Apple M5 Max",
+      "gpu_cores": "40",
+      "memory": "128 GB",
+      "model": "Mac17,6"
+    },
+    "revision": {
+      "commit": "77c7027fdaf561d2990f7a69f5b1f72cad224524",
+      "dirty": true
+    },
+    "software": {
+      "macos": "27.0.1",
+      "macos_build": "26A434",
+      "mlx": "0.32.2",
+      "mlx_rs": "0.32.0",
+      "mlx_sys": "0.6.0",
+      "package_version": "0.1.0",
+      "rust": "rustc 1.98.1 (48a229cea 2026-09-01)",
+      "xcode": "Xcode 27.0\nBuild version 27A266a"
+    },
+    "workload": {
+      "binary_sha256": "e5b7f11e0a2414b61cf6ace60e842d37e86f6d5b029547123f97f14995c08b5f  /Users/d9beud/Documents/Repositories/d9beud/rust-mlx/target/release/mtp-infer",
+      "process_cpu_names": [
+        "  5.8 /usr/libexec/runningboardd",
+        "120.7 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd",
+        " 77.2 /System/Library/PrivateFrameworks/StorageManagement.framework/PlugIns/StorageManagementService",
+        " 98.9 /System/Library/PrivateFrameworks/StorageManagement.framework/PlugIns/ApplicationsStorageExtension.appex/Contents/MacOS/ApplicationsStorageExtension",
+        " 94.3 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged"
+      ],
+      "swap": "vm.swapusage: total = 2048.00M  used = 891.69M  free = 1156.31M  (encrypted)",
+      "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    }
+  },
+  "expert_layout": null,
+  "fixed_draft_head": null,
+  "model": "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "prompt_ids": [
+    7734,
+    264,
+    2716,
+    32671,
+    709,
+    421,
+    55288,
+    76938,
+    4947,
+    13
+  ],
+  "quantization": {
+    "bits": 4,
+    "group_size": 64,
+    "language_model.lm_head": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.embed_tokens": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.0.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.key_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.0": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.1": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.10": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.100": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.101": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.102": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.103": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.104": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.105": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.106": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.107": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.108": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.109": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.11": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.110": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.111": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.112": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.113": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.114": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.115": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.116": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.117": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.118": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.119": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.12": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.120": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.121": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.122": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.123": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.124": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.125": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.126": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.127": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.13": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.14": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.15": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.16": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.17": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.18": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.19": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.2": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.20": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.21": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.22": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.23": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.24": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.25": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.26": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.27": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.28": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.29": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.3": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.30": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.31": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.32": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.33": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.34": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.35": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.36": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.37": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.38": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.39": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.4": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.40": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.41": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.42": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.43": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.44": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.45": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.46": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.47": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.48": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.49": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.5": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.50": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.51": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.52": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.53": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.54": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.55": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.56": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.57": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.58": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.59": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.6": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.60": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.61": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.62": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.63": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.64": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.65": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.66": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.67": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.68": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.69": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.7": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.70": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.71": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.72": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.73": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.74": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.75": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.76": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.77": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.78": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.79": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.8": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.80": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.81": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.82": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.83": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.84": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.85": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.86": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.87": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.88": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.89": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.9": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.90": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.91": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.92": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.93": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.94": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.95": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.96": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.97": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.98": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.ple_embedding.ngram_embedding.shards.99": {
+      "bits": 4,
+      "group_size": 32,
+      "mode": "affine"
+    },
+    "language_model.model.layers.1.ple.value_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.10.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.11.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.12.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.13.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.14.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.15.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.16.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.17.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.18.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.indexer.index_qk_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.k_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.q_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.19.self_attn.v_proj": {
+      "bits": 6,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.2.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.20.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.21.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.22.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.23.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.24.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.25.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.26.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.27.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.28.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.29.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.3.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.30.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.indexer.index_qk_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.k_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.31.self_attn.v_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.32.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.33.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.34.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.35.self_attn.indexer.index_qk_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.36.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.37.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.38.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.39.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.4.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.40.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.41.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.42.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.43.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.attn_hyper_connection.block_inject_weight": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_a": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_b": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_qkv": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.in_proj_z": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp_hyper_connection.block_inject_weight": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.44.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_qkv": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.45.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_a": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_b": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_qkv": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.in_proj_z": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.46.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.47.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.5.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.6.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.indexer.index_qk_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.k_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.q_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.7.self_attn.v_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.8.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.in_proj_a": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.in_proj_b": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.in_proj_z": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.linear_attn.out_proj": {
+      "bits": 5,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "language_model.model.layers.9.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mode": "affine",
+    "mtp.layers.0.attn_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.attn_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.attn_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert.down_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert.gate_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert.up_proj": {
+      "bits": 8,
+      "group_size": 128,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp.shared_expert_gate": {
+      "bits": 8,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp_hyper_connection.block_inject_weight": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp_hyper_connection.input_mix_weight_down": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.mlp_hyper_connection.input_mix_weight_up": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.indexer.index_qk_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.k_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.o_proj": {
+      "bits": 5,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.q_proj": {
+      "bits": 6,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "mtp.layers.0.self_attn.v_proj": {
+      "bits": 6,
+      "group_size": 128,
+      "mode": "affine"
+    }
+  },
+  "resident_variant": null,
+  "runs": [
+    {
+      "adaptive_depth": false,
+      "adaptive_depth_costs": [
+        0.031545832,
+        0.038575983,
+        0.046995903
+      ],
+      "adaptive_vocab": false,
+      "candidate_enabled": true,
+      "compiled_gdn": false,
+      "compiled_gdn_calls": 0,
+      "decode_tokens_per_second": 10.697473125251916,
+      "down_calls": 0,
+      "draft_adapter_enabled": true,
+      "draft_depth": 2,
+      "draft_head_enabled": false,
+      "draft_vocab_limit": 0,
+      "draft_vocab_refresh_rounds": 0,
+      "epilogue_calls": 0,
+      "gemv_launches": 0,
+      "gemv_narrow": false,
+      "generation": {
+        "acceptance": [
+          0,
+          2,
+          2,
+          2,
+          2,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          2,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2,
+          0,
+          2,
+          2,
+          2,
+          1
+        ],
+        "decode_seconds": 5.8892412499999995,
+        "draft_lengths": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          1
+        ],
+        "draft_seconds": 0.229120918,
+        "draft_tokens": [
+          [
+            8160,
+            579
+          ],
+          [
+            198,
+            760
+          ],
+          [
+            6587,
+            264
+          ],
+          [
+            32671,
+            709
+          ],
+          [
+            12204,
+            76938
+          ],
+          [
+            13,
+            1061
+          ],
+          [
+            728,
+            1683
+          ],
+          [
+            279,
+            1786
+          ],
+          [
+            25,
+            271
+          ],
+          [
+            25,
+            198
+          ],
+          [
+            13,
+            82930
+          ],
+          [
+            3267,
+            520
+          ],
+          [
+            471,
+            1546
+          ],
+          [
+            694,
+            6103
+          ],
+          [
+            7,
+            17
+          ],
+          [
+            8,
+            864
+          ],
+          [
+            1546,
+            6103
+          ],
+          [
+            2172,
+            364
+          ],
+          [
+            198,
+            17
+          ],
+          [
+            13310,
+            1340
+          ],
+          [
+            496,
+            1393
+          ],
+          [
+            4101,
+            321
+          ],
+          [
+            11,
+            10727
+          ],
+          [
+            18,
+            13
+          ],
+          [
+            440,
+            20781
+          ],
+          [
+            471
+          ]
+        ],
+        "draft_vocab_sizes": [
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320
+        ],
+        "prefill_seconds": 0.683287458,
+        "round_seconds": [
+          0.226017667,
+          0.228458,
+          0.228615875,
+          0.228405458,
+          0.22875,
+          0.225099666,
+          0.22905375,
+          0.22857225,
+          0.2290935,
+          0.230582542,
+          0.22969925,
+          0.230353416,
+          0.226945834,
+          0.227421416,
+          0.229507291,
+          0.225073875,
+          0.22496125,
+          0.225705583,
+          0.228689959,
+          0.2295835,
+          0.22867925,
+          0.2248305,
+          0.229552291,
+          0.230495375,
+          0.230740041,
+          0.159007208
+        ],
+        "synchronize_draft_seconds": 0.337403998,
+        "tokens": [
+          271,
+          248068,
+          198,
+          760,
+          1156,
+          6587,
+          264,
+          2716,
+          32671,
+          709,
+          310,
+          12204,
+          76938,
+          4947,
+          13,
+          6558,
+          728,
+          1683,
+          883,
+          279,
+          1786,
+          5313,
+          25,
+          271,
+          3670,
+          25,
+          198,
+          16,
+          13,
+          82930,
+          318,
+          3267,
+          520,
+          8,
+          471,
+          4145,
+          694,
+          496,
+          7,
+          17,
+          83193,
+          681,
+          524,
+          14542,
+          198,
+          17,
+          13,
+          13310,
+          1340,
+          471,
+          496,
+          1393,
+          681,
+          4145,
+          11,
+          10727,
+          198,
+          18,
+          13,
+          82930,
+          440,
+          20781,
+          1954,
+          471
+        ],
+        "verify_seconds": 5.318901414000001
+      },
+      "gpu_draft": false,
+      "greedy_head": false,
+      "greedy_head_calls": 0,
+      "hc_projection": true,
+      "kernel_candidate": "draft-adapter",
+      "kv_block_calls": 0,
+      "kv_blocks": false,
+      "layout_calls": 0,
+      "matrix_calls": 0,
+      "matrix_enabled": false,
+      "matrix_packed": false,
+      "native_gate_up": false,
+      "peak_memory_bytes": 74348874100,
+      "qmv": true,
+      "qmv_address32": false,
+      "qmv_address32_calls": 0,
+      "route_tail_calls": 0,
+      "run": 1,
+      "runtime_prepare_calls": [
+        0,
+        0,
+        0
+      ],
+      "shared_gemv": false,
+      "sorted_moe_calls": 0,
+      "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization -"
+    },
+    {
+      "adaptive_depth": false,
+      "adaptive_depth_costs": [
+        0.031545832,
+        0.038575983,
+        0.046995903
+      ],
+      "adaptive_vocab": false,
+      "candidate_enabled": false,
+      "compiled_gdn": false,
+      "compiled_gdn_calls": 0,
+      "decode_tokens_per_second": 10.35759749196531,
+      "down_calls": 0,
+      "draft_adapter_enabled": false,
+      "draft_depth": 2,
+      "draft_head_enabled": false,
+      "draft_vocab_limit": 0,
+      "draft_vocab_refresh_rounds": 0,
+      "epilogue_calls": 0,
+      "gemv_launches": 0,
+      "gemv_narrow": false,
+      "generation": {
+        "acceptance": [
+          0,
+          2,
+          2,
+          2,
+          2,
+          1,
+          2,
+          2,
+          2,
+          0,
+          2,
+          1,
+          2,
+          1,
+          1,
+          2,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2,
+          0,
+          2,
+          2,
+          2,
+          1
+        ],
+        "decode_seconds": 6.082491625,
+        "draft_lengths": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          1
+        ],
+        "draft_seconds": 0.23285066600000004,
+        "draft_tokens": [
+          [
+            9764,
+            579
+          ],
+          [
+            198,
+            760
+          ],
+          [
+            6587,
+            264
+          ],
+          [
+            32671,
+            709
+          ],
+          [
+            12204,
+            76938
+          ],
+          [
+            13,
+            1061
+          ],
+          [
+            728,
+            1683
+          ],
+          [
+            279,
+            1786
+          ],
+          [
+            25,
+            271
+          ],
+          [
+            364,
+            264
+          ],
+          [
+            198,
+            16
+          ],
+          [
+            82930,
+            440
+          ],
+          [
+            3267,
+            520
+          ],
+          [
+            471,
+            496
+          ],
+          [
+            694,
+            6103
+          ],
+          [
+            7,
+            17
+          ],
+          [
+            8,
+            864
+          ],
+          [
+            1546,
+            6103
+          ],
+          [
+            2172,
+            364
+          ],
+          [
+            198,
+            17
+          ],
+          [
+            13310,
+            1340
+          ],
+          [
+            496,
+            1393
+          ],
+          [
+            4101,
+            321
+          ],
+          [
+            11,
+            10727
+          ],
+          [
+            18,
+            13
+          ],
+          [
+            440,
+            20781
+          ],
+          [
+            471
+          ]
+        ],
+        "draft_vocab_sizes": [
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320,
+          248320
+        ],
+        "prefill_seconds": 0.6854980829999999,
+        "round_seconds": [
+          0.227818292,
+          0.227080875,
+          0.227624292,
+          0.227064084,
+          0.227318792,
+          0.224471583,
+          0.227564208,
+          0.227586958,
+          0.227140542,
+          0.227392917,
+          0.22798825,
+          0.226881917,
+          0.228313416,
+          0.226837833,
+          0.225908916,
+          0.227142375,
+          0.224841166,
+          0.224968291,
+          0.224734833,
+          0.227221041,
+          0.227619209,
+          0.227335416,
+          0.224957416,
+          0.227899667,
+          0.227357083,
+          0.227864667,
+          0.159106833
+        ],
+        "synchronize_draft_seconds": 0.318479207,
+        "tokens": [
+          271,
+          248068,
+          198,
+          760,
+          1156,
+          6587,
+          264,
+          2716,
+          32671,
+          709,
+          310,
+          12204,
+          76938,
+          4947,
+          13,
+          6558,
+          728,
+          1683,
+          883,
+          279,
+          1786,
+          5313,
+          25,
+          271,
+          3670,
+          25,
+          198,
+          16,
+          13,
+          82930,
+          318,
+          3267,
+          520,
+          8,
+          471,
+          4145,
+          694,
+          496,
+          7,
+          17,
+          83193,
+          681,
+          524,
+          14542,
+          198,
+          17,
+          13,
+          13310,
+          1340,
+          471,
+          496,
+          1393,
+          681,
+          4145,
+          11,
+          10727,
+          198,
+          18,
+          13,
+          82930,
+          440,
+          20781,
+          1954,
+          471
+        ],
+        "verify_seconds": 5.5273963749999995
+      },
+      "gpu_draft": false,
+      "greedy_head": false,
+      "greedy_head_calls": 0,
+      "hc_projection": true,
+      "kernel_candidate": "draft-adapter",
+      "kv_block_calls": 0,
+      "kv_blocks": false,
+      "layout_calls": 0,
+      "matrix_calls": 0,
+      "matrix_enabled": false,
+      "matrix_packed": false,
+      "native_gate_up": false,
+      "peak_memory_bytes": 74348968820,
+      "qmv": true,
+      "qmv_address32": false,
+      "qmv_address32_calls": 0,
+      "route_tail_calls": 0,
+      "run": 1,
+      "runtime_prepare_calls": [
+        0,
+        0,
+        0
+      ],
+      "shared_gemv": false,
+      "sorted_moe_calls": 0,
+      "text": "\n\n<think>\nThe user wants a short Rust function to compute Fibonacci numbers. Let me think about the best approach:\n\nOptions:\n1. Recursive (naive) - simple but O(2^n), not practical\n2. Iterative - O(n), simple, efficient\n3. Recursive with memoization -"
+    }
+  ],
+  "runtime": {
+    "batch_size": 1,
+    "draft_depth": 2,
+    "ignore_eos": true,
+    "kv_cache": "fresh per run",
+    "mtp": true,
+    "native_gate_up": false,
+    "prefill_chunk": 128,
+    "prefix_cache": false,
+    "rate_definition": "generated tokens after the first divided by decode wall time, including MTP priming, draft, verification and cache synchronization",
+    "sampler": "greedy",
+    "warmup_tokens": 64
+  }
+}

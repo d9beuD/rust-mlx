@@ -2,13 +2,13 @@
   "reports": [
     {
       "mtp": false,
-      "wall_seconds": 4.241596916981507,
+      "wall_seconds": 3.0642057500081137,
       "generation": {
         "acceptance": [],
-        "decode_seconds": 1.818365833,
+        "decode_seconds": 1.533671666,
         "draft_lengths": [],
         "draft_seconds": 0.0,
-        "prefill_seconds": 2.421077167,
+        "prefill_seconds": 1.528348,
         "prefix_cache_hit": false,
         "round_seconds": [],
         "synchronize_draft_seconds": 0.0,
@@ -83,7 +83,7 @@
     },
     {
       "mtp": true,
-      "wall_seconds": 1.0403626670013182,
+      "wall_seconds": 1.033098957996117,
       "generation": {
         "acceptance": [
           0,
@@ -108,7 +108,7 @@
           0,
           3
         ],
-        "decode_seconds": 1.035788833,
+        "decode_seconds": 1.028272792,
         "draft_lengths": [
           3,
           3,
@@ -132,33 +132,33 @@
           3,
           3
         ],
-        "draft_seconds": 0.10274646,
-        "prefill_seconds": 0.000248042,
+        "draft_seconds": 0.098124167,
+        "prefill_seconds": 0.00069525,
         "prefix_cache_hit": true,
         "round_seconds": [
-          0.050731292,
-          0.046439334,
-          0.046292083,
-          0.047098542,
-          0.048702916,
-          0.046983458,
-          0.048640084,
-          0.049360416,
-          0.047388208,
-          0.049925208,
-          0.047803667,
-          0.047443792,
-          0.048200834,
-          0.048723041,
-          0.048499584,
-          0.047726875,
-          0.047746292,
-          0.047643834,
-          0.047677834,
-          0.048285625,
-          0.045166417
+          0.049138542,
+          0.046039625,
+          0.045579917,
+          0.045790458,
+          0.047221916,
+          0.04580375,
+          0.045735625,
+          0.046514,
+          0.046358625,
+          0.046745,
+          0.046059542,
+          0.046518208,
+          0.046082,
+          0.046485833,
+          0.046166834,
+          0.046816792,
+          0.046057709,
+          0.046730917,
+          0.046903959,
+          0.046191875,
+          0.043972042
         ],
-        "synchronize_draft_seconds": 0.07070995699999999,
+        "synchronize_draft_seconds": 0.09578503799999998,
         "tokens": [
           271,
           248068,
@@ -225,7 +225,7 @@
           1954,
           471
         ],
-        "verify_seconds": 0.858449584
+        "verify_seconds": 0.8304803319999999
       }
     },
     {
@@ -241,7 +241,7 @@
             }
           }
         ],
-        "created": 1791302194,
+        "created": 1791312231,
         "id": "cmpl-rust-6",
         "model": "Qwen3.8-Flash-Next-oQ4e-mtp",
         "object": "chat.completion",
@@ -249,21 +249,21 @@
           "acceptance": [
             3
           ],
-          "decode_seconds": 0.065658458,
+          "decode_seconds": 0.063347042,
           "draft_lengths": [
             3
           ],
-          "draft_seconds": 0.004285709,
-          "prefill_seconds": 0.226854417,
+          "draft_seconds": 0.003917166,
+          "prefill_seconds": 0.222144583,
           "prefix_cache_hit": false,
           "round_seconds": [
-            0.061398125
+            0.059359625
           ],
-          "synchronize_draft_seconds": 0.004242583,
+          "synchronize_draft_seconds": 0.003969209,
           "tokens": [
             57590
           ],
-          "verify_seconds": 0.057018584
+          "verify_seconds": 0.055375125
         },
         "usage": {
           "completion_tokens": 1,

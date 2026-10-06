@@ -1,0 +1,29 @@
+[
+  {
+    "pid": 94599,
+    "command": [
+      "target/release/server",
+      "--model",
+      "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp"
+    ],
+    "stopped": true,
+    "exit_code": -15,
+    "log": "results/mtp-next-current-server-fifo.log",
+    "log_sha256": "f7b36e5518b1a3b185558960c9dce4f6ab944b07639dfcddfae2044f0ac915b0"
+  },
+  {
+    "pid": 94638,
+    "command": [
+      "target/release/server",
+      "--model",
+      "/Users/d9beud/.lmstudio/models/d9beuD/Qwen3.8-Flash-Next-oQ4e-mtp",
+      "--no-mtp",
+      "--batch-size",
+      "8"
+    ],
+    "stopped": true,
+    "exit_code": -15,
+    "log": "results/mtp-next-current-server-batch8.log",
+    "log_sha256": "d620bc9d607668c7b6a66210ea05c3248a9801f89a00dbbfca35884d7a9cb68d"
+  }
+]
